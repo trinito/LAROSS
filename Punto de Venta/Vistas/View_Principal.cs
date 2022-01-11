@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,16 @@ namespace Punto_de_Venta.Vistas
 
         #region VARIABLES Y PROPIEDADES
         private decimal total = 0;
+
+        private decimal total_copia = 0;
+        private decimal pago_copia = 0;
+        private decimal cambio_copia = 0;
+        private string forma_pago_copia = "";
        
         private List<ProductoCaja> productos;
- 
+
+        private List<ProductoCaja> productos_copia;
+
         #endregion
         public View_Principal()
         {
@@ -88,6 +96,9 @@ namespace Punto_de_Venta.Vistas
                     break;
                 case Keys.Delete:
                     EliminarProducto();
+                    break;
+                case Keys.F5:
+                    ImprimirCopia();
                     break;
 
                 default:
@@ -207,6 +218,7 @@ namespace Punto_de_Venta.Vistas
         private void LimpiarTodo(decimal cambio)
         {
             total = 0;
+            productos_copia = productos;
             productos = new List<ProductoCaja>();
             dgv_productos.DataSource = null;
             lbl_por_pagar.Text = "$0";
@@ -255,7 +267,13 @@ namespace Punto_de_Venta.Vistas
                 DetalleVentaController detalleVenta = new DetalleVentaController(new chinahousedbEntities());
                 bool resultado = detalleVenta.CrearDetalleVenta(result, productos);
                 if(resultado)
+                {
+                    total_copia = total;
+                    pago_copia = pago;
+                    cambio_copia = cambio;
+                    forma_pago_copia = forma_pago;
                     ImprimirTicket(total, pago, cambio, forma_pago);
+                }
                 else
                 {
                     string message = "Error en la base de datos, no se pudo registrar el detalle de venta...";
@@ -267,35 +285,106 @@ namespace Punto_de_Venta.Vistas
             
         }
 
-        private void ImprimirTicket(decimal total, decimal pago, decimal cambio, string forma_pago)
+        private void ImprimirTicket(decimal total, decimal pago, decimal cambio, string forma_pago, bool isCopia = false)
         {
-            ImprimirTickets ticket = new ImprimirTickets();
-            ticket.TextoIzquierda(" ");
-            ticket.TextoCentro("SU RECIBO GRACIAS HASTA PRONTO");
-            ticket.TextoIzquierda(" ");
-            ticket.TextoExtremos(DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("hh:mm tt"));
-            ticket.TextoIzquierda(" ");
-            ticket.EncabezadoVenta();
-            ticket.lineasGuio();
-
-            foreach(ProductoCaja producto in productos)
+            try
             {
-                ticket.AgregaArticulo(producto.nombre, producto.cantidad, producto.precio);
+                if(!isCopia)
+                {
+                    printDocument1 = new PrintDocument();
+                    PrinterSettings ps = new PrinterSettings();
+                    printDocument1.PrinterSettings = ps;
+                    printDocument1.PrintPage += Imprimir;
+                    printDocument1.Print();
+                }
+                
+
+                ImprimirTickets ticket = new ImprimirTickets();
+                //ticket.TextoIzquierda(" ");
+                //ticket.TextoCentro("SU RECIBO GRACIAS HASTA PRONTO");
+                //ticket.TextoIzquierda(" ");
+                ticket.TextoExtremos(DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("hh:mm tt"));
+                ticket.TextoIzquierda(" ");
+                ticket.EncabezadoVenta();
+                ticket.lineasGuio();
+                if(isCopia)
+                {
+                    foreach (ProductoCaja producto in productos_copia)
+                    {
+                        ticket.AgregaArticulo(producto.nombre, producto.cantidad, producto.precio);
+                    }
+                }
+                else
+                {
+                    foreach (ProductoCaja producto in productos)
+                    {
+                        ticket.AgregaArticulo(producto.nombre, producto.cantidad, producto.precio);
+                    }
+                }
+               
+                ticket.lineasGuio();
+                ticket.TextoDerecha(forma_pago);
+                ticket.AgregarTotales("               TOTAL:  ", total);
+                ticket.AgregarTotales("            SU PAGO :  ", pago);
+                ticket.AgregarTotales("              CAMBIO: ", cambio);
+                //ticket.TextoIzquierda(" ");
+                //ticket.TextoIzquierda(" ");
+                ticket.TextoIzquierda(" ");
+                //ticket.CortaTicket();
+                if (isCopia)
+                {
+                    ticket.TextoIzquierda(" ");
+                    ticket.TextoIzquierda(" ");
+                    ticket.CortaTicket();
+                }
+
+                ticket.ImprimirTicket("ZJ-5890");
+
+                if (!isCopia)
+                {
+                    printDocument1.PrintPage -= Imprimir;
+                    printDocument1.PrintPage += ImprimirImagen;
+                    printDocument1.Print();
+                }
+                LimpiarTodo(cambio);
             }
-            ticket.lineasGuio();
-            ticket.TextoDerecha(forma_pago);
-            ticket.AgregarTotales("               TOTAL:  ", total);
-            ticket.AgregarTotales("            SU PAGO :  ", pago);
-            ticket.TextoIzquierda(" ");
-            ticket.AgregarTotales("              CAMBIO: ", cambio);
-            ticket.TextoIzquierda(" ");
-            ticket.TextoIzquierda(" ");
-            ticket.TextoIzquierda(" ");
-            ticket.CortaTicket();
-            ticket.ImprimirTicket("ZJ-5890");
-            LimpiarTodo(cambio);
+            catch (Exception eeee) { }
+
         }
+
+        private void Imprimir(object sender, PrintPageEventArgs e)
+        {
+            int width = 195;
+            int y = 20;
+
+            Font font = new Font("Algerian", 15, FontStyle.Regular, GraphicsUnit.Point);
+            StringFormat drawFormat = new StringFormat();
+            drawFormat.Alignment = StringAlignment.Center;
+            drawFormat.LineAlignment = StringAlignment.Center;
+            e.Graphics.DrawString("SU RECIBO GRACIAS \n HASTA PRONTO", font, Brushes.Black, new RectangleF(0, 0, 195, 100), drawFormat);
+        }
+        private void ImprimirImagen(object sender, PrintPageEventArgs e)
+        {
+            Image image = Image.FromFile(@"C:\Users\Administrador\source\repos\Punto de Venta\Punto de Venta\Resources\china_logo.jpg");
+            e.Graphics.DrawImage(image, new Rectangle(0, 0, 210, 100));
+        }
+
+
         #endregion
 
+        private void button_copia_Click(object sender, EventArgs e)
+        {
+            ImprimirCopia();
+        }
+
+        private void ImprimirCopia()
+        {
+            if(total_copia != 0 && pago_copia !=0 && cambio_copia !=0 )
+            {
+                ImprimirTicket(total_copia, pago_copia, cambio_copia, forma_pago_copia, true);
+                total_copia = 0; pago_copia = 0; cambio_copia=0;
+            }
+           
+        }
     }
 }

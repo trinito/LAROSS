@@ -36,3 +36,4 @@ C:\Users\trini\Documents\PUNTO DE VENTA\chinahouse\Punto de Venta\obj\Debug\Punt
 C:\Users\trini\Documents\PUNTO DE VENTA\chinahouse\Punto de Venta\obj\Debug\Punto de Venta.csproj.CopyComplete
 C:\Users\trini\Documents\PUNTO DE VENTA\chinahouse\Punto de Venta\obj\Debug\Punto de Venta.exe
 C:\Users\trini\Documents\PUNTO DE VENTA\chinahouse\Punto de Venta\obj\Debug\Punto de Venta.pdb
+C:\Users\Administrador\source\repos\Punto de Venta\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Admin.resources
