@@ -218,7 +218,6 @@ namespace Punto_de_Venta.Vistas
         private void LimpiarTodo(decimal cambio)
         {
             total = 0;
-            productos_copia = productos;
             productos = new List<ProductoCaja>();
             dgv_productos.DataSource = null;
             lbl_por_pagar.Text = "$0";
@@ -272,6 +271,7 @@ namespace Punto_de_Venta.Vistas
                     pago_copia = pago;
                     cambio_copia = cambio;
                     forma_pago_copia = forma_pago;
+                    productos_copia = productos;
                     ImprimirTicket(total, pago, cambio, forma_pago);
                 }
                 else
