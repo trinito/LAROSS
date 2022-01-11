@@ -17,3 +17,22 @@ C:\Users\Administrador\source\repos\Punto de Venta\Punto de Venta\obj\Debug\Punt
 C:\Users\Administrador\source\repos\Punto de Venta\Punto de Venta\obj\Debug\Punto de Venta.csproj.CopyComplete
 C:\Users\Administrador\source\repos\Punto de Venta\Punto de Venta\obj\Debug\Punto de Venta.exe
 C:\Users\Administrador\source\repos\Punto de Venta\Punto de Venta\obj\Debug\Punto de Venta.pdb
+C:\Users\trini\Documents\PUNTO DE VENTA\chinahouse\Punto de Venta\bin\Debug\Punto de Venta.exe.config
+C:\Users\trini\Documents\PUNTO DE VENTA\chinahouse\Punto de Venta\bin\Debug\Punto de Venta.exe
+C:\Users\trini\Documents\PUNTO DE VENTA\chinahouse\Punto de Venta\bin\Debug\Punto de Venta.pdb
+C:\Users\trini\Documents\PUNTO DE VENTA\chinahouse\Punto de Venta\bin\Debug\EntityFramework.dll
+C:\Users\trini\Documents\PUNTO DE VENTA\chinahouse\Punto de Venta\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\trini\Documents\PUNTO DE VENTA\chinahouse\Punto de Venta\bin\Debug\EntityFramework.xml
+C:\Users\trini\Documents\PUNTO DE VENTA\chinahouse\Punto de Venta\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\trini\Documents\PUNTO DE VENTA\chinahouse\Punto de Venta\obj\Debug\Punto de Venta.csproj.AssemblyReference.cache
+C:\Users\trini\Documents\PUNTO DE VENTA\chinahouse\Punto de Venta\obj\Debug\Punto_de_Venta.Properties.Resources.resources
+C:\Users\trini\Documents\PUNTO DE VENTA\chinahouse\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Admin.resources
+C:\Users\trini\Documents\PUNTO DE VENTA\chinahouse\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Buscar.resources
+C:\Users\trini\Documents\PUNTO DE VENTA\chinahouse\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Cobrar.resources
+C:\Users\trini\Documents\PUNTO DE VENTA\chinahouse\Punto de Venta\obj\Debug\Punto_de_Venta.form_cuenta.resources
+C:\Users\trini\Documents\PUNTO DE VENTA\chinahouse\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Principal.resources
+C:\Users\trini\Documents\PUNTO DE VENTA\chinahouse\Punto de Venta\obj\Debug\Punto de Venta.csproj.GenerateResource.cache
+C:\Users\trini\Documents\PUNTO DE VENTA\chinahouse\Punto de Venta\obj\Debug\Punto de Venta.csproj.CoreCompileInputs.cache
+C:\Users\trini\Documents\PUNTO DE VENTA\chinahouse\Punto de Venta\obj\Debug\Punto de Venta.csproj.CopyComplete
+C:\Users\trini\Documents\PUNTO DE VENTA\chinahouse\Punto de Venta\obj\Debug\Punto de Venta.exe
+C:\Users\trini\Documents\PUNTO DE VENTA\chinahouse\Punto de Venta\obj\Debug\Punto de Venta.pdb
