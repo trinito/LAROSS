@@ -95,7 +95,7 @@ namespace Punto_de_Venta
                     this.Hide();
                     Form form;
                     if (result =="Admin")
-                        form = new View_Reportes();
+                        form = new View_Admin();
                     else
                         form = new View_Principal();
                     form.ShowDialog();

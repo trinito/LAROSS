@@ -154,6 +154,9 @@
     <EmbeddedResource Include="Vistas\View_Principal.resx">
       <DependentUpon>View_Principal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\View_Reportes.resx">
+      <DependentUpon>View_Reportes.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Modelo\ModeloBD.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModeloBD.Designer.cs</LastGenOutput>

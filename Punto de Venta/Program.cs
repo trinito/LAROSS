@@ -17,8 +17,8 @@ namespace Punto_de_Venta
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new form_cuenta());
-            Application.Run(new View_Principal());
+            Application.Run(new form_cuenta());
+           // Application.Run(new View_Principal());
         }
     }
 }
