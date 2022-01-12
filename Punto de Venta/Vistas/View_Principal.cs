@@ -379,7 +379,7 @@ namespace Punto_de_Venta.Vistas
 
         private void ImprimirCopia()
         {
-            if(total_copia != 0 && pago_copia !=0 && cambio_copia !=0 )
+            if(total_copia != 0 && pago_copia !=0)
             {
                 ImprimirTicket(total_copia, pago_copia, cambio_copia, forma_pago_copia, true);
                 total_copia = 0; pago_copia = 0; cambio_copia=0;
