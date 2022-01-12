@@ -27,8 +27,6 @@ namespace Punto_de_Venta.Controlador
                     x.precio = Math.Round(decimal_aux, 2);
                 }
             }
-           
-
             return menu;
         }
 
