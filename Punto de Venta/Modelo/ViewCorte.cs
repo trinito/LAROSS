@@ -15,8 +15,8 @@ namespace Punto_de_Venta.Modelo
     public partial class ViewCorte
     {
         public string Nombre { get; set; }
-        public Nullable<int> Cantidad { get; set; }
-        public Nullable<decimal> Total { get; set; }
+        public int Cantidad { get; set; }
+        public decimal Total { get; set; }
         public string fecha { get; set; }
     }
 }

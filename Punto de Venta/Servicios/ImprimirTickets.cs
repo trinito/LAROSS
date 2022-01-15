@@ -178,7 +178,7 @@ namespace Punto_de_Venta.Servicios
         }
         public void EncabezadoCorte()
         {
-            linea.AppendLine("PRODUCTO         | CANT | TOTAL ");
+            linea.AppendLine("PRODUCTO       | CANT | TOTAL ");
         }
 
         //Metodo para agregar los totales d ela venta
@@ -264,6 +264,88 @@ namespace Punto_de_Venta.Servicios
                 {
                     //PRODUCTO         | CANT | PRECIO
                     for (int i = 0; i < (20 - articulo.Length); i++)
+                    {
+                        espacios += " "; //Agrega espacios para completar los 20 caracteres
+                    }
+                    elemento = articulo + espacios;
+
+                    //Colocar la cantidad a la derecha.
+                    nroEspacios = (5 - cant.ToString().Length);// +(20 - elemento.Length);
+                    espacios = "";
+                    for (int i = 0; i < nroEspacios; i++)
+                    {
+                        espacios += " ";
+                    }
+                    elemento += cant.ToString() + espacios;
+
+                    //Colocar el precio a la derecha.
+                    elemento += precio.ToString("C", CultureInfo.CurrentCulture);
+
+                    linea.AppendLine(elemento);//Agregamos todo el elemento: nombre del articulo, cant, precio, importe.
+                }
+            }
+            else
+            {
+                linea.AppendLine("Los valores ingresados para esta fila");
+                linea.AppendLine("superan las columnas soportdas por éste.");
+                throw new Exception("Los valores ingresados para algunas filas del ticket\nsuperan las columnas soportdas por éste.");
+            }
+        }
+
+        public void AgregaArticulo2(string articulo, int cant, decimal precio)
+        {
+
+            //ARTICULO = 17 + 2
+            //CANTIDAD = 4 + 3
+            //PRECIO = 6
+
+            //Valida que cant precio e importe esten dentro del rango.
+            if (cant.ToString().Length <= 5)
+            {
+                string elemento = "", espacios = "";
+                bool bandera = false;//Indicara si es la primera linea que se escribe cuando bajemos a la segunda si el nombre del articulo no entra en la primera linea
+                int nroEspacios = 0;
+
+                //Si el nombre o descripcion del articulo es mayor a 20, bajar a la siguiente linea
+                if (articulo.Length > 15)
+                {
+                    elemento = "   ";
+                    //Colocar la cantidad a la derecha.
+                    nroEspacios = (5 - cant.ToString().Length);// +(20 - elemento.Length);
+                    espacios = "";
+                    for (int i = 0; i < nroEspacios; i++)
+                    {
+                        espacios += " ";
+                    }
+                    elemento += cant.ToString() + espacios;
+
+                    //Colocar el precio a la derecha.
+                    elemento += precio.ToString("C", CultureInfo.CurrentCulture);
+
+                    int caracterActual = 0;//Indicara en que caracter se quedo al bajae a la siguiente linea
+
+                    //Por cada 20 caracteres se agregara una linea siguiente
+                    for (int longitudTexto = articulo.Length; longitudTexto > 15; longitudTexto -= 15)
+                    {
+                        if (bandera == false)//si es false o la primera linea en recorrerer, continuar...
+                        {
+                            //agregamos los primeros 20 caracteres del nombre del articulos, mas lo que ya tiene la variable elemento
+                            linea.AppendLine(articulo.Substring(caracterActual, 15) + elemento);
+                            bandera = true;//cambiamos su valor a verdadero
+                        }
+                        else
+                            linea.AppendLine(articulo.Substring(caracterActual, 15));//Solo agrega el nombre del articulo
+
+                        caracterActual += 15;//incrementa en 20 el valor de la variable caracterActual
+                    }
+                    //Agrega el resto del fragmento del  nombre del articulo
+                    linea.AppendLine(articulo.Substring(caracterActual, articulo.Length - caracterActual));
+
+                }
+                else //Si no es mayor solo agregarlo, sin dar saltos de lineas
+                {
+                    //PRODUCTO         | CANT | PRECIO
+                    for (int i = 0; i < (18 - articulo.Length); i++)
                     {
                         espacios += " "; //Agrega espacios para completar los 20 caracteres
                     }

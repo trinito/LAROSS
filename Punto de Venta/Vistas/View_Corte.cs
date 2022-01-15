@@ -17,6 +17,7 @@ namespace Punto_de_Venta.Vistas
 {
     public partial class View_Corte : Form
     {
+        private bool isImprimir = false;
         public View_Corte()
         {
             InitializeComponent();
@@ -43,6 +44,7 @@ namespace Punto_de_Venta.Vistas
                 lbl_efectivo.Text = "$0";
                 lbl_tarjeta.Text = "$0";
                 lbl_total.Text = "$0";
+                isImprimir = false;
             }
         }
 
@@ -82,6 +84,7 @@ namespace Punto_de_Venta.Vistas
                 lbl_efectivo.Text = resul[0].ToString("C", CultureInfo.CurrentCulture);
                 lbl_tarjeta.Text = resul[1].ToString("C", CultureInfo.CurrentCulture);
                 lbl_total.Text = resul[2].ToString("C", CultureInfo.CurrentCulture);
+                isImprimir = true;
             }
             catch (Exception ex)
             {
@@ -92,9 +95,17 @@ namespace Punto_de_Venta.Vistas
 
         private void button_imprimir_Click(object sender, EventArgs e)
         {
+            if (!isImprimir)
+                return;
+
+            List<ViewCorte> result;
             ImprimirTickets ticket = new ImprimirTickets();
             try
             {
+                if (dgv_productos.DataSource != null)
+                    result = (List<ViewCorte>)dgv_productos.DataSource;
+                else
+                    return;
                 string efectivo = lbl_efectivo.Text;
                 efectivo = efectivo.Replace("$", string.Empty);
                 string tarjeta = lbl_tarjeta.Text;
@@ -106,6 +117,11 @@ namespace Punto_de_Venta.Vistas
                 ticket.TextoIzquierda(" ");
                 ticket.EncabezadoCorte();
                 ticket.lineasGuio();
+                foreach (var x in result)
+                {
+                    ticket.AgregaArticulo2(x.Nombre, x.Cantidad, x.Total);
+                }
+                ticket.lineasGuio();
                 ticket.AgregarTotales("            EFECTIVO:  ", Convert.ToDecimal(efectivo));
                 ticket.AgregarTotales("             TARJETA:  ", Convert.ToDecimal(tarjeta));
                 ticket.AgregarTotales("         TOTAL VENTA: ", Convert.ToDecimal(total));
@@ -114,6 +130,7 @@ namespace Punto_de_Venta.Vistas
                 ticket.TextoIzquierda(" ");
                 ticket.CortaTicket();
                 ticket.ImprimirTicket("ZJ-5890");
+                isImprimir = false;
             }
             catch (Exception ex)
             {
