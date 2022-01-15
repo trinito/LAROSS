@@ -21,12 +21,12 @@ namespace Punto_de_Venta.Controlador
             int result = 0;
             try
             {
-                Venta venta = new Venta { fecha = fecha, hora=hora, cantidad_productos = cantidad_productos, total = total, estatus = estatus, forma_pago = forma_pago };
+                Venta venta = new Venta { fecha = fecha, hora = hora, cantidad_productos = cantidad_productos, total = total, estatus = estatus, forma_pago = forma_pago };
                 Context.Venta.Add(venta);
                 int x = Context.SaveChanges();
                 if (x > 0)
                 {
-                     result = venta.id_venta;
+                    result = venta.id_venta;
                 }
                 else
                     return result;
@@ -37,6 +37,24 @@ namespace Punto_de_Venta.Controlador
             }
 
             return result;
+        }
+
+        public decimal[] TotalesCorte(string fecha)
+        {
+            decimal [] result = new decimal[3];
+            try
+            {
+                result[0] = Context.Venta.Where(x => x.fecha == fecha && x.forma_pago == "EFECTIVO").Sum(x => x.total);
+                result[1] = Context.Venta.Where(x => x.fecha == fecha && x.forma_pago == "TARJETA").Sum(x => x.total);
+                result[2] = result[0] + result[1];
+
+                return result;
+            }
+            catch(Exception e)
+            {
+                
+            }
+            return null;
         }
     }
 }

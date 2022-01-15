@@ -1,9 +1,11 @@
 ﻿using Punto_de_Venta.Controlador;
+using Punto_de_Venta.Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,10 +27,10 @@ namespace Punto_de_Venta.Vistas
 
         private void Venta(string fecha)
         {
-            Productos(fecha);
-            Efectivo(fecha);
-            Tarjeta(fecha);
-            TotalDia(fecha);
+            if(Productos(fecha))
+            {
+                TotalDia(fecha);
+            }
         }
 
         private void dtp_time_CloseUp(object sender, EventArgs e)
@@ -37,22 +39,30 @@ namespace Punto_de_Venta.Vistas
         }
 
 
-        private void Productos(string fecha)
+        private bool Productos(string fecha)
         {
-            DetalleVentaController detalleVentacontroler = new DetalleVentaController(new Modelo.chinahousedbEntities());
-        }
+            VistasController vistasController = new VistasController(new Modelo.chinahousedbEntities());
+            List<ViewCorte> result = vistasController.CorteProductos(fecha);
+            if(result != null)
+            {
+                dgv_productos.DataSource = result;
+                return true;
+            }
 
-        private void Efectivo(string fecha)
-        {
-
-        }
-
-        private void Tarjeta(string fecha)
-        {
-
+            return false;
         }
 
         private void TotalDia(string fecha)
+        {
+            VentaController ventaController = new VentaController(new chinahousedbEntities());
+            decimal[] resul = ventaController.TotalesCorte(fecha);
+            lbl_efectivo.Text = resul[0].ToString("C", CultureInfo.CurrentCulture);
+            lbl_tarjeta.Text = resul[1].ToString("C", CultureInfo.CurrentCulture);
+            lbl_total.Text = resul[2].ToString("C", CultureInfo.CurrentCulture);
+
+        }
+
+        private void button_imprimir_Click(object sender, EventArgs e)
         {
 
         }
