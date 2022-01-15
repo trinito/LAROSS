@@ -44,6 +44,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,6 +61,7 @@
     <Compile Include="Controlador\ProductosController.cs" />
     <Compile Include="Controlador\UsuarioController.cs" />
     <Compile Include="Controlador\VentaController.cs" />
+    <Compile Include="Controlador\VistasController.cs" />
     <Compile Include="Modelo\Categoria.cs">
       <DependentUpon>ModeloBD.tt</DependentUpon>
     </Compile>
@@ -91,6 +93,9 @@
     <Compile Include="Modelo\Venta.cs">
       <DependentUpon>ModeloBD.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\ViewCorte.cs">
+      <DependentUpon>ModeloBD.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -114,6 +119,12 @@
     </Compile>
     <Compile Include="Vistas\View_Cobrar.Designer.cs">
       <DependentUpon>View_Cobrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\View_Corte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\View_Corte.Designer.cs">
+      <DependentUpon>View_Corte.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\View_Cuenta.cs">
       <SubType>Form</SubType>
@@ -148,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\View_Cobrar.resx">
       <DependentUpon>View_Cobrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\View_Corte.resx">
+      <DependentUpon>View_Corte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\View_Cuenta.resx">
       <DependentUpon>View_Cuenta.cs</DependentUpon>

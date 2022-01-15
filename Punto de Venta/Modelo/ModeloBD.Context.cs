@@ -30,5 +30,6 @@ namespace Punto_de_Venta.Modelo
         public virtual DbSet<Menu> Menu { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<Venta> Venta { get; set; }
+        public virtual DbSet<ViewCorte> ViewCorte { get; set; }
     }
 }

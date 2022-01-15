@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Globalization;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -330,16 +331,13 @@ namespace Punto_de_Venta.Vistas
                 //ticket.TextoIzquierda(" ");
                 //ticket.TextoIzquierda(" ");
                 ticket.TextoIzquierda(" ");
-                //ticket.CortaTicket();
                 if (isCopia)
                 {
                     ticket.TextoIzquierda(" ");
                     ticket.TextoIzquierda(" ");
                     ticket.CortaTicket();
                 }
-
                 ticket.ImprimirTicket("ZJ-5890");
-
                 if (!isCopia)
                 {
                     printDocument1.PrintPage -= Imprimir;

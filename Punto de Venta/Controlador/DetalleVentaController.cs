@@ -35,7 +35,7 @@ namespace Punto_de_Venta.Controlador
             catch (Exception ex)
             {
                 throw new Exception("Error en la base de datos, no se pudo registrar el detalle de venta.");
-    }
+            }
 
             return result;
         }

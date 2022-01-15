@@ -73,6 +73,19 @@ namespace Punto_de_Venta
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Iniciar();
+        }
+
+        private void txt_contrasena_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                Iniciar();
+            }
+        }
+
+        private void Iniciar()
+        {
             if (txt_usuario.Text.Contains("USUARIO") || txt_contrasena.Text.Contains("CONTRASEÑA"))
                 return;
 
@@ -82,7 +95,7 @@ namespace Punto_de_Venta
             }
             else
             {
-                Usuarios user = new Usuarios() { contra = txt_contrasena.Text, nombre=txt_usuario.Text };
+                Usuarios user = new Usuarios() { contra = txt_contrasena.Text, nombre = txt_usuario.Text };
                 UsuarioController usuarioController = new UsuarioController(new chinahousedbEntities());
                 string result = usuarioController.Login(user);
 
@@ -91,10 +104,10 @@ namespace Punto_de_Venta
                     MessageBox.Show("USUARIO INCORRECTO", "MENSAJE", MessageBoxButtons.OK);
                 }
                 else
-                {   
+                {
                     this.Hide();
                     Form form;
-                    if (result =="Admin")
+                    if (result == "Admin")
                         form = new View_Admin();
                     else
                         form = new View_Principal();
@@ -102,6 +115,7 @@ namespace Punto_de_Venta
                     this.Show();
                 }
             }
+
         }
     }
 }

@@ -145,6 +145,7 @@
             this.txt_contrasena.TabIndex = 11;
             this.txt_contrasena.Text = "CONTRASEÑA";
             this.txt_contrasena.Enter += new System.EventHandler(this.txt_contrasena_Enter);
+            this.txt_contrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_contrasena_KeyPress);
             this.txt_contrasena.Leave += new System.EventHandler(this.txt_contrasena_Leave);
             // 
             // pictureBox4

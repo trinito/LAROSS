@@ -117,43 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btn_guardar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        bQAAAG0BjlwfygAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAC1SURBVDhP3dO7
-        DcIwGEXhtHSUdKwQOgoKqlTQMwADMAJDMABiEgoGoGIR6MM5wSDLCeRRYumTLOv+V4mjZKwCN5Q93LEo
-        S7ev4ROOuGKZWGODFZzY4oCqBNWhwT3OtsZYO1g8hgd5OH+XDC5wptrEBRcYjM3ga0zRWuC+zdeCCfIO
-        Ro0FHvbhTJj9PMEcXlgXZmsF3sED3vgvZsw2FtQ+Y8pMyP5TQdvPlDJj1hlnB/3OYiYrnmCGJUu712ic
-        AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="button_editar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        bQAAAG0BjlwfygAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADgSURBVDhPldPL
-        CcJAFIXh2IJuLEDEnSEVWIQgWdhHSAO6dmEJ7m3EhS0EceGjAcH4X50hkzszhlz4wNycOcRXUtd1L8wK
-        F5Tfax3owizxglyUwVAIs8EeA9gSeZIkRwVJaVfMIIftzi2Rt9PrsLV1nuy3tAsXEzr8ROpkwgVM7HCm
-        cn4Bs7Z7xwMZCpVtFzALjHGUvXFHikKubdbkvYIDTrAlN8zNvVbW7LwC+W7lhS2ZOPdaWbNrlswUb5yx
-        g/7AOguGGLkBl+SE2vnLmFBWJvZLjKl0wb//gia5vCmokw8Rb7ubVf4GGAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="Código.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="Nombre.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Medida.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="Precio.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>25</value>
+  <metadata name="Total1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
 </root>

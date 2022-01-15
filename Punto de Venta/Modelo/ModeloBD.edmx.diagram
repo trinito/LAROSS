@@ -13,6 +13,7 @@
         <AssociationConnector Association="AppDbContext.FK_Menu_Categoria" ManuallyRouted="false" />
         <AssociationConnector Association="AppDbContext.FK_Menu_DetalleVenta" ManuallyRouted="false" />
         <AssociationConnector Association="AppDbContext.FK_Venta_DetalleVenta" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AppDbContext.ViewCorte" Width="1.5" PointX="7.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -16,7 +16,7 @@ namespace Punto_de_Venta.Vistas
     public partial class View_Admin : Form
     {
         List<Menu> productos;
-        public Menu productoSelect;
+        bool isEdit = false;
         public View_Admin()
         {
             InitializeComponent();
@@ -49,18 +49,22 @@ namespace Punto_de_Venta.Vistas
             var x = combo_categoria.SelectedValue.ToString();
         }
 
-        private void button_buscar_Click(object sender, EventArgs e)
+        private void button_editar_Click(object sender, EventArgs e)
         {
             if (dgv_productos.CurrentRow != null)
             {
+                Menu productoSelect = new Menu();
                 productoSelect = (Menu)dgv_productos.CurrentRow.DataBoundItem;
-
-
-
+                txt_codigo.Text = productoSelect.codigo;
+                txt_nombre.Text= productoSelect.nombre;
+                txt_precio.Text = productoSelect.precio.ToString();
+                combo_medida.SelectedItem = productoSelect.medida;
+                combo_categoria.SelectedValue = productoSelect.id_categoria;
+                isEdit = true;
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_eliminar_Click(object sender, EventArgs e)
         {
             if (dgv_productos.CurrentRow != null)
             {
@@ -76,6 +80,80 @@ namespace Punto_de_Venta.Vistas
                     dgv_productos.DataSource = productos;
                 }
             }
+        }
+
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty(txt_codigo.Text) || string.IsNullOrEmpty(txt_nombre.Text) || string.IsNullOrEmpty(txt_precio.Text)|| string.IsNullOrEmpty(combo_medida.Text) || string.IsNullOrEmpty(combo_categoria.Text))
+            {
+                string message = "Favor de llenar todos los campos";
+                string title = "Mensaje";
+                MessageBox.Show(message, title);
+            }
+            else
+            {
+                if(isEdit)
+                {
+
+                }
+                else
+                {
+
+                }
+
+                Menu menu = new Menu();
+                menu.codigo = txt_codigo.Text;
+                menu.nombre = txt_nombre.Text;
+                menu.precio = Convert.ToDecimal(txt_precio.Text);
+                menu.foto = null;
+                menu.estatus = true;
+                menu.medida = combo_medida.Text;
+                menu.id_categoria = Convert.ToInt32(combo_categoria.SelectedValue);
+
+                productos.Add(menu);
+                dgv_productos.DataSource = null;
+                dgv_productos.DataSource = productos;
+
+               int row = dgv_productos.Rows.Count -1;
+                dgv_productos.Rows[row].Selected = true;
+                dgv_productos.Rows[row].Cells[0].Selected = true;
+                Limpiar();
+            }
+           
+
+
+        }
+
+        private void Limpiar()
+        {
+            txt_codigo.Text = "";
+            txt_nombre.Text = "";
+            txt_precio.Text = "";
+            isEdit = false;
+            txt_codigo.Focus();
+        }
+
+        private void txt_precio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+       (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void corteDeCajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            View_Corte form = new View_Corte();
+            form.ShowDialog();
+            this.Show();
         }
     }
 }
