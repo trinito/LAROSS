@@ -176,6 +176,10 @@ namespace Punto_de_Venta.Servicios
             //Escribimos los espacios para mostrar el articulo. En total tienen que ser 40 caracteres
             linea.AppendLine("PRODUCTO         | CANT | PRECIO");
         }
+        public void EncabezadoCorte()
+        {
+            linea.AppendLine("PRODUCTO         | CANT | TOTAL ");
+        }
 
         //Metodo para agregar los totales d ela venta
         public void AgregarTotales(string texto, decimal total)

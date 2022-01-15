@@ -21,7 +21,10 @@ namespace Punto_de_Venta.Controlador
         {
             List<ViewCorte> result = new List<ViewCorte>();
             result = Context.ViewCorte.Where(x => x.fecha == fecha).OrderByDescending(x=>x.Total).ToList();
+            if(result != null && result.Count>0)
             return result;
+
+         return null;
         }
     }
 }
