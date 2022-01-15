@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Punto_de_Venta.Vistas
 {
@@ -22,6 +23,7 @@ namespace Punto_de_Venta.Vistas
 
         private void View_Corte_Load(object sender, EventArgs e)
         {
+            dgv_productos.AutoGenerateColumns = false;
             Venta(dtp_time.Value.ToString("dd/MM/yyyy"));
         }
 
@@ -59,7 +61,6 @@ namespace Punto_de_Venta.Vistas
             lbl_efectivo.Text = resul[0].ToString("C", CultureInfo.CurrentCulture);
             lbl_tarjeta.Text = resul[1].ToString("C", CultureInfo.CurrentCulture);
             lbl_total.Text = resul[2].ToString("C", CultureInfo.CurrentCulture);
-
         }
 
         private void button_imprimir_Click(object sender, EventArgs e)

@@ -20,7 +20,7 @@ namespace Punto_de_Venta.Controlador
         public List<ViewCorte> CorteProductos(string fecha)
         {
             List<ViewCorte> result = new List<ViewCorte>();
-            result = Context.ViewCorte.Where(x => x.fecha == fecha).OrderBy(x=>x.Total).ToList();
+            result = Context.ViewCorte.Where(x => x.fecha == fecha).OrderByDescending(x=>x.Total).ToList();
             return result;
         }
     }
