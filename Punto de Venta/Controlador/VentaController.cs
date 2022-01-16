@@ -56,5 +56,17 @@ namespace Punto_de_Venta.Controlador
             }
             return null;
         }
+
+        public int NumTicket()
+        {
+            try
+            {
+                return Context.Venta.Max(x => x.id_venta);
+            }
+            catch(Exception ex)
+            {
+                return 0;
+            }
+        }
     }
 }

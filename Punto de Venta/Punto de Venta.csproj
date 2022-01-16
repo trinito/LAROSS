@@ -120,6 +120,12 @@
     <Compile Include="Vistas\View_Cobrar.Designer.cs">
       <DependentUpon>View_Cobrar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\View_Consumo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\View_Consumo.Designer.cs">
+      <DependentUpon>View_Consumo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\View_Corte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\View_Cobrar.resx">
       <DependentUpon>View_Cobrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\View_Consumo.resx">
+      <DependentUpon>View_Consumo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\View_Corte.resx">
       <DependentUpon>View_Corte.cs</DependentUpon>

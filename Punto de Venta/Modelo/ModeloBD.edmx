@@ -17,6 +17,7 @@
           <Key>
             <PropertyRef Name="id_venta" />
             <PropertyRef Name="id_menu" />
+            <PropertyRef Name="precio" />
           </Key>
           <Property Name="id_venta" Type="int" Nullable="false" />
           <Property Name="id_menu" Type="int" Nullable="false" />
@@ -151,6 +152,7 @@ advertencia 6002: La tabla o vista 'chinahousedb.dbo.ViewCorte' no tiene definid
           <Key>
             <PropertyRef Name="id_venta" />
             <PropertyRef Name="id_menu" />
+            <PropertyRef Name="precio" />
           </Key>
           <Property Name="id_venta" Type="Int32" Nullable="false" />
           <Property Name="id_menu" Type="Int32" Nullable="false" />

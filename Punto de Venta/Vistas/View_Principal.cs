@@ -133,9 +133,9 @@ namespace Punto_de_Venta.Vistas
             View_Buscar form = new View_Buscar();
             form.ShowDialog();
 
-                if(form.productoSelect != null)
+            if(form.productoSelect != null)
             {
-                Busqueda(form.productoSelect.codigo, 1);
+               Busqueda(form.productoSelect.codigo, 1);
             }
             form.Dispose();
         }
@@ -170,11 +170,12 @@ namespace Punto_de_Venta.Vistas
             }
             form.Dispose();
         }
-
        
         private void Busqueda(string codigo, int cantidad_aux)
         {
-            ProductoCaja producto = productos.FirstOrDefault(x => x.codigo.Equals(codigo));
+            ProductoCaja producto = null;
+            if(codigo != "300")
+             producto = productos.FirstOrDefault(x => x.codigo.Equals(codigo));
 
 
             if (producto == null)
@@ -190,7 +191,36 @@ namespace Punto_de_Venta.Vistas
                 else
                 {
                     producto.cantidad = cantidad_aux;
-                    producto.total = producto.cantidad * producto.precio;
+                    if (producto.nombre == "CONSUMO")
+                    {
+                        View_Consumo form = new View_Consumo();
+                        form.ShowDialog();
+                        if(form.precio_consumo!=0)
+                        {
+                            producto.precio = form.precio_consumo;
+                            producto.total = producto.cantidad * producto.precio;
+                            var x = productos.FirstOrDefault(i => i.codigo == "300" && i.precio == producto.precio);
+                            if(x != null)
+                            {
+                                string message = "No puede agregar dos consumos con el mismo precio";
+                                string title = "¡Alerta!";
+                                MessageBox.Show(message, title);
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            string message = "Consumo es producto especial, debe ingresar un precio...";
+                            string title = "¡Alerta!";
+                            MessageBox.Show(message, title);
+                            return;
+                        }
+                    }
+                    else
+                    {
+                       
+                        producto.total = producto.cantidad * producto.precio;
+                    }
                     productos.Add(producto);
                     Totalizar();
                 }
@@ -290,20 +320,30 @@ namespace Punto_de_Venta.Vistas
         {
             try
             {
-                if(!isCopia)
-                {
-                    printDocument1 = new PrintDocument();
-                    PrinterSettings ps = new PrinterSettings();
-                    printDocument1.PrinterSettings = ps;
-                    printDocument1.PrintPage += Imprimir;
-                    printDocument1.Print();
-                }
+                //if(!isCopia)
+                //{
+                //    printDocument1 = new PrintDocument();
+                //    PrinterSettings ps = new PrinterSettings();
+                //    printDocument1.PrinterSettings = ps;
+                //    printDocument1.PrintPage += Imprimir;
+                //    printDocument1.Print();
+                //}
                 
 
                 ImprimirTickets ticket = new ImprimirTickets();
                 //ticket.TextoIzquierda(" ");
                 //ticket.TextoCentro("SU RECIBO GRACIAS HASTA PRONTO");
-                //ticket.TextoIzquierda(" ");
+                ticket.TextoCentro("CHINA HOUSE");
+                ticket.TextoCentro("BLVD. PEDRO ANAYA 1186 FRACC. SANTA TERESA");
+                ticket.TextoCentro("LOS MOCHIS, SINALOA");
+                ticket.TextoIzquierda(" ");
+                VentaController controler = new VentaController(new chinahousedbEntities());
+                int ticke = controler.NumTicket();
+                if(ticke > 0)
+                {
+                    ticket.TextoIzquierda("No. TICKET "+ ticke.ToString());
+                }
+   
                 ticket.TextoExtremos(DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("hh:mm tt"));
                 ticket.TextoIzquierda(" ");
                 ticket.EncabezadoVenta();
@@ -331,19 +371,21 @@ namespace Punto_de_Venta.Vistas
                 //ticket.TextoIzquierda(" ");
                 //ticket.TextoIzquierda(" ");
                 ticket.TextoIzquierda(" ");
-                if (isCopia)
-                {
+                //ticket.TextoIzquierda(" ");
+                ticket.TextoCentro("SU RECIBO GRACIAS HASTA PRONTO");
+                //ticket.TextoIzquierda(" ");
+
                     ticket.TextoIzquierda(" ");
                     ticket.TextoIzquierda(" ");
                     ticket.CortaTicket();
-                }
+                
                 ticket.ImprimirTicket("ZJ-5890");
-                if (!isCopia)
-                {
-                    printDocument1.PrintPage -= Imprimir;
-                    printDocument1.PrintPage += ImprimirImagen;
-                    printDocument1.Print();
-                }
+                //if (!isCopia)
+                //{
+                //    printDocument1.PrintPage -= Imprimir;
+                //    printDocument1.PrintPage += ImprimirImagen;
+                //    printDocument1.Print();
+                //}
                 LimpiarTodo(cambio);
             }
             catch (Exception eeee) { }

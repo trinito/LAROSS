@@ -83,7 +83,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(208)))), ((int)(((byte)(84)))));
-            this.panel2.Location = new System.Drawing.Point(365, 126);
+            this.panel2.Location = new System.Drawing.Point(365, 129);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(270, 1);
             this.panel2.TabIndex = 6;
@@ -115,7 +115,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(208)))), ((int)(((byte)(84)))));
-            this.panel3.Location = new System.Drawing.Point(365, 185);
+            this.panel3.Location = new System.Drawing.Point(365, 188);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(270, 1);
             this.panel3.TabIndex = 8;
@@ -123,9 +123,9 @@
             // txt_usuario
             // 
             this.txt_usuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_usuario.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_usuario.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_usuario.ForeColor = System.Drawing.Color.DimGray;
-            this.txt_usuario.Location = new System.Drawing.Point(394, 102);
+            this.txt_usuario.Location = new System.Drawing.Point(394, 99);
             this.txt_usuario.Multiline = true;
             this.txt_usuario.Name = "txt_usuario";
             this.txt_usuario.Size = new System.Drawing.Size(241, 21);
@@ -137,11 +137,11 @@
             // txt_contrasena
             // 
             this.txt_contrasena.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_contrasena.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
+            this.txt_contrasena.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_contrasena.ForeColor = System.Drawing.Color.DimGray;
-            this.txt_contrasena.Location = new System.Drawing.Point(394, 161);
+            this.txt_contrasena.Location = new System.Drawing.Point(394, 158);
             this.txt_contrasena.Name = "txt_contrasena";
-            this.txt_contrasena.Size = new System.Drawing.Size(241, 19);
+            this.txt_contrasena.Size = new System.Drawing.Size(241, 26);
             this.txt_contrasena.TabIndex = 11;
             this.txt_contrasena.Text = "CONTRASEÑA";
             this.txt_contrasena.Enter += new System.EventHandler(this.txt_contrasena_Enter);
@@ -166,7 +166,7 @@
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(208)))), ((int)(((byte)(84)))));
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Location = new System.Drawing.Point(365, 242);
             this.button2.Name = "button2";
