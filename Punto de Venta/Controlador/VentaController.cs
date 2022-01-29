@@ -16,7 +16,7 @@ namespace Punto_de_Venta.Controlador
             Context = context;
         }
 
-        public int CrearVenta(string fecha, string hora, int cantidad_productos, decimal total, bool estatus, string forma_pago)
+        public int CrearVenta(DateTime fecha, string hora, int cantidad_productos, decimal total, bool estatus, string forma_pago)
         {
             int result = 0;
             try
@@ -39,13 +39,18 @@ namespace Punto_de_Venta.Controlador
             return result;
         }
 
-        public decimal[] TotalesCorte(string fecha)
+        public decimal[] TotalesCorte(DateTime fecha)
         {
             decimal [] result = new decimal[3];
+            result[0] = 0;
+            result[1] = 0;
             try
             {
-                result[0] = Context.Venta.Where(x => x.fecha == fecha && x.forma_pago == "EFECTIVO").Sum(x => x.total);
-                result[1] = Context.Venta.Where(x => x.fecha == fecha && x.forma_pago == "TARJETA").Sum(x => x.total);
+                if (Context.Venta.Any(x=> x.fecha== fecha && x.forma_pago == "EFECTIVO"))
+                    result[0] = Context.Venta.Where(x => x.fecha == fecha && x.forma_pago == "EFECTIVO").Sum(x => x.total);
+
+                if (Context.Venta.Any(x => x.fecha == fecha && x.forma_pago == "TARJETA"))
+                    result[1] = Context.Venta.Where(x => x.fecha == fecha && x.forma_pago == "TARJETA").Sum(x => x.total);
                 result[2] = result[0] + result[1];
 
                 return result;
@@ -53,6 +58,29 @@ namespace Punto_de_Venta.Controlador
             catch(Exception e)
             {
                 
+            }
+            return null;
+        }
+
+        public decimal[] TotalesMes(DateTime fecha)
+        {
+            decimal[] result = new decimal[3];
+            result[0] = 0;
+            result[1] = 0;
+            try
+            {
+                if (Context.Venta.Any(x => x.fecha.Month == fecha.Month && x.forma_pago == "EFECTIVO"))
+                    result[0] = Context.Venta.Where(x => x.fecha.Month == fecha.Month && x.forma_pago == "EFECTIVO").Sum(x => x.total);
+
+                if (Context.Venta.Any(x => x.fecha.Month == fecha.Month && x.forma_pago == "TARJETA"))
+                    result[1] = Context.Venta.Where(x => x.fecha.Month == fecha.Month && x.forma_pago == "TARJETA").Sum(x => x.total);
+                result[2] = result[0] + result[1];
+
+                return result;
+            }
+            catch (Exception e)
+            {
+
             }
             return null;
         }

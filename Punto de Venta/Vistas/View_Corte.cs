@@ -26,10 +26,10 @@ namespace Punto_de_Venta.Vistas
         private void View_Corte_Load(object sender, EventArgs e)
         {
             dgv_productos.AutoGenerateColumns = false;
-            Venta(dtp_time.Value.ToString("yyyy-MM-dd"));
+            Venta(dtp_time.Value.Date);
         }
 
-        private void Venta(string fecha)
+        private void Venta(DateTime fecha)
         {
             if(Productos(fecha))
             {
@@ -50,11 +50,11 @@ namespace Punto_de_Venta.Vistas
 
         private void dtp_time_CloseUp(object sender, EventArgs e)
         {
-            Venta(dtp_time.Value.ToString("yyyy-MM-dd"));
+            Venta(dtp_time.Value.Date);
         }
 
 
-        private bool Productos(string fecha)
+        private bool Productos(DateTime fecha)
         {
             try
             {
@@ -75,7 +75,7 @@ namespace Punto_de_Venta.Vistas
             return false;
         }
 
-        private void TotalDia(string fecha)
+        private void TotalDia(DateTime fecha)
         {
             try
             {

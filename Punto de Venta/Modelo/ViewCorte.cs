@@ -17,6 +17,6 @@ namespace Punto_de_Venta.Modelo
         public string Nombre { get; set; }
         public int Cantidad { get; set; }
         public decimal Total { get; set; }
-        public string fecha { get; set; }
+        public System.DateTime fecha { get; set; }
     }
 }

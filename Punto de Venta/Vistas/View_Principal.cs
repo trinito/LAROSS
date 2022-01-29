@@ -285,7 +285,7 @@ namespace Punto_de_Venta.Vistas
             //aqui guardamos en la BD
             int cantidad_productos = productos.Sum(x => x.cantidad);
             VentaController venta = new VentaController(new chinahousedbEntities());
-            int result = venta.CrearVenta(DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("hh:mm tt"), cantidad_productos, total, true, forma_pago);
+            int result = venta.CrearVenta(DateTime.Now, DateTime.Now.ToString("hh:mm tt"), cantidad_productos, total, true, forma_pago);
             if(result == 0)
             {
                 string message = "Error en la base de datos, no se pudo registrar la venta...";
