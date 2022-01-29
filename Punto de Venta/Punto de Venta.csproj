@@ -102,6 +102,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Servicios\ImprimirTickets.cs" />
+    <Compile Include="Vistas\View_VentasMes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\View_VentasMes.Designer.cs">
+      <DependentUpon>View_VentasMes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\View_Admin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\View_VentasMes.resx">
+      <DependentUpon>View_VentasMes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\View_Admin.resx">
       <DependentUpon>View_Admin.cs</DependentUpon>

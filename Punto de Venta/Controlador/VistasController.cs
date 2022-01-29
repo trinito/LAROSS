@@ -22,7 +22,7 @@ namespace Punto_de_Venta.Controlador
             try
             {
                 List<ViewCorte> result = new List<ViewCorte>();
-                result = Context.ViewCorte.Where(x => x.fecha.Month == fecha.Month).OrderByDescending(x => x.Total).ToList();
+                result = Context.ViewCorte.Where(x => x.fecha == fecha).OrderByDescending(x => x.Total).ToList();
                 if (result != null && result.Count > 0)
                     return result;
             }
@@ -36,12 +36,28 @@ namespace Punto_de_Venta.Controlador
 
         public List<ViewCorte> ReporteVentasMes(DateTime fecha)
         {
+            List<ViewCorte> auxiliar = new List<ViewCorte>();
             List<ViewCorte> result = new List<ViewCorte>();
-            result = Context.ViewCorte.Where(x => x.fecha == fecha).OrderByDescending(x => x.Total).ToList();
-
-            // result = Context.ViewCorte.Where(x => x.fecha.Month == fecha.Month).OrderByDescending(x => x.Total).ToList();
+            result = Context.ViewCorte.Where(x => x.fecha.Month == fecha.Month).OrderByDescending(x => x.Total).ToList();
             if (result != null && result.Count > 0)
-                return result;
+            {
+                foreach(var x in result)
+                {
+
+                    if(auxiliar.Exists(y=>y.Nombre == x.Nombre))
+                    {
+                        auxiliar.FirstOrDefault(y => y.Nombre == x.Nombre).Cantidad += x.Cantidad;
+                        auxiliar.FirstOrDefault(y => y.Nombre == x.Nombre).Total += x.Total;
+                    }
+                    else
+                    {
+                        auxiliar.Add(x);
+                    }
+
+                }
+                return auxiliar.OrderByDescending(x=> x.Total).ToList();
+            }
+                
 
             return null;
         }

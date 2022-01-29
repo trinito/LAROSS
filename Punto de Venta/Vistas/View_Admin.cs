@@ -202,5 +202,13 @@ namespace Punto_de_Venta.Vistas
             form.ShowDialog();
             this.Show();
         }
+
+        private void ventasPorSemanaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            View_VentasMes form = new View_VentasMes();
+            form.ShowDialog();
+            this.Show();
+        }
     }
 }

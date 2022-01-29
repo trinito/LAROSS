@@ -70,8 +70,6 @@ namespace Punto_de_Venta.Vistas
             {
 
             }
-          
-
             return false;
         }
 
