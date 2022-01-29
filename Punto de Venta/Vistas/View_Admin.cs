@@ -60,6 +60,7 @@ namespace Punto_de_Venta.Vistas
                 txt_precio.Text = productoSelect.precio.ToString();
                 combo_medida.SelectedItem = productoSelect.medida;
                 combo_categoria.SelectedValue = productoSelect.id_categoria;
+                txt_id.Text = productoSelect.id_menu.ToString();
                 isEdit = true;
             }
         }
@@ -75,9 +76,22 @@ namespace Punto_de_Venta.Vistas
                 if (result == DialogResult.Yes)
                 {
                     Menu producto = (Menu)dgv_productos.CurrentRow.DataBoundItem;
-                    dgv_productos.DataSource = null;
-                    productos.Remove(producto);
-                    dgv_productos.DataSource = productos;
+                    ProductosController productosController = new ProductosController(new chinahousedbEntities());
+                    if (productosController.DeleteProducto(producto) > 0)
+                    {
+                        dgv_productos.DataSource = null;
+                        productos.Remove(producto);
+                        dgv_productos.DataSource = productos;
+                    }
+                    else
+                    {
+                        string message2 = "No se pudo eliminar el producto";
+                        string title2 = "Error";
+                        MessageBox.Show(message2, title2);
+
+                    }
+
+                  
                 }
             }
         }
@@ -92,16 +106,10 @@ namespace Punto_de_Venta.Vistas
             }
             else
             {
-                if(isEdit)
-                {
-
-                }
-                else
-                {
-
-                }
-
                 Menu menu = new Menu();
+                if(isEdit)
+                    menu.id_menu = Convert.ToInt32(txt_id.Text);
+
                 menu.codigo = txt_codigo.Text;
                 menu.nombre = txt_nombre.Text;
                 menu.precio = Convert.ToDecimal(txt_precio.Text);
@@ -109,19 +117,57 @@ namespace Punto_de_Venta.Vistas
                 menu.estatus = true;
                 menu.medida = combo_medida.Text;
                 menu.id_categoria = Convert.ToInt32(combo_categoria.SelectedValue);
-
-                productos.Add(menu);
-                dgv_productos.DataSource = null;
-                dgv_productos.DataSource = productos;
-
-               int row = dgv_productos.Rows.Count -1;
-                dgv_productos.Rows[row].Selected = true;
-                dgv_productos.Rows[row].Cells[0].Selected = true;
+                ProductosController productosController = new ProductosController(new chinahousedbEntities());
+                if (productos.Exists(x => x.codigo == menu.codigo))
+                {
+                    string message = "La clave del producto ya existe, favor de ingresar una clave diferente.";
+                    string title = "Mensaje";
+                    MessageBox.Show(message, title);
+                    return;
+                }
+                if (isEdit)
+                {
+                    int result = productosController.UpdateProducto(menu);
+                    if(result >0)
+                    {
+                        Menu producto = productos.FirstOrDefault(x => x.id_menu.Equals(menu.id_menu));
+                        producto.codigo = menu.codigo;
+                        producto.id_categoria = menu.id_categoria;
+                        producto.medida = menu.medida;
+                        producto.nombre = menu.nombre;
+                        producto.precio = menu.precio;
+                        dgv_productos.DataSource = null;
+                        dgv_productos.DataSource = productos;
+                    }
+                    else
+                    {
+                        string message = "No se pudo actualizar el producto.";
+                        string title = "ERROR";
+                        MessageBox.Show(message, title);
+                    }
+                }
+                else
+                {
+                    int result = productosController.InsertProducto(menu);
+                    if(result>0)
+                    {
+                        menu.id_menu = result;
+                        productos.Add(menu);
+                        dgv_productos.DataSource = null;
+                        dgv_productos.DataSource = productos;
+                        int row = dgv_productos.Rows.Count-1;
+                        dgv_productos.Rows[row].Selected = true;
+                        dgv_productos.Rows[row].Cells[0].Selected = true;
+                    }
+                    else
+                    {
+                        string message = "No se pudo agregar el nuevo producto.";
+                        string title = "ERROR";
+                        MessageBox.Show(message, title);
+                    }
+                }
                 Limpiar();
             }
-           
-
-
         }
 
         private void Limpiar()
@@ -129,6 +175,7 @@ namespace Punto_de_Venta.Vistas
             txt_codigo.Text = "";
             txt_nombre.Text = "";
             txt_precio.Text = "";
+            txt_id.Text = "";
             isEdit = false;
             txt_codigo.Focus();
         }
