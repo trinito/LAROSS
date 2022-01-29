@@ -60,6 +60,7 @@
           <Property Name="estatus" Type="bit" Nullable="false" />
           <Property Name="forma_pago" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="hora" Type="varchar" MaxLength="50" />
+          <Property Name="fecha_reportes" Type="date" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'chinahousedb.dbo.ViewCorte' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -195,6 +196,7 @@ advertencia 6002: La tabla o vista 'chinahousedb.dbo.ViewCorte' no tiene definid
           <Property Name="estatus" Type="Boolean" Nullable="false" />
           <Property Name="forma_pago" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="hora" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_reportes" Type="DateTime" Precision="0" />
         </EntityType>
         <Association Name="FK_Menu_Categoria">
           <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
@@ -258,8 +260,8 @@ advertencia 6002: La tabla o vista 'chinahousedb.dbo.ViewCorte' no tiene definid
             <PropertyRef Name="fecha" />
           </Key>
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Cantidad" Type="Int32" />
-          <Property Name="Total" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="Total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="fecha" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
@@ -317,6 +319,7 @@ advertencia 6002: La tabla o vista 'chinahousedb.dbo.ViewCorte' no tiene definid
           <EntitySetMapping Name="Venta">
             <EntityTypeMapping TypeName="AppDbContext.Venta">
               <MappingFragment StoreEntitySet="Venta">
+                <ScalarProperty Name="fecha_reportes" ColumnName="fecha_reportes" />
                 <ScalarProperty Name="id_venta" ColumnName="id_venta" />
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
                 <ScalarProperty Name="cantidad_productos" ColumnName="cantidad_productos" />

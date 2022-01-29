@@ -21,5 +21,6 @@ namespace Punto_de_Venta.Modelo
         public bool estatus { get; set; }
         public string forma_pago { get; set; }
         public string hora { get; set; }
+        public Nullable<System.DateTime> fecha_reportes { get; set; }
     }
 }

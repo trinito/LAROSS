@@ -26,7 +26,7 @@ namespace Punto_de_Venta.Vistas
         private void View_Corte_Load(object sender, EventArgs e)
         {
             dgv_productos.AutoGenerateColumns = false;
-            Venta(dtp_time.Value.ToString("dd/MM/yyyy"));
+            Venta(dtp_time.Value.ToString("yyyy-MM-dd"));
         }
 
         private void Venta(string fecha)
@@ -50,7 +50,7 @@ namespace Punto_de_Venta.Vistas
 
         private void dtp_time_CloseUp(object sender, EventArgs e)
         {
-            Venta(dtp_time.Value.ToString("dd/MM/yyyy"));
+            Venta(dtp_time.Value.ToString("yyyy-MM-dd"));
         }
 
 
