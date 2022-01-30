@@ -17,6 +17,7 @@ namespace Punto_de_Venta.Vistas
     {
         List<Menu> productos;
         bool isEdit = false;
+        private string codigo_aux = "";
         public View_Admin()
         {
             InitializeComponent();
@@ -56,6 +57,7 @@ namespace Punto_de_Venta.Vistas
                 Menu productoSelect = new Menu();
                 productoSelect = (Menu)dgv_productos.CurrentRow.DataBoundItem;
                 txt_codigo.Text = productoSelect.codigo;
+                codigo_aux = productoSelect.codigo;
                 txt_nombre.Text= productoSelect.nombre;
                 txt_precio.Text = productoSelect.precio.ToString();
                 combo_medida.SelectedItem = productoSelect.medida;
@@ -120,10 +122,13 @@ namespace Punto_de_Venta.Vistas
                 ProductosController productosController = new ProductosController(new chinahousedbEntities());
                 if (productos.Exists(x => x.codigo == menu.codigo))
                 {
-                    string message = "La clave del producto ya existe, favor de ingresar una clave diferente.";
-                    string title = "Mensaje";
-                    MessageBox.Show(message, title);
-                    return;
+                    if(menu.codigo != codigo_aux)
+                    {
+                        string message = "La clave del producto ya existe, favor de ingresar una clave diferente.";
+                        string title = "Mensaje";
+                        MessageBox.Show(message, title);
+                        return;
+                    }
                 }
                 if (isEdit)
                 {
@@ -177,6 +182,7 @@ namespace Punto_de_Venta.Vistas
             txt_precio.Text = "";
             txt_id.Text = "";
             isEdit = false;
+            codigo_aux = "";
             txt_codigo.Focus();
         }
 
