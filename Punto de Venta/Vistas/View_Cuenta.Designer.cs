@@ -132,6 +132,7 @@
             this.txt_usuario.TabIndex = 10;
             this.txt_usuario.Text = "USUARIO";
             this.txt_usuario.Enter += new System.EventHandler(this.txt_usuario_Enter);
+            this.txt_usuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_usuario_KeyPress);
             this.txt_usuario.Leave += new System.EventHandler(this.txt_usuario_Leave);
             // 
             // txt_contrasena

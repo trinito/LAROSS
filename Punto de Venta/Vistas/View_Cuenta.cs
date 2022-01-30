@@ -117,5 +117,13 @@ namespace Punto_de_Venta
             }
 
         }
+
+        private void txt_usuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                Iniciar();
+            }
+        }
     }
 }
