@@ -64,6 +64,11 @@ namespace Punto_de_Venta.Vistas
                 combo_categoria.SelectedValue = productoSelect.id_categoria;
                 txt_id.Text = productoSelect.id_menu.ToString();
                 isEdit = true;
+                btn_guardar.Text = "Actualizar";
+                dgv_productos.Enabled = false;
+                dgv_productos.EnableHeadersVisualStyles = false;
+                lbl_modificando.Visible = true;
+                btn_cancelar.Visible = true;
             }
         }
 
@@ -84,6 +89,7 @@ namespace Punto_de_Venta.Vistas
                         dgv_productos.DataSource = null;
                         productos.Remove(producto);
                         dgv_productos.DataSource = productos;
+                        Limpiar();
                     }
                     else
                     {
@@ -183,6 +189,13 @@ namespace Punto_de_Venta.Vistas
             txt_id.Text = "";
             isEdit = false;
             codigo_aux = "";
+            combo_medida.SelectedItem = null;
+            combo_categoria.SelectedIndex = 0;
+            btn_guardar.Text = "Guardar Nuevo Producto";
+            dgv_productos.Enabled = true;
+            dgv_productos.EnableHeadersVisualStyles = true;
+            lbl_modificando.Visible = false;
+            btn_cancelar.Visible = false;
             txt_codigo.Focus();
         }
 
@@ -215,6 +228,26 @@ namespace Punto_de_Venta.Vistas
             View_VentasMes form = new View_VentasMes();
             form.ShowDialog();
             this.Show();
+        }
+
+        private void btn_cancelar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void txt_producto_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txt_producto.Text))
+            {
+                dgv_productos.DataSource = null;
+                dgv_productos.DataSource = productos;
+
+            }
+            else
+            {
+                dgv_productos.DataSource = null;
+                dgv_productos.DataSource = productos.Where(x => x.nombre.Contains(txt_producto.Text.ToUpper())).ToList();
+            }
         }
     }
 }

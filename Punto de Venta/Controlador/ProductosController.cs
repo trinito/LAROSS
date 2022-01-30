@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using Menu = Punto_de_Venta.Modelo.Menu;
 
 namespace Punto_de_Venta.Controlador
 {
@@ -97,7 +99,13 @@ namespace Punto_de_Venta.Controlador
             }
             catch (Exception ex)
             {
-                throw new Exception("Error en la base de datos, no se pudo agregar el nuevo producto.");
+                if(ex.Message == "An error occurred while updating the entries. See the inner exception for details.")
+                {
+                    string message = "El producto con esa código ya estuvo registrado pero se dió de baja.";
+                    string title = "ERROR";
+                    MessageBox.Show(message, title);
+                }
+                return 0;
             }
         }
         public int DeleteProducto(Menu menu)
