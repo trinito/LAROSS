@@ -379,7 +379,7 @@ namespace Punto_de_Venta.Vistas
                     ticket.TextoIzquierda(" ");
                     ticket.CortaTicket();
                 
-                ticket.ImprimirTicket("ZJ-5890");
+                ticket.ImprimirTicket("POS58 Printer(2)");
                 //if (!isCopia)
                 //{
                 //    printDocument1.PrintPage -= Imprimir;
