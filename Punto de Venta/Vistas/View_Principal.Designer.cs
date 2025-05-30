@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(View_Principal));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -39,8 +38,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button_copia = new System.Windows.Forms.Button();
             this.button_cobrar = new System.Windows.Forms.Button();
@@ -78,37 +77,38 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(208)))), ((int)(((byte)(84)))));
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.pictureBox7);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pictureBox7);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1178, 50);
+            this.panel1.Size = new System.Drawing.Size(1178, 102);
             this.panel1.TabIndex = 0;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::Punto_de_Venta.Properties.Resources.china_logo;
-            this.pictureBox7.Location = new System.Drawing.Point(-1, -1);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(57, 50);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 6;
-            this.pictureBox7.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(208)))), ((int)(((byte)(84)))));
-            this.label1.Font = new System.Drawing.Font("Chiller", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Pristina", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(65, 8);
+            this.label1.Location = new System.Drawing.Point(116, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(176, 38);
-            this.label1.TabIndex = 4;
+            this.label1.Size = new System.Drawing.Size(344, 63);
+            this.label1.TabIndex = 7;
             this.label1.Text = "CHINA HOUSE";
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox7.Image = global::Punto_de_Venta.Properties.Resources.LOGOCHINAHOUSE;
+            this.pictureBox7.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(110, 100);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 6;
+            this.pictureBox7.TabStop = false;
             // 
             // panel2
             // 
@@ -119,17 +119,19 @@
             this.panel2.Controls.Add(this.button_buscar);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(930, 50);
+            this.panel2.Location = new System.Drawing.Point(930, 102);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(248, 584);
+            this.panel2.Size = new System.Drawing.Size(248, 532);
             this.panel2.TabIndex = 6;
             // 
             // button_copia
             // 
-            this.button_copia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(170)))), ((int)(((byte)(135)))));
-            this.button_copia.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_copia.BackColor = System.Drawing.Color.Black;
+            this.button_copia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_copia.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button_copia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_copia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.button_copia.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_copia.ForeColor = System.Drawing.Color.White;
             this.button_copia.Location = new System.Drawing.Point(55, 428);
             this.button_copia.Name = "button_copia";
             this.button_copia.Size = new System.Drawing.Size(137, 54);
@@ -141,11 +143,13 @@
             // 
             // button_cobrar
             // 
-            this.button_cobrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(208)))), ((int)(((byte)(84)))));
-            this.button_cobrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_cobrar.BackColor = System.Drawing.Color.Black;
+            this.button_cobrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_cobrar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button_cobrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_cobrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.button_cobrar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_cobrar.Image = ((System.Drawing.Image)(resources.GetObject("button_cobrar.Image")));
+            this.button_cobrar.ForeColor = System.Drawing.Color.White;
+            this.button_cobrar.Image = global::Punto_de_Venta.Properties.Resources.pagar2;
             this.button_cobrar.Location = new System.Drawing.Point(19, 349);
             this.button_cobrar.Name = "button_cobrar";
             this.button_cobrar.Size = new System.Drawing.Size(204, 54);
@@ -158,11 +162,13 @@
             // 
             // button_quitar
             // 
-            this.button_quitar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(107)))), ((int)(((byte)(93)))));
-            this.button_quitar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_quitar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(43)))), ((int)(((byte)(33)))));
+            this.button_quitar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_quitar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(53)))), ((int)(((byte)(46)))));
+            this.button_quitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_quitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.button_quitar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_quitar.Image = ((System.Drawing.Image)(resources.GetObject("button_quitar.Image")));
+            this.button_quitar.Image = global::Punto_de_Venta.Properties.Resources.cruz_quitar_signo;
             this.button_quitar.Location = new System.Drawing.Point(125, 261);
             this.button_quitar.Name = "button_quitar";
             this.button_quitar.Size = new System.Drawing.Size(118, 64);
@@ -175,11 +181,13 @@
             // 
             // button_buscar
             // 
-            this.button_buscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(208)))), ((int)(((byte)(84)))));
-            this.button_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_buscar.BackColor = System.Drawing.Color.Black;
+            this.button_buscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_buscar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_buscar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_buscar.Image = ((System.Drawing.Image)(resources.GetObject("button_buscar.Image")));
+            this.button_buscar.ForeColor = System.Drawing.Color.White;
+            this.button_buscar.Image = global::Punto_de_Venta.Properties.Resources.buscar21;
             this.button_buscar.Location = new System.Drawing.Point(8, 261);
             this.button_buscar.Name = "button_buscar";
             this.button_buscar.Size = new System.Drawing.Size(111, 64);
@@ -192,7 +200,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::Punto_de_Venta.Properties.Resources.LOGOCHINAHOUSE;
             this.pictureBox1.Location = new System.Drawing.Point(3, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(242, 226);
@@ -217,9 +225,9 @@
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.panel6);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 50);
+            this.panel4.Location = new System.Drawing.Point(0, 102);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(930, 516);
+            this.panel4.Size = new System.Drawing.Size(930, 464);
             this.panel4.TabIndex = 10;
             // 
             // panel7
@@ -229,7 +237,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(0, 100);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(930, 350);
+            this.panel7.Size = new System.Drawing.Size(930, 298);
             this.panel7.TabIndex = 15;
             // 
             // dgv_productos
@@ -243,7 +251,7 @@
             this.dgv_productos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -258,7 +266,7 @@
             this.Precio});
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.HotTrack;
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -271,26 +279,26 @@
             this.dgv_productos.ReadOnly = true;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_productos.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgv_productos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_productos.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgv_productos.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_productos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_productos.Size = new System.Drawing.Size(930, 350);
+            this.dgv_productos.Size = new System.Drawing.Size(930, 298);
             this.dgv_productos.TabIndex = 2;
             // 
             // Código
             // 
             this.Código.DataPropertyName = "codigo";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Código.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Código.FillWeight = 50F;
+            this.Código.FillWeight = 45F;
             this.Código.HeaderText = "Código";
             this.Código.Name = "Código";
             this.Código.ReadOnly = true;
@@ -298,9 +306,9 @@
             // Nombre
             // 
             this.Nombre.DataPropertyName = "nombre";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Nombre.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Nombre.FillWeight = 150F;
+            this.Nombre.FillWeight = 160F;
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
             this.Nombre.ReadOnly = true;
@@ -308,8 +316,9 @@
             // Medida
             // 
             this.Medida.DataPropertyName = "medida";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Medida.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Medida.FillWeight = 50F;
             this.Medida.HeaderText = "Medida";
             this.Medida.Name = "Medida";
             this.Medida.ReadOnly = true;
@@ -317,7 +326,7 @@
             // Cantidad
             // 
             this.Cantidad.DataPropertyName = "cantidad";
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cantidad.DefaultCellStyle = dataGridViewCellStyle5;
             this.Cantidad.FillWeight = 50F;
             this.Cantidad.HeaderText = "Cantidad";
@@ -327,7 +336,7 @@
             // Precio
             // 
             this.Precio.DataPropertyName = "precio";
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.Format = "C2";
             dataGridViewCellStyle6.NullValue = null;
             this.Precio.DefaultCellStyle = dataGridViewCellStyle6;
@@ -350,33 +359,33 @@
             // txt_producto
             // 
             this.txt_producto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_producto.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_producto.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_producto.Location = new System.Drawing.Point(9, 44);
             this.txt_producto.Name = "txt_producto";
-            this.txt_producto.Size = new System.Drawing.Size(905, 31);
+            this.txt_producto.Size = new System.Drawing.Size(905, 30);
             this.txt_producto.TabIndex = 1;
             this.txt_producto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_producto_KeyPress);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(13, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(313, 28);
+            this.label3.Size = new System.Drawing.Size(315, 29);
             this.label3.TabIndex = 13;
             this.label3.Text = "Ingresa código del menú:";
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(208)))), ((int)(((byte)(84)))));
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(43)))), ((int)(((byte)(33)))));
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.lbl_por_pagar);
             this.panel6.Controls.Add(this.label4);
             this.panel6.Controls.Add(this.lbl_cambio);
             this.panel6.Controls.Add(this.label2);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(0, 450);
+            this.panel6.Location = new System.Drawing.Point(0, 398);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(930, 66);
             this.panel6.TabIndex = 1;
@@ -460,7 +469,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
@@ -481,6 +489,7 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.Button button_copia;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Código;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Medida;

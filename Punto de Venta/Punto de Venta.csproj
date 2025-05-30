@@ -62,6 +62,12 @@
     <Compile Include="Controlador\UsuarioController.cs" />
     <Compile Include="Controlador\VentaController.cs" />
     <Compile Include="Controlador\VistasController.cs" />
+    <Compile Include="Controles\LoadingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\LoadingControl.Designer.cs">
+      <DependentUpon>LoadingControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Categoria.cs">
       <DependentUpon>ModeloBD.tt</DependentUpon>
     </Compile>
@@ -158,6 +164,9 @@
     <Compile Include="Vistas\View_Reportes.Designer.cs">
       <DependentUpon>View_Reportes.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Controles\LoadingControl.resx">
+      <DependentUpon>LoadingControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -233,6 +242,19 @@
       <DependentUpon>ModeloBD.edmx</DependentUpon>
       <LastGenOutput>ModeloBD.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Spinner-3.gif" />
+    <None Include="Resources\loading.gif" />
+    <None Include="Resources\loading.gif.bmp" />
+    <None Include="Resources\pagar2.png" />
+    <None Include="Resources\cobrar2.png" />
+    <None Include="Resources\buscar2.png" />
+    <None Include="Resources\disquete.png" />
+    <None Include="Resources\LOGOCHINAHOUSE.png" />
+    <None Include="Resources\cerrar2.png" />
+    <None Include="Resources\editar.png" />
+    <None Include="Resources\editar2.png" />
+    <None Include="Resources\disquete2.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,17 +9,26 @@ namespace Punto_de_Venta.Controlador
 {
     public class UsuarioController
     {
-
-        private readonly chinahousedbEntities Context;
-
-        public UsuarioController(chinahousedbEntities context)
-        {
-            Context = context;  
-        }
-
         public string Login(Usuarios user)
         {
-            return Context.Usuarios.FirstOrDefault(x => x.nombre == user.nombre && x.contra == user.contra)?.tipo;
+            using (var context = new chinahousedbEntities())
+            {
+                return context.Usuarios.FirstOrDefault(x => x.nombre == user.nombre && x.contra == user.contra)?.tipo;
+
+            }
         }
+
+        public async Task<string> LoginAsync(Usuarios user)
+        {
+            return await Task.Run(() =>
+            {
+                using (var context = new chinahousedbEntities())
+                {
+                    return context.Usuarios
+                        .FirstOrDefault(x => x.nombre == user.nombre && x.contra == user.contra)?.tipo;
+                }
+            });
+        }
+
     }
 }

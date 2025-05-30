@@ -1,4 +1,5 @@
 ﻿using Punto_de_Venta.Controlador;
+using Punto_de_Venta.Controles;
 using Punto_de_Venta.Modelo;
 using Punto_de_Venta.Vistas;
 using System;
@@ -15,9 +16,13 @@ namespace Punto_de_Venta
 {
     public partial class form_cuenta : Form
     {
+        private LoadingControl loadingOverlay;
         public form_cuenta()
         {
             InitializeComponent();
+            loadingOverlay = new LoadingControl();
+            this.Controls.Add(loadingOverlay);
+            loadingOverlay.BringToFront();
         }
 
 
@@ -71,20 +76,21 @@ namespace Punto_de_Venta
                 txt_contrasena.UseSystemPasswordChar = true;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
-            Iniciar();
+            await Iniciar();
         }
 
-        private void txt_contrasena_KeyPress(object sender, KeyPressEventArgs e)
+        private async void txt_contrasena_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
             {
-                Iniciar();
+                await Iniciar();
             }
         }
 
-        private void Iniciar()
+        private async Task Iniciar()
+
         {
             if (txt_usuario.Text.Contains("USUARIO") || txt_contrasena.Text.Contains("CONTRASEÑA"))
                 return;
@@ -95,13 +101,17 @@ namespace Punto_de_Venta
             }
             else
             {
-                Usuarios user = new Usuarios() { contra = txt_contrasena.Text, nombre = txt_usuario.Text };
-                UsuarioController usuarioController = new UsuarioController(new chinahousedbEntities());
-                string result = usuarioController.Login(user);
+                try
+                {
+                    loadingOverlay.ShowOverlay();
+                    Usuarios user = new Usuarios() { contra = txt_contrasena.Text, nombre = txt_usuario.Text };
+                UsuarioController usuarioController = new UsuarioController();
+                string result = await usuarioController.LoginAsync(user);
 
                 if (string.IsNullOrEmpty(result))
                 {
-                    MessageBox.Show("USUARIO INCORRECTO", "MENSAJE", MessageBoxButtons.OK);
+                        loadingOverlay.HideOverlay();
+                        MessageBox.Show("USUARIO INCORRECTO", "MENSAJE", MessageBoxButtons.OK);
                 }
                 else
                 {
@@ -114,15 +124,22 @@ namespace Punto_de_Venta
                     form.ShowDialog();
                     this.Show();
                 }
+
+                }
+                finally
+                {
+                    // Ocultar overlay
+                     loadingOverlay.HideOverlay();
+                }
             }
 
         }
 
-        private void txt_usuario_KeyPress(object sender, KeyPressEventArgs e)
+        private async void txt_usuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
             {
-                Iniciar();
+                await Iniciar();
             }
         }
     }

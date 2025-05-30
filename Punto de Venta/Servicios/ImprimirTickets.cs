@@ -488,9 +488,20 @@ namespace Punto_de_Venta.Servicios
             pBytes = Marshal.StringToCoTaskMemAnsi(szString);
             // Send the converted ANSI string to the printer.
             SendBytesToPrinter(szPrinterName, pBytes, dwCount);
+            AbrirCajon(szPrinterName);
             Marshal.FreeCoTaskMem(pBytes);
             return true;
         }
-    
-}
+
+        public static void AbrirCajon(string printerName)
+        {
+            byte[] openDrawerCmd = new byte[] { 27, 112, 0, 25, 250 };
+            IntPtr pUnmanagedBytes = Marshal.AllocCoTaskMem(openDrawerCmd.Length);
+            Marshal.Copy(openDrawerCmd, 0, pUnmanagedBytes, openDrawerCmd.Length);
+            SendBytesToPrinter(printerName, pUnmanagedBytes, openDrawerCmd.Length);
+            Marshal.FreeCoTaskMem(pUnmanagedBytes);
+        }
+
+
+    }
 }

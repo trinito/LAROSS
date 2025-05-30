@@ -3,21 +3,16 @@ using Punto_de_Venta.Modelo;
 using Punto_de_Venta.Servicios;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Punto_de_Venta.Vistas
 {
     public partial class View_Corte : Form
     {
-        private bool isImprimir = false;
+        private bool canPrint = false;
+
         public View_Corte()
         {
             InitializeComponent();
@@ -26,113 +21,113 @@ namespace Punto_de_Venta.Vistas
         private void View_Corte_Load(object sender, EventArgs e)
         {
             dgv_productos.AutoGenerateColumns = false;
-            Venta(dtp_time.Value.Date);
+            LoadVentasForDate(dtp_time.Value.Date);
         }
 
-        private void Venta(DateTime fecha)
+        private void LoadVentasForDate(DateTime fecha)
         {
-            if(Productos(fecha))
+            if (LoadProductos(fecha))
             {
-                TotalDia(fecha);
+                LoadTotalesDelDia(fecha);
             }
             else
             {
-                string message = "No se encontraron ventas de ese día, favor de ingresar otra fecha...";
-                string title = "¡Mensaje!";
-                MessageBox.Show(message, title);
+                MessageBox.Show("No se encontraron ventas de ese día, favor de ingresar otra fecha...", "¡Mensaje!");
                 dgv_productos.DataSource = null;
-                lbl_efectivo.Text = "$0";
-                lbl_tarjeta.Text = "$0";
-                lbl_total.Text = "$0";
-                isImprimir = false;
+                lbl_efectivo.Text = lbl_tarjeta.Text = lbl_total.Text = "$0.00";
+                canPrint = false;
             }
         }
 
         private void dtp_time_CloseUp(object sender, EventArgs e)
         {
-            Venta(dtp_time.Value.Date);
+            LoadVentasForDate(dtp_time.Value.Date);
         }
 
-
-        private bool Productos(DateTime fecha)
+        private bool LoadProductos(DateTime fecha)
         {
             try
             {
-                VistasController vistasController = new VistasController(new Modelo.chinahousedbEntities());
-                List<ViewCorte> result = vistasController.CorteProductos(fecha);
-                if (result != null)
+                var vistasController = new VistasController();
+                var resultado = vistasController.CorteProductos(fecha);
+                if (resultado?.Any() == true)
                 {
-                    dgv_productos.DataSource = result;
+                    dgv_productos.DataSource = resultado;
                     return true;
                 }
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show($"Error al cargar productos: {ex.Message}", "Error");
             }
             return false;
         }
 
-        private void TotalDia(DateTime fecha)
+        private void LoadTotalesDelDia(DateTime fecha)
         {
             try
             {
-                VentaController ventaController = new VentaController(new chinahousedbEntities());
-                decimal[] resul = ventaController.TotalesCorte(fecha);
-                lbl_efectivo.Text = resul[0].ToString("C", CultureInfo.CurrentCulture);
-                lbl_tarjeta.Text = resul[1].ToString("C", CultureInfo.CurrentCulture);
-                lbl_total.Text = resul[2].ToString("C", CultureInfo.CurrentCulture);
-                isImprimir = true;
+                var ventaController = new VentaController();
+                decimal[] totales = ventaController.TotalesCorte(fecha);
+
+                lbl_efectivo.Text = totales[0].ToString("C", CultureInfo.CurrentCulture);
+                lbl_tarjeta.Text = totales[1].ToString("C", CultureInfo.CurrentCulture);
+                lbl_total.Text = totales[2].ToString("C", CultureInfo.CurrentCulture);
+
+                canPrint = true;
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show($"Error al cargar totales del día: {ex.Message}", "Error");
+                canPrint = false;
             }
-          
         }
 
         private void button_imprimir_Click(object sender, EventArgs e)
         {
-            if (!isImprimir)
+            if (!canPrint)
                 return;
 
-            List<ViewCorte> result;
-            ImprimirTickets ticket = new ImprimirTickets();
+            if (!(dgv_productos.DataSource is List<ViewCorte> productos))
+                return;
+
             try
             {
-                if (dgv_productos.DataSource != null)
-                    result = (List<ViewCorte>)dgv_productos.DataSource;
-                else
-                    return;
-                string efectivo = lbl_efectivo.Text;
-                efectivo = efectivo.Replace("$", string.Empty);
-                string tarjeta = lbl_tarjeta.Text;
-                tarjeta = tarjeta.Replace("$", string.Empty);
-                string total = lbl_total.Text;
-                total = total.Replace("$", string.Empty);
-                ticket.TextoCentro("VENTAS DEL DIA");
+                var ticket = new ImprimirTickets();
+
+                ticket.TextoCentro("VENTAS DEL DÍA");
                 ticket.TextoExtremos(DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("hh:mm tt"));
                 ticket.TextoIzquierda(" ");
                 ticket.EncabezadoCorte();
                 ticket.lineasGuio();
-                foreach (var x in result)
+
+                foreach (var item in productos)
                 {
-                    ticket.AgregaArticulo2(x.Nombre, x.Cantidad, x.Total);
+                    ticket.AgregaArticulo2(item.Nombre, item.Cantidad, item.Total);
                 }
+
                 ticket.lineasGuio();
-                ticket.AgregarTotales("            EFECTIVO:  ", Convert.ToDecimal(efectivo));
-                ticket.AgregarTotales("             TARJETA:  ", Convert.ToDecimal(tarjeta));
-                ticket.AgregarTotales("         TOTAL VENTA: ", Convert.ToDecimal(total));
+
+                // Parseando los valores eliminando símbolos y respetando la cultura
+                decimal efectivo = Decimal.Parse(lbl_efectivo.Text, NumberStyles.Currency, CultureInfo.CurrentCulture);
+                decimal tarjeta = Decimal.Parse(lbl_tarjeta.Text, NumberStyles.Currency, CultureInfo.CurrentCulture);
+                decimal total = Decimal.Parse(lbl_total.Text, NumberStyles.Currency, CultureInfo.CurrentCulture);
+
+                ticket.AgregarTotales("            EFECTIVO:  ", efectivo);
+                ticket.AgregarTotales("             TARJETA:  ", tarjeta);
+                ticket.AgregarTotales("         TOTAL VENTA: ", total);
+
                 ticket.TextoIzquierda(" ");
                 ticket.TextoIzquierda(" ");
                 ticket.TextoIzquierda(" ");
                 ticket.CortaTicket();
-                ticket.ImprimirTicket("ZJ-5890");
-                isImprimir = false;
+                ticket.ImprimirTicket("ZJ-58");
+
+                canPrint = false;
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show($"Error al imprimir el ticket: {ex.Message}", "Error");
             }
         }
     }

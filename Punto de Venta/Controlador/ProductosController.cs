@@ -1,132 +1,120 @@
 ﻿using Punto_de_Venta.Modelo;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using Menu = Punto_de_Venta.Modelo.Menu;
 
 namespace Punto_de_Venta.Controlador
 {
     public class ProductosController
     {
-        private readonly chinahousedbEntities Context;
-
-        public ProductosController(chinahousedbEntities context)
-        {
-            Context = context;
-        }
-
-        public IEnumerable<Menu> GetProductos()
+        public async Task<IEnumerable<Menu>> GetProductosAsync()
         {
             try
             {
-                List<Menu> menu = Context.Menu.Where(t => t.estatus == true).ToList();
-                if (menu != null)
+                using (var context = new chinahousedbEntities())
                 {
-                    foreach (var x in menu)
-                    {
-                        decimal decimal_aux = x.precio;
-                        x.precio = Math.Round(decimal_aux, 2);
-                    }
+                    var productos = await context.Menu
+                        .Where(p => p.estatus)
+                        .ToListAsync();
+
+                    productos.ForEach(p => p.precio = Math.Round(p.precio, 2));
+                    return productos;
                 }
-                return menu;
             }
             catch (Exception ex)
             {
-                throw new Exception("Error en la base de datos, no se pudo obtener el producto.");
+                throw new Exception("Error al obtener productos: " + ex.Message, ex);
             }
-
-          
         }
 
         public Menu GetProducto(string codigo)
         {
             try
             {
-                Menu menu = Context.Menu.Where(x => x.estatus == true && x.codigo == codigo).FirstOrDefault();
-                if (menu != null)
+                using (var context = new chinahousedbEntities())
                 {
-                    decimal decimal_aux = menu.precio;
-                    menu.precio = Math.Round(decimal_aux, 2);
+                    var producto = context.Menu.FirstOrDefault(p => p.estatus && p.codigo == codigo);
+
+                    if (producto != null)
+                        producto.precio = Math.Round(producto.precio, 2);
+
+                    return producto;
                 }
-
-                return menu;
-
             }
             catch (Exception ex)
             {
-                throw new Exception("Error en la base de datos, no se pudieron obtener los productos.");
+                throw new Exception("Error al obtener el producto: " + ex.Message, ex);
             }
-         
-                
         }
 
-        public int UpdateProducto(Menu menu)
+        public bool UpdateProducto(Menu producto)
         {
             try
             {
-                Menu result = Context.Menu.SingleOrDefault(x => x.id_menu == menu.id_menu);
-                result.codigo = menu.codigo;
-                result.id_categoria = menu.id_categoria;
-                result.medida = menu.medida;
-                result.nombre = menu.nombre;
-                result.precio = menu.precio;
-                Context.Entry(result).State = System.Data.Entity.EntityState.Modified;
-
-                if (Context.SaveChanges() > 0)
-                    return 1;
-
-                return 0;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error en la base de datos, no se pudo actualizar el producto.");
-            }
-      
-        }
-
-        public int InsertProducto(Menu menu)
-        {
-            try
-            {
-                Context.Menu.Add(menu);
-                if (Context.SaveChanges() > 0)
-                    return menu.id_menu;
-
-                return 0;
-            }
-            catch (Exception ex)
-            {
-                if(ex.Message == "An error occurred while updating the entries. See the inner exception for details.")
+                using (var context = new chinahousedbEntities())
                 {
-                    string message = "El producto con esa código ya estuvo registrado pero se dió de baja.";
-                    string title = "ERROR";
-                    MessageBox.Show(message, title);
-                }
-                return 0;
-            }
-        }
-        public int DeleteProducto(Menu menu)
-        {
-            try
-            {
-                Menu result = Context.Menu.SingleOrDefault(x => x.codigo == menu.codigo);
-                result.estatus = false;
-                Context.Entry(result).State = System.Data.Entity.EntityState.Modified;
-                if (Context.SaveChanges() > 0)
-                    return 1;
+                    var existente = context.Menu.SingleOrDefault(p => p.id_menu == producto.id_menu);
 
-                return 0;
+                    if (existente == null) return false;
+
+                    existente.codigo = producto.codigo;
+                    existente.id_categoria = producto.id_categoria;
+                    existente.medida = producto.medida;
+                    existente.nombre = producto.nombre;
+                    existente.precio = producto.precio;
+
+                    context.Entry(existente).State = System.Data.Entity.EntityState.Modified;
+                    return context.SaveChanges() > 0;
+                }
             }
             catch (Exception ex)
             {
-                throw new Exception("Error en la base de datos, no se pudo eliminar el producto.");
+                throw new Exception("Error al actualizar el producto: " + ex.Message, ex);
             }
-
-         
         }
 
+        public int InsertProducto(Menu producto)
+        {
+            try
+            {
+                using (var context = new chinahousedbEntities())
+                {
+                    context.Menu.Add(producto);
+                    context.SaveChanges();
+                    return producto.id_menu;
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("updating the entries"))
+                {
+                    throw new InvalidOperationException("El producto con ese código ya estuvo registrado pero se dio de baja.", ex);
+                }
+                throw new Exception("Error al insertar producto: " + ex.Message, ex);
+            }
+        }
+
+        public bool DeleteProducto(string codigo)
+        {
+            try
+            {
+                using (var context = new chinahousedbEntities())
+                {
+                    var producto = context.Menu.SingleOrDefault(p => p.codigo == codigo);
+
+                    if (producto == null) return false;
+
+                    producto.estatus = false;
+                    context.Entry(producto).State = System.Data.Entity.EntityState.Modified;
+                    return context.SaveChanges() > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar el producto: " + ex.Message, ex);
+            }
+        }
     }
 }

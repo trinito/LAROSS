@@ -2,96 +2,97 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Punto_de_Venta.Controlador
 {
     public class VentaController
     {
-        private readonly chinahousedbEntities Context;
-
-        public VentaController(chinahousedbEntities context)
-        {
-            Context = context;
-        }
-
         public int CrearVenta(DateTime fecha, string hora, int cantidad_productos, decimal total, bool estatus, string forma_pago)
         {
-            int result = 0;
             try
             {
-                Venta venta = new Venta { fecha = fecha, hora = hora, cantidad_productos = cantidad_productos, total = total, estatus = estatus, forma_pago = forma_pago };
-                Context.Venta.Add(venta);
-                int x = Context.SaveChanges();
-                if (x > 0)
+                using (var context = new chinahousedbEntities())
                 {
-                    result = venta.id_venta;
+                    Venta venta = new Venta
+                    {
+                        fecha = fecha,
+                        hora = hora,
+                        cantidad_productos = cantidad_productos,
+                        total = total,
+                        estatus = estatus,
+                        forma_pago = forma_pago
+                    };
+
+                    context.Venta.Add(venta);
+                    int x = context.SaveChanges();
+
+                    return x > 0 ? venta.id_venta : 0;
                 }
-                else
-                    return result;
             }
-            catch (Exception ex)
+            catch
             {
                 throw new Exception("Error en la base de datos, no se pudo registrar la venta.");
             }
-
-            return result;
         }
 
         public decimal[] TotalesCorte(DateTime fecha)
         {
-            decimal [] result = new decimal[3];
-            result[0] = 0;
-            result[1] = 0;
             try
             {
-                if (Context.Venta.Any(x=> x.fecha== fecha && x.forma_pago == "EFECTIVO"))
-                    result[0] = Context.Venta.Where(x => x.fecha == fecha && x.forma_pago == "EFECTIVO").Sum(x => x.total);
+                using (var context = new chinahousedbEntities())
+                {
+                    decimal efectivo = context.Venta
+                        .Where(x => x.fecha == fecha && x.forma_pago == "EFECTIVO")
+                        .Sum(x => (decimal?)x.total) ?? 0;
 
-                if (Context.Venta.Any(x => x.fecha == fecha && x.forma_pago == "TARJETA"))
-                    result[1] = Context.Venta.Where(x => x.fecha == fecha && x.forma_pago == "TARJETA").Sum(x => x.total);
-                result[2] = result[0] + result[1];
+                    decimal tarjeta = context.Venta
+                        .Where(x => x.fecha == fecha && x.forma_pago == "TARJETA")
+                        .Sum(x => (decimal?)x.total) ?? 0;
 
-                return result;
+                    return new decimal[] { efectivo, tarjeta, efectivo + tarjeta };
+                }
             }
-            catch(Exception e)
+            catch
             {
-                
+                return null;
             }
-            return null;
         }
 
         public decimal[] TotalesMes(DateTime fecha)
         {
-            decimal[] result = new decimal[3];
-            result[0] = 0;
-            result[1] = 0;
             try
             {
-                if (Context.Venta.Any(x => x.fecha.Month == fecha.Month && x.forma_pago == "EFECTIVO"))
-                    result[0] = Context.Venta.Where(x => x.fecha.Month == fecha.Month && x.forma_pago == "EFECTIVO").Sum(x => x.total);
+                using (var context = new chinahousedbEntities())
+                {
+                    int mes = fecha.Month;
 
-                if (Context.Venta.Any(x => x.fecha.Month == fecha.Month && x.forma_pago == "TARJETA"))
-                    result[1] = Context.Venta.Where(x => x.fecha.Month == fecha.Month && x.forma_pago == "TARJETA").Sum(x => x.total);
-                result[2] = result[0] + result[1];
+                    decimal efectivo = context.Venta
+                        .Where(x => x.fecha.Month == mes && x.forma_pago == "EFECTIVO")
+                        .Sum(x => (decimal?)x.total) ?? 0;
 
-                return result;
+                    decimal tarjeta = context.Venta
+                        .Where(x => x.fecha.Month == mes && x.forma_pago == "TARJETA")
+                        .Sum(x => (decimal?)x.total) ?? 0;
+
+                    return new decimal[] { efectivo, tarjeta, efectivo + tarjeta };
+                }
             }
-            catch (Exception e)
+            catch
             {
-
+                return null;
             }
-            return null;
         }
 
         public int NumTicket()
         {
             try
             {
-                return Context.Venta.Max(x => x.id_venta);
+                using (var context = new chinahousedbEntities())
+                {
+                    return context.Venta.Any() ? context.Venta.Max(x => x.id_venta) : 0;
+                }
             }
-            catch(Exception ex)
+            catch
             {
                 return 0;
             }

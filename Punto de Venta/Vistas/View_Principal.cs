@@ -130,14 +130,14 @@ namespace Punto_de_Venta.Vistas
    
         void AbrirBuscar()
         {
-            View_Buscar form = new View_Buscar();
-            form.ShowDialog();
-
-            if(form.productoSelect != null)
+            using (var form = new View_Buscar())
             {
-               Busqueda(form.productoSelect.codigo, 1);
+                form.ShowDialog();
+                if (form.productoSelect != null)
+                {
+                    Busqueda(form.productoSelect.codigo, 1);
+                }
             }
-            form.Dispose();
         }
 
         private void EliminarProducto()
@@ -259,7 +259,7 @@ namespace Punto_de_Venta.Vistas
 
         private ProductoCaja GetProducto(string codigo)
         {
-            ProductosController productosController = new ProductosController(new chinahousedbEntities());
+            ProductosController productosController = new ProductosController();
             Menu producto = productosController.GetProducto(codigo);
             if(producto == null)
             {
@@ -282,38 +282,33 @@ namespace Punto_de_Venta.Vistas
 
         private void GuardarVenta(decimal total, decimal pago, decimal cambio, string forma_pago)
         {
-            //aqui guardamos en la BD
             int cantidad_productos = productos.Sum(x => x.cantidad);
-            VentaController venta = new VentaController(new chinahousedbEntities());
-            int result = venta.CrearVenta(DateTime.Now, DateTime.Now.ToString("hh:mm tt"), cantidad_productos, total, true, forma_pago);
-            if(result == 0)
+
+            // Crear venta
+            VentaController venta = new VentaController();
+            int idVenta = venta.CrearVenta(DateTime.Now, DateTime.Now.ToString("hh:mm tt"), cantidad_productos, total, true, forma_pago);
+
+            if (idVenta == 0)
             {
-                string message = "Error en la base de datos, no se pudo registrar la venta...";
-                string title = "¡Alerta!";
-                MessageBox.Show(message, title);
+                MessageBox.Show("Error en la base de datos, no se pudo registrar la venta...", "¡Alerta!");
+                return;
+            }
+
+            // Crear detalle de venta
+            DetalleVentaController detalleVenta = new DetalleVentaController();
+            if (detalleVenta.CrearDetalleVenta(idVenta, productos))
+            {
+                total_copia = total;
+                pago_copia = pago;
+                cambio_copia = cambio;
+                forma_pago_copia = forma_pago;
+                productos_copia = productos;
+                ImprimirTicket(total, pago, cambio, forma_pago);
             }
             else
             {
-                DetalleVentaController detalleVenta = new DetalleVentaController(new chinahousedbEntities());
-                bool resultado = detalleVenta.CrearDetalleVenta(result, productos);
-                if(resultado)
-                {
-                    total_copia = total;
-                    pago_copia = pago;
-                    cambio_copia = cambio;
-                    forma_pago_copia = forma_pago;
-                    productos_copia = productos;
-                    ImprimirTicket(total, pago, cambio, forma_pago);
-                }
-                else
-                {
-                    string message = "Error en la base de datos, no se pudo registrar el detalle de venta...";
-                    string title = "¡Alerta!";
-                    MessageBox.Show(message, title);
-                }
+                MessageBox.Show("Error en la base de datos, no se pudo registrar el detalle de venta...", "¡Alerta!");
             }
-
-            
         }
 
         private void ImprimirTicket(decimal total, decimal pago, decimal cambio, string forma_pago, bool isCopia = false)
@@ -337,7 +332,7 @@ namespace Punto_de_Venta.Vistas
                 ticket.TextoCentro("BLVD. PEDRO ANAYA 1186 FRACC. SANTA TERESA");
                 ticket.TextoCentro("LOS MOCHIS, SINALOA");
                 ticket.TextoIzquierda(" ");
-                VentaController controler = new VentaController(new chinahousedbEntities());
+                VentaController controler = new VentaController();
                 int ticke = controler.NumTicket();
                 if(ticke > 0)
                 {
@@ -379,7 +374,7 @@ namespace Punto_de_Venta.Vistas
                     ticket.TextoIzquierda(" ");
                     ticket.CortaTicket();
                 
-                ticket.ImprimirTicket("POS58 Printer(2)");
+                ticket.ImprimirTicket("ZJ-58");
                 //if (!isCopia)
                 //{
                 //    printDocument1.PrintPage -= Imprimir;
@@ -388,15 +383,15 @@ namespace Punto_de_Venta.Vistas
                 //}
                 LimpiarTodo(cambio);
             }
-            catch (Exception eeee) { }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al imprimir el ticket: {ex.Message}");
+            }
 
         }
 
         private void Imprimir(object sender, PrintPageEventArgs e)
         {
-            int width = 195;
-            int y = 20;
-
             Font font = new Font("Algerian", 15, FontStyle.Regular, GraphicsUnit.Point);
             StringFormat drawFormat = new StringFormat();
             drawFormat.Alignment = StringAlignment.Center;
