@@ -11,7 +11,7 @@ namespace Punto_de_Venta.Controlador
         {
             try
             {
-                using (var context = new chinahousedbEntities())
+                using (var context = new la_ross_dbEntities())
                 {
                     Venta venta = new Venta
                     {
@@ -39,7 +39,7 @@ namespace Punto_de_Venta.Controlador
         {
             try
             {
-                using (var context = new chinahousedbEntities())
+                using (var context = new la_ross_dbEntities())
                 {
                     decimal efectivo = context.Venta
                         .Where(x => x.fecha == fecha && x.forma_pago == "EFECTIVO")
@@ -62,7 +62,7 @@ namespace Punto_de_Venta.Controlador
         {
             try
             {
-                using (var context = new chinahousedbEntities())
+                using (var context = new la_ross_dbEntities())
                 {
                     int mes = fecha.Month;
 
@@ -87,7 +87,7 @@ namespace Punto_de_Venta.Controlador
         {
             try
             {
-                using (var context = new chinahousedbEntities())
+                using (var context = new la_ross_dbEntities())
                 {
                     return context.Venta.Any() ? context.Venta.Max(x => x.id_venta) : 0;
                 }

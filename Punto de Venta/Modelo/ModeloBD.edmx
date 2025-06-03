@@ -232,7 +232,7 @@ advertencia 6002: La tabla o vista 'chinahousedb.dbo.ViewCorte' no tiene definid
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="chinahousedbEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="la_ross_dbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categoria" EntityType="Self.Categoria" />
           <EntitySet Name="DetalleVenta" EntityType="Self.DetalleVenta" />
           <EntitySet Name="Menu" EntityType="Self.Menu" />
@@ -267,7 +267,7 @@ advertencia 6002: La tabla o vista 'chinahousedb.dbo.ViewCorte' no tiene definid
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AppDbContextStoreContainer" CdmEntityContainer="chinahousedbEntities">
+        <EntityContainerMapping StorageEntityContainer="AppDbContextStoreContainer" CdmEntityContainer="la_ross_dbEntities">
           <EntitySetMapping Name="Categoria">
             <EntityTypeMapping TypeName="AppDbContext.Categoria">
               <MappingFragment StoreEntitySet="Categoria">

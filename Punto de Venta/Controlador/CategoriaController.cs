@@ -9,7 +9,7 @@ namespace Punto_de_Venta.Controlador
     {
         public IEnumerable<Categoria> GetCategorias()
         {
-            using (var context = new chinahousedbEntities())
+            using (var context = new la_ross_dbEntities())
             {
                 return context.Categoria
                               .Where(t => t.estatus == true)

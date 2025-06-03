@@ -11,7 +11,7 @@ namespace Punto_de_Venta.Controlador
     {
         public string Login(Usuarios user)
         {
-            using (var context = new chinahousedbEntities())
+            using (var context = new la_ross_dbEntities())
             {
                 return context.Usuarios.FirstOrDefault(x => x.nombre == user.nombre && x.contra == user.contra)?.tipo;
 
@@ -22,7 +22,7 @@ namespace Punto_de_Venta.Controlador
         {
             return await Task.Run(() =>
             {
-                using (var context = new chinahousedbEntities())
+                using (var context = new la_ross_dbEntities())
                 {
                     return context.Usuarios
                         .FirstOrDefault(x => x.nombre == user.nombre && x.contra == user.contra)?.tipo;

@@ -242,6 +242,7 @@
       <DependentUpon>ModeloBD.edmx</DependentUpon>
       <LastGenOutput>ModeloBD.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\281850184_119981597370118_8427633085628640968_n.jpg" />
     <None Include="Resources\Spinner-3.gif" />
     <None Include="Resources\loading.gif" />
     <None Include="Resources\loading.gif.bmp" />

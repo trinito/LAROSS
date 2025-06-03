@@ -11,7 +11,7 @@ namespace Punto_de_Venta.Controlador
         {
             try
             {
-                using (var context = new chinahousedbEntities())
+                using (var context = new la_ross_dbEntities())
                 {
                     var result = context.ViewCorte
                         .Where(x => x.fecha == fecha)
@@ -31,7 +31,7 @@ namespace Punto_de_Venta.Controlador
         {
             try
             {
-                using (var context = new chinahousedbEntities())
+                using (var context = new la_ross_dbEntities())
                 {
                     var result = context.ViewCorte
                         .Where(x => x.fecha.Month == fecha.Month)

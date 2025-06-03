@@ -13,7 +13,7 @@ namespace Punto_de_Venta.Controlador
         {
             try
             {
-                using (var context = new chinahousedbEntities())
+                using (var context = new la_ross_dbEntities())
                 {
                     var productos = await context.Menu
                         .Where(p => p.estatus)
@@ -33,7 +33,7 @@ namespace Punto_de_Venta.Controlador
         {
             try
             {
-                using (var context = new chinahousedbEntities())
+                using (var context = new la_ross_dbEntities())
                 {
                     var producto = context.Menu.FirstOrDefault(p => p.estatus && p.codigo == codigo);
 
@@ -53,7 +53,7 @@ namespace Punto_de_Venta.Controlador
         {
             try
             {
-                using (var context = new chinahousedbEntities())
+                using (var context = new la_ross_dbEntities())
                 {
                     var existente = context.Menu.SingleOrDefault(p => p.id_menu == producto.id_menu);
 
@@ -79,7 +79,7 @@ namespace Punto_de_Venta.Controlador
         {
             try
             {
-                using (var context = new chinahousedbEntities())
+                using (var context = new la_ross_dbEntities())
                 {
                     context.Menu.Add(producto);
                     context.SaveChanges();
@@ -100,7 +100,7 @@ namespace Punto_de_Venta.Controlador
         {
             try
             {
-                using (var context = new chinahousedbEntities())
+                using (var context = new la_ross_dbEntities())
                 {
                     var producto = context.Menu.SingleOrDefault(p => p.codigo == codigo);
 

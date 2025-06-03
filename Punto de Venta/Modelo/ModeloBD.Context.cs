@@ -13,10 +13,10 @@ namespace Punto_de_Venta.Modelo
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class chinahousedbEntities : DbContext
+    public partial class la_ross_dbEntities : DbContext
     {
-        public chinahousedbEntities()
-            : base("name=chinahousedbEntities")
+        public la_ross_dbEntities()
+            : base("name=la_ross_dbEntities")
         {
         }
     

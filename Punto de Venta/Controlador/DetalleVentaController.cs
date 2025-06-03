@@ -10,7 +10,7 @@ namespace Punto_de_Venta.Controlador
         {
             try
             {
-                using (var context = new chinahousedbEntities())
+                using (var context = new la_ross_dbEntities())
                 {
                     foreach (var x in productos)
                     {
