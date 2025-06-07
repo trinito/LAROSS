@@ -13,7 +13,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Menu = Punto_de_Venta.Modelo.Menu;
 namespace Punto_de_Venta.Vistas
 {
     public partial class View_Principal : Form
@@ -135,7 +134,7 @@ namespace Punto_de_Venta.Vistas
                 form.ShowDialog();
                 if (form.productoSelect != null)
                 {
-                    Busqueda(form.productoSelect.codigo, 1);
+                    Busqueda(form.productoSelect.codigo_barras, 1);
                 }
             }
         }
@@ -260,7 +259,7 @@ namespace Punto_de_Venta.Vistas
         private ProductoCaja GetProducto(string codigo)
         {
             ProductosController productosController = new ProductosController();
-            Menu producto = productosController.GetProducto(codigo);
+            Articulos producto = productosController.GetProducto(codigo);
             if(producto == null)
             {
                 return null;
@@ -271,10 +270,10 @@ namespace Punto_de_Venta.Vistas
             
         }
 
-        private ProductoCaja ConvertMenu(Menu producto)
+        private ProductoCaja ConvertMenu(Articulos producto)
         {
             ProductoCaja productoCaja = new ProductoCaja 
-            {id_menu = producto.id_menu ,codigo = producto.codigo, nombre = producto.nombre, medida = producto.medida, precio = producto.precio };
+            {id_producto = producto.id_producto ,codigo = producto.codigo_barras, nombre = producto.nombre, precio = producto.precio_venta };
 
 
             return productoCaja;

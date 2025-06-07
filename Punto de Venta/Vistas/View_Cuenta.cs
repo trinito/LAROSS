@@ -105,8 +105,9 @@ namespace Punto_de_Venta
                 {
                     loadingOverlay.ShowOverlay();
                     Usuarios user = new Usuarios() { contra = txt_contrasena.Text, nombre = txt_usuario.Text };
+
                 UsuarioController usuarioController = new UsuarioController();
-                string result = await usuarioController.LoginAsync(user);
+              string result = await usuarioController.LoginAsync(user);
 
                 if (string.IsNullOrEmpty(result))
                 {
@@ -117,7 +118,7 @@ namespace Punto_de_Venta
                 {
                     this.Hide();
                     Form form;
-                    if (result == "Admin")
+                    if (result == "ADMIN")
                         form = new View_Admin();
                     else
                         form = new View_Principal();

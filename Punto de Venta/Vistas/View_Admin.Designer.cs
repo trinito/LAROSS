@@ -37,11 +37,9 @@
             this.corteDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasPorSemanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel_principal = new System.Windows.Forms.Panel();
             this.txt_producto = new System.Windows.Forms.TextBox();
@@ -69,7 +67,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_principal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -108,69 +106,46 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Pristina", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(116, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(344, 63);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "CHINA HOUSE";
-            // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(57)))), ((int)(((byte)(93)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.pictureBox7);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 24);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1193, 102);
+            this.panel1.Size = new System.Drawing.Size(1193, 112);
             this.panel1.TabIndex = 1;
             // 
-            // label9
+            // pictureBox1
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Transparent;
-            this.label9.Location = new System.Drawing.Point(679, 32);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(411, 25);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Alta, Baja y Modificación de productos ";
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = global::Punto_de_Venta.Properties.Resources.laross_pi;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(344, 110);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(782, 64);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(411, 25);
             this.label8.TabIndex = 8;
             this.label8.Text = "Alta, Baja y Modificación de productos ";
             // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox7.Image = global::Punto_de_Venta.Properties.Resources.LOGOCHINAHOUSE;
-            this.pictureBox7.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(110, 100);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 6;
-            this.pictureBox7.TabStop = false;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
             this.label6.Location = new System.Drawing.Point(43, 42);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(132, 29);
@@ -179,6 +154,7 @@
             // 
             // panel_principal
             // 
+            this.panel_principal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
             this.panel_principal.Controls.Add(this.txt_producto);
             this.panel_principal.Controls.Add(this.txt_id);
             this.panel_principal.Controls.Add(this.label6);
@@ -187,9 +163,9 @@
             this.panel_principal.Controls.Add(this.dgv_productos);
             this.panel_principal.Controls.Add(this.groupBox1);
             this.panel_principal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_principal.Location = new System.Drawing.Point(0, 126);
+            this.panel_principal.Location = new System.Drawing.Point(0, 136);
             this.panel_principal.Name = "panel_principal";
-            this.panel_principal.Size = new System.Drawing.Size(1193, 571);
+            this.panel_principal.Size = new System.Drawing.Size(1193, 561);
             this.panel_principal.TabIndex = 8;
             // 
             // txt_producto
@@ -217,7 +193,7 @@
             // 
             // button_eliminar
             // 
-            this.button_eliminar.BackColor = System.Drawing.Color.Black;
+            this.button_eliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
             this.button_eliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_eliminar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.button_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -236,7 +212,7 @@
             // 
             // button_editar
             // 
-            this.button_editar.BackColor = System.Drawing.Color.Black;
+            this.button_editar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
             this.button_editar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_editar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.button_editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -265,7 +241,7 @@
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Red;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Red;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -336,8 +312,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox1.BackgroundImage")));
-            this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.lbl_modificando);
             this.groupBox1.Controls.Add(this.btn_cancelar);
             this.groupBox1.Controls.Add(this.combo_categoria);
@@ -351,6 +326,7 @@
             this.groupBox1.Controls.Add(this.txt_nombre);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(898, 89);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(274, 389);
@@ -361,7 +337,7 @@
             // 
             this.lbl_modificando.AutoSize = true;
             this.lbl_modificando.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_modificando.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(43)))), ((int)(((byte)(33)))));
+            this.lbl_modificando.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(21)))), ((int)(((byte)(34)))));
             this.lbl_modificando.Location = new System.Drawing.Point(72, 29);
             this.lbl_modificando.Name = "lbl_modificando";
             this.lbl_modificando.Size = new System.Drawing.Size(152, 23);
@@ -371,7 +347,7 @@
             // 
             // btn_cancelar
             // 
-            this.btn_cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(43)))), ((int)(((byte)(33)))));
+            this.btn_cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(21)))), ((int)(((byte)(34)))));
             this.btn_cancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(53)))), ((int)(((byte)(46)))));
             this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -399,7 +375,7 @@
             // 
             // btn_guardar
             // 
-            this.btn_guardar.BackColor = System.Drawing.Color.Black;
+            this.btn_guardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
             this.btn_guardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_guardar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -440,6 +416,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
             this.label3.Location = new System.Drawing.Point(16, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 18);
@@ -471,6 +448,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
             this.label7.Location = new System.Drawing.Point(15, 250);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(87, 18);
@@ -481,6 +459,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
             this.label2.Location = new System.Drawing.Point(15, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 18);
@@ -501,6 +480,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
             this.label4.Location = new System.Drawing.Point(15, 206);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 18);
@@ -511,6 +491,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
             this.label5.Location = new System.Drawing.Point(15, 164);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 18);
@@ -537,7 +518,7 @@
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel_principal.ResumeLayout(false);
             this.panel_principal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).EndInit();
@@ -553,8 +534,6 @@
         private System.Windows.Forms.ToolStripMenuItem corteDeCajaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventasPorSemanaToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel_principal;
         public System.Windows.Forms.DataGridView dgv_productos;
@@ -582,6 +561,6 @@
         private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.Label lbl_modificando;
         private System.Windows.Forms.TextBox txt_producto;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

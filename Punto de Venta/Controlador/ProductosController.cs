@@ -9,17 +9,17 @@ namespace Punto_de_Venta.Controlador
 {
     public class ProductosController
     {
-        public async Task<IEnumerable<Menu>> GetProductosAsync()
+        public async Task<IEnumerable<Articulos>> GetProductosAsync()
         {
             try
             {
                 using (var context = new la_ross_dbEntities())
                 {
-                    var productos = await context.Menu
+                    var productos = await context.Articulos
                         .Where(p => p.estatus)
                         .ToListAsync();
 
-                    productos.ForEach(p => p.precio = Math.Round(p.precio, 2));
+                    productos.ForEach(p => p.precio_venta = Math.Round(p.precio_venta, 2));
                     return productos;
                 }
             }
@@ -29,16 +29,16 @@ namespace Punto_de_Venta.Controlador
             }
         }
 
-        public Menu GetProducto(string codigo)
+        public Articulos GetProducto(string codigo)
         {
             try
             {
                 using (var context = new la_ross_dbEntities())
                 {
-                    var producto = context.Menu.FirstOrDefault(p => p.estatus && p.codigo == codigo);
+                    var producto = context.Articulos.FirstOrDefault(p => p.estatus && p.codigo_barras == codigo);
 
                     if (producto != null)
-                        producto.precio = Math.Round(producto.precio, 2);
+                        producto.precio_venta = Math.Round(producto.precio_venta, 2);
 
                     return producto;
                 }
@@ -49,21 +49,21 @@ namespace Punto_de_Venta.Controlador
             }
         }
 
-        public bool UpdateProducto(Menu producto)
+        public bool UpdateProducto(Articulos producto)
         {
             try
             {
                 using (var context = new la_ross_dbEntities())
                 {
-                    var existente = context.Menu.SingleOrDefault(p => p.id_menu == producto.id_menu);
+                    var existente = context.Articulos.SingleOrDefault(p => p.id_producto == producto.id_producto);
 
                     if (existente == null) return false;
 
-                    existente.codigo = producto.codigo;
+                    existente.codigo_barras = producto.codigo_barras;
                     existente.id_categoria = producto.id_categoria;
-                    existente.medida = producto.medida;
+                    existente.id_marca = producto.id_marca;
                     existente.nombre = producto.nombre;
-                    existente.precio = producto.precio;
+                    existente.precio_costo = producto.precio_costo;
 
                     context.Entry(existente).State = System.Data.Entity.EntityState.Modified;
                     return context.SaveChanges() > 0;
@@ -75,15 +75,15 @@ namespace Punto_de_Venta.Controlador
             }
         }
 
-        public int InsertProducto(Menu producto)
+        public int InsertProducto(Articulos producto)
         {
             try
             {
                 using (var context = new la_ross_dbEntities())
                 {
-                    context.Menu.Add(producto);
+                    context.Articulos.Add(producto);
                     context.SaveChanges();
-                    return producto.id_menu;
+                    return producto.id_producto;
                 }
             }
             catch (Exception ex)
@@ -102,7 +102,7 @@ namespace Punto_de_Venta.Controlador
             {
                 using (var context = new la_ross_dbEntities())
                 {
-                    var producto = context.Menu.SingleOrDefault(p => p.codigo == codigo);
+                    var producto = context.Articulos.SingleOrDefault(p => p.codigo_barras == codigo);
 
                     if (producto == null) return false;
 

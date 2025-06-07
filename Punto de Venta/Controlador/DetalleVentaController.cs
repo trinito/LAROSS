@@ -17,11 +17,9 @@ namespace Punto_de_Venta.Controlador
                         var detalle = new DetalleVenta
                         {
                             id_venta = id_venta,
-                            id_menu = x.id_menu,
-                            nombre = x.nombre,
-                            medida = x.medida,
+                            id_producto = x.id_producto,
                             cantidad = x.cantidad,
-                            precio = x.precio
+                            precio_unitario = x.precio
                         };
 
                         context.DetalleVenta.Add(detalle);

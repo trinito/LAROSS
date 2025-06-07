@@ -8,7 +8,7 @@ namespace Punto_de_Venta.Modelo
 {
     public class ProductoCaja
     {
-        public int id_menu { get; set; }
+        public int id_producto { get; set; }
         public string codigo { get; set; }
         public string nombre { get; set; }
         public string medida { get; set; }

@@ -73,6 +73,16 @@ namespace Punto_de_Venta.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _281850184_119981597370118_8427633085628640968_n1 {
+            get {
+                object obj = ResourceManager.GetObject("281850184_119981597370118_8427633085628640968_n1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap buscar {
             get {
                 object obj = ResourceManager.GetObject("buscar", resourceCulture);
@@ -106,6 +116,16 @@ namespace Punto_de_Venta.Properties {
         internal static System.Drawing.Bitmap cerrar2 {
             get {
                 object obj = ResourceManager.GetObject("cerrar2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_4_jun_2025__06_53_37_a_m_ {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image 4 jun 2025, 06_53_37 a.m.", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -206,6 +226,16 @@ namespace Punto_de_Venta.Properties {
         internal static System.Drawing.Bitmap editar2 {
             get {
                 object obj = ResourceManager.GetObject("editar2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap laross_pi {
+            get {
+                object obj = ResourceManager.GetObject("laross-pi", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

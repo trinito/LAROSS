@@ -5,13 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Menu = Punto_de_Venta.Modelo.Menu;
 
 namespace Punto_de_Venta.Vistas
 {
     public partial class View_Admin : Form
     {
-        private List<Menu> productosOriginal;
+        private List<Articulos> productosOriginal;
         private readonly BindingSource bindingSource;
         private bool isEdit = false;
         private string codigo_aux = "";
@@ -20,7 +19,7 @@ namespace Punto_de_Venta.Vistas
         {
             InitializeComponent();
 
-            productosOriginal = new List<Menu>();
+            productosOriginal = new List<Articulos>();
             bindingSource = new BindingSource();
             dgv_productos.DoubleBuffered(true);
 
@@ -103,14 +102,14 @@ namespace Punto_de_Venta.Vistas
         {
             if (dgv_productos.CurrentRow == null) return;
 
-            var producto = (Menu)dgv_productos.CurrentRow.DataBoundItem;
-            txt_codigo.Text = producto.codigo;
-            codigo_aux = producto.codigo;
+            var producto = (Articulos)dgv_productos.CurrentRow.DataBoundItem;
+            txt_codigo.Text = producto.codigo_barras;
+            codigo_aux = producto.codigo_barras;
             txt_nombre.Text = producto.nombre;
-            txt_precio.Text = producto.precio.ToString();
-            combo_medida.SelectedItem = producto.medida;
+            txt_precio.Text = producto.precio_venta.ToString();
+            combo_medida.SelectedItem = producto.id_categoria;
             combo_categoria.SelectedValue = producto.id_categoria;
-            txt_id.Text = producto.id_menu.ToString();
+            txt_id.Text = producto.id_producto.ToString();
 
             isEdit = true;
             btn_guardar.Text = "Actualizar";
@@ -124,10 +123,10 @@ namespace Punto_de_Venta.Vistas
         {
             if (dgv_productos.CurrentRow == null) return;
 
-            var producto = (Menu)dgv_productos.CurrentRow.DataBoundItem;
+            var producto = (Articulos)dgv_productos.CurrentRow.DataBoundItem;
             var controller = new ProductosController();
 
-            if (controller.DeleteProducto(producto.codigo))
+            if (controller.DeleteProducto(producto.codigo_barras))
             {
                 productosOriginal.Remove(producto);
                 bindingSource.DataSource = productosOriginal.ToList();
@@ -151,23 +150,23 @@ namespace Punto_de_Venta.Vistas
                 return;
             }
 
-            var menu = new Menu
+            var articulo = new Articulos
             {
-                codigo = txt_codigo.Text,
+                codigo_barras = txt_codigo.Text,
                 nombre = txt_nombre.Text,
-                precio = Convert.ToDecimal(txt_precio.Text),
-                medida = combo_medida.Text,
+                precio_venta = Convert.ToDecimal(txt_precio.Text),
+               // Categorias = combo_medida.Text,
                 id_categoria = Convert.ToInt32(combo_categoria.SelectedValue),
                 estatus = true,
                 foto = null
             };
 
             if (isEdit)
-                menu.id_menu = Convert.ToInt32(txt_id.Text);
+                articulo.id_producto = Convert.ToInt32(txt_id.Text);
 
             var controller = new ProductosController();
 
-            if (productosOriginal.Exists(x => x.codigo == menu.codigo && menu.codigo != codigo_aux))
+            if (productosOriginal.Exists(x => x.codigo_barras == articulo.codigo_barras && articulo.codigo_barras != codigo_aux))
             {
                 MessageBox.Show("La clave del producto ya existe, favor de ingresar una diferente.", "Mensaje");
                 return;
@@ -175,16 +174,15 @@ namespace Punto_de_Venta.Vistas
 
             if (isEdit)
             {
-                if (controller.UpdateProducto(menu))
+                if (controller.UpdateProducto(articulo))
                 {
-                    var p = productosOriginal.FirstOrDefault(x => x.id_menu == menu.id_menu);
+                    var p = productosOriginal.FirstOrDefault(x => x.id_producto == articulo.id_producto);
                     if (p != null)
                     {
-                        p.codigo = menu.codigo;
-                        p.nombre = menu.nombre;
-                        p.precio = menu.precio;
-                        p.medida = menu.medida;
-                        p.id_categoria = menu.id_categoria;
+                        p.codigo_barras = articulo.codigo_barras;
+                        p.nombre = articulo.nombre;
+                        p.precio_venta = articulo.precio_venta;
+                        p.id_categoria = articulo.id_categoria;
                         await LlenarProductos();
                     }
                 }
@@ -197,11 +195,11 @@ namespace Punto_de_Venta.Vistas
             {
                 try
                 {
-                    int result = controller.InsertProducto(menu);
+                    int result = controller.InsertProducto(articulo);
                     if (result > 0)
                     {
-                        menu.id_menu = result;
-                        productosOriginal.Add(menu);
+                        articulo.id_producto = result;
+                        productosOriginal.Add(articulo);
                         bindingSource.DataSource = productosOriginal.ToList();
 
                         var row = dgv_productos.Rows.Count - 1;

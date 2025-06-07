@@ -14,11 +14,17 @@ namespace Punto_de_Venta.Modelo
     
     public partial class DetalleVenta
     {
+        public int id_detalle { get; set; }
         public int id_venta { get; set; }
-        public int id_menu { get; set; }
-        public string nombre { get; set; }
-        public string medida { get; set; }
-        public decimal precio { get; set; }
+        public int id_producto { get; set; }
         public int cantidad { get; set; }
+        public decimal precio_unitario { get; set; }
+        public decimal subtotal { get; set; }
+        public Nullable<System.DateTime> fecha_editado { get; set; }
+        public Nullable<int> id_usuario_editado { get; set; }
+    
+        public virtual Articulos Articulos { get; set; }
+        public virtual Usuarios Usuarios { get; set; }
+        public virtual Venta Venta { get; set; }
     }
 }

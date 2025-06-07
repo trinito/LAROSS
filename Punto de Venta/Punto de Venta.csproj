@@ -68,39 +68,51 @@
     <Compile Include="Controles\LoadingControl.Designer.cs">
       <DependentUpon>LoadingControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\Categoria.cs">
-      <DependentUpon>ModeloBD.tt</DependentUpon>
+    <Compile Include="Modelo\Articulos.cs">
+      <DependentUpon>ModeloDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Categorias.cs">
+      <DependentUpon>ModeloDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Colores.cs">
+      <DependentUpon>ModeloDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\DetalleVenta.cs">
-      <DependentUpon>ModeloBD.tt</DependentUpon>
+      <DependentUpon>ModeloDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\Menu.cs">
-      <DependentUpon>ModeloBD.tt</DependentUpon>
+    <Compile Include="Modelo\Marcas.cs">
+      <DependentUpon>ModeloDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\ModeloBD.Context.cs">
+    <Compile Include="Modelo\ModeloDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModeloBD.Context.tt</DependentUpon>
+      <DependentUpon>ModeloDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\ModeloBD.cs">
+    <Compile Include="Modelo\ModeloDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModeloBD.tt</DependentUpon>
+      <DependentUpon>ModeloDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\ModeloBD.Designer.cs">
+    <Compile Include="Modelo\ModeloDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModeloBD.edmx</DependentUpon>
+      <DependentUpon>ModeloDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Modelo\ProductoCaja.cs" />
+    <Compile Include="Modelo\Sexos.cs">
+      <DependentUpon>ModeloDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Tallas.cs">
+      <DependentUpon>ModeloDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Usuarios.cs">
-      <DependentUpon>ModeloBD.tt</DependentUpon>
+      <DependentUpon>ModeloDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Venta.cs">
-      <DependentUpon>ModeloBD.tt</DependentUpon>
+      <DependentUpon>ModeloDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\ViewCorte.cs">
-      <DependentUpon>ModeloBD.tt</DependentUpon>
+      <DependentUpon>ModeloDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -199,12 +211,12 @@
     <EmbeddedResource Include="Vistas\View_Reportes.resx">
       <DependentUpon>View_Reportes.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Modelo\ModeloBD.edmx">
+    <EntityDeploy Include="Modelo\ModeloDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModeloBD.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModeloDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Modelo\ModeloBD.edmx.diagram">
-      <DependentUpon>ModeloBD.edmx</DependentUpon>
+    <None Include="Modelo\ModeloDB.edmx.diagram">
+      <DependentUpon>ModeloDB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -232,16 +244,6 @@
     <None Include="Resources\china_logo.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Modelo\ModeloBD.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModeloBD.edmx</DependentUpon>
-      <LastGenOutput>ModeloBD.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Modelo\ModeloBD.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModeloBD.edmx</DependentUpon>
-      <LastGenOutput>ModeloBD.cs</LastGenOutput>
-    </Content>
     <None Include="Resources\281850184_119981597370118_8427633085628640968_n.jpg" />
     <None Include="Resources\Spinner-3.gif" />
     <None Include="Resources\loading.gif" />
@@ -256,6 +258,20 @@
     <None Include="Resources\editar2.png" />
     <None Include="Resources\disquete2.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Modelo\ModeloDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloDB.edmx</DependentUpon>
+      <LastGenOutput>ModeloDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Modelo\ModeloDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloDB.edmx</DependentUpon>
+      <LastGenOutput>ModeloDB.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\laross-pi.png" />
+    <None Include="Resources\281850184_119981597370118_8427633085628640968_n1.jpg" />
+    <None Include="Resources\ChatGPT Image 4 jun 2025, 06_53_37 a.m..png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -14,12 +14,24 @@ namespace Punto_de_Venta.Modelo
     
     public partial class Venta
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Venta()
+        {
+            this.DetalleVenta = new HashSet<DetalleVenta>();
+        }
+    
         public int id_venta { get; set; }
         public System.DateTime fecha { get; set; }
+        public string hora { get; set; }
         public int cantidad_productos { get; set; }
         public decimal total { get; set; }
         public bool estatus { get; set; }
         public string forma_pago { get; set; }
-        public string hora { get; set; }
+        public Nullable<System.DateTime> fecha_editado { get; set; }
+        public Nullable<int> id_usuario_editado { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DetalleVenta> DetalleVenta { get; set; }
+        public virtual Usuarios Usuarios { get; set; }
     }
 }

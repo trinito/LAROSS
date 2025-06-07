@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="61840836e6ed4afe88b5ae325ce4824c" Name="Diagram1">
+        <EntityTypeShape EntityType="Punto_de_Venta.Modelo.Articulos" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Punto_de_Venta.Modelo.Categorias" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Punto_de_Venta.Modelo.Colores" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Punto_de_Venta.Modelo.DetalleVenta" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Punto_de_Venta.Modelo.Marcas" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Punto_de_Venta.Modelo.Sexos" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Punto_de_Venta.Modelo.Tallas" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Punto_de_Venta.Modelo.Usuarios" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Punto_de_Venta.Modelo.Venta" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Punto_de_Venta.Modelo.ViewCorte" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="Punto_de_Venta.Modelo.FK_Articulos_Categorias" ManuallyRouted="false" />
+        <AssociationConnector Association="Punto_de_Venta.Modelo.FK_Articulos_Colores" ManuallyRouted="false" />
+        <AssociationConnector Association="Punto_de_Venta.Modelo.FK_Articulos_Marcas" ManuallyRouted="false" />
+        <AssociationConnector Association="Punto_de_Venta.Modelo.FK_Articulos_Sexos" ManuallyRouted="false" />
+        <AssociationConnector Association="Punto_de_Venta.Modelo.FK_Articulos_Tallas" ManuallyRouted="false" />
+        <AssociationConnector Association="Punto_de_Venta.Modelo.FK_DetalleVenta_Articulo" ManuallyRouted="false" />
+        <AssociationConnector Association="Punto_de_Venta.Modelo.FK_DetalleVenta_UsuarioEditado" ManuallyRouted="false" />
+        <AssociationConnector Association="Punto_de_Venta.Modelo.FK_DetalleVenta_Venta" ManuallyRouted="false" />
+        <AssociationConnector Association="Punto_de_Venta.Modelo.FK_Venta_UsuarioEditado" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

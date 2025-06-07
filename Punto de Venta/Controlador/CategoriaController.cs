@@ -7,11 +7,11 @@ namespace Punto_de_Venta.Controlador
 {
     public class CategoriaController
     {
-        public IEnumerable<Categoria> GetCategorias()
+        public IEnumerable<Categorias> GetCategorias()
         {
             using (var context = new la_ross_dbEntities())
             {
-                return context.Categoria
+                return context.Categorias
                               .Where(t => t.estatus == true)
                               .ToList();
             }

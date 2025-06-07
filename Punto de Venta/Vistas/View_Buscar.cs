@@ -5,14 +5,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using Menu = Punto_de_Venta.Modelo.Menu;
 
 namespace Punto_de_Venta.Vistas
 {
     public partial class View_Buscar : Form
     {
-        public Menu productoSelect;
-        private List<Menu> productos;
+        public Articulos productoSelect;
+        private List<Articulos> productos;
         private readonly ProductosController productosController;
         private readonly BindingSource bindingSource;
         private LoadingControl loadingOverlay;
@@ -25,7 +24,7 @@ namespace Punto_de_Venta.Vistas
             this.Controls.Add(loadingOverlay);
             loadingOverlay.BringToFront();
 
-            productos = new List<Menu>();
+            productos = new List<Articulos>();
             productosController = new ProductosController();
             bindingSource = new BindingSource();
 
@@ -119,7 +118,7 @@ namespace Punto_de_Venta.Vistas
         private void Seleccionar()
         {
             if (dgv_productos.CurrentRow != null)
-                productoSelect = (Menu)dgv_productos.CurrentRow.DataBoundItem;
+                productoSelect = (Articulos)dgv_productos.CurrentRow.DataBoundItem;
 
             Close();
         }

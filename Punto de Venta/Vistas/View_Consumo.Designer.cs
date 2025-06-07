@@ -31,7 +31,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.txt_precio = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_aceptar = new System.Windows.Forms.Button();
@@ -41,21 +40,21 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(57)))), ((int)(((byte)(93)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(528, 102);
+            this.panel1.Size = new System.Drawing.Size(528, 112);
             this.panel1.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(353, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(162, 25);
@@ -64,26 +63,15 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = global::Punto_de_Venta.Properties.Resources.LOGOCHINAHOUSE;
+            this.pictureBox1.Image = global::Punto_de_Venta.Properties.Resources.laross_pi;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(110, 100);
+            this.pictureBox1.Size = new System.Drawing.Size(344, 110);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Pristina", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(116, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(229, 42);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "CHINA HOUSE";
             // 
             // txt_precio
             // 
@@ -100,6 +88,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Rockwell", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(58)))), ((int)(((byte)(92)))));
             this.label3.Location = new System.Drawing.Point(55, 153);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(110, 33);
@@ -108,11 +97,11 @@
             // 
             // btn_aceptar
             // 
-            this.btn_aceptar.BackColor = System.Drawing.Color.Black;
+            this.btn_aceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
             this.btn_aceptar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_aceptar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btn_aceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_aceptar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_aceptar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_aceptar.ForeColor = System.Drawing.Color.White;
             this.btn_aceptar.Location = new System.Drawing.Point(340, 146);
             this.btn_aceptar.Name = "btn_aceptar";
@@ -127,7 +116,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(528, 243);
             this.Controls.Add(this.btn_aceptar);
             this.Controls.Add(this.txt_precio);
@@ -148,7 +137,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_precio;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_aceptar;
