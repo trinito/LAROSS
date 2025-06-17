@@ -120,6 +120,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Servicios\ImprimirTickets.cs" />
+    <Compile Include="Vistas\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\View_VentasMes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +195,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\View_VentasMes.resx">
       <DependentUpon>View_VentasMes.cs</DependentUpon>
@@ -269,6 +287,30 @@
       <DependentUpon>ModeloDB.edmx</DependentUpon>
       <LastGenOutput>ModeloDB.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\icons8-configuration-25.png" />
+    <None Include="Resources\icons8-report-25 %283%29.png" />
+    <None Include="Resources\icons8-report-25 %282%29.png" />
+    <None Include="Resources\icons8-report-25 %281%29.png" />
+    <None Include="Resources\icons8-report-25.png" />
+    <None Include="Resources\icons8-profit-25 %281%29.png" />
+    <None Include="Resources\icons8-home-25 %282%29.png" />
+    <None Include="Resources\icons8-trolley-25.png" />
+    <None Include="Resources\icons8-trolley-30.png" />
+    <None Include="Resources\icons8-clothes-30.png" />
+    <None Include="Resources\icons8-jumper-20.png" />
+    <None Include="Resources\icons8-home-20.png" />
+    <None Include="Resources\icons8-home-25 %281%29.png" />
+    <None Include="Resources\icons8-profit-25.png" />
+    <None Include="Resources\icons8-profit-20.png" />
+    <None Include="Resources\icons8-total-sales-20 %284%29.png" />
+    <None Include="Resources\icons8-total-sales-20 %283%29.png" />
+    <None Include="Resources\icons8-total-sales-20 %282%29.png" />
+    <None Include="Resources\icons8-total-sales-20 %281%29.png" />
+    <None Include="Resources\icons8-total-sales-20.png" />
+    <None Include="Resources\home2.png" />
+    <None Include="Resources\home.png" />
+    <None Include="Resources\user.png" />
+    <None Include="Resources\user %281%29.png" />
     <None Include="Resources\laross-pi.png" />
     <None Include="Resources\281850184_119981597370118_8427633085628640968_n1.jpg" />
     <None Include="Resources\ChatGPT Image 4 jun 2025, 06_53_37 a.m..png" />
