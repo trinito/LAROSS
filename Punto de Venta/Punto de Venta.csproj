@@ -287,6 +287,18 @@
       <DependentUpon>ModeloDB.edmx</DependentUpon>
       <LastGenOutput>ModeloDB.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\icons8-pay-25 %281%29.png" />
+    <None Include="Resources\icons8-print-25 %281%29.png" />
+    <None Include="Resources\icons8-print-25.png" />
+    <None Include="Resources\icons8-pay-25.png" />
+    <None Include="Resources\icons8-trash-can-25 %281%29.png" />
+    <None Include="Resources\icons8-trash-can-25.png" />
+    <None Include="Resources\icons8-search-more-25.png" />
+    <None Include="Resources\icons8-profile-25.png" />
+    <None Include="Resources\larospi.png" />
+    <None Include="Resources\icons8-hide-25.png" />
+    <None Include="Resources\icons8-password-25.png" />
+    <None Include="Resources\icons8-user-25.png" />
     <None Include="Resources\icons8-configuration-25.png" />
     <None Include="Resources\icons8-report-25 %283%29.png" />
     <None Include="Resources\icons8-report-25 %282%29.png" />

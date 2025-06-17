@@ -151,6 +151,11 @@ namespace Punto_de_Venta.Vistas
             if (dgv_productos.Columns.Contains("codigo"))
                 dgv_productos.Columns["codigo"].Frozen = true;
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     // Extensión para activar DoubleBuffer en tiempo de ejecución

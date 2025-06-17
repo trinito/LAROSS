@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Printing;
 using System.Globalization;
 using System.IO.Ports;
@@ -42,7 +43,9 @@ namespace Punto_de_Venta.Vistas
         {
             dgv_productos.AutoGenerateColumns = false;
             txt_producto.Focus();
+            btn_inicio.BackColor = Color.FromArgb(24, 44, 61);
         }
+
 
         private void txt_producto_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -419,6 +422,16 @@ namespace Punto_de_Venta.Vistas
                 total_copia = 0; pago_copia = 0; cambio_copia=0;
             }
            
+        }
+
+        private void button_buscar_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_quitar_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

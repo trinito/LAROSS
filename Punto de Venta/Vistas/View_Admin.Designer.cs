@@ -102,7 +102,7 @@
             this.reportesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1193, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1204, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -115,7 +115,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 24);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1193, 112);
+            this.panel1.Size = new System.Drawing.Size(1204, 112);
             this.panel1.TabIndex = 1;
             // 
             // pictureBox1
@@ -165,7 +165,7 @@
             this.panel_principal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_principal.Location = new System.Drawing.Point(0, 136);
             this.panel_principal.Name = "panel_principal";
-            this.panel_principal.Size = new System.Drawing.Size(1193, 561);
+            this.panel_principal.Size = new System.Drawing.Size(1204, 593);
             this.panel_principal.TabIndex = 8;
             // 
             // txt_producto
@@ -504,7 +504,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1193, 697);
+            this.ClientSize = new System.Drawing.Size(1204, 729);
             this.Controls.Add(this.panel_principal);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
