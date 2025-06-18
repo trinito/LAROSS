@@ -22,9 +22,5 @@ namespace Punto_de_Venta.Modelo
         public decimal subtotal { get; set; }
         public Nullable<System.DateTime> fecha_editado { get; set; }
         public Nullable<int> id_usuario_editado { get; set; }
-    
-        public virtual Articulos Articulos { get; set; }
-        public virtual Usuarios Usuarios { get; set; }
-        public virtual Venta Venta { get; set; }
     }
 }

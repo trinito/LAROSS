@@ -79,7 +79,11 @@ namespace Punto_de_Venta.Vistas
                 AjustarColumnas();
 
                 if (productos.Count == 0)
+                {
+                    loadingOverlay.HideOverlay();
                     MessageBox.Show("No se encontraron productos.");
+                }
+                   
             }
             catch (Exception ex)
             {

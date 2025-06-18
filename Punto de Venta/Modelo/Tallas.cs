@@ -14,16 +14,7 @@ namespace Punto_de_Venta.Modelo
     
     public partial class Tallas
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tallas()
-        {
-            this.Articulos = new HashSet<Articulos>();
-        }
-    
         public int id_talla { get; set; }
         public string nombre { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Articulos> Articulos { get; set; }
     }
 }

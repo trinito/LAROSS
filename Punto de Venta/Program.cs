@@ -15,6 +15,7 @@ namespace Punto_de_Venta
         [STAThread]
         static void Main()
         {
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new form_cuenta());

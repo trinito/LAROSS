@@ -14,6 +14,7 @@ namespace Punto_de_Venta.Vistas
         private readonly BindingSource bindingSource;
         private bool isEdit = false;
         private string codigo_aux = "";
+        public bool LogoutSolicitado { get; private set; } = false;
 
         public View_Admin()
         {

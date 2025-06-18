@@ -296,12 +296,6 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           <Property Name="stock" Type="Int32" Nullable="false" />
           <Property Name="estatus" Type="Boolean" Nullable="false" />
           <Property Name="id_categoria" Type="Int32" />
-          <NavigationProperty Name="Categorias" Relationship="Self.FK_Articulos_Categorias" FromRole="Articulos" ToRole="Categorias" />
-          <NavigationProperty Name="Colores" Relationship="Self.FK_Articulos_Colores" FromRole="Articulos" ToRole="Colores" />
-          <NavigationProperty Name="Marcas" Relationship="Self.FK_Articulos_Marcas" FromRole="Articulos" ToRole="Marcas" />
-          <NavigationProperty Name="Sexos" Relationship="Self.FK_Articulos_Sexos" FromRole="Articulos" ToRole="Sexos" />
-          <NavigationProperty Name="Tallas" Relationship="Self.FK_Articulos_Tallas" FromRole="Articulos" ToRole="Tallas" />
-          <NavigationProperty Name="DetalleVenta" Relationship="Self.FK_DetalleVenta_Articulo" FromRole="Articulos" ToRole="DetalleVenta" />
         </EntityType>
         <EntityType Name="Categorias">
           <Key>
@@ -310,7 +304,6 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           <Property Name="id_categoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="estatus" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Articulos" Relationship="Self.FK_Articulos_Categorias" FromRole="Categorias" ToRole="Articulos" />
         </EntityType>
         <EntityType Name="Colores">
           <Key>
@@ -318,7 +311,6 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           </Key>
           <Property Name="id_color" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Articulos" Relationship="Self.FK_Articulos_Colores" FromRole="Colores" ToRole="Articulos" />
         </EntityType>
         <EntityType Name="DetalleVenta">
           <Key>
@@ -332,9 +324,6 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           <Property Name="subtotal" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="fecha_editado" Type="DateTime" Precision="3" />
           <Property Name="id_usuario_editado" Type="Int32" />
-          <NavigationProperty Name="Articulos" Relationship="Self.FK_DetalleVenta_Articulo" FromRole="DetalleVenta" ToRole="Articulos" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.FK_DetalleVenta_UsuarioEditado" FromRole="DetalleVenta" ToRole="Usuarios" />
-          <NavigationProperty Name="Venta" Relationship="Self.FK_DetalleVenta_Venta" FromRole="DetalleVenta" ToRole="Venta" />
         </EntityType>
         <EntityType Name="Marcas">
           <Key>
@@ -342,7 +331,6 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           </Key>
           <Property Name="id_marca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Articulos" Relationship="Self.FK_Articulos_Marcas" FromRole="Marcas" ToRole="Articulos" />
         </EntityType>
         <EntityType Name="Sexos">
           <Key>
@@ -350,7 +338,6 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           </Key>
           <Property Name="id_sexo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Articulos" Relationship="Self.FK_Articulos_Sexos" FromRole="Sexos" ToRole="Articulos" />
         </EntityType>
         <EntityType Name="Tallas">
           <Key>
@@ -358,7 +345,6 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           </Key>
           <Property Name="id_talla" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Articulos" Relationship="Self.FK_Articulos_Tallas" FromRole="Tallas" ToRole="Articulos" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -372,8 +358,6 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="permisos" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="estatus" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="DetalleVenta" Relationship="Self.FK_DetalleVenta_UsuarioEditado" FromRole="Usuarios" ToRole="DetalleVenta" />
-          <NavigationProperty Name="Venta" Relationship="Self.FK_Venta_UsuarioEditado" FromRole="Usuarios" ToRole="Venta" />
         </EntityType>
         <EntityType Name="Venta">
           <Key>
@@ -388,8 +372,6 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           <Property Name="forma_pago" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="fecha_editado" Type="DateTime" Precision="3" />
           <Property Name="id_usuario_editado" Type="Int32" />
-          <NavigationProperty Name="DetalleVenta" Relationship="Self.FK_DetalleVenta_Venta" FromRole="Venta" ToRole="DetalleVenta" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Venta_UsuarioEditado" FromRole="Venta" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="ViewCorte">
           <Key>

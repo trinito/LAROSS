@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Punto_de_Venta.Vistas
 {
-    public partial class Form2: Form
+    public partial class UserControl_Historial: UserControl
     {
-        public Form2()
+        public UserControl_Historial()
         {
             InitializeComponent();
         }

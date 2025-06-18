@@ -120,17 +120,54 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Servicios\ImprimirTickets.cs" />
-    <Compile Include="Vistas\Form1.cs">
+    <Compile Include="Servicios\SesionUsuario.cs" />
+    <Compile Include="Vistas\UserControl_Configuracion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vistas\UserControl_Configuracion.Designer.cs">
+      <DependentUpon>UserControl_Configuracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\UserControl_Historial.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vistas\UserControl_Historial.Designer.cs">
+      <DependentUpon>UserControl_Historial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\UserControl_Inventario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vistas\UserControl_Inventario.Designer.cs">
+      <DependentUpon>UserControl_Inventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\UserControl_Productos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vistas\UserControl_Productos.Designer.cs">
+      <DependentUpon>UserControl_Productos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\UserControl_Reportes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vistas\UserControl_Reportes.Designer.cs">
+      <DependentUpon>UserControl_Reportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\UserControl_Ventas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Vistas\UserControl_Ventas.Designer.cs">
+      <DependentUpon>UserControl_Ventas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\View_Padre.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Vistas\View_Padre.Designer.cs">
+      <DependentUpon>View_Padre.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\Form2.cs">
+    <Compile Include="Vistas\View_Productos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="Vistas\View_Productos.Designer.cs">
+      <DependentUpon>View_Productos.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\View_VentasMes.cs">
       <SubType>Form</SubType>
@@ -196,11 +233,29 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\UserControl_Configuracion.resx">
+      <DependentUpon>UserControl_Configuracion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\UserControl_Historial.resx">
+      <DependentUpon>UserControl_Historial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\UserControl_Inventario.resx">
+      <DependentUpon>UserControl_Inventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\UserControl_Productos.resx">
+      <DependentUpon>UserControl_Productos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\UserControl_Reportes.resx">
+      <DependentUpon>UserControl_Reportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\UserControl_Ventas.resx">
+      <DependentUpon>UserControl_Ventas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\View_Padre.resx">
+      <DependentUpon>View_Padre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\View_Productos.resx">
+      <DependentUpon>View_Productos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\View_VentasMes.resx">
       <DependentUpon>View_VentasMes.cs</DependentUpon>

@@ -1,6 +1,7 @@
 ﻿using Punto_de_Venta.Controlador;
 using Punto_de_Venta.Controles;
 using Punto_de_Venta.Modelo;
+using Punto_de_Venta.Servicios;
 using Punto_de_Venta.Vistas;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Punto_de_Venta
 {
@@ -104,27 +106,45 @@ namespace Punto_de_Venta
                 try
                 {
                     loadingOverlay.ShowOverlay();
-                    Usuarios user = new Usuarios() { contra = txt_contrasena.Text, nombre = txt_usuario.Text };
+                   Usuarios user = new Usuarios() { contra = txt_contrasena.Text, nombre = txt_usuario.Text };
 
                 UsuarioController usuarioController = new UsuarioController();
-              string result = await usuarioController.LoginAsync(user);
+                    SesionUsuario.UsuarioActual = await usuarioController.LoginAsync(user);
 
-                if (string.IsNullOrEmpty(result))
+                if (SesionUsuario.UsuarioActual == null)
                 {
                         loadingOverlay.HideOverlay();
                         MessageBox.Show("USUARIO INCORRECTO", "MENSAJE", MessageBoxButtons.OK);
                 }
                 else
                 {
-                    this.Hide();
-                    Form form;
-                    if (result == "ADMIN")
-                        form = new View_Admin();
-                    else
-                        form = new View_Principal();
-                    form.ShowDialog();
-                    this.Show();
-                }
+                        this.Hide();
+                        Form form;
+
+                        if (SesionUsuario.UsuarioActual.tipo == "ADMIN")
+                            form = new View_Admin();
+                        else
+                            form = new View_Padre();
+
+                        form.ShowDialog();
+                        this.txt_usuario.Text = string.Empty;
+                        this.txt_contrasena.Text = string.Empty;
+                        this.BeginInvoke((Action)(() => txt_usuario.Focus()));
+
+                        if (form is View_Padre padre && padre.LogoutSolicitado)
+                        {
+                            this.Show();
+                        }
+                        else if (form is View_Admin admin && admin.LogoutSolicitado)
+                        {
+                            this.Show();
+                        }
+                        else
+                        {
+                            // Cerró ventana principal, salir de la app
+                            Application.Exit();
+                        }
+                    }
 
                 }
                 finally

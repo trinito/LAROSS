@@ -14,12 +14,6 @@ namespace Punto_de_Venta.Modelo
     
     public partial class Articulos
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Articulos()
-        {
-            this.DetalleVenta = new HashSet<DetalleVenta>();
-        }
-    
         public int id_producto { get; set; }
         public string codigo_barras { get; set; }
         public string nombre { get; set; }
@@ -33,13 +27,5 @@ namespace Punto_de_Venta.Modelo
         public int stock { get; set; }
         public bool estatus { get; set; }
         public Nullable<int> id_categoria { get; set; }
-    
-        public virtual Categorias Categorias { get; set; }
-        public virtual Colores Colores { get; set; }
-        public virtual Marcas Marcas { get; set; }
-        public virtual Sexos Sexos { get; set; }
-        public virtual Tallas Tallas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DetalleVenta> DetalleVenta { get; set; }
     }
 }

@@ -19,17 +19,19 @@ namespace Punto_de_Venta.Controlador
             }
         }
 
-        public async Task<string> LoginAsync(Usuarios user)
+        public async Task<Usuarios> LoginAsync(Usuarios user)
         {
             return await Task.Run(() =>
             {
                 using (var context = new la_ross_dbEntities())
                 {
                     return context.Usuarios
-                        .FirstOrDefault(x => x.username == user.nombre && x.contra == user.contra)?.tipo;
+                        .FirstOrDefault(x => x.username == user.nombre && x.contra == user.contra);
                 }
             });
         }
+
+
 
     }
 }
