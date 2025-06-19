@@ -195,6 +195,7 @@
             this.MinimizeBox = false;
             this.Name = "form_cuenta";
             this.Text = "Cuenta";
+            this.Load += new System.EventHandler(this.form_cuenta_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();

@@ -439,5 +439,10 @@ namespace Punto_de_Venta.Vistas
             view.Show();
 
         }
+
+        private void btn_inicio_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

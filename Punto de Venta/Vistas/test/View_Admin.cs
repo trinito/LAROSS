@@ -84,8 +84,8 @@ namespace Punto_de_Venta.Vistas
 
         private void LlenarCategorias()
         {
-            CategoriaController categoriaController = new CategoriaController();
-            combo_categoria.DataSource = categoriaController.GetCategorias();
+            CategoriasController categoriaController = new CategoriasController();
+            combo_categoria.DataSource = categoriaController.ObtenerTodasLasCategoriasAsync();
         }
 
         private void txt_producto_TextChanged(object sender, EventArgs e)

@@ -750,6 +750,7 @@
             this.btn_inicio.Text = "          Inicio";
             this.btn_inicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_inicio.UseVisualStyleBackColor = false;
+            this.btn_inicio.Click += new System.EventHandler(this.btn_inicio_Click);
             // 
             // panel21
             // 

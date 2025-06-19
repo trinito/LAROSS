@@ -115,10 +115,19 @@ C:\Users\HP 455 G1\Documents\Visual Studio 2022\Proyectos\chinahouse\Punto de Ve
 C:\Users\HP 455 G1\Documents\Visual Studio 2022\Proyectos\chinahouse\Punto de Venta\obj\Debug\Punto de Venta.pdb
 C:\Users\HP 455 G1\Documents\Visual Studio 2022\Proyectos\chinahouse\Punto de Venta\obj\Debug\Punto de Venta.exe.config
 C:\Users\HP 455 G1\Documents\Visual Studio 2022\Proyectos\chinahouse\Punto de Venta\obj\Debug\Punto_de_Venta.Controles.LoadingControl.resources
+C:\LaRoss\Punto de Venta\bin\Debug\Punto de Venta.exe.config
+C:\LaRoss\Punto de Venta\bin\Debug\Punto de Venta.exe
+C:\LaRoss\Punto de Venta\bin\Debug\Punto de Venta.pdb
+C:\LaRoss\Punto de Venta\bin\Debug\EntityFramework.dll
+C:\LaRoss\Punto de Venta\bin\Debug\EntityFramework.SqlServer.dll
+C:\LaRoss\Punto de Venta\bin\Debug\EntityFramework.xml
+C:\LaRoss\Punto de Venta\bin\Debug\EntityFramework.SqlServer.xml
 C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.csproj.AssemblyReference.cache
 C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Controles.LoadingControl.resources
 C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Properties.Resources.resources
 C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Configuracion.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Categorias.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Marcas.resources
 C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Historial.resources
 C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Inventario.resources
 C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Productos.resources
@@ -137,13 +146,6 @@ C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Principal.resource
 C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Reportes.resources
 C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.csproj.GenerateResource.cache
 C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.csproj.CoreCompileInputs.cache
-C:\LaRoss\Punto de Venta\bin\Debug\Punto de Venta.exe.config
-C:\LaRoss\Punto de Venta\bin\Debug\Punto de Venta.exe
-C:\LaRoss\Punto de Venta\bin\Debug\Punto de Venta.pdb
-C:\LaRoss\Punto de Venta\bin\Debug\EntityFramework.dll
-C:\LaRoss\Punto de Venta\bin\Debug\EntityFramework.SqlServer.dll
-C:\LaRoss\Punto de Venta\bin\Debug\EntityFramework.xml
-C:\LaRoss\Punto de Venta\bin\Debug\EntityFramework.SqlServer.xml
 C:\LaRoss\Punto de Venta\obj\Debug\Punto de.9F6E92BB.Up2Date
 C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.exe
 C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.pdb

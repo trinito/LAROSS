@@ -163,5 +163,10 @@ namespace Punto_de_Venta
                 await Iniciar();
             }
         }
+
+        private void form_cuenta_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

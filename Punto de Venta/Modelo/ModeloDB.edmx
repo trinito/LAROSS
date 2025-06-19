@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Punto_de_Venta.Modelo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Punto_de_Venta.Modelo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Articulos">
           <Key>
             <PropertyRef Name="id_producto" />
@@ -37,6 +37,7 @@
           </Key>
           <Property Name="id_color" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estatus" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="DetalleVenta">
           <Key>
@@ -57,6 +58,7 @@
           </Key>
           <Property Name="id_marca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estatus" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Sexos">
           <Key>
@@ -64,6 +66,7 @@
           </Key>
           <Property Name="id_sexo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="estatus" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Tallas">
           <Key>
@@ -71,6 +74,7 @@
           </Key>
           <Property Name="id_talla" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="estatus" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -274,8 +278,7 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
             <End Role="Venta" EntitySet="Venta" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Punto_de_Venta.Modelo" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -311,6 +314,7 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           </Key>
           <Property Name="id_color" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estatus" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="DetalleVenta">
           <Key>
@@ -331,6 +335,7 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           </Key>
           <Property Name="id_marca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estatus" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Sexos">
           <Key>
@@ -338,6 +343,7 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           </Key>
           <Property Name="id_sexo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="estatus" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Tallas">
           <Key>
@@ -345,6 +351,7 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           </Key>
           <Property Name="id_talla" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estatus" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -576,6 +583,7 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           <EntitySetMapping Name="Colores">
             <EntityTypeMapping TypeName="Punto_de_Venta.Modelo.Colores">
               <MappingFragment StoreEntitySet="Colores">
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
                 <ScalarProperty Name="id_color" ColumnName="id_color" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
               </MappingFragment>
@@ -598,6 +606,7 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           <EntitySetMapping Name="Marcas">
             <EntityTypeMapping TypeName="Punto_de_Venta.Modelo.Marcas">
               <MappingFragment StoreEntitySet="Marcas">
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
                 <ScalarProperty Name="id_marca" ColumnName="id_marca" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
               </MappingFragment>
@@ -606,6 +615,7 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           <EntitySetMapping Name="Sexos">
             <EntityTypeMapping TypeName="Punto_de_Venta.Modelo.Sexos">
               <MappingFragment StoreEntitySet="Sexos">
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
                 <ScalarProperty Name="id_sexo" ColumnName="id_sexo" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
               </MappingFragment>
@@ -614,6 +624,7 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           <EntitySetMapping Name="Tallas">
             <EntityTypeMapping TypeName="Punto_de_Venta.Modelo.Tallas">
               <MappingFragment StoreEntitySet="Tallas">
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
                 <ScalarProperty Name="id_talla" ColumnName="id_talla" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
               </MappingFragment>

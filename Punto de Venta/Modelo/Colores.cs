@@ -16,5 +16,6 @@ namespace Punto_de_Venta.Modelo
     {
         public int id_color { get; set; }
         public string nombre { get; set; }
+        public bool estatus { get; set; }
     }
 }
