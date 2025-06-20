@@ -118,9 +118,15 @@ namespace Punto_de_Venta.Vistas.Productos
             var fila = dgv_marcas.Rows[e.RowIndex];
             idMarcaSeleccionada = Convert.ToInt32(fila.Cells["id_marca"].Value);
             txt_nombre_marca.Text = fila.Cells["nombre"].Value.ToString();
+            txt_nombre_marca.Focus();
         }
 
         private async void btn_agregar_marca_Click(object sender, EventArgs e)
+        {
+            await Agregar();
+        }
+
+        public async Task Agregar()
         {
             AnimarBoton(btn_agregar_marca);
 
@@ -147,6 +153,10 @@ namespace Punto_de_Venta.Vistas.Productos
         }
 
         private async void btn_modificar_marca_Click(object sender, EventArgs e)
+        {
+            await Modificar();
+        }
+        public async Task Modificar()
         {
             AnimarBoton(btn_modificar_marca);
 
@@ -178,6 +188,11 @@ namespace Punto_de_Venta.Vistas.Productos
         }
 
         private async void btn_eliminar_marca_Click(object sender, EventArgs e)
+        {
+            await Eliminar();
+        }
+        
+        public async Task Eliminar()
         {
             AnimarBoton(btn_eliminar_marca);
 
@@ -212,12 +227,7 @@ namespace Punto_de_Venta.Vistas.Productos
 
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
-            txt_nombre_marca.Clear();
-
-            CambiarEstadoBotones(false);
-            idMarcaSeleccionada = -1;
-
-            txt_nombre_marca.Focus();
+            LimpiarFormulario();
         }
 
         private void CambiarEstadoBotones(bool editarEliminarVisible)
@@ -241,6 +251,37 @@ namespace Punto_de_Venta.Vistas.Productos
         private void btn_salir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void View_Marcas_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape: 
+                    if (btn_cancelar.Visible)
+                    {
+                        LimpiarFormulario();
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
+                    break;
+            }
+        }
+
+   
+        private async void txt_nombre_marca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (btn_agregar_marca.Visible)
+                    await Agregar();
+                else
+                    await Modificar();
+
+                e.Handled = true;  // Evita que se "suene" el beep al presionar Enter
+            }
         }
     }
 }

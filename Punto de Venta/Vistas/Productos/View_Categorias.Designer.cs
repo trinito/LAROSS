@@ -33,9 +33,9 @@
             this.txt_nombre_categoria = new System.Windows.Forms.TextBox();
             this.dgv_categorias = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
+            this.btn_agregar_categoria = new System.Windows.Forms.Button();
             this.btn_modificar_categoria = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
-            this.btn_agregar_categoria = new System.Windows.Forms.Button();
             this.btn_salir = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,10 +53,10 @@
             this.panel4.Controls.Add(this.txt_nombre_categoria);
             this.panel4.Controls.Add(this.dgv_categorias);
             this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.btn_agregar_categoria);
-            this.panel4.Controls.Add(this.btn_salir);
             this.panel4.Controls.Add(this.btn_modificar_categoria);
             this.panel4.Controls.Add(this.btn_cancelar);
+            this.panel4.Controls.Add(this.btn_salir);
+            this.panel4.Controls.Add(this.btn_agregar_categoria);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 112);
             this.panel4.Name = "panel4";
@@ -88,6 +88,7 @@
             this.txt_nombre_categoria.Name = "txt_nombre_categoria";
             this.txt_nombre_categoria.Size = new System.Drawing.Size(151, 26);
             this.txt_nombre_categoria.TabIndex = 45;
+            this.txt_nombre_categoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nombre_categoria_KeyPress);
             // 
             // dgv_categorias
             // 
@@ -114,6 +115,21 @@
             this.label3.Size = new System.Drawing.Size(79, 19);
             this.label3.TabIndex = 50;
             this.label3.Text = "Nombre:";
+            // 
+            // btn_agregar_categoria
+            // 
+            this.btn_agregar_categoria.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_agregar_categoria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_agregar_categoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_agregar_categoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_agregar_categoria.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_agregar_categoria.Image = global::Punto_de_Venta.Properties.Resources.icons8_add_25;
+            this.btn_agregar_categoria.Location = new System.Drawing.Point(320, 48);
+            this.btn_agregar_categoria.Name = "btn_agregar_categoria";
+            this.btn_agregar_categoria.Size = new System.Drawing.Size(30, 30);
+            this.btn_agregar_categoria.TabIndex = 45;
+            this.btn_agregar_categoria.UseVisualStyleBackColor = true;
+            this.btn_agregar_categoria.Click += new System.EventHandler(this.btn_agregar_categoria_Click);
             // 
             // btn_modificar_categoria
             // 
@@ -150,21 +166,6 @@
             this.btn_cancelar.Visible = false;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
-            // btn_agregar_categoria
-            // 
-            this.btn_agregar_categoria.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_agregar_categoria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_agregar_categoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_agregar_categoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_agregar_categoria.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_agregar_categoria.Image = global::Punto_de_Venta.Properties.Resources.icons8_add_25;
-            this.btn_agregar_categoria.Location = new System.Drawing.Point(320, 48);
-            this.btn_agregar_categoria.Name = "btn_agregar_categoria";
-            this.btn_agregar_categoria.Size = new System.Drawing.Size(30, 30);
-            this.btn_agregar_categoria.TabIndex = 45;
-            this.btn_agregar_categoria.UseVisualStyleBackColor = true;
-            this.btn_agregar_categoria.Click += new System.EventHandler(this.btn_agregar_categoria_Click);
-            // 
             // btn_salir
             // 
             this.btn_salir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(21)))), ((int)(((byte)(34)))));
@@ -181,7 +182,6 @@
             this.btn_salir.Text = "Salir";
             this.btn_salir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btn_salir.UseVisualStyleBackColor = false;
-            this.btn_salir.Visible = false;
             this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // panel1
@@ -229,9 +229,11 @@
             this.ClientSize = new System.Drawing.Size(477, 450);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
+            this.KeyPreview = true;
             this.Name = "View_Categorias";
             this.Text = "Categorias";
             this.Load += new System.EventHandler(this.View_Categorias_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.View_Categorias_KeyDown);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_categorias)).EndInit();

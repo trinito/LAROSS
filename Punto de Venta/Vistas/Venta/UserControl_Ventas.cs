@@ -82,28 +82,6 @@ namespace Punto_de_Venta.Vistas
                 }
             }
         }
-
-        private void UserControl_Ventas_KeyDown(object sender, KeyEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.F4:
-                    AbrirCobrar();
-                    break;
-                case Keys.F1:
-                    AbrirBuscar();
-                    break;
-                case Keys.Delete:
-                    EliminarProducto();
-                    break;
-                case Keys.F5:
-                    ImprimirCopia();
-                    break;
-
-                default:
-                    break;
-            }
-        }
         private void button_buscar_Click(object sender, EventArgs e)
         {
             AbrirBuscar();
@@ -416,6 +394,25 @@ namespace Punto_de_Venta.Vistas
                 total_copia = 0; pago_copia = 0; cambio_copia = 0;
             }
 
+        }
+
+        public void HandleKeyDown(KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.F4:
+                    AbrirCobrar();
+                    break;
+                case Keys.F1:
+                    AbrirBuscar();
+                    break;
+                case Keys.Delete:
+                    EliminarProducto();
+                    break;
+                case Keys.F5:
+                    ImprimirCopia();
+                    break;
+            }
         }
     }
 }

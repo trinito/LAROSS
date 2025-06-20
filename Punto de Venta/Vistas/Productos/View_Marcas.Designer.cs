@@ -34,11 +34,11 @@
             this.txt_nombre_marca = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_eliminar_marca = new System.Windows.Forms.Button();
             this.dgv_marcas = new System.Windows.Forms.DataGridView();
             this.btn_agregar_marca = new System.Windows.Forms.Button();
             this.btn_modificar_marca = new System.Windows.Forms.Button();
+            this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_salir = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -93,6 +93,7 @@
             this.txt_nombre_marca.Name = "txt_nombre_marca";
             this.txt_nombre_marca.Size = new System.Drawing.Size(151, 26);
             this.txt_nombre_marca.TabIndex = 45;
+            this.txt_nombre_marca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nombre_marca_KeyPress);
             // 
             // label3
             // 
@@ -108,38 +109,19 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.panel4.Controls.Add(this.btn_salir);
-            this.panel4.Controls.Add(this.btn_cancelar);
             this.panel4.Controls.Add(this.btn_eliminar_marca);
             this.panel4.Controls.Add(this.txt_nombre_marca);
             this.panel4.Controls.Add(this.dgv_marcas);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.btn_agregar_marca);
             this.panel4.Controls.Add(this.btn_modificar_marca);
+            this.panel4.Controls.Add(this.btn_cancelar);
+            this.panel4.Controls.Add(this.btn_salir);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 112);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(463, 338);
             this.panel4.TabIndex = 0;
-            // 
-            // btn_cancelar
-            // 
-            this.btn_cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(21)))), ((int)(((byte)(34)))));
-            this.btn_cancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_cancelar.FlatAppearance.BorderSize = 0;
-            this.btn_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(53)))), ((int)(((byte)(46)))));
-            this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancelar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancelar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btn_cancelar.Location = new System.Drawing.Point(251, 248);
-            this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(126, 37);
-            this.btn_cancelar.TabIndex = 61;
-            this.btn_cancelar.Text = "Cancelar";
-            this.btn_cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_cancelar.UseVisualStyleBackColor = false;
-            this.btn_cancelar.Visible = false;
-            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // btn_eliminar_marca
             // 
@@ -203,6 +185,25 @@
             this.btn_modificar_marca.Visible = false;
             this.btn_modificar_marca.Click += new System.EventHandler(this.btn_modificar_marca_Click);
             // 
+            // btn_cancelar
+            // 
+            this.btn_cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(21)))), ((int)(((byte)(34)))));
+            this.btn_cancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_cancelar.FlatAppearance.BorderSize = 0;
+            this.btn_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(53)))), ((int)(((byte)(46)))));
+            this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cancelar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btn_cancelar.Location = new System.Drawing.Point(251, 248);
+            this.btn_cancelar.Name = "btn_cancelar";
+            this.btn_cancelar.Size = new System.Drawing.Size(126, 37);
+            this.btn_cancelar.TabIndex = 61;
+            this.btn_cancelar.Text = "Cancelar";
+            this.btn_cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_cancelar.UseVisualStyleBackColor = false;
+            this.btn_cancelar.Visible = false;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
+            // 
             // btn_salir
             // 
             this.btn_salir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(21)))), ((int)(((byte)(34)))));
@@ -219,7 +220,6 @@
             this.btn_salir.Text = "Salir";
             this.btn_salir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btn_salir.UseVisualStyleBackColor = false;
-            this.btn_salir.Visible = false;
             this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // View_Marcas
@@ -229,11 +229,13 @@
             this.ClientSize = new System.Drawing.Size(463, 450);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "View_Marcas";
             this.Text = "Marcas";
             this.Load += new System.EventHandler(this.View_Marcas_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.View_Marcas_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

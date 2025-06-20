@@ -57,9 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controlador\CategoriaController.cs" />
+    <Compile Include="Controlador\ColorController.cs" />
     <Compile Include="Controlador\DetalleVentaController.cs" />
     <Compile Include="Controlador\MarcasController.cs" />
     <Compile Include="Controlador\ProductosController.cs" />
+    <Compile Include="Controlador\SexoController.cs" />
+    <Compile Include="Controlador\TallaController.cs" />
     <Compile Include="Controlador\UsuarioController.cs" />
     <Compile Include="Controlador\VentaController.cs" />
     <Compile Include="Controlador\VistasController.cs" />
@@ -140,11 +143,29 @@
     <Compile Include="Vistas\Productos\View_Categorias.Designer.cs">
       <DependentUpon>View_Categorias.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Productos\View_Colores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Productos\View_Colores.Designer.cs">
+      <DependentUpon>View_Colores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Productos\View_Marcas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vistas\Productos\View_Marcas.Designer.cs">
       <DependentUpon>View_Marcas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Productos\View_Sexos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Productos\View_Sexos.Designer.cs">
+      <DependentUpon>View_Sexos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Productos\View_Tallas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Productos\View_Tallas.Designer.cs">
+      <DependentUpon>View_Tallas.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Venta\UserControl_Historial.cs">
       <SubType>UserControl</SubType>
@@ -258,8 +279,17 @@
     <EmbeddedResource Include="Vistas\Productos\View_Categorias.resx">
       <DependentUpon>View_Categorias.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Productos\View_Colores.resx">
+      <DependentUpon>View_Colores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Productos\View_Marcas.resx">
       <DependentUpon>View_Marcas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Productos\View_Sexos.resx">
+      <DependentUpon>View_Sexos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Productos\View_Tallas.resx">
+      <DependentUpon>View_Tallas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Venta\UserControl_Historial.resx">
       <DependentUpon>UserControl_Historial.cs</DependentUpon>

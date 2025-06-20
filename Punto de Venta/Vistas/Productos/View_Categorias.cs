@@ -116,9 +116,15 @@ namespace Punto_de_Venta.Vistas.Productos
             var fila = dgv_categorias.Rows[e.RowIndex];
             txt_nombre_categoria.Tag = fila.Cells["id_categoria"].Value;
             txt_nombre_categoria.Text = fila.Cells["nombre"].Value.ToString();
+            txt_nombre_categoria.Focus();
         }
 
         private async void btn_agregar_categoria_Click(object sender, EventArgs e)
+        {
+            await Agregar();
+        }
+
+        public async Task Agregar()
         {
             AnimarBoton(btn_agregar_categoria);
 
@@ -144,6 +150,11 @@ namespace Punto_de_Venta.Vistas.Productos
         }
 
         private async void btn_modificar_categoria_Click(object sender, EventArgs e)
+        {
+            await Modificar();
+        }
+
+        public async Task Modificar()
         {
             AnimarBoton(btn_modificar_categoria);
 
@@ -213,11 +224,36 @@ namespace Punto_de_Venta.Vistas.Productos
             btn_eliminar_categoria.Visible = editarVisible;
             btn_cancelar.Visible = editarVisible;
             btn_agregar_categoria.Visible = !editarVisible;
+            btn_salir.Visible = !editarVisible;
         }
 
         private void btn_salir_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void View_Categorias_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                if (btn_cancelar.Visible)
+                    LimpiarFormulario();
+                else
+                    this.Close();
+            }
+        }
+
+        private async void txt_nombre_categoria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13) // Enter
+            {
+                if (btn_agregar_categoria.Visible)
+                    await Agregar();
+                else
+                    await Modificar();
+
+                e.Handled = true;
+            }
         }
     }
 }

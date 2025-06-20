@@ -28,6 +28,7 @@ namespace Punto_de_Venta.Vistas
             llenadoListaBotones();
             MostrarUserControl(new UserControl_Ventas());
             limpiarBotones(btn_inicio);
+            this.KeyDown += View_Padre_KeyDown;
 
         }
 
@@ -101,6 +102,14 @@ namespace Punto_de_Venta.Vistas
             {
                 LogoutSolicitado = true;
                 this.Close(); // Cierra y regresa al login
+            }
+        }
+
+        private void View_Padre_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (panel_principal.Controls.Count > 0 && panel_principal.Controls[0] is UserControl_Ventas ventasControl)
+            {
+                ventasControl.HandleKeyDown(e);
             }
         }
     }

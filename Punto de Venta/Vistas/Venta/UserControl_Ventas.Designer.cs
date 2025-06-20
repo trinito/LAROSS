@@ -418,7 +418,6 @@
             this.Name = "UserControl_Ventas";
             this.Size = new System.Drawing.Size(1365, 840);
             this.Load += new System.EventHandler(this.UserControl_Ventas_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserControl_Ventas_KeyDown);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel7.ResumeLayout(false);

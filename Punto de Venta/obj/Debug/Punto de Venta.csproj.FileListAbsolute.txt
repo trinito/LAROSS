@@ -127,7 +127,10 @@ C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Controles.LoadingControl.resou
 C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Properties.Resources.resources
 C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Configuracion.resources
 C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Categorias.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Colores.resources
 C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Marcas.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Sexos.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Tallas.resources
 C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Historial.resources
 C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Inventario.resources
 C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Productos.resources
