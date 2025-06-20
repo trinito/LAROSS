@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControl_Productos));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,9 +86,10 @@
             this.txt_nombre = new Punto_de_Venta.Controles.TextBoxConEsquinas();
             this.txt_venta = new Punto_de_Venta.Controles.TextBoxConEsquinas();
             this.txt_stock = new Punto_de_Venta.Controles.TextBoxConEsquinas();
-            this.botonConEsquinas5 = new Punto_de_Venta.Controles.BotonConEsquinas();
-            this.botonConEsquinas6 = new Punto_de_Venta.Controles.BotonConEsquinas();
-            this.botonConEsquinas7 = new Punto_de_Venta.Controles.BotonConEsquinas();
+            this.btn_eliminar = new Punto_de_Venta.Controles.BotonConEsquinas();
+            this.btn_modificar = new Punto_de_Venta.Controles.BotonConEsquinas();
+            this.btn_agregar = new Punto_de_Venta.Controles.BotonConEsquinas();
+            this.txt_original_codigo_barras = new Punto_de_Venta.Controles.TextBoxConEsquinas();
             this.botonConEsquinas4 = new Punto_de_Venta.Controles.BotonConEsquinas();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -114,8 +114,8 @@
             // Cantidad
             // 
             this.Cantidad.DataPropertyName = "cantidad";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle6;
             this.Cantidad.FillWeight = 50F;
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.Name = "Cantidad";
@@ -124,8 +124,8 @@
             // Medida
             // 
             this.Medida.DataPropertyName = "medida";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Medida.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Medida.DefaultCellStyle = dataGridViewCellStyle7;
             this.Medida.FillWeight = 50F;
             this.Medida.HeaderText = "Medida";
             this.Medida.Name = "Medida";
@@ -134,8 +134,8 @@
             // Nombre
             // 
             this.Nombre.DataPropertyName = "nombre";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Nombre.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nombre.DefaultCellStyle = dataGridViewCellStyle8;
             this.Nombre.FillWeight = 160F;
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
@@ -144,8 +144,8 @@
             // Código
             // 
             this.Código.DataPropertyName = "codigo";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Código.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Código.DefaultCellStyle = dataGridViewCellStyle9;
             this.Código.FillWeight = 45F;
             this.Código.HeaderText = "Código";
             this.Código.Name = "Código";
@@ -154,10 +154,10 @@
             // Precio
             // 
             this.Precio.DataPropertyName = "precio";
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.Precio.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.Format = "C2";
+            dataGridViewCellStyle10.NullValue = null;
+            this.Precio.DefaultCellStyle = dataGridViewCellStyle10;
             this.Precio.FillWeight = 50F;
             this.Precio.HeaderText = "Precio";
             this.Precio.Name = "Precio";
@@ -166,7 +166,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(57)))), ((int)(((byte)(93)))));
-            this.panel2.Controls.Add(this.botonConEsquinas4);
             this.panel2.Controls.Add(this.button_quitar);
             this.panel2.Controls.Add(this.button_buscar);
             this.panel2.Controls.Add(this.pictureBox1);
@@ -238,7 +237,6 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -251,7 +249,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label5.Location = new System.Drawing.Point(517, 21);
+            this.label5.Location = new System.Drawing.Point(9, 54);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(143, 19);
             this.label5.TabIndex = 2;
@@ -271,9 +269,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.panel1.Controls.Add(this.botonConEsquinas5);
-            this.panel1.Controls.Add(this.botonConEsquinas6);
-            this.panel1.Controls.Add(this.botonConEsquinas7);
+            this.panel1.Controls.Add(this.btn_eliminar);
+            this.panel1.Controls.Add(this.btn_modificar);
+            this.panel1.Controls.Add(this.btn_agregar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 691);
             this.panel1.Name = "panel1";
@@ -326,7 +324,9 @@
             // panel16
             // 
             this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.panel16.Controls.Add(this.txt_original_codigo_barras);
             this.panel16.Controls.Add(this.cb_color);
+            this.panel16.Controls.Add(this.label5);
             this.panel16.Controls.Add(this.btn_color);
             this.panel16.Controls.Add(this.label12);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -382,7 +382,6 @@
             // 
             // pb_imagen
             // 
-            this.pb_imagen.Image = ((System.Drawing.Image)(resources.GetObject("pb_imagen.Image")));
             this.pb_imagen.Location = new System.Drawing.Point(11, 11);
             this.pb_imagen.Name = "pb_imagen";
             this.pb_imagen.Size = new System.Drawing.Size(350, 350);
@@ -736,50 +735,62 @@
             this.txt_stock.Size = new System.Drawing.Size(307, 25);
             this.txt_stock.TabIndex = 7;
             // 
-            // botonConEsquinas5
+            // btn_eliminar
             // 
-            this.botonConEsquinas5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.botonConEsquinas5.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.botonConEsquinas5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.botonConEsquinas5.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold);
-            this.botonConEsquinas5.ForeColor = System.Drawing.Color.White;
-            this.botonConEsquinas5.Location = new System.Drawing.Point(443, 15);
-            this.botonConEsquinas5.Name = "botonConEsquinas5";
-            this.botonConEsquinas5.Radio = 25;
-            this.botonConEsquinas5.Size = new System.Drawing.Size(177, 70);
-            this.botonConEsquinas5.TabIndex = 27;
-            this.botonConEsquinas5.Text = "Eliminar";
-            this.botonConEsquinas5.UseVisualStyleBackColor = false;
+            this.btn_eliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btn_eliminar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_eliminar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btn_eliminar.ForeColor = System.Drawing.Color.White;
+            this.btn_eliminar.Location = new System.Drawing.Point(443, 15);
+            this.btn_eliminar.Name = "btn_eliminar";
+            this.btn_eliminar.Radio = 25;
+            this.btn_eliminar.Size = new System.Drawing.Size(177, 70);
+            this.btn_eliminar.TabIndex = 27;
+            this.btn_eliminar.Text = "Eliminar";
+            this.btn_eliminar.UseVisualStyleBackColor = false;
             // 
-            // botonConEsquinas6
+            // btn_modificar
             // 
-            this.botonConEsquinas6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.botonConEsquinas6.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.botonConEsquinas6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.botonConEsquinas6.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold);
-            this.botonConEsquinas6.ForeColor = System.Drawing.Color.White;
-            this.botonConEsquinas6.Location = new System.Drawing.Point(235, 15);
-            this.botonConEsquinas6.Name = "botonConEsquinas6";
-            this.botonConEsquinas6.Radio = 25;
-            this.botonConEsquinas6.Size = new System.Drawing.Size(177, 70);
-            this.botonConEsquinas6.TabIndex = 26;
-            this.botonConEsquinas6.Text = "Modificar";
-            this.botonConEsquinas6.UseVisualStyleBackColor = false;
+            this.btn_modificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btn_modificar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_modificar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btn_modificar.ForeColor = System.Drawing.Color.White;
+            this.btn_modificar.Location = new System.Drawing.Point(235, 15);
+            this.btn_modificar.Name = "btn_modificar";
+            this.btn_modificar.Radio = 25;
+            this.btn_modificar.Size = new System.Drawing.Size(177, 70);
+            this.btn_modificar.TabIndex = 26;
+            this.btn_modificar.Text = "Modificar";
+            this.btn_modificar.UseVisualStyleBackColor = false;
             // 
-            // botonConEsquinas7
+            // btn_agregar
             // 
-            this.botonConEsquinas7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.botonConEsquinas7.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.botonConEsquinas7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.botonConEsquinas7.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold);
-            this.botonConEsquinas7.ForeColor = System.Drawing.Color.White;
-            this.botonConEsquinas7.Location = new System.Drawing.Point(39, 15);
-            this.botonConEsquinas7.Name = "botonConEsquinas7";
-            this.botonConEsquinas7.Radio = 25;
-            this.botonConEsquinas7.Size = new System.Drawing.Size(177, 70);
-            this.botonConEsquinas7.TabIndex = 25;
-            this.botonConEsquinas7.Text = "Agregar";
-            this.botonConEsquinas7.UseVisualStyleBackColor = false;
+            this.btn_agregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btn_agregar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_agregar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btn_agregar.ForeColor = System.Drawing.Color.White;
+            this.btn_agregar.Location = new System.Drawing.Point(39, 15);
+            this.btn_agregar.Name = "btn_agregar";
+            this.btn_agregar.Radio = 25;
+            this.btn_agregar.Size = new System.Drawing.Size(177, 70);
+            this.btn_agregar.TabIndex = 25;
+            this.btn_agregar.Text = "Agregar";
+            this.btn_agregar.UseVisualStyleBackColor = false;
+            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
+            // 
+            // txt_original_codigo_barras
+            // 
+            this.txt_original_codigo_barras.BackColor = System.Drawing.Color.Transparent;
+            this.txt_original_codigo_barras.BordeColor = System.Drawing.Color.Gray;
+            this.txt_original_codigo_barras.FondoColor = System.Drawing.Color.White;
+            this.txt_original_codigo_barras.Location = new System.Drawing.Point(158, 51);
+            this.txt_original_codigo_barras.Name = "txt_original_codigo_barras";
+            this.txt_original_codigo_barras.Radio = 10;
+            this.txt_original_codigo_barras.Size = new System.Drawing.Size(251, 25);
+            this.txt_original_codigo_barras.TabIndex = 2;
             // 
             // botonConEsquinas4
             // 
@@ -858,9 +869,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
-        private Controles.BotonConEsquinas botonConEsquinas5;
-        private Controles.BotonConEsquinas botonConEsquinas6;
-        private Controles.BotonConEsquinas botonConEsquinas7;
+        private Controles.BotonConEsquinas btn_eliminar;
+        private Controles.BotonConEsquinas btn_modificar;
+        private Controles.BotonConEsquinas btn_agregar;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel14;
@@ -900,5 +911,6 @@
         private System.Windows.Forms.ComboBox cb_color;
         private System.Windows.Forms.ComboBox cb_sexo;
         private System.Windows.Forms.ComboBox cb_tallas;
+        private Controles.TextBoxConEsquinas txt_original_codigo_barras;
     }
 }

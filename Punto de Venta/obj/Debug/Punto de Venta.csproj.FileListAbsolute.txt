@@ -152,3 +152,35 @@ C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.csproj.CoreCompileInputs.cache
 C:\LaRoss\Punto de Venta\obj\Debug\Punto de.9F6E92BB.Up2Date
 C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.exe
 C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.pdb
+C:\LaRoss\Punto de Venta\bin\Debug\libSkiaSharp.dylib
+C:\LaRoss\Punto de Venta\bin\Debug\x86\libSkiaSharp.dll
+C:\LaRoss\Punto de Venta\bin\Debug\x64\libSkiaSharp.dll
+C:\LaRoss\Punto de Venta\bin\Debug\arm64\libSkiaSharp.dll
+C:\LaRoss\Punto de Venta\bin\Debug\x64\libSkiaSharp.so
+C:\LaRoss\Punto de Venta\bin\Debug\arm\libSkiaSharp.so
+C:\LaRoss\Punto de Venta\bin\Debug\arm64\libSkiaSharp.so
+C:\LaRoss\Punto de Venta\bin\Debug\musl-x64\libSkiaSharp.so
+C:\LaRoss\Punto de Venta\bin\Debug\BarcodeStandard.dll
+C:\LaRoss\Punto de Venta\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\LaRoss\Punto de Venta\bin\Debug\SkiaSharp.dll
+C:\LaRoss\Punto de Venta\bin\Debug\System.Buffers.dll
+C:\LaRoss\Punto de Venta\bin\Debug\System.Memory.dll
+C:\LaRoss\Punto de Venta\bin\Debug\System.Numerics.Vectors.dll
+C:\LaRoss\Punto de Venta\bin\Debug\System.Resources.Extensions.dll
+C:\LaRoss\Punto de Venta\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\LaRoss\Punto de Venta\bin\Debug\System.Text.Encodings.Web.dll
+C:\LaRoss\Punto de Venta\bin\Debug\System.Text.Json.dll
+C:\LaRoss\Punto de Venta\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\LaRoss\Punto de Venta\bin\Debug\System.ValueTuple.dll
+C:\LaRoss\Punto de Venta\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\LaRoss\Punto de Venta\bin\Debug\SkiaSharp.pdb
+C:\LaRoss\Punto de Venta\bin\Debug\SkiaSharp.xml
+C:\LaRoss\Punto de Venta\bin\Debug\System.Buffers.xml
+C:\LaRoss\Punto de Venta\bin\Debug\System.Memory.xml
+C:\LaRoss\Punto de Venta\bin\Debug\System.Numerics.Vectors.xml
+C:\LaRoss\Punto de Venta\bin\Debug\System.Resources.Extensions.xml
+C:\LaRoss\Punto de Venta\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\LaRoss\Punto de Venta\bin\Debug\System.Text.Encodings.Web.xml
+C:\LaRoss\Punto de Venta\bin\Debug\System.Text.Json.xml
+C:\LaRoss\Punto de Venta\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\LaRoss\Punto de Venta\bin\Debug\System.ValueTuple.xml

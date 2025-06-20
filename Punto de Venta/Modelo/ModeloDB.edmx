@@ -10,6 +10,7 @@
             <PropertyRef Name="id_producto" />
           </Key>
           <Property Name="id_producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_barras_original" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="codigo_barras" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="id_marca" Type="int" Nullable="false" />
@@ -299,6 +300,7 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           <Property Name="stock" Type="Int32" Nullable="false" />
           <Property Name="estatus" Type="Boolean" Nullable="false" />
           <Property Name="id_categoria" Type="Int32" />
+          <Property Name="codigo_barras_original" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Categorias">
           <Key>
@@ -555,6 +557,7 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           <EntitySetMapping Name="Articulos">
             <EntityTypeMapping TypeName="Punto_de_Venta.Modelo.Articulos">
               <MappingFragment StoreEntitySet="Articulos">
+                <ScalarProperty Name="codigo_barras_original" ColumnName="codigo_barras_original" />
                 <ScalarProperty Name="id_producto" ColumnName="id_producto" />
                 <ScalarProperty Name="codigo_barras" ColumnName="codigo_barras" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />

@@ -13,6 +13,8 @@ using Punto_de_Venta.Controlador;
 using Punto_de_Venta.Controles;
 using System.IO;
 using System.Drawing.Imaging;
+using Punto_de_Venta.Modelo;
+using Punto_de_Venta.Servicios;
 
 namespace Punto_de_Venta.Vistas
 {
@@ -32,10 +34,17 @@ namespace Punto_de_Venta.Vistas
         private TallasController tallasController;
         private SexoController sexoController;
         private ColorController colorController;
+        private ProductosController productosController;
+        
+
+        private string rutaImagenGuardada = null; // Variable para guardar ruta imagen en el form
+        private string rutaBaseImagenes = @"C:\LaRoss\imagenes_productos";
+        private string nombreArchivoImagenGuardada = null; // Guardará solo el nombre del archivo
 
         public UserControl_Productos()
         {
             InitializeComponent();
+
 
             loadingOverlay = new LoadingControl();
             this.Controls.Add(loadingOverlay);
@@ -46,6 +55,7 @@ namespace Punto_de_Venta.Vistas
             tallasController = new TallasController();
             sexoController = new SexoController();
             colorController = new ColorController();
+            productosController = new ProductosController();
 
             animTimer = new Timer();
             animTimer.Interval = 30;
@@ -57,6 +67,8 @@ namespace Punto_de_Venta.Vistas
             ConfigurarBoton(btn_add_sexo, Resources.icons8_add_25, Resources.icons8_add_25_2);
             ConfigurarBoton(btn_color, Resources.icons8_add_25, Resources.icons8_add_25_2);
             txt_nombre.Focus();
+
+
         }
 
         private void ConfigurarBoton(Button boton, Image imgNormal, Image imgHover)
@@ -284,56 +296,82 @@ namespace Punto_de_Venta.Vistas
             }
         }
 
+
+
         private void btn_add_img_Click(object sender, EventArgs e)
         {
             btn_add_img.Enabled = false;
             try
             {
-
-
-
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.Title = "Seleccionar imagen";
+                using (OpenFileDialog openFileDialog = new OpenFileDialog())
+                {
+                    openFileDialog.Title = "Seleccionar imagen";
                     openFileDialog.Filter = "Archivos de imagen (*.jpg;*.png)|*.jpg;*.png";
 
                     if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    string rutaOriginal = openFileDialog.FileName;
-
-                    using (Image original = Image.FromFile(rutaOriginal))
                     {
-                        Size maxSize = new Size(600, 600);
-                        Size nuevoTamaño = ObtenerTamañoEscalado(original.Size, maxSize);
-                        using (Bitmap redimensionada = RedimensionarImagenConCalidad(original, nuevoTamaño))
+                        string rutaOriginal = openFileDialog.FileName;
+
+                        // Cargar imagen en memoria sin bloquear archivo
+                        Image original;
+                        using (FileStream stream = new FileStream(rutaOriginal, FileMode.Open, FileAccess.Read))
+                        using (MemoryStream ms = new MemoryStream())
                         {
-                            string carpetaDestino = @"C:\LaRoss\imagenes_productos";
-                            if (!Directory.Exists(carpetaDestino))
-                                Directory.CreateDirectory(carpetaDestino);
+                            stream.CopyTo(ms);
+                            ms.Position = 0;
+                            original = Image.FromStream(ms);
+                        }
 
-                            string nombreArchivo = Guid.NewGuid().ToString() + ".jpg";
-                            string rutaFinal = Path.Combine(carpetaDestino, nombreArchivo);
+                        using (original)
+                        {
+                            Size maxSize = new Size(600, 600);
+                            Size nuevoTamaño = ObtenerTamañoEscalado(original.Size, maxSize);
+                            using (Bitmap redimensionada = RedimensionarImagenConCalidad(original, nuevoTamaño))
+                            {
+                                if (!Directory.Exists(rutaBaseImagenes))
+                                    Directory.CreateDirectory(rutaBaseImagenes);
 
-                            // Guardar con calidad JPEG y sin metadata innecesaria
-                            var encoderParams = new EncoderParameters(1);
-                            encoderParams.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, 80L);
+                                // Generar solo el nombre del archivo
+                                string nombreArchivo = DateTime.Now.ToString("yyyyMMddHHmmssfff") + ".jpg";
+                                string rutaFinal = Path.Combine(rutaBaseImagenes, nombreArchivo);
 
-                            var jpgEncoder = GetEncoder(ImageFormat.Jpeg);
-                            redimensionada.Save(rutaFinal, jpgEncoder, encoderParams);
+                                // Guardar con calidad JPEG
+                                var encoderParams = new EncoderParameters(1);
+                                encoderParams.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, 80L);
+                                var jpgEncoder = GetEncoder(ImageFormat.Jpeg);
 
-                            pb_imagen.Image = new Bitmap(redimensionada);
-                            // Guardar rutaFinal en BD aquí
+                                redimensionada.Save(rutaFinal, jpgEncoder, encoderParams);
+
+                                // Guardar solo el nombre para la BD
+                                nombreArchivoImagenGuardada = nombreArchivo;
+
+                                // Mostrar imagen redimensionada en picturebox
+                                pb_imagen.Image = new Bitmap(redimensionada);
+                            }
                         }
                     }
                 }
-            }
             }
             finally
             {
                 btn_add_img.Enabled = true;
             }
-
         }
+
+        // Método para cargar la imagen después, ejemplo para usar en tu formulario o donde necesites:
+        private void CargarImagenDesdeNombre(string nombreArchivo)
+        {
+            string rutaCompleta = Path.Combine(rutaBaseImagenes, nombreArchivo);
+            if (File.Exists(rutaCompleta))
+            {
+                pb_imagen.Image = Image.FromFile(rutaCompleta);
+            }
+            else
+            {
+                pb_imagen.Image = null; // o alguna imagen por defecto
+            }
+        }
+
 
         private ImageCodecInfo GetEncoder(ImageFormat format)
         {
@@ -366,6 +404,153 @@ namespace Punto_de_Venta.Vistas
                 g.DrawImage(imagenOriginal, 0, 0, nuevoTamaño.Width, nuevoTamaño.Height);
             }
             return imagenRedimensionada;
+        }
+
+        private async void btn_agregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Validaciones básicas
+                if (string.IsNullOrWhiteSpace(txt_nombre.Text))
+                {
+                    MessageBox.Show("Debe ingresar el nombre del producto.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt_nombre.Focus();
+                    return;
+                }
+                if (string.IsNullOrWhiteSpace(txt_stock.Text) || !int.TryParse(txt_stock.Text, out int stock) || stock < 0)
+                {
+                    MessageBox.Show("Ingrese un stock válido (número entero mayor o igual a 0).", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt_stock.Focus();
+                    return;
+                }
+                if (string.IsNullOrWhiteSpace(txt_costo.Text) || !decimal.TryParse(txt_costo.Text, out decimal precioCosto) || precioCosto < 0)
+                {
+                    MessageBox.Show("Ingrese un precio de costo válido (número decimal mayor o igual a 0).", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt_costo.Focus();
+                    return;
+                }
+                if (string.IsNullOrWhiteSpace(txt_venta.Text) || !decimal.TryParse(txt_venta.Text, out decimal precioVenta) || precioVenta <= precioCosto)
+                {
+                    MessageBox.Show("El precio de venta debe ser un número decimal mayor que el precio de costo.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt_venta.Focus();
+                    return;
+                }
+                if (cb_marcas.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Seleccione una marca.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cb_marcas.Focus();
+                    return;
+                }
+                if (cb_categoria.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Seleccione una categoría.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cb_categoria.Focus();
+                    return;
+                }
+                if (cb_tallas.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Seleccione una talla.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cb_tallas.Focus();
+                    return;
+                }
+                if (cb_sexo.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Seleccione un género.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cb_sexo.Focus();
+                    return;
+                }
+                if (cb_color.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Seleccione un color.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cb_color.Focus();
+                    return;
+                }
+                if (pb_imagen.Image == null)
+                {
+                    MessageBox.Show("Debe adjuntar una imagen para el producto.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Crear objeto producto
+                var nuevoProducto = new Articulos
+                {
+                    codigo_barras = "", //GenerarCodigoBarrasInterno(), // Aquí implementa o llama la función para generar tu código interno
+                    codigo_barras_original = ObtenerCodigoBarrasOriginal(), // Aquí obtén el código original, puede ser un textbox o variable
+                    nombre = txt_nombre.Text.Trim(),
+                    id_marca = (int)cb_marcas.SelectedValue,
+                    id_categoria = (int)cb_categoria.SelectedValue,
+                    id_talla = (int)cb_tallas.SelectedValue,
+                    id_sexo = (int)cb_sexo.SelectedValue,
+                    id_color = (int)cb_color.SelectedValue,
+                    stock = stock,
+                    precio_costo = precioCosto,
+                    precio_venta = precioVenta,
+                    estatus = true,
+                    foto = nombreArchivoImagenGuardada
+                };
+
+                int idNuevo = await Task.Run(() => productosController.InsertProducto(nuevoProducto));
+
+                // Genera el código de barras: 8 dígitos con ceros a la izquierda
+                string codigoGenerado = idNuevo.ToString("D8");  // Ej: 25 => "00000025"
+
+                // Actualiza el producto con el código generado
+                nuevoProducto.id_producto = idNuevo;
+                nuevoProducto.codigo_barras = codigoGenerado;
+
+                bool actualizado = productosController.UpdateProducto(nuevoProducto);
+
+                if (idNuevo > 0 && actualizado)
+                {
+                    MessageBox.Show("Producto agregado correctamente. ID: " + idNuevo, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ImprimirCodigosDeBarras codigos = new ImprimirCodigosDeBarras();
+                    LimpiarFormulario();
+                    codigos.ImprimirCodigo(codigoGenerado, stock);
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo agregar el producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private string GenerarCodigoBarrasInterno()
+        {
+            // Ejemplo simple: generar un GUID sin guiones como código interno
+            return Guid.NewGuid().ToString("N").ToUpper();
+        }
+
+        private string ObtenerCodigoBarrasOriginal()
+        {
+            return txt_original_codigo_barras.Text.Trim();
+        }
+
+
+        private void LimpiarFormulario()
+        {
+            txt_nombre.Text = string.Empty;
+            txt_stock.Text = string.Empty;
+            txt_costo.Text = string.Empty;
+            txt_venta.Text = string.Empty;
+            txt_original_codigo_barras.Text = string.Empty;
+
+            // Si tienes textbox para código original, limpia también aquí
+            // txt_codigo_barras_original.Clear();
+
+            cb_marcas.SelectedIndex = -1;
+            cb_categoria.SelectedIndex = -1;
+            cb_tallas.SelectedIndex = -1;
+            cb_sexo.SelectedIndex = -1;
+            cb_color.SelectedIndex = -1;
+
+            
+
+            pb_imagen.Image = null;
+            nombreArchivoImagenGuardada = null; // Limpiamos la variable para la próxima vez
         }
 
     }
