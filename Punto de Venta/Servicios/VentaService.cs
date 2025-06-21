@@ -3,12 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Punto_de_Venta.Controlador
 {
     public class VentaService
     {
-        public bool RealizarVenta(DateTime fecha, string hora, List<ProductoVentaDTO> productos, string formaPago, int idUsuario = 0)
+        public async Task<bool> RealizarVentaAsync(DateTime fecha, string hora, List<ProductoVentaDTO> productos, string formaPago, int idUsuario = 0)
         {
             using (var context = new la_ross_dbEntities())
             {
@@ -29,12 +30,14 @@ namespace Punto_de_Venta.Controlador
                             fecha_editado = DateTime.Now
                         };
                         context.Venta.Add(venta);
-                        context.SaveChanges();
+                        await context.SaveChangesAsync();
 
                         // 2. Crear detalle venta
                         foreach (var p in productos)
                         {
-                            var articulo = context.Articulos.FirstOrDefault(a => a.codigo_barras == p.CodigoBarras || a.codigo_barras_original == p.CodigoBarras);
+                            var articulo = await context.Articulos
+                                .FirstOrDefaultAsync(a => a.codigo_barras == p.CodigoBarras || a.codigo_barras_original == p.CodigoBarras);
+
                             if (articulo == null)
                                 throw new Exception($"Producto con código {p.CodigoBarras} no encontrado.");
 
@@ -58,7 +61,7 @@ namespace Punto_de_Venta.Controlador
                             context.Entry(articulo).State = EntityState.Modified;
                         }
 
-                        context.SaveChanges();
+                        await context.SaveChangesAsync();
 
                         // 4. Commit transacción
                         transaction.Commit();
@@ -67,7 +70,7 @@ namespace Punto_de_Venta.Controlador
                     catch (Exception ex)
                     {
                         transaction.Rollback();
-                        throw new Exception("Error al realizar la venta: " + ex.Message);
+                        throw new Exception("Error al realizar la venta: " + ex.Message, ex);
                     }
                 }
             }

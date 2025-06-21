@@ -306,7 +306,8 @@ namespace Punto_de_Venta.Vistas
                 using (OpenFileDialog openFileDialog = new OpenFileDialog())
                 {
                     openFileDialog.Title = "Seleccionar imagen";
-                    openFileDialog.Filter = "Archivos de imagen (*.jpg;*.png)|*.jpg;*.png";
+                    openFileDialog.Filter = "Archivos de imagen (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
+
 
                     if (openFileDialog.ShowDialog() == DialogResult.OK)
                     {
@@ -489,7 +490,7 @@ namespace Punto_de_Venta.Vistas
                     foto = nombreArchivoImagenGuardada
                 };
 
-                int idNuevo = await Task.Run(() => productosController.InsertProducto(nuevoProducto));
+                int idNuevo = await productosController.InsertProductoAsync(nuevoProducto);
 
                 // Genera el código de barras: 8 dígitos con ceros a la izquierda
                 string codigoGenerado = idNuevo.ToString("D8");  // Ej: 25 => "00000025"
@@ -498,11 +499,11 @@ namespace Punto_de_Venta.Vistas
                 nuevoProducto.id_producto = idNuevo;
                 nuevoProducto.codigo_barras = codigoGenerado;
 
-                bool actualizado = productosController.UpdateProducto(nuevoProducto);
+                bool actualizado = await productosController.UpdateProductoAsync(nuevoProducto);
 
                 if (idNuevo > 0 && actualizado)
                 {
-                    MessageBox.Show("Producto agregado correctamente. ID: " + idNuevo, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Producto "+ txt_nombre.Text.Trim() + " agregado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ImprimirCodigosDeBarras codigos = new ImprimirCodigosDeBarras();
                     LimpiarFormulario();
                     codigos.ImprimirCodigo(codigoGenerado, stock);

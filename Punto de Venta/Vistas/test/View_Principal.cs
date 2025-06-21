@@ -312,84 +312,84 @@ namespace Punto_de_Venta.Vistas
             //}
         }
 
-        private void ImprimirTicket(decimal total, decimal pago, decimal cambio, string forma_pago, bool isCopia = false)
-        {
-            try
-            {
-                //if(!isCopia)
-                //{
-                //    printDocument1 = new PrintDocument();
-                //    PrinterSettings ps = new PrinterSettings();
-                //    printDocument1.PrinterSettings = ps;
-                //    printDocument1.PrintPage += Imprimir;
-                //    printDocument1.Print();
-                //}
+        //private void ImprimirTicket(decimal total, decimal pago, decimal cambio, string forma_pago, bool isCopia = false)
+        //{
+        //    try
+        //    {
+        //        //if(!isCopia)
+        //        //{
+        //        //    printDocument1 = new PrintDocument();
+        //        //    PrinterSettings ps = new PrinterSettings();
+        //        //    printDocument1.PrinterSettings = ps;
+        //        //    printDocument1.PrintPage += Imprimir;
+        //        //    printDocument1.Print();
+        //        //}
                 
 
-                ImprimirTickets ticket = new ImprimirTickets();
-                //ticket.TextoIzquierda(" ");
-                //ticket.TextoCentro("SU RECIBO GRACIAS HASTA PRONTO");
-                ticket.TextoCentro("CHINA HOUSE");
-                ticket.TextoCentro("BLVD. PEDRO ANAYA 1186 FRACC. SANTA TERESA");
-                ticket.TextoCentro("LOS MOCHIS, SINALOA");
-                ticket.TextoIzquierda(" ");
-                VentaController controler = new VentaController();
-                int ticke = controler.NumTicket();
-                if(ticke > 0)
-                {
-                    ticket.TextoIzquierda("No. TICKET "+ ticke.ToString());
-                }
+        //        ImprimirTickets ticket = new ImprimirTickets();
+        //        //ticket.TextoIzquierda(" ");
+        //        //ticket.TextoCentro("SU RECIBO GRACIAS HASTA PRONTO");
+        //        ticket.TextoCentro("CHINA HOUSE");
+        //        ticket.TextoCentro("BLVD. PEDRO ANAYA 1186 FRACC. SANTA TERESA");
+        //        ticket.TextoCentro("LOS MOCHIS, SINALOA");
+        //        ticket.TextoIzquierda(" ");
+        //        VentaController controler = new VentaController();
+        //        int ticke = await controler.NumTicketAsync();
+        //        if(ticke > 0)
+        //        {
+        //            ticket.TextoIzquierda("No. TICKET "+ ticke.ToString());
+        //        }
    
-                ticket.TextoExtremos(DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("hh:mm tt"));
-                ticket.TextoIzquierda(" ");
-                ticket.EncabezadoVenta();
-                ticket.lineasGuio();
-                if(isCopia)
-                {
-                    foreach (ProductoCaja producto in productos_copia)
-                    {
-                        ticket.AgregaArticulo(producto.nombre, producto.cantidad, producto.precio);
-                    }
-                }
-                else
-                {
-                    foreach (ProductoCaja producto in productos)
-                    {
-                        ticket.AgregaArticulo(producto.nombre, producto.cantidad, producto.precio);
-                    }
-                }
+        //        ticket.TextoExtremos(DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("hh:mm tt"));
+        //        ticket.TextoIzquierda(" ");
+        //        ticket.EncabezadoVenta();
+        //        ticket.lineasGuio();
+        //        if(isCopia)
+        //        {
+        //            foreach (ProductoCaja producto in productos_copia)
+        //            {
+        //                ticket.AgregaArticulo(producto.nombre, producto.cantidad, producto.precio);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            foreach (ProductoCaja producto in productos)
+        //            {
+        //                ticket.AgregaArticulo(producto.nombre, producto.cantidad, producto.precio);
+        //            }
+        //        }
                
-                ticket.lineasGuio();
-                ticket.TextoDerecha(forma_pago);
-                ticket.AgregarTotales("               TOTAL:  ", total);
-                ticket.AgregarTotales("            SU PAGO :  ", pago);
-                ticket.AgregarTotales("              CAMBIO: ", cambio);
-                //ticket.TextoIzquierda(" ");
-                //ticket.TextoIzquierda(" ");
-                ticket.TextoIzquierda(" ");
-                //ticket.TextoIzquierda(" ");
-                ticket.TextoCentro("SU RECIBO GRACIAS HASTA PRONTO");
-                //ticket.TextoIzquierda(" ");
+        //        ticket.lineasGuio();
+        //        ticket.TextoDerecha(forma_pago);
+        //        ticket.AgregarTotales("               TOTAL:  ", total);
+        //        ticket.AgregarTotales("            SU PAGO :  ", pago);
+        //        ticket.AgregarTotales("              CAMBIO: ", cambio);
+        //        //ticket.TextoIzquierda(" ");
+        //        //ticket.TextoIzquierda(" ");
+        //        ticket.TextoIzquierda(" ");
+        //        //ticket.TextoIzquierda(" ");
+        //        ticket.TextoCentro("SU RECIBO GRACIAS HASTA PRONTO");
+        //        //ticket.TextoIzquierda(" ");
 
-                    ticket.TextoIzquierda(" ");
-                    ticket.TextoIzquierda(" ");
-                    ticket.CortaTicket();
+        //            ticket.TextoIzquierda(" ");
+        //            ticket.TextoIzquierda(" ");
+        //            ticket.CortaTicket();
                 
-                ticket.ImprimirTicket("ZJ-58");
-                //if (!isCopia)
-                //{
-                //    printDocument1.PrintPage -= Imprimir;
-                //    printDocument1.PrintPage += ImprimirImagen;
-                //    printDocument1.Print();
-                //}
-                LimpiarTodo(cambio);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al imprimir el ticket: {ex.Message}");
-            }
+        //        ticket.ImprimirTicket("ZJ-58");
+        //        //if (!isCopia)
+        //        //{
+        //        //    printDocument1.PrintPage -= Imprimir;
+        //        //    printDocument1.PrintPage += ImprimirImagen;
+        //        //    printDocument1.Print();
+        //        //}
+        //        LimpiarTodo(cambio);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"Error al imprimir el ticket: {ex.Message}");
+        //    }
 
-        }
+        //}
 
         private void Imprimir(object sender, PrintPageEventArgs e)
         {
@@ -417,7 +417,7 @@ namespace Punto_de_Venta.Vistas
         {
             if(total_copia != 0 && pago_copia !=0)
             {
-                ImprimirTicket(total_copia, pago_copia, cambio_copia, forma_pago_copia, true);
+                //ImprimirTicket(total_copia, pago_copia, cambio_copia, forma_pago_copia, true);
                 total_copia = 0; pago_copia = 0; cambio_copia=0;
             }
            

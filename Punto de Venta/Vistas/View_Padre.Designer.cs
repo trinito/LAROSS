@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle121 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle122 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle123 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle124 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle125 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
@@ -199,7 +199,8 @@
             // btn_configuracion
             // 
             this.btn_configuracion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(57)))), ((int)(((byte)(93)))));
-            this.btn_configuracion.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_configuracion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_configuracion.Enabled = false;
             this.btn_configuracion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(57)))), ((int)(((byte)(93)))));
             this.btn_configuracion.FlatAppearance.BorderSize = 0;
             this.btn_configuracion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(44)))), ((int)(((byte)(61)))));
@@ -216,6 +217,7 @@
             this.btn_configuracion.Text = "       Configuración";
             this.btn_configuracion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_configuracion.UseVisualStyleBackColor = false;
+            this.btn_configuracion.Visible = false;
             this.btn_configuracion.Click += new System.EventHandler(this.btn_configuracion_Click);
             // 
             // panel15
@@ -238,7 +240,8 @@
             // btn_reportes
             // 
             this.btn_reportes.BackColor = System.Drawing.Color.Transparent;
-            this.btn_reportes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_reportes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_reportes.Enabled = false;
             this.btn_reportes.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(57)))), ((int)(((byte)(93)))));
             this.btn_reportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(44)))), ((int)(((byte)(61)))));
             this.btn_reportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -254,6 +257,7 @@
             this.btn_reportes.Text = "          Reportes";
             this.btn_reportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_reportes.UseVisualStyleBackColor = false;
+            this.btn_reportes.Visible = false;
             this.btn_reportes.Click += new System.EventHandler(this.btn_reportes_Click);
             // 
             // panel13
@@ -268,7 +272,8 @@
             // btn_inventario
             // 
             this.btn_inventario.BackColor = System.Drawing.Color.Transparent;
-            this.btn_inventario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_inventario.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_inventario.Enabled = false;
             this.btn_inventario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(57)))), ((int)(((byte)(93)))));
             this.btn_inventario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(44)))), ((int)(((byte)(61)))));
             this.btn_inventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -284,6 +289,7 @@
             this.btn_inventario.Text = "          Inventario";
             this.btn_inventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_inventario.UseVisualStyleBackColor = false;
+            this.btn_inventario.Visible = false;
             this.btn_inventario.Click += new System.EventHandler(this.btn_inventario_Click);
             // 
             // panel12
@@ -298,7 +304,7 @@
             // btn_productos
             // 
             this.btn_productos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(57)))), ((int)(((byte)(93)))));
-            this.btn_productos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_productos.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_productos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(57)))), ((int)(((byte)(93)))));
             this.btn_productos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(44)))), ((int)(((byte)(61)))));
             this.btn_productos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -328,7 +334,8 @@
             // btn_ventas
             // 
             this.btn_ventas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(57)))), ((int)(((byte)(93)))));
-            this.btn_ventas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_ventas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_ventas.Enabled = false;
             this.btn_ventas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(57)))), ((int)(((byte)(93)))));
             this.btn_ventas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(44)))), ((int)(((byte)(61)))));
             this.btn_ventas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -344,6 +351,7 @@
             this.btn_ventas.Text = "          Historial";
             this.btn_ventas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_ventas.UseVisualStyleBackColor = false;
+            this.btn_ventas.Visible = false;
             this.btn_ventas.Click += new System.EventHandler(this.btn_ventas_Click);
             // 
             // panel10
@@ -358,7 +366,7 @@
             // btn_inicio
             // 
             this.btn_inicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(57)))), ((int)(((byte)(93)))));
-            this.btn_inicio.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_inicio.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_inicio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(57)))), ((int)(((byte)(93)))));
             this.btn_inicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(44)))), ((int)(((byte)(61)))));
             this.btn_inicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -400,8 +408,8 @@
             // Cantidad
             // 
             this.Cantidad.DataPropertyName = "cantidad";
-            dataGridViewCellStyle121.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle121;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle1;
             this.Cantidad.FillWeight = 50F;
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.Name = "Cantidad";
@@ -410,8 +418,8 @@
             // Medida
             // 
             this.Medida.DataPropertyName = "medida";
-            dataGridViewCellStyle122.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Medida.DefaultCellStyle = dataGridViewCellStyle122;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Medida.DefaultCellStyle = dataGridViewCellStyle2;
             this.Medida.FillWeight = 50F;
             this.Medida.HeaderText = "Medida";
             this.Medida.Name = "Medida";
@@ -420,8 +428,8 @@
             // Nombre
             // 
             this.Nombre.DataPropertyName = "nombre";
-            dataGridViewCellStyle123.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Nombre.DefaultCellStyle = dataGridViewCellStyle123;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nombre.DefaultCellStyle = dataGridViewCellStyle3;
             this.Nombre.FillWeight = 160F;
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
@@ -430,8 +438,8 @@
             // Código
             // 
             this.Código.DataPropertyName = "codigo";
-            dataGridViewCellStyle124.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Código.DefaultCellStyle = dataGridViewCellStyle124;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Código.DefaultCellStyle = dataGridViewCellStyle4;
             this.Código.FillWeight = 45F;
             this.Código.HeaderText = "Código";
             this.Código.Name = "Código";
@@ -440,10 +448,10 @@
             // Precio
             // 
             this.Precio.DataPropertyName = "precio";
-            dataGridViewCellStyle125.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle125.Format = "C2";
-            dataGridViewCellStyle125.NullValue = null;
-            this.Precio.DefaultCellStyle = dataGridViewCellStyle125;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.Precio.DefaultCellStyle = dataGridViewCellStyle5;
             this.Precio.FillWeight = 50F;
             this.Precio.HeaderText = "Precio";
             this.Precio.Name = "Precio";

@@ -12,6 +12,7 @@ using Punto_de_Venta.Controlador;
 using Punto_de_Venta.Servicios;
 using System.Drawing.Printing;
 using System.Globalization;
+using Punto_de_Venta.Controles;
 
 namespace Punto_de_Venta.Vistas
 {
@@ -25,6 +26,8 @@ namespace Punto_de_Venta.Vistas
         private decimal cambio_copia = 0;
         private string forma_pago_copia = "";
 
+        private LoadingControl loadingOverlay;
+
         private List<ProductoVentaDTO> productos;
 
         private List<ProductoVentaDTO> productos_copia;
@@ -35,6 +38,9 @@ namespace Punto_de_Venta.Vistas
         {
             InitializeComponent();
             productos = new List<ProductoVentaDTO>();
+            loadingOverlay = new LoadingControl();
+            this.Controls.Add(loadingOverlay);
+            loadingOverlay.BringToFront();
         }
 
         private void UserControl_Ventas_Load(object sender, EventArgs e)
@@ -212,7 +218,7 @@ namespace Punto_de_Venta.Vistas
             }
         }
 
-        void AbrirCobrar()
+        async void AbrirCobrar()
         {
             if (total == 0)
             {
@@ -228,7 +234,7 @@ namespace Punto_de_Venta.Vistas
             form.ShowDialog();
             if (form.compra)
             {
-                GuardarVenta(form.total, form.pago, form.cambio, form.forma_pago);
+                await GuardarVenta(form.total, form.pago, form.cambio, form.forma_pago);
             }
             form.Dispose();
         }
@@ -323,13 +329,15 @@ namespace Punto_de_Venta.Vistas
             return productoCaja;
         }
 
-        private void GuardarVenta(decimal total, decimal pago, decimal cambio, string forma_pago)
+        private async Task GuardarVenta(decimal total, decimal pago, decimal cambio, string forma_pago)
         {
             try
             {
+                
+                loadingOverlay.ShowOverlay();
                 VentaService ventaService = new VentaService();
                 // Se asume que "productos" es List<ProductoVentaDTO> y que cada producto tiene la propiedad Cantidad (int)
-                bool exito = ventaService.RealizarVenta(
+                bool exito = await ventaService.RealizarVentaAsync(
                     DateTime.Now,
                     DateTime.Now.ToString("hh:mm tt"),
                     productos,
@@ -346,25 +354,33 @@ namespace Punto_de_Venta.Vistas
                     forma_pago_copia = forma_pago;
                     productos_copia = productos;
 
-                    ImprimirTicket(total, pago, cambio, forma_pago);
                 }
                 else
                 {
+                    loadingOverlay.HideOverlay();
                     MessageBox.Show(
                     "Ocurrió un problema al registrar la venta. Por favor, intenta de nuevo.",
                     "Error en la venta",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 }
+                if (exito)
+                await ImprimirTicket(total, pago, cambio, forma_pago);
+
             }
             catch (Exception ex)
             {
+                loadingOverlay.HideOverlay();
                 MessageBox.Show("Error al realizar la venta: " + ex.Message, "¡Alerta!");
+            }
+            finally
+            {
+                loadingOverlay.HideOverlay();
             }
         }
 
 
-        private void ImprimirTicket(decimal total, decimal pago, decimal cambio, string forma_pago, bool isCopia = false)
+        private async Task ImprimirTicket(decimal total, decimal pago, decimal cambio, string forma_pago, bool isCopia = false)
         {
             try
             {
@@ -372,11 +388,11 @@ namespace Punto_de_Venta.Vistas
                 //ticket.TextoIzquierda(" ");
                 //ticket.TextoCentro("SU RECIBO GRACIAS HASTA PRONTO");
                 ticket.TextoCentro("LA ROSS");
-                ticket.TextoCentro("BLVD. RIO FUERTE 728, COL. SCALLY");
+                ticket.TextoCentro("BLVD. RIO FUERTE 728 COL. SCALLY");
                 ticket.TextoCentro("LOS MOCHIS, SINALOA");
                 ticket.TextoIzquierda(" ");
                 VentaController controler = new VentaController();
-                int ticke = controler.NumTicket();
+                int ticke = await controler.NumTicketAsync();
                 if (ticke > 0)
                 {
                     ticket.TextoIzquierda("No. TICKET " + ticke.ToString());
@@ -410,7 +426,8 @@ namespace Punto_de_Venta.Vistas
                 //ticket.TextoIzquierda(" ");
                 ticket.TextoIzquierda(" ");
                 //ticket.TextoIzquierda(" ");
-                ticket.TextoCentro("NO SE ACEPTA CAMBIO NI DEVOLUCION");
+                ticket.TextoCentro("NO SE ACEPTAN CAMBIOS");
+                ticket.TextoCentro("NI DEVOLUCIONES");
                 ticket.TextoIzquierda(" ");
                 ticket.TextoCentro("SU RECIBO GRACIAS HASTA PRONTO");
                 //ticket.TextoIzquierda(" ");
@@ -419,7 +436,7 @@ namespace Punto_de_Venta.Vistas
                 ticket.TextoIzquierda(" ");
                 ticket.CortaTicket();
 
-                ticket.ImprimirTicket("ZJ-58");
+                ticket.ImprimirTicket("XP-58");
                 //if (!isCopia)
                 //{
                 //    printDocument1.PrintPage -= Imprimir;

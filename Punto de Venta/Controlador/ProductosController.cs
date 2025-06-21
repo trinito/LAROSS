@@ -105,6 +105,72 @@ namespace Punto_de_Venta.Controlador
             }
         }
 
+        public async Task<bool> UpdateProductoAsync(Articulos producto)
+        {
+            try
+            {
+                using (var context = new la_ross_dbEntities())
+                {
+                    var existente = await context.Articulos
+                        .SingleOrDefaultAsync(p => p.id_producto == producto.id_producto);
+
+                    if (existente == null) return false;
+
+                    // Actualizar campos
+                    existente.codigo_barras = producto.codigo_barras;
+                    existente.codigo_barras_original = producto.codigo_barras_original;
+                    existente.id_categoria = producto.id_categoria;
+                    existente.id_marca = producto.id_marca;
+                    existente.nombre = producto.nombre;
+                    existente.precio_costo = producto.precio_costo;
+                    existente.precio_venta = producto.precio_venta;
+                    existente.stock = producto.stock;
+                    existente.id_color = producto.id_color;
+                    existente.id_talla = producto.id_talla;
+                    existente.id_sexo = producto.id_sexo;
+                    existente.foto = producto.foto;
+                    existente.estatus = producto.estatus;
+
+                    context.Entry(existente).State = System.Data.Entity.EntityState.Modified;
+
+                    return await context.SaveChangesAsync() > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al actualizar el producto: " + ex.Message, ex);
+            }
+        }
+
+        public async Task<int> InsertProductoAsync(Articulos producto)
+        {
+            try
+            {
+                using (var context = new la_ross_dbEntities())
+                {
+                    // Validación: buscar producto activo con el mismo código de barras original
+                    bool existe = await context.Articulos.AnyAsync(p =>
+                        p.estatus &&
+                        p.codigo_barras_original == producto.codigo_barras_original);
+
+                    if (existe)
+                        throw new InvalidOperationException("Ya existe un producto con el mismo código de barras.");
+
+                    context.Articulos.Add(producto);
+                    await context.SaveChangesAsync(); // Asíncrono
+                    return producto.id_producto;
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("updating the entries"))
+                {
+                    throw new InvalidOperationException("El producto con ese código ya estuvo registrado pero se dio de baja.", ex);
+                }
+                throw new Exception("Error al insertar producto: " + ex.Message, ex);
+            }
+        }
+
         public int InsertProducto(Articulos producto)
         {
             try

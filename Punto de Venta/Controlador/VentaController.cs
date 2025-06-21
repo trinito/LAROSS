@@ -1,7 +1,9 @@
 ﻿using Punto_de_Venta.Modelo;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Punto_de_Venta.Controlador
 {
@@ -93,13 +95,20 @@ namespace Punto_de_Venta.Controlador
             }
         }
 
-        public int NumTicket()
+        public async Task<int> NumTicketAsync()
         {
             try
             {
                 using (var context = new la_ross_dbEntities())
                 {
-                    return context.Venta.Any() ? context.Venta.Max(x => x.id_venta) : 0;
+                    if (await context.Venta.AnyAsync())
+                    {
+                        return await context.Venta.MaxAsync(x => x.id_venta);
+                    }
+                    else
+                    {
+                        return 0;
+                    }
                 }
             }
             catch

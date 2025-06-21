@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,12 +44,16 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_eliminar = new Punto_de_Venta.Controles.BotonConEsquinas();
+            this.btn_modificar = new Punto_de_Venta.Controles.BotonConEsquinas();
+            this.btn_agregar = new Punto_de_Venta.Controles.BotonConEsquinas();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel16 = new System.Windows.Forms.Panel();
+            this.txt_original_codigo_barras = new Punto_de_Venta.Controles.TextBoxConEsquinas();
             this.cb_color = new System.Windows.Forms.ComboBox();
             this.btn_color = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
@@ -67,6 +71,7 @@
             this.btn_add_talla = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.txt_costo = new Punto_de_Venta.Controles.TextBoxConEsquinas();
             this.label8 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
             this.cb_categoria = new System.Windows.Forms.ComboBox();
@@ -77,19 +82,14 @@
             this.btn_add_marca = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.txt_nombre = new Punto_de_Venta.Controles.TextBoxConEsquinas();
             this.label7 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.txt_venta = new Punto_de_Venta.Controles.TextBoxConEsquinas();
             this.label10 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txt_costo = new Punto_de_Venta.Controles.TextBoxConEsquinas();
-            this.txt_nombre = new Punto_de_Venta.Controles.TextBoxConEsquinas();
-            this.txt_venta = new Punto_de_Venta.Controles.TextBoxConEsquinas();
             this.txt_stock = new Punto_de_Venta.Controles.TextBoxConEsquinas();
-            this.btn_eliminar = new Punto_de_Venta.Controles.BotonConEsquinas();
-            this.btn_modificar = new Punto_de_Venta.Controles.BotonConEsquinas();
-            this.btn_agregar = new Punto_de_Venta.Controles.BotonConEsquinas();
-            this.txt_original_codigo_barras = new Punto_de_Venta.Controles.TextBoxConEsquinas();
+            this.label6 = new System.Windows.Forms.Label();
             this.botonConEsquinas4 = new Punto_de_Venta.Controles.BotonConEsquinas();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -114,8 +114,8 @@
             // Cantidad
             // 
             this.Cantidad.DataPropertyName = "cantidad";
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle1;
             this.Cantidad.FillWeight = 50F;
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.Name = "Cantidad";
@@ -124,8 +124,8 @@
             // Medida
             // 
             this.Medida.DataPropertyName = "medida";
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Medida.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Medida.DefaultCellStyle = dataGridViewCellStyle2;
             this.Medida.FillWeight = 50F;
             this.Medida.HeaderText = "Medida";
             this.Medida.Name = "Medida";
@@ -134,8 +134,8 @@
             // Nombre
             // 
             this.Nombre.DataPropertyName = "nombre";
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Nombre.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nombre.DefaultCellStyle = dataGridViewCellStyle3;
             this.Nombre.FillWeight = 160F;
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
@@ -144,8 +144,8 @@
             // Código
             // 
             this.Código.DataPropertyName = "codigo";
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Código.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Código.DefaultCellStyle = dataGridViewCellStyle4;
             this.Código.FillWeight = 45F;
             this.Código.HeaderText = "Código";
             this.Código.Name = "Código";
@@ -154,10 +154,10 @@
             // Precio
             // 
             this.Precio.DataPropertyName = "precio";
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.Format = "C2";
-            dataGridViewCellStyle10.NullValue = null;
-            this.Precio.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.Precio.DefaultCellStyle = dataGridViewCellStyle5;
             this.Precio.FillWeight = 50F;
             this.Precio.HeaderText = "Precio";
             this.Precio.Name = "Precio";
@@ -193,6 +193,7 @@
             this.button_quitar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button_quitar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button_quitar.UseVisualStyleBackColor = false;
+            this.button_quitar.Visible = false;
             // 
             // button_buscar
             // 
@@ -212,6 +213,7 @@
             this.button_buscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button_buscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button_buscar.UseVisualStyleBackColor = false;
+            this.button_buscar.Visible = false;
             // 
             // pictureBox1
             // 
@@ -244,17 +246,6 @@
             this.panel3.Size = new System.Drawing.Size(1004, 66);
             this.panel3.TabIndex = 24;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label5.Location = new System.Drawing.Point(9, 54);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(143, 19);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Código de barras";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -265,6 +256,17 @@
             this.label3.Size = new System.Drawing.Size(148, 33);
             this.label3.TabIndex = 14;
             this.label3.Text = "Productos";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label5.Location = new System.Drawing.Point(9, 54);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(143, 19);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Código de barras";
             // 
             // panel1
             // 
@@ -277,6 +279,52 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1004, 100);
             this.panel1.TabIndex = 26;
+            // 
+            // btn_eliminar
+            // 
+            this.btn_eliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btn_eliminar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_eliminar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btn_eliminar.ForeColor = System.Drawing.Color.White;
+            this.btn_eliminar.Location = new System.Drawing.Point(443, 15);
+            this.btn_eliminar.Name = "btn_eliminar";
+            this.btn_eliminar.Radio = 25;
+            this.btn_eliminar.Size = new System.Drawing.Size(177, 70);
+            this.btn_eliminar.TabIndex = 27;
+            this.btn_eliminar.Text = "Eliminar";
+            this.btn_eliminar.UseVisualStyleBackColor = false;
+            // 
+            // btn_modificar
+            // 
+            this.btn_modificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btn_modificar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_modificar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btn_modificar.ForeColor = System.Drawing.Color.White;
+            this.btn_modificar.Location = new System.Drawing.Point(235, 15);
+            this.btn_modificar.Name = "btn_modificar";
+            this.btn_modificar.Radio = 25;
+            this.btn_modificar.Size = new System.Drawing.Size(177, 70);
+            this.btn_modificar.TabIndex = 26;
+            this.btn_modificar.Text = "Modificar";
+            this.btn_modificar.UseVisualStyleBackColor = false;
+            // 
+            // btn_agregar
+            // 
+            this.btn_agregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btn_agregar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btn_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_agregar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btn_agregar.ForeColor = System.Drawing.Color.White;
+            this.btn_agregar.Location = new System.Drawing.Point(39, 15);
+            this.btn_agregar.Name = "btn_agregar";
+            this.btn_agregar.Radio = 25;
+            this.btn_agregar.Size = new System.Drawing.Size(177, 70);
+            this.btn_agregar.TabIndex = 25;
+            this.btn_agregar.Text = "Agregar";
+            this.btn_agregar.UseVisualStyleBackColor = false;
+            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
             // 
             // panel5
             // 
@@ -334,6 +382,17 @@
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(496, 419);
             this.panel16.TabIndex = 28;
+            // 
+            // txt_original_codigo_barras
+            // 
+            this.txt_original_codigo_barras.BackColor = System.Drawing.Color.Transparent;
+            this.txt_original_codigo_barras.BordeColor = System.Drawing.Color.Gray;
+            this.txt_original_codigo_barras.FondoColor = System.Drawing.Color.White;
+            this.txt_original_codigo_barras.Location = new System.Drawing.Point(158, 51);
+            this.txt_original_codigo_barras.Name = "txt_original_codigo_barras";
+            this.txt_original_codigo_barras.Radio = 10;
+            this.txt_original_codigo_barras.Size = new System.Drawing.Size(251, 25);
+            this.txt_original_codigo_barras.TabIndex = 2;
             // 
             // cb_color
             // 
@@ -525,6 +584,17 @@
             this.panel9.Size = new System.Drawing.Size(496, 34);
             this.panel9.TabIndex = 21;
             // 
+            // txt_costo
+            // 
+            this.txt_costo.BackColor = System.Drawing.Color.Transparent;
+            this.txt_costo.BordeColor = System.Drawing.Color.Gray;
+            this.txt_costo.FondoColor = System.Drawing.Color.White;
+            this.txt_costo.Location = new System.Drawing.Point(135, 4);
+            this.txt_costo.Name = "txt_costo";
+            this.txt_costo.Radio = 10;
+            this.txt_costo.Size = new System.Drawing.Size(307, 25);
+            this.txt_costo.TabIndex = 8;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -638,6 +708,17 @@
             this.panel8.Size = new System.Drawing.Size(496, 34);
             this.panel8.TabIndex = 13;
             // 
+            // txt_nombre
+            // 
+            this.txt_nombre.BackColor = System.Drawing.Color.Transparent;
+            this.txt_nombre.BordeColor = System.Drawing.Color.Gray;
+            this.txt_nombre.FondoColor = System.Drawing.Color.White;
+            this.txt_nombre.Location = new System.Drawing.Point(102, 4);
+            this.txt_nombre.Name = "txt_nombre";
+            this.txt_nombre.Radio = 10;
+            this.txt_nombre.Size = new System.Drawing.Size(307, 25);
+            this.txt_nombre.TabIndex = 1;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -658,6 +739,17 @@
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(496, 34);
             this.panel11.TabIndex = 5;
+            // 
+            // txt_venta
+            // 
+            this.txt_venta.BackColor = System.Drawing.Color.Transparent;
+            this.txt_venta.BordeColor = System.Drawing.Color.Gray;
+            this.txt_venta.FondoColor = System.Drawing.Color.White;
+            this.txt_venta.Location = new System.Drawing.Point(135, 4);
+            this.txt_venta.Name = "txt_venta";
+            this.txt_venta.Radio = 10;
+            this.txt_venta.Size = new System.Drawing.Size(307, 25);
+            this.txt_venta.TabIndex = 9;
             // 
             // label10
             // 
@@ -680,50 +772,6 @@
             this.panel7.Size = new System.Drawing.Size(496, 34);
             this.panel7.TabIndex = 1;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label6.Location = new System.Drawing.Point(9, 6);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 19);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Stock";
-            // 
-            // txt_costo
-            // 
-            this.txt_costo.BackColor = System.Drawing.Color.Transparent;
-            this.txt_costo.BordeColor = System.Drawing.Color.Gray;
-            this.txt_costo.FondoColor = System.Drawing.Color.White;
-            this.txt_costo.Location = new System.Drawing.Point(135, 4);
-            this.txt_costo.Name = "txt_costo";
-            this.txt_costo.Radio = 10;
-            this.txt_costo.Size = new System.Drawing.Size(307, 25);
-            this.txt_costo.TabIndex = 8;
-            // 
-            // txt_nombre
-            // 
-            this.txt_nombre.BackColor = System.Drawing.Color.Transparent;
-            this.txt_nombre.BordeColor = System.Drawing.Color.Gray;
-            this.txt_nombre.FondoColor = System.Drawing.Color.White;
-            this.txt_nombre.Location = new System.Drawing.Point(102, 4);
-            this.txt_nombre.Name = "txt_nombre";
-            this.txt_nombre.Radio = 10;
-            this.txt_nombre.Size = new System.Drawing.Size(307, 25);
-            this.txt_nombre.TabIndex = 1;
-            // 
-            // txt_venta
-            // 
-            this.txt_venta.BackColor = System.Drawing.Color.Transparent;
-            this.txt_venta.BordeColor = System.Drawing.Color.Gray;
-            this.txt_venta.FondoColor = System.Drawing.Color.White;
-            this.txt_venta.Location = new System.Drawing.Point(135, 4);
-            this.txt_venta.Name = "txt_venta";
-            this.txt_venta.Radio = 10;
-            this.txt_venta.Size = new System.Drawing.Size(307, 25);
-            this.txt_venta.TabIndex = 9;
-            // 
             // txt_stock
             // 
             this.txt_stock.BackColor = System.Drawing.Color.Transparent;
@@ -735,62 +783,16 @@
             this.txt_stock.Size = new System.Drawing.Size(307, 25);
             this.txt_stock.TabIndex = 7;
             // 
-            // btn_eliminar
+            // label6
             // 
-            this.btn_eliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btn_eliminar.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_eliminar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btn_eliminar.ForeColor = System.Drawing.Color.White;
-            this.btn_eliminar.Location = new System.Drawing.Point(443, 15);
-            this.btn_eliminar.Name = "btn_eliminar";
-            this.btn_eliminar.Radio = 25;
-            this.btn_eliminar.Size = new System.Drawing.Size(177, 70);
-            this.btn_eliminar.TabIndex = 27;
-            this.btn_eliminar.Text = "Eliminar";
-            this.btn_eliminar.UseVisualStyleBackColor = false;
-            // 
-            // btn_modificar
-            // 
-            this.btn_modificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btn_modificar.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btn_modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_modificar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btn_modificar.ForeColor = System.Drawing.Color.White;
-            this.btn_modificar.Location = new System.Drawing.Point(235, 15);
-            this.btn_modificar.Name = "btn_modificar";
-            this.btn_modificar.Radio = 25;
-            this.btn_modificar.Size = new System.Drawing.Size(177, 70);
-            this.btn_modificar.TabIndex = 26;
-            this.btn_modificar.Text = "Modificar";
-            this.btn_modificar.UseVisualStyleBackColor = false;
-            // 
-            // btn_agregar
-            // 
-            this.btn_agregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btn_agregar.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btn_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_agregar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btn_agregar.ForeColor = System.Drawing.Color.White;
-            this.btn_agregar.Location = new System.Drawing.Point(39, 15);
-            this.btn_agregar.Name = "btn_agregar";
-            this.btn_agregar.Radio = 25;
-            this.btn_agregar.Size = new System.Drawing.Size(177, 70);
-            this.btn_agregar.TabIndex = 25;
-            this.btn_agregar.Text = "Agregar";
-            this.btn_agregar.UseVisualStyleBackColor = false;
-            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
-            // 
-            // txt_original_codigo_barras
-            // 
-            this.txt_original_codigo_barras.BackColor = System.Drawing.Color.Transparent;
-            this.txt_original_codigo_barras.BordeColor = System.Drawing.Color.Gray;
-            this.txt_original_codigo_barras.FondoColor = System.Drawing.Color.White;
-            this.txt_original_codigo_barras.Location = new System.Drawing.Point(158, 51);
-            this.txt_original_codigo_barras.Name = "txt_original_codigo_barras";
-            this.txt_original_codigo_barras.Radio = 10;
-            this.txt_original_codigo_barras.Size = new System.Drawing.Size(251, 25);
-            this.txt_original_codigo_barras.TabIndex = 2;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label6.Location = new System.Drawing.Point(9, 6);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 19);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Stock";
             // 
             // botonConEsquinas4
             // 
