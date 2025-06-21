@@ -26,6 +26,7 @@ namespace Punto_de_Venta.Modelo
         public decimal precio_costo { get; set; }
         public int stock { get; set; }
         public bool estatus { get; set; }
-        public Nullable<int> id_categoria { get; set; }
+        public int id_categoria { get; set; }
+        public string codigo_barras_original { get; set; }
     }
 }

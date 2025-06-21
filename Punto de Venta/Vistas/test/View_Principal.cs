@@ -136,7 +136,7 @@ namespace Punto_de_Venta.Vistas
                 form.ShowDialog();
                 if (form.productoSelect != null)
                 {
-                    Busqueda(form.productoSelect.codigo_barras, 1);
+                    Busqueda(form.productoSelect.CodigoBarras, 1);
                 }
             }
         }
@@ -297,19 +297,19 @@ namespace Punto_de_Venta.Vistas
 
             // Crear detalle de venta
             DetalleVentaController detalleVenta = new DetalleVentaController();
-            if (detalleVenta.CrearDetalleVenta(idVenta, productos))
-            {
-                total_copia = total;
-                pago_copia = pago;
-                cambio_copia = cambio;
-                forma_pago_copia = forma_pago;
-                productos_copia = productos;
-                ImprimirTicket(total, pago, cambio, forma_pago);
-            }
-            else
-            {
-                MessageBox.Show("Error en la base de datos, no se pudo registrar el detalle de venta...", "¡Alerta!");
-            }
+            //if (detalleVenta.CrearDetalleVenta(idVenta, productos))
+            //{
+            //    total_copia = total;
+            //    pago_copia = pago;
+            //    cambio_copia = cambio;
+            //    forma_pago_copia = forma_pago;
+            //    productos_copia = productos;
+            //    ImprimirTicket(total, pago, cambio, forma_pago);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Error en la base de datos, no se pudo registrar el detalle de venta...", "¡Alerta!");
+            //}
         }
 
         private void ImprimirTicket(decimal total, decimal pago, decimal cambio, string forma_pago, bool isCopia = false)
@@ -441,6 +441,11 @@ namespace Punto_de_Venta.Vistas
         }
 
         private void btn_inicio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_cobrar_Click_1(object sender, EventArgs e)
         {
 
         }
