@@ -148,6 +148,7 @@
       <DependentUpon>ModeloDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Modelo\ProductoCaja.cs" />
+    <Compile Include="Modelo\ProductoVentaDTO.cs" />
     <Compile Include="Modelo\Sexos.cs">
       <DependentUpon>ModeloDB.tt</DependentUpon>
     </Compile>
@@ -171,6 +172,7 @@
     <Compile Include="Servicios\ImprimirCodigosDeBarras.cs" />
     <Compile Include="Servicios\ImprimirTickets.cs" />
     <Compile Include="Servicios\SesionUsuario.cs" />
+    <Compile Include="Servicios\VentaService.cs" />
     <Compile Include="Vistas\Configuracion\UserControl_Configuracion.cs">
       <SubType>UserControl</SubType>
     </Compile>

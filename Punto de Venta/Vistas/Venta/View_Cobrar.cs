@@ -38,20 +38,34 @@ namespace Punto_de_Venta.Vistas
             txt_total.Text = total.ToString("C", CultureInfo.CurrentCulture);
         }
 
-        private void txt_pago_TextChanged(object sender, System.EventArgs e)
+        private void txt_pago_TextChanged(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(txt_pago.Text))
-               return;
-
-            pago = Convert.ToDecimal(((TextBox)sender).Text);
-            if (pago > total)
+            if (string.IsNullOrWhiteSpace(txt_pago.Text))
             {
-                cambio = pago - total;
-                txt_cambio.Text = cambio.ToString("C", CultureInfo.CurrentCulture);
+                txt_cambio.Text = "";
+                return;
+            }
+
+            if (decimal.TryParse(txt_pago.Text, out decimal pagoIngresado))
+            {
+                pago = pagoIngresado;
+                if (pago >= total)
+                {
+                    cambio = pago - total;
+                    txt_cambio.Text = cambio.ToString("C", CultureInfo.CurrentCulture);
+                }
+                else
+                {
+                    cambio = 0;
+                    txt_cambio.Text = "";
+                }
             }
             else
+            {
                 txt_cambio.Text = "";
+            }
         }
+
 
         private void txt_pago_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -94,48 +108,60 @@ namespace Punto_de_Venta.Vistas
 
         private void Cobrar()
         {
-            if(radio_tarjeta.Checked)
+            if (radio_tarjeta.Checked || radio_transferencia.Checked)
             {
-                string message = "La venta se realizará con TARJETA ¿Estás seguro?";
-                string title = "¡Mensaje!";
-                
-                DialogResult result = MessageBox.Show(message, title, MessageBoxButtons.YesNo);
+                string metodo = radio_tarjeta.Checked ? "TARJETA" : "TRANSFERENCIA";
+                string message = $"¿Deseas confirmar el pago con {metodo}?";
+                string title = "Confirmar forma de pago";
+
+                DialogResult result = MessageBox.Show(message, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    forma_pago = "TARJETA";
+                    forma_pago = metodo;
                     compra = true;
                     pago = total;
+                    cambio = 0;
                     this.Close();
                 }
 
-                    return;
+                return;
             }
 
-            if(string.IsNullOrEmpty(txt_pago.Text))
+            if (string.IsNullOrWhiteSpace(txt_pago.Text))
             {
-                string message = "Error al cobrar, favor de ingresar el pago";
-                string title = "¡Mensaje!";
-                MessageBox.Show(message, title);
+                MessageBox.Show("Por favor, ingresa el monto con el que se está pagando.", "Pago requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txt_pago.Focus();
+                return;
             }
-            else if (pago < total)
+
+            if (pago < total)
             {
-                string message = "Error al cobrar, el pago es menor que el total";
-                string title = "¡Alerta!";
-                MessageBox.Show(message, title);
+                MessageBox.Show("El monto ingresado es menor al total de la venta. Verifica el pago por favor.", "Pago insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txt_pago.Focus();
+                return;
             }
-            else
-            {
-                forma_pago = "EFECTIVO";
-                compra = true;
-                this.Close();
-            }
+
+            forma_pago = "EFECTIVO";
+            compra = true;
+            cambio = pago - total;
+            this.Close();
         }
+
 
         private void Cancelar()
         {
             this.Close();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radio_transferencia.Checked)
+            {
+                txt_pago.Enabled = false;
+                txt_pago.ReadOnly = true;
+                txt_pago.Text = "";
+                txt_cambio.Text = "";
+            }
         }
     }
 }

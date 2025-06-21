@@ -42,6 +42,7 @@
             this.txt_pago = new System.Windows.Forms.TextBox();
             this.txt_cambio = new System.Windows.Forms.TextBox();
             this.btn_cancelar = new System.Windows.Forms.Button();
+            this.radio_transferencia = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -88,12 +89,13 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.radio_transferencia);
             this.groupBox1.Controls.Add(this.radio_tarjeta);
             this.groupBox1.Controls.Add(this.radio_efectivo);
             this.groupBox1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(90, 133);
+            this.groupBox1.Location = new System.Drawing.Point(12, 130);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(288, 73);
+            this.groupBox1.Size = new System.Drawing.Size(468, 73);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Forma de pago";
@@ -101,7 +103,7 @@
             // radio_tarjeta
             // 
             this.radio_tarjeta.AutoSize = true;
-            this.radio_tarjeta.Location = new System.Drawing.Point(167, 34);
+            this.radio_tarjeta.Location = new System.Drawing.Point(153, 34);
             this.radio_tarjeta.Name = "radio_tarjeta";
             this.radio_tarjeta.Size = new System.Drawing.Size(108, 31);
             this.radio_tarjeta.TabIndex = 1;
@@ -225,6 +227,17 @@
             this.btn_cancelar.UseVisualStyleBackColor = false;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
+            // radio_transferencia
+            // 
+            this.radio_transferencia.AutoSize = true;
+            this.radio_transferencia.Location = new System.Drawing.Point(267, 34);
+            this.radio_transferencia.Name = "radio_transferencia";
+            this.radio_transferencia.Size = new System.Drawing.Size(184, 31);
+            this.radio_transferencia.TabIndex = 2;
+            this.radio_transferencia.Text = "Transferencia";
+            this.radio_transferencia.UseVisualStyleBackColor = true;
+            this.radio_transferencia.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
             // View_Cobrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -273,5 +286,6 @@
         private System.Windows.Forms.TextBox txt_cambio;
         private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.TextBox txt_pago;
+        private System.Windows.Forms.RadioButton radio_transferencia;
     }
 }

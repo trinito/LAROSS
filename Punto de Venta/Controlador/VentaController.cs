@@ -7,7 +7,7 @@ namespace Punto_de_Venta.Controlador
 {
     public class VentaController
     {
-        public int CrearVenta(DateTime fecha, string hora, int cantidad_productos, decimal total, bool estatus, string forma_pago)
+        public int CrearVenta(DateTime fecha, string hora, int cantidad_productos, decimal total, bool estatus, string forma_pago, DateTime? fecha_editado = null, int? id_usuario_editado = null)
         {
             try
             {
@@ -20,7 +20,9 @@ namespace Punto_de_Venta.Controlador
                         cantidad_productos = cantidad_productos,
                         total = total,
                         estatus = estatus,
-                        forma_pago = forma_pago
+                        forma_pago = forma_pago,
+                        fecha_editado = fecha_editado,
+                        id_usuario_editado = id_usuario_editado
                     };
 
                     context.Venta.Add(venta);
@@ -29,9 +31,9 @@ namespace Punto_de_Venta.Controlador
                     return x > 0 ? venta.id_venta : 0;
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw new Exception("Error en la base de datos, no se pudo registrar la venta.");
+                throw new Exception("Error en la base de datos, no se pudo registrar la venta. " + ex.Message);
             }
         }
 
@@ -49,7 +51,11 @@ namespace Punto_de_Venta.Controlador
                         .Where(x => x.fecha == fecha && x.forma_pago == "TARJETA")
                         .Sum(x => (decimal?)x.total) ?? 0;
 
-                    return new decimal[] { efectivo, tarjeta, efectivo + tarjeta };
+                    decimal transferencia = context.Venta
+                        .Where(x => x.fecha == fecha && x.forma_pago == "TRANSFERENCIA")
+                        .Sum(x => (decimal?)x.total) ?? 0;
+
+                    return new decimal[] { efectivo, tarjeta, transferencia, efectivo + tarjeta + transferencia };
                 }
             }
             catch
@@ -74,7 +80,11 @@ namespace Punto_de_Venta.Controlador
                         .Where(x => x.fecha.Month == mes && x.forma_pago == "TARJETA")
                         .Sum(x => (decimal?)x.total) ?? 0;
 
-                    return new decimal[] { efectivo, tarjeta, efectivo + tarjeta };
+                    decimal transferencia = context.Venta
+                        .Where(x => x.fecha.Month == mes && x.forma_pago == "TRANSFERENCIA")
+                        .Sum(x => (decimal?)x.total) ?? 0;
+
+                    return new decimal[] { efectivo, tarjeta, transferencia, efectivo + tarjeta + transferencia };
                 }
             }
             catch

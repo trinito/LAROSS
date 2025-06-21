@@ -222,6 +222,7 @@
             this.button_cobrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button_cobrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button_cobrar.UseVisualStyleBackColor = false;
+            this.button_cobrar.Click += new System.EventHandler(this.button_cobrar_Click_1);
             // 
             // pictureBox1
             // 

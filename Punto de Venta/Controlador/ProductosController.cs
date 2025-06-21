@@ -154,5 +154,71 @@ namespace Punto_de_Venta.Controlador
                 throw new Exception("Error al eliminar el producto: " + ex.Message, ex);
             }
         }
+        public async Task<List<ProductoVentaDTO>> ObtenerProductosParaVentaAsync()
+        {
+            using (var context = new la_ross_dbEntities())
+            {
+                var query = from a in context.Articulos
+                            join m in context.Marcas on a.id_marca equals m.id_marca
+                            join c in context.Colores on a.id_color equals c.id_color
+                            join t in context.Tallas on a.id_talla equals t.id_talla
+                            join s in context.Sexos on a.id_sexo equals s.id_sexo
+                            join cat in context.Categorias on a.id_categoria equals cat.id_categoria
+                            where a.estatus
+                            select new ProductoVentaDTO
+                            {
+                                CodigoBarras = a.codigo_barras,
+                                Nombre = a.nombre,
+                                Marca = m.nombre,
+                                Color = c.nombre,
+                                Talla = t.nombre,
+                                Sexo = s.nombre,
+                                Categoria = cat.nombre,
+                                PrecioVenta = a.precio_venta,
+                                Stock = a.stock,
+                                Foto = a.foto
+                            };
+
+                return await Task.FromResult(query.ToList());
+            }
+        }
+
+        public ProductoVentaDTO BuscarProductoParaVenta(string codigo)
+        {
+            try
+            {
+                codigo = codigo.Trim();
+
+                using (var context = new la_ross_dbEntities())
+                {
+                    var query = from a in context.Articulos
+                                join m in context.Marcas on a.id_marca equals m.id_marca
+                                join c in context.Colores on a.id_color equals c.id_color
+                                join t in context.Tallas on a.id_talla equals t.id_talla
+                                join s in context.Sexos on a.id_sexo equals s.id_sexo
+                                join cat in context.Categorias on a.id_categoria equals cat.id_categoria
+                                where a.estatus &&
+                                      (a.codigo_barras == codigo)
+                                select new ProductoVentaDTO
+                                {
+                                    CodigoBarras = a.codigo_barras,
+                                    Nombre = a.nombre,
+                                    Marca = m.nombre,
+                                    Color = c.nombre,
+                                    Talla = t.nombre,
+                                    Sexo = s.nombre,
+                                    Categoria = cat.nombre,
+                                    PrecioVenta = a.precio_venta,
+                                    Stock = a.stock  // <-- aquí agregas el stock
+                                };
+
+                    return query.FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al buscar producto para venta: " + ex.Message, ex);
+            }
+        }
     }
 }

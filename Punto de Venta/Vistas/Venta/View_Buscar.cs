@@ -3,6 +3,7 @@ using Punto_de_Venta.Controles;
 using Punto_de_Venta.Modelo;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -10,11 +11,12 @@ namespace Punto_de_Venta.Vistas
 {
     public partial class View_Buscar : Form
     {
-        public Articulos productoSelect;
-        private List<Articulos> productos;
+        public ProductoVentaDTO productoSelect;
+        private List<ProductoVentaDTO> productos;
         private readonly ProductosController productosController;
         private readonly BindingSource bindingSource;
         private LoadingControl loadingOverlay;
+        string rutaBaseImagenes = @"C:\LaRoss\imagenes_productos\";
 
         public View_Buscar()
         {
@@ -24,7 +26,7 @@ namespace Punto_de_Venta.Vistas
             this.Controls.Add(loadingOverlay);
             loadingOverlay.BringToFront();
 
-            productos = new List<Articulos>();
+            productos = new List<ProductoVentaDTO>();
             productosController = new ProductosController();
             bindingSource = new BindingSource();
 
@@ -34,33 +36,80 @@ namespace Punto_de_Venta.Vistas
             // Crear y agregar columnas manualmente
             dgv_productos.Columns.Clear();
 
-            var colCodigo = new DataGridViewTextBoxColumn();
-            colCodigo.Name = "codigo";
-            colCodigo.HeaderText = "Código";
-            colCodigo.DataPropertyName = "codigo";
-            colCodigo.Width = 100;
-            dgv_productos.Columns.Add(colCodigo);
+            dgv_productos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "CodigoBarras",
+                HeaderText = "Código",
+                Width = 120
+            });
 
-            var colNombre = new DataGridViewTextBoxColumn();
-            colNombre.Name = "nombre";
-            colNombre.HeaderText = "Nombre";
-            colNombre.DataPropertyName = "nombre";
-            colNombre.Width = 200;
-            dgv_productos.Columns.Add(colNombre);
+            dgv_productos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Nombre",
+                HeaderText = "Nombre",
+                Width = 180
+            });
 
-            var colMedida = new DataGridViewTextBoxColumn();
-            colMedida.Name = "medida";
-            colMedida.HeaderText = "Medida";
-            colMedida.DataPropertyName = "medida";
-            colMedida.Width = 100;
-            dgv_productos.Columns.Add(colMedida);
+            dgv_productos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Marca",
+                HeaderText = "Marca",
+                Width = 100
+            });
 
-            var colPrecio = new DataGridViewTextBoxColumn();
-            colPrecio.Name = "precio";
-            colPrecio.HeaderText = "Precio";
-            colPrecio.DataPropertyName = "precio";
-            colPrecio.Width = 80;
-            dgv_productos.Columns.Add(colPrecio);
+            dgv_productos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Color",
+                HeaderText = "Color",
+                Width = 100
+            });
+
+            dgv_productos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Talla",
+                HeaderText = "Talla",
+                Width = 80
+            });
+
+            dgv_productos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Sexo",
+                HeaderText = "Sexo",
+                Width = 80
+            });
+
+            dgv_productos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Categoria",
+                HeaderText = "Categoría",
+                Width = 100
+            });
+
+            dgv_productos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "PrecioVenta",
+                HeaderText = "Precio",
+                DefaultCellStyle = { Format = "C2" },
+                Width = 80
+            });
+
+            dgv_productos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Stock",
+                HeaderText = "Stock",
+                Width = 60
+            });
+
+            dgv_productos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Total",
+                HeaderText = "Total",
+                DefaultCellStyle = { Format = "C2" },
+                Width = 100
+            });
+
+            dgv_productos.DefaultCellStyle.Font = new Font("Rockwell", 10);
+            dgv_productos.ColumnHeadersDefaultCellStyle.Font = new Font("Rockwell", 10, FontStyle.Bold);
 
             dgv_productos.DoubleBuffered(true);
         }
@@ -73,7 +122,7 @@ namespace Punto_de_Venta.Vistas
             try
             {
                 loadingOverlay.ShowOverlay();
-                productos = (await productosController.GetProductosAsync()).ToList();
+                productos = await productosController.ObtenerProductosParaVentaAsync();
                 bindingSource.DataSource = productos;
 
                 AjustarColumnas();
@@ -102,10 +151,14 @@ namespace Punto_de_Venta.Vistas
 
             var filtrados = string.IsNullOrEmpty(filtro)
                 ? productos
-                : productos.Where(p => p.nombre.ToUpper().Contains(filtro)).ToList();
+                : productos.Where(p =>
+                      p.Nombre.ToUpper().Contains(filtro) ||
+                      p.CodigoBarras.ToUpper().Contains(filtro)
+                  ).ToList();
 
             bindingSource.DataSource = filtrados;
         }
+
 
         private void btn_seleccionar_Click(object sender, EventArgs e) => Seleccionar();
         private void btn_salir_Click(object sender, EventArgs e) => Salir();
@@ -122,7 +175,7 @@ namespace Punto_de_Venta.Vistas
         private void Seleccionar()
         {
             if (dgv_productos.CurrentRow != null)
-                productoSelect = (Articulos)dgv_productos.CurrentRow.DataBoundItem;
+                productoSelect = (ProductoVentaDTO)dgv_productos.CurrentRow.DataBoundItem;
 
             Close();
         }
@@ -159,6 +212,16 @@ namespace Punto_de_Venta.Vistas
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgv_productos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgv_productos.CurrentRow != null)
+            {
+                // tu lógica aquí: por ejemplo
+                var seleccionado = (ProductoVentaDTO)dgv_productos.CurrentRow.DataBoundItem;
+                pb_foto.ImageLocation = rutaBaseImagenes+seleccionado.Foto;
+            }
         }
     }
 
