@@ -55,9 +55,14 @@ namespace Punto_de_Venta.Servicios
                     throw new Exception($"La impresora '{nombreImpresora}' no está instalada o no es válida.");
             }
 
+            int imagenAncho = anchoPx / 2;
+            int imagenAlto = altoPx / 2;
+            int x = (anchoPx - imagenAncho) / 2;
+            int y = 40; // Deja espacio arriba para el nombre del producto
+
             pd.PrintPage += (sender, e) =>
             {
-                e.Graphics.DrawImage(imagen, new Rectangle(0, 0, anchoPx, altoPx));
+                e.Graphics.DrawImage(imagen, new Rectangle(x, y, imagenAncho, imagenAlto));
                 copiasImpresas++;
                 e.HasMorePages = copiasImpresas < cantidadCopias;
             };
