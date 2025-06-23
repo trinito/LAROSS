@@ -506,7 +506,7 @@ namespace Punto_de_Venta.Vistas
                     MessageBox.Show("Producto "+ txt_nombre.Text.Trim() + " agregado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ImprimirCodigosDeBarras codigos = new ImprimirCodigosDeBarras();
                     LimpiarFormulario();
-                    codigos.ImprimirCodigo(codigoGenerado, stock);
+                    codigos.ImprimirCodigo("Playera Azul", codigoGenerado, stock);
                 }
                 else
                 {

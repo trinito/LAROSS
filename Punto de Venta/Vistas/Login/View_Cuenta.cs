@@ -4,10 +4,13 @@ using Punto_de_Venta.Modelo;
 using Punto_de_Venta.Servicios;
 using Punto_de_Venta.Vistas;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -80,7 +83,13 @@ namespace Punto_de_Venta
 
         private async void button2_Click(object sender, EventArgs e)
         {
-            await Iniciar();
+
+            ImprimirCodigosDeBarras codigos = new ImprimirCodigosDeBarras();
+            //20 letras caben nomas
+            //codigos.ImprimirCodigo("ayera Azul con cafe y anaraja", "00000003");
+            codigos.ImprimirCodigo("Playera Roja de dama", "00000003");
+            codigos.ImprimirCodigo("Playera roja", "00000003");
+            // await Iniciar();
         }
 
         private async void txt_contrasena_KeyPress(object sender, KeyPressEventArgs e)
@@ -166,7 +175,7 @@ namespace Punto_de_Venta
 
         private void form_cuenta_Load(object sender, EventArgs e)
         {
-
         }
+
     }
 }
