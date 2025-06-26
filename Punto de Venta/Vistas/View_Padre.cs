@@ -111,6 +111,10 @@ namespace Punto_de_Venta.Vistas
             {
                 ventasControl.HandleKeyDown(e);
             }
+            else if (panel_principal.Controls.Count > 0 && panel_principal.Controls[0] is  UserControl_Productos productsControl)
+            {
+                productsControl.HandleKeyDown(e);
+            }
         }
     }
 }

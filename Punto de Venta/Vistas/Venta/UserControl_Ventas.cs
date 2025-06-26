@@ -454,16 +454,16 @@ namespace Punto_de_Venta.Vistas
 
         #endregion
 
-        private void button_copia_Click(object sender, EventArgs e)
+        private async void button_copia_Click(object sender, EventArgs e)
         {
-            ImprimirCopia();
+            await ImprimirCopia();
         }
 
-        private void ImprimirCopia()
+        private async Task ImprimirCopia()
         {
             if (total_copia != 0 && pago_copia != 0)
             {
-                ImprimirTicket(total_copia, pago_copia, cambio_copia, forma_pago_copia, true);
+                await ImprimirTicket(total_copia, pago_copia, cambio_copia, forma_pago_copia, true);
                 total_copia = 0; pago_copia = 0; cambio_copia = 0;
             }
 

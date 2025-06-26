@@ -40,21 +40,21 @@ namespace Punto_de_Venta.Vistas
             {
                 DataPropertyName = "CodigoBarras",
                 HeaderText = "Código",
-                Width = 120
+                Width = 85
             });
 
             dgv_productos.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "Nombre",
                 HeaderText = "Nombre",
-                Width = 180
+                Width = 200
             });
 
             dgv_productos.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "Marca",
                 HeaderText = "Marca",
-                Width = 100
+                Width = 120
             });
 
             dgv_productos.Columns.Add(new DataGridViewTextBoxColumn
@@ -68,13 +68,6 @@ namespace Punto_de_Venta.Vistas
             {
                 DataPropertyName = "Talla",
                 HeaderText = "Talla",
-                Width = 80
-            });
-
-            dgv_productos.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "Sexo",
-                HeaderText = "Sexo",
                 Width = 80
             });
 
@@ -100,13 +93,6 @@ namespace Punto_de_Venta.Vistas
                 Width = 60
             });
 
-            dgv_productos.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "Total",
-                HeaderText = "Total",
-                DefaultCellStyle = { Format = "C2" },
-                Width = 100
-            });
 
             dgv_productos.DefaultCellStyle.Font = new Font("Rockwell", 10);
             dgv_productos.ColumnHeadersDefaultCellStyle.Font = new Font("Rockwell", 10, FontStyle.Bold);

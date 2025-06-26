@@ -273,7 +273,6 @@
             // 
             this.btn_inventario.BackColor = System.Drawing.Color.Transparent;
             this.btn_inventario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_inventario.Enabled = false;
             this.btn_inventario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(57)))), ((int)(((byte)(93)))));
             this.btn_inventario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(44)))), ((int)(((byte)(61)))));
             this.btn_inventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -289,7 +288,6 @@
             this.btn_inventario.Text = "          Inventario";
             this.btn_inventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_inventario.UseVisualStyleBackColor = false;
-            this.btn_inventario.Visible = false;
             this.btn_inventario.Click += new System.EventHandler(this.btn_inventario_Click);
             // 
             // panel12
@@ -351,7 +349,6 @@
             this.btn_ventas.Text = "          Historial";
             this.btn_ventas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_ventas.UseVisualStyleBackColor = false;
-            this.btn_ventas.Visible = false;
             this.btn_ventas.Click += new System.EventHandler(this.btn_ventas_Click);
             // 
             // panel10

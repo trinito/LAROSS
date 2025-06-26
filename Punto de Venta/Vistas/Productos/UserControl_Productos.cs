@@ -98,7 +98,7 @@ namespace Punto_de_Venta.Vistas
                 Name = "CodigoBarras",          // <-- Name agregado
                 DataPropertyName = "CodigoBarras",
                 HeaderText = "Código",
-                Width = 120
+                Width = 80
             });
 
             dgv_productos.Columns.Add(new DataGridViewTextBoxColumn
@@ -550,7 +550,7 @@ namespace Punto_de_Venta.Vistas
             return imagenRedimensionada;
         }
 
-        private async void btn_agregar_Click(object sender, EventArgs e)
+        private async Task AgregarProductoAsync()
         {
             try
             {
@@ -614,6 +614,7 @@ namespace Punto_de_Venta.Vistas
                     MessageBox.Show("Debe adjuntar una imagen para el producto.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+                loadingOverlay.ShowOverlay();
 
                 // Crear objeto producto
                 var nuevoProducto = new Articulos
@@ -646,20 +647,27 @@ namespace Punto_de_Venta.Vistas
 
                 if (idNuevo > 0 && actualizado)
                 {
+                    loadingOverlay.HideOverlay();
                     MessageBox.Show("Producto " + txt_nombre.Text.Trim() + " agregado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ImprimirCodigosDeBarras codigos = new ImprimirCodigosDeBarras();
                     LimpiarFormulario();
-                    codigos.ImprimirCodigo("Playera Azul", codigoGenerado, stock);
+                    await ImprimirCodigosDeBarras.ImprimirCodigoAsync(nuevoProducto.nombre, nuevoProducto.codigo_barras, nuevoProducto.stock);
                 }
                 else
                 {
+                    loadingOverlay.HideOverlay();
                     MessageBox.Show("No se pudo agregar el producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
+                loadingOverlay.HideOverlay();
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private async void btn_agregar_Click(object sender, EventArgs e)
+        {
+            await AgregarProductoAsync();
         }
 
         private string ObtenerCodigoBarrasOriginal()
@@ -787,7 +795,7 @@ namespace Punto_de_Venta.Vistas
 
                             // Mostrar botones de edición
                             btn_agregar.Visible = false;
-                            btn_agregar.Visible = true;
+                            btn_modificar.Visible = true;
                             btn_eliminar.Visible = true;
                             btn_cancelar.Visible = true;
 
@@ -799,15 +807,16 @@ namespace Punto_de_Venta.Vistas
                     }
 
                     MessageBox.Show("No se encontró ningún producto con ese código.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txt_buscar.Text = string.Empty;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error: " + ex.Message, "ERROR");
+                    txt_buscar.Text = string.Empty;
                 }
             }
         }
-
-        private async void btn_modificar_Click(object sender, EventArgs e)
+        private async Task ModificarProductoAsync()
         {
             try
             {
@@ -872,7 +881,7 @@ namespace Punto_de_Venta.Vistas
                     cb_color.Focus();
                     return;
                 }
-
+                loadingOverlay.ShowOverlay();
                 // Construir objeto para actualizar
                 var productoActualizar = new Articulos
                 {
@@ -896,6 +905,7 @@ namespace Punto_de_Venta.Vistas
 
                 if (resultado)
                 {
+                    loadingOverlay.HideOverlay();
                     MessageBox.Show("Producto modificado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarFormulario();
                     // Recargar el grid o lista de productos si tienes esa función
@@ -903,13 +913,19 @@ namespace Punto_de_Venta.Vistas
                 }
                 else
                 {
+                    loadingOverlay.HideOverlay();
                     MessageBox.Show("No se pudo modificar el producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
+                loadingOverlay.HideOverlay();
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private async void btn_modificar_Click(object sender, EventArgs e)
+        {
+            await ModificarProductoAsync();
         }
 
         private async void btn_eliminar_Click(object sender, EventArgs e)
@@ -924,10 +940,11 @@ namespace Punto_de_Venta.Vistas
 
                 var confirmar = MessageBox.Show("¿Está seguro que desea eliminar este producto?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (confirmar != DialogResult.Yes) return;
-                
+                loadingOverlay.ShowOverlay();
                 bool eliminado = productosController.DeleteProducto(productoSeleccionadoId);
                 if (eliminado)
                 {
+                    loadingOverlay.HideOverlay();
                     MessageBox.Show("Producto eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     await CargarProductosEnDataGridView(); // Recargar productos después de eliminar
@@ -935,16 +952,34 @@ namespace Punto_de_Venta.Vistas
                 }
                 else
                 {
+                    loadingOverlay.HideOverlay();
                     MessageBox.Show("No se pudo eliminar el producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
+                loadingOverlay.HideOverlay();
                 MessageBox.Show("Error al eliminar producto: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
 
+        public async void HandleKeyDown(KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    LimpiarFormulario();
+                    break;
+                case Keys.Enter:
+                    if (btn_agregar.Visible)
+                        await AgregarProductoAsync();
+                    else
+                        await ModificarProductoAsync();
+                    break;
+
+            }
+        }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 

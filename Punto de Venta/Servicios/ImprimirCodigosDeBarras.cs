@@ -4,15 +4,16 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Printing;
 using System.Drawing.Text;
 using System.IO;
+using System.Threading.Tasks;
 using BarcodeStandard;
 using SkiaSharp;
 
 namespace Punto_de_Venta.Servicios
 {
-    public class ImprimirCodigosDeBarras
+    public static class ImprimirCodigosDeBarras
     {
         // Convierte SKImage (SkiaSharp) a System.Drawing.Image
-        private Image ConvertirSkImageADrawingImage(SKImage skImage)
+        private static Image ConvertirSkImageADrawingImage(SKImage skImage)
         {
             using (SKData data = skImage.Encode(SKEncodedImageFormat.Png, 100))
             using (MemoryStream ms = new MemoryStream(data.ToArray()))
@@ -21,9 +22,14 @@ namespace Punto_de_Venta.Servicios
             }
         }
 
+        public static async Task ImprimirCodigoAsync(string nombreProducto, string codigo, int cantidadCopias = 1, string nombreImpresora = "Xprinter XP-420B")
+        {
+            await Task.Run(() => ImprimirCodigo(nombreProducto, codigo, cantidadCopias, nombreImpresora));
+        }
+
         // Imprime el código de barras generado para el string "codigo"
         // cantidadCopias indica cuántas veces se imprimirá el mismo código
-        public void ImprimirCodigo(string nombreProducto, string codigo, int cantidadCopias = 1, string nombreImpresora = "Xprinter XP-420B")
+        public static void ImprimirCodigo(string nombreProducto, string codigo, int cantidadCopias = 1, string nombreImpresora = "Xprinter XP-420B")
         {
             int dpi = 203; // dpi típico de la impresora térmica
             int anchoPx = (int)(1.97 * dpi);  // 50 mm ≈ 400 px

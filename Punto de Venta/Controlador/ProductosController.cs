@@ -289,5 +289,48 @@ namespace Punto_de_Venta.Controlador
                 throw new Exception("Error al buscar producto para venta: " + ex.Message, ex);
             }
         }
+
+        public async Task<int> ObtenerTotalStockAsync()
+        {
+            try
+            {
+                using (var context = new la_ross_dbEntities())
+                {
+                    return await context.Articulos
+                        .Where(p => p.estatus)
+                        .SumAsync(p => (int?)p.stock) ?? 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al calcular el total de stock: " + ex.Message, ex);
+            }
+        }
+
+        public async Task<bool> AgregarStockAsync(string codigoBarras, int cantidad)
+        {
+            try
+            {
+                using (var context = new la_ross_dbEntities())
+                {
+                    var producto = await context.Articulos
+                        .FirstOrDefaultAsync(p => p.codigo_barras == codigoBarras); // sin filtro de estatus
+
+                    if (producto == null)
+                        return false;
+
+                    producto.stock += cantidad;
+
+                    context.Entry(producto).State = EntityState.Modified;
+                    return await context.SaveChangesAsync() > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al agregar stock: " + ex.Message, ex);
+            }
+        }
+
+
     }
 }
