@@ -28,78 +28,84 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button_quitar = new System.Windows.Forms.Button();
-            this.button_buscar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lbl_codigo = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_eliminar = new Punto_de_Venta.Controles.BotonConEsquinas();
-            this.btn_modificar = new Punto_de_Venta.Controles.BotonConEsquinas();
-            this.btn_agregar = new Punto_de_Venta.Controles.BotonConEsquinas();
+            this.btn_cancelar = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.txt_original_codigo_barras = new Punto_de_Venta.Controles.TextBoxConEsquinas();
+            this.dgv_productos = new System.Windows.Forms.DataGridView();
+            this.txt_buscar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.cb_color = new System.Windows.Forms.ComboBox();
-            this.btn_color = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.pb_imagen = new System.Windows.Forms.PictureBox();
             this.panel14 = new System.Windows.Forms.Panel();
             this.cb_sexo = new System.Windows.Forms.ComboBox();
-            this.btn_add_sexo = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.btn_add_img = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.cb_tallas = new System.Windows.Forms.ComboBox();
-            this.btn_add_talla = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.txt_costo = new Punto_de_Venta.Controles.TextBoxConEsquinas();
             this.label8 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
             this.cb_categoria = new System.Windows.Forms.ComboBox();
-            this.btn_add_categoria = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.cb_marcas = new System.Windows.Forms.ComboBox();
-            this.btn_add_marca = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.txt_nombre = new Punto_de_Venta.Controles.TextBoxConEsquinas();
             this.label7 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.txt_venta = new Punto_de_Venta.Controles.TextBoxConEsquinas();
             this.label10 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.txt_stock = new Punto_de_Venta.Controles.TextBoxConEsquinas();
             this.label6 = new System.Windows.Forms.Label();
+            this.btn_color = new System.Windows.Forms.Button();
+            this.pb_imagen = new System.Windows.Forms.PictureBox();
+            this.btn_add_sexo = new System.Windows.Forms.Button();
+            this.btn_add_img = new System.Windows.Forms.Button();
+            this.btn_add_talla = new System.Windows.Forms.Button();
+            this.btn_add_categoria = new System.Windows.Forms.Button();
+            this.btn_add_marca = new System.Windows.Forms.Button();
+            this.btn_eliminar = new System.Windows.Forms.Button();
+            this.btn_modificar = new System.Windows.Forms.Button();
+            this.btn_agregar = new System.Windows.Forms.Button();
+            this.button_quitar = new System.Windows.Forms.Button();
+            this.button_buscar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txt_original_codigo_barras = new Punto_de_Venta.Controles.TextBoxConEsquinas();
+            this.txt_costo = new Punto_de_Venta.Controles.TextBoxConEsquinas();
+            this.txt_nombre = new Punto_de_Venta.Controles.TextBoxConEsquinas();
+            this.txt_venta = new Punto_de_Venta.Controles.TextBoxConEsquinas();
+            this.txt_stock = new Punto_de_Venta.Controles.TextBoxConEsquinas();
+            this.txt_codigo_barras = new Punto_de_Venta.Controles.TextBoxConEsquinas();
             this.botonConEsquinas4 = new Punto_de_Venta.Controles.BotonConEsquinas();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
             this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_imagen)).BeginInit();
             this.panel14.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -109,13 +115,15 @@
             this.panel8.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_imagen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Cantidad
             // 
             this.Cantidad.DataPropertyName = "cantidad";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle7;
             this.Cantidad.FillWeight = 50F;
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.Name = "Cantidad";
@@ -124,8 +132,8 @@
             // Medida
             // 
             this.Medida.DataPropertyName = "medida";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Medida.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Medida.DefaultCellStyle = dataGridViewCellStyle8;
             this.Medida.FillWeight = 50F;
             this.Medida.HeaderText = "Medida";
             this.Medida.Name = "Medida";
@@ -134,8 +142,8 @@
             // Nombre
             // 
             this.Nombre.DataPropertyName = "nombre";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Nombre.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nombre.DefaultCellStyle = dataGridViewCellStyle9;
             this.Nombre.FillWeight = 160F;
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
@@ -144,8 +152,8 @@
             // Código
             // 
             this.Código.DataPropertyName = "codigo";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Código.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Código.DefaultCellStyle = dataGridViewCellStyle10;
             this.Código.FillWeight = 45F;
             this.Código.HeaderText = "Código";
             this.Código.Name = "Código";
@@ -154,10 +162,10 @@
             // Precio
             // 
             this.Precio.DataPropertyName = "precio";
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.Precio.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.Format = "C2";
+            dataGridViewCellStyle11.NullValue = null;
+            this.Precio.DefaultCellStyle = dataGridViewCellStyle11;
             this.Precio.FillWeight = 50F;
             this.Precio.HeaderText = "Precio";
             this.Precio.Name = "Precio";
@@ -174,6 +182,621 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(248, 811);
             this.panel2.TabIndex = 21;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(57)))), ((int)(((byte)(93)))));
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(0, 791);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1004, 20);
+            this.panel4.TabIndex = 23;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.panel3.Controls.Add(this.txt_codigo_barras);
+            this.panel3.Controls.Add(this.lbl_codigo);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1004, 66);
+            this.panel3.TabIndex = 24;
+            // 
+            // lbl_codigo
+            // 
+            this.lbl_codigo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_codigo.AutoSize = true;
+            this.lbl_codigo.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_codigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.lbl_codigo.Location = new System.Drawing.Point(224, 39);
+            this.lbl_codigo.Name = "lbl_codigo";
+            this.lbl_codigo.Size = new System.Drawing.Size(143, 19);
+            this.lbl_codigo.TabIndex = 11;
+            this.lbl_codigo.Text = "Código de barras";
+            this.lbl_codigo.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Rockwell", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label3.Location = new System.Drawing.Point(22, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(148, 33);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Productos";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label5.Location = new System.Drawing.Point(9, 54);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(221, 19);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Código de barras de origen";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.panel1.Controls.Add(this.btn_cancelar);
+            this.panel1.Controls.Add(this.btn_eliminar);
+            this.panel1.Controls.Add(this.btn_modificar);
+            this.panel1.Controls.Add(this.btn_agregar);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 691);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1004, 100);
+            this.panel1.TabIndex = 26;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btn_cancelar
+            // 
+            this.btn_cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(21)))), ((int)(((byte)(34)))));
+            this.btn_cancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_cancelar.FlatAppearance.BorderSize = 0;
+            this.btn_cancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(53)))), ((int)(((byte)(46)))));
+            this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cancelar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btn_cancelar.Location = new System.Drawing.Point(518, 15);
+            this.btn_cancelar.Name = "btn_cancelar";
+            this.btn_cancelar.Size = new System.Drawing.Size(177, 70);
+            this.btn_cancelar.TabIndex = 15;
+            this.btn_cancelar.Text = "Cancelar";
+            this.btn_cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_cancelar.UseVisualStyleBackColor = false;
+            this.btn_cancelar.Visible = false;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.tableLayoutPanel1);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(0, 66);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1004, 625);
+            this.panel5.TabIndex = 27;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.panel16, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.panel13, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.panel14, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.panel10, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.panel6, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.panel9, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel15, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panel12, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel8, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel11, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panel7, 1, 0);
+            this.tableLayoutPanel1.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1004, 625);
+            this.tableLayoutPanel1.TabIndex = 26;
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.panel16.Controls.Add(this.dgv_productos);
+            this.panel16.Controls.Add(this.txt_buscar);
+            this.panel16.Controls.Add(this.label1);
+            this.panel16.Controls.Add(this.txt_original_codigo_barras);
+            this.panel16.Controls.Add(this.cb_color);
+            this.panel16.Controls.Add(this.label5);
+            this.panel16.Controls.Add(this.btn_color);
+            this.panel16.Controls.Add(this.label12);
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel16.Location = new System.Drawing.Point(3, 203);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(496, 419);
+            this.panel16.TabIndex = 28;
+            // 
+            // dgv_productos
+            // 
+            this.dgv_productos.AllowUserToAddRows = false;
+            this.dgv_productos.AllowUserToDeleteRows = false;
+            this.dgv_productos.AllowUserToResizeColumns = false;
+            this.dgv_productos.AllowUserToResizeRows = false;
+            this.dgv_productos.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgv_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_productos.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dgv_productos.Location = new System.Drawing.Point(17, 175);
+            this.dgv_productos.MultiSelect = false;
+            this.dgv_productos.Name = "dgv_productos";
+            this.dgv_productos.ReadOnly = true;
+            this.dgv_productos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_productos.Size = new System.Drawing.Size(747, 318);
+            this.dgv_productos.TabIndex = 10;
+            this.dgv_productos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_productos_CellDoubleClick);
+            // 
+            // txt_buscar
+            // 
+            this.txt_buscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_buscar.Location = new System.Drawing.Point(152, 149);
+            this.txt_buscar.Name = "txt_buscar";
+            this.txt_buscar.Size = new System.Drawing.Size(197, 20);
+            this.txt_buscar.TabIndex = 9;
+            this.txt_buscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_buscar_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label1.Location = new System.Drawing.Point(9, 149);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(137, 19);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Buscar producto";
+            // 
+            // cb_color
+            // 
+            this.cb_color.FormattingEnabled = true;
+            this.cb_color.Location = new System.Drawing.Point(102, 7);
+            this.cb_color.Name = "cb_color";
+            this.cb_color.Size = new System.Drawing.Size(307, 21);
+            this.cb_color.TabIndex = 6;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label12.Location = new System.Drawing.Point(9, 9);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(53, 19);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Color";
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.pb_imagen);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel13.Location = new System.Drawing.Point(505, 163);
+            this.panel13.Name = "panel13";
+            this.tableLayoutPanel1.SetRowSpan(this.panel13, 2);
+            this.panel13.Size = new System.Drawing.Size(496, 459);
+            this.panel13.TabIndex = 27;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.panel14.Controls.Add(this.cb_sexo);
+            this.panel14.Controls.Add(this.btn_add_sexo);
+            this.panel14.Controls.Add(this.label9);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel14.Location = new System.Drawing.Point(3, 163);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(496, 34);
+            this.panel14.TabIndex = 25;
+            // 
+            // cb_sexo
+            // 
+            this.cb_sexo.FormattingEnabled = true;
+            this.cb_sexo.Location = new System.Drawing.Point(102, 7);
+            this.cb_sexo.Name = "cb_sexo";
+            this.cb_sexo.Size = new System.Drawing.Size(307, 21);
+            this.cb_sexo.TabIndex = 5;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label9.Location = new System.Drawing.Point(9, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(67, 19);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Género";
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.btn_add_img);
+            this.panel10.Controls.Add(this.label4);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(505, 123);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(496, 34);
+            this.panel10.TabIndex = 23;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label4.Location = new System.Drawing.Point(7, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(112, 19);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Adjuntar foto";
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.cb_tallas);
+            this.panel6.Controls.Add(this.btn_add_talla);
+            this.panel6.Controls.Add(this.label2);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(3, 123);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(496, 34);
+            this.panel6.TabIndex = 22;
+            // 
+            // cb_tallas
+            // 
+            this.cb_tallas.FormattingEnabled = true;
+            this.cb_tallas.Location = new System.Drawing.Point(102, 7);
+            this.cb_tallas.Name = "cb_tallas";
+            this.cb_tallas.Size = new System.Drawing.Size(307, 21);
+            this.cb_tallas.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label2.Location = new System.Drawing.Point(9, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 19);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Talla";
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.txt_costo);
+            this.panel9.Controls.Add(this.label8);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(505, 43);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(496, 34);
+            this.panel9.TabIndex = 21;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label8.Location = new System.Drawing.Point(9, 8);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(105, 19);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Precio costo";
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.cb_categoria);
+            this.panel15.Controls.Add(this.btn_add_categoria);
+            this.panel15.Controls.Add(this.label14);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel15.Location = new System.Drawing.Point(3, 83);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(496, 34);
+            this.panel15.TabIndex = 18;
+            // 
+            // cb_categoria
+            // 
+            this.cb_categoria.FormattingEnabled = true;
+            this.cb_categoria.Location = new System.Drawing.Point(102, 9);
+            this.cb_categoria.Name = "cb_categoria";
+            this.cb_categoria.Size = new System.Drawing.Size(307, 21);
+            this.cb_categoria.TabIndex = 3;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label14.Location = new System.Drawing.Point(9, 9);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(87, 19);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Categoria";
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.cb_marcas);
+            this.panel12.Controls.Add(this.btn_add_marca);
+            this.panel12.Controls.Add(this.label11);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel12.Location = new System.Drawing.Point(3, 43);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(496, 34);
+            this.panel12.TabIndex = 14;
+            // 
+            // cb_marcas
+            // 
+            this.cb_marcas.FormattingEnabled = true;
+            this.cb_marcas.Location = new System.Drawing.Point(102, 6);
+            this.cb_marcas.Name = "cb_marcas";
+            this.cb_marcas.Size = new System.Drawing.Size(307, 21);
+            this.cb_marcas.TabIndex = 2;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label11.Location = new System.Drawing.Point(9, 8);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(60, 19);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Marca";
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.txt_nombre);
+            this.panel8.Controls.Add(this.label7);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(496, 34);
+            this.panel8.TabIndex = 13;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label7.Location = new System.Drawing.Point(9, 6);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(73, 19);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Nombre";
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.txt_venta);
+            this.panel11.Controls.Add(this.label10);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(505, 83);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(496, 34);
+            this.panel11.TabIndex = 5;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label10.Location = new System.Drawing.Point(7, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(107, 19);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Precio venta";
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.txt_stock);
+            this.panel7.Controls.Add(this.label6);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(505, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(496, 34);
+            this.panel7.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label6.Location = new System.Drawing.Point(9, 6);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 19);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Stock";
+            // 
+            // btn_color
+            // 
+            this.btn_color.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_color.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_color.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_color.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_color.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_color.Image = global::Punto_de_Venta.Properties.Resources.icons8_add_25;
+            this.btn_color.Location = new System.Drawing.Point(415, 3);
+            this.btn_color.Name = "btn_color";
+            this.btn_color.Size = new System.Drawing.Size(30, 30);
+            this.btn_color.TabIndex = 0;
+            this.btn_color.TabStop = false;
+            this.btn_color.UseVisualStyleBackColor = true;
+            this.btn_color.Click += new System.EventHandler(this.btn_color_Click);
+            // 
+            // pb_imagen
+            // 
+            this.pb_imagen.Location = new System.Drawing.Point(11, 11);
+            this.pb_imagen.Name = "pb_imagen";
+            this.pb_imagen.Size = new System.Drawing.Size(350, 350);
+            this.pb_imagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_imagen.TabIndex = 0;
+            this.pb_imagen.TabStop = false;
+            // 
+            // btn_add_sexo
+            // 
+            this.btn_add_sexo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_add_sexo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_add_sexo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_add_sexo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add_sexo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_add_sexo.Image = global::Punto_de_Venta.Properties.Resources.icons8_add_25;
+            this.btn_add_sexo.Location = new System.Drawing.Point(415, 3);
+            this.btn_add_sexo.Name = "btn_add_sexo";
+            this.btn_add_sexo.Size = new System.Drawing.Size(30, 30);
+            this.btn_add_sexo.TabIndex = 0;
+            this.btn_add_sexo.TabStop = false;
+            this.btn_add_sexo.UseVisualStyleBackColor = true;
+            this.btn_add_sexo.Click += new System.EventHandler(this.btn_add_sexo_Click);
+            // 
+            // btn_add_img
+            // 
+            this.btn_add_img.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_add_img.Image = global::Punto_de_Venta.Properties.Resources.icons8_image_25;
+            this.btn_add_img.Location = new System.Drawing.Point(135, 3);
+            this.btn_add_img.Name = "btn_add_img";
+            this.btn_add_img.Size = new System.Drawing.Size(35, 30);
+            this.btn_add_img.TabIndex = 10;
+            this.btn_add_img.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_add_img.UseVisualStyleBackColor = false;
+            this.btn_add_img.Click += new System.EventHandler(this.btn_add_img_Click);
+            // 
+            // btn_add_talla
+            // 
+            this.btn_add_talla.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_add_talla.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_add_talla.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_add_talla.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add_talla.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_add_talla.Image = global::Punto_de_Venta.Properties.Resources.icons8_add_25;
+            this.btn_add_talla.Location = new System.Drawing.Point(415, 2);
+            this.btn_add_talla.Name = "btn_add_talla";
+            this.btn_add_talla.Size = new System.Drawing.Size(30, 30);
+            this.btn_add_talla.TabIndex = 0;
+            this.btn_add_talla.TabStop = false;
+            this.btn_add_talla.UseVisualStyleBackColor = true;
+            this.btn_add_talla.Click += new System.EventHandler(this.btn_add_talla_Click);
+            // 
+            // btn_add_categoria
+            // 
+            this.btn_add_categoria.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_add_categoria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_add_categoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_add_categoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add_categoria.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_add_categoria.Image = global::Punto_de_Venta.Properties.Resources.icons8_add_25;
+            this.btn_add_categoria.Location = new System.Drawing.Point(415, 1);
+            this.btn_add_categoria.Name = "btn_add_categoria";
+            this.btn_add_categoria.Size = new System.Drawing.Size(30, 30);
+            this.btn_add_categoria.TabIndex = 0;
+            this.btn_add_categoria.TabStop = false;
+            this.btn_add_categoria.UseVisualStyleBackColor = true;
+            this.btn_add_categoria.Click += new System.EventHandler(this.btn_add_categoria_Click);
+            // 
+            // btn_add_marca
+            // 
+            this.btn_add_marca.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_add_marca.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_add_marca.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_add_marca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add_marca.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_add_marca.Image = global::Punto_de_Venta.Properties.Resources.icons8_add_25;
+            this.btn_add_marca.Location = new System.Drawing.Point(415, 1);
+            this.btn_add_marca.Name = "btn_add_marca";
+            this.btn_add_marca.Size = new System.Drawing.Size(30, 30);
+            this.btn_add_marca.TabIndex = 0;
+            this.btn_add_marca.TabStop = false;
+            this.btn_add_marca.UseVisualStyleBackColor = true;
+            this.btn_add_marca.Click += new System.EventHandler(this.btn_add_marca_Click);
+            // 
+            // btn_eliminar
+            // 
+            this.btn_eliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btn_eliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_eliminar.FlatAppearance.BorderSize = 0;
+            this.btn_eliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(21)))), ((int)(((byte)(34)))));
+            this.btn_eliminar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_eliminar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_eliminar.ForeColor = System.Drawing.Color.White;
+            this.btn_eliminar.Image = global::Punto_de_Venta.Properties.Resources.icons8_delete_30;
+            this.btn_eliminar.Location = new System.Drawing.Point(245, 15);
+            this.btn_eliminar.Name = "btn_eliminar";
+            this.btn_eliminar.Size = new System.Drawing.Size(177, 70);
+            this.btn_eliminar.TabIndex = 28;
+            this.btn_eliminar.Text = "Eliminar";
+            this.btn_eliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_eliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_eliminar.UseVisualStyleBackColor = false;
+            this.btn_eliminar.Visible = false;
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
+            // 
+            // btn_modificar
+            // 
+            this.btn_modificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btn_modificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_modificar.FlatAppearance.BorderSize = 0;
+            this.btn_modificar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btn_modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_modificar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_modificar.ForeColor = System.Drawing.Color.White;
+            this.btn_modificar.Image = global::Punto_de_Venta.Properties.Resources.icons8_edit_30;
+            this.btn_modificar.Location = new System.Drawing.Point(39, 15);
+            this.btn_modificar.Name = "btn_modificar";
+            this.btn_modificar.Size = new System.Drawing.Size(177, 70);
+            this.btn_modificar.TabIndex = 28;
+            this.btn_modificar.Text = "Modificar";
+            this.btn_modificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_modificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_modificar.UseVisualStyleBackColor = false;
+            this.btn_modificar.Visible = false;
+            this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
+            // 
+            // btn_agregar
+            // 
+            this.btn_agregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btn_agregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_agregar.FlatAppearance.BorderSize = 0;
+            this.btn_agregar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btn_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_agregar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_agregar.ForeColor = System.Drawing.Color.White;
+            this.btn_agregar.Image = global::Punto_de_Venta.Properties.Resources.icons8_add_30;
+            this.btn_agregar.Location = new System.Drawing.Point(39, 15);
+            this.btn_agregar.Name = "btn_agregar";
+            this.btn_agregar.Size = new System.Drawing.Size(177, 70);
+            this.btn_agregar.TabIndex = 15;
+            this.btn_agregar.Text = "Agregar";
+            this.btn_agregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_agregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_agregar.UseVisualStyleBackColor = false;
+            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
             // 
             // button_quitar
             // 
@@ -227,362 +850,16 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(57)))), ((int)(((byte)(93)))));
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 791);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1004, 20);
-            this.panel4.TabIndex = 23;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1004, 66);
-            this.panel3.TabIndex = 24;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Rockwell", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label3.Location = new System.Drawing.Point(22, 11);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(148, 33);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Productos";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label5.Location = new System.Drawing.Point(9, 54);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(143, 19);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Código de barras";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.panel1.Controls.Add(this.btn_eliminar);
-            this.panel1.Controls.Add(this.btn_modificar);
-            this.panel1.Controls.Add(this.btn_agregar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 691);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1004, 100);
-            this.panel1.TabIndex = 26;
-            // 
-            // btn_eliminar
-            // 
-            this.btn_eliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btn_eliminar.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_eliminar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btn_eliminar.ForeColor = System.Drawing.Color.White;
-            this.btn_eliminar.Location = new System.Drawing.Point(443, 15);
-            this.btn_eliminar.Name = "btn_eliminar";
-            this.btn_eliminar.Radio = 25;
-            this.btn_eliminar.Size = new System.Drawing.Size(177, 70);
-            this.btn_eliminar.TabIndex = 27;
-            this.btn_eliminar.Text = "Eliminar";
-            this.btn_eliminar.UseVisualStyleBackColor = false;
-            // 
-            // btn_modificar
-            // 
-            this.btn_modificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btn_modificar.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btn_modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_modificar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btn_modificar.ForeColor = System.Drawing.Color.White;
-            this.btn_modificar.Location = new System.Drawing.Point(235, 15);
-            this.btn_modificar.Name = "btn_modificar";
-            this.btn_modificar.Radio = 25;
-            this.btn_modificar.Size = new System.Drawing.Size(177, 70);
-            this.btn_modificar.TabIndex = 26;
-            this.btn_modificar.Text = "Modificar";
-            this.btn_modificar.UseVisualStyleBackColor = false;
-            // 
-            // btn_agregar
-            // 
-            this.btn_agregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btn_agregar.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btn_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_agregar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btn_agregar.ForeColor = System.Drawing.Color.White;
-            this.btn_agregar.Location = new System.Drawing.Point(39, 15);
-            this.btn_agregar.Name = "btn_agregar";
-            this.btn_agregar.Radio = 25;
-            this.btn_agregar.Size = new System.Drawing.Size(177, 70);
-            this.btn_agregar.TabIndex = 25;
-            this.btn_agregar.Text = "Agregar";
-            this.btn_agregar.UseVisualStyleBackColor = false;
-            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.tableLayoutPanel1);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(0, 66);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1004, 625);
-            this.panel5.TabIndex = 27;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.panel16, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.panel13, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.panel14, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.panel10, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.panel6, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.panel9, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panel15, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.panel12, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panel8, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel11, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.panel7, 1, 0);
-            this.tableLayoutPanel1.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1004, 625);
-            this.tableLayoutPanel1.TabIndex = 26;
-            // 
-            // panel16
-            // 
-            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.panel16.Controls.Add(this.txt_original_codigo_barras);
-            this.panel16.Controls.Add(this.cb_color);
-            this.panel16.Controls.Add(this.label5);
-            this.panel16.Controls.Add(this.btn_color);
-            this.panel16.Controls.Add(this.label12);
-            this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel16.Location = new System.Drawing.Point(3, 203);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(496, 419);
-            this.panel16.TabIndex = 28;
-            // 
             // txt_original_codigo_barras
             // 
             this.txt_original_codigo_barras.BackColor = System.Drawing.Color.Transparent;
             this.txt_original_codigo_barras.BordeColor = System.Drawing.Color.Gray;
             this.txt_original_codigo_barras.FondoColor = System.Drawing.Color.White;
-            this.txt_original_codigo_barras.Location = new System.Drawing.Point(158, 51);
+            this.txt_original_codigo_barras.Location = new System.Drawing.Point(242, 51);
             this.txt_original_codigo_barras.Name = "txt_original_codigo_barras";
             this.txt_original_codigo_barras.Radio = 10;
-            this.txt_original_codigo_barras.Size = new System.Drawing.Size(251, 25);
+            this.txt_original_codigo_barras.Size = new System.Drawing.Size(167, 25);
             this.txt_original_codigo_barras.TabIndex = 2;
-            // 
-            // cb_color
-            // 
-            this.cb_color.FormattingEnabled = true;
-            this.cb_color.Location = new System.Drawing.Point(102, 7);
-            this.cb_color.Name = "cb_color";
-            this.cb_color.Size = new System.Drawing.Size(307, 21);
-            this.cb_color.TabIndex = 6;
-            // 
-            // btn_color
-            // 
-            this.btn_color.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_color.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_color.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_color.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_color.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_color.Image = global::Punto_de_Venta.Properties.Resources.icons8_add_25;
-            this.btn_color.Location = new System.Drawing.Point(415, 3);
-            this.btn_color.Name = "btn_color";
-            this.btn_color.Size = new System.Drawing.Size(30, 30);
-            this.btn_color.TabIndex = 0;
-            this.btn_color.TabStop = false;
-            this.btn_color.UseVisualStyleBackColor = true;
-            this.btn_color.Click += new System.EventHandler(this.btn_color_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label12.Location = new System.Drawing.Point(9, 9);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 19);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Color";
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.pb_imagen);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(505, 163);
-            this.panel13.Name = "panel13";
-            this.tableLayoutPanel1.SetRowSpan(this.panel13, 2);
-            this.panel13.Size = new System.Drawing.Size(496, 459);
-            this.panel13.TabIndex = 27;
-            // 
-            // pb_imagen
-            // 
-            this.pb_imagen.Location = new System.Drawing.Point(11, 11);
-            this.pb_imagen.Name = "pb_imagen";
-            this.pb_imagen.Size = new System.Drawing.Size(350, 350);
-            this.pb_imagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_imagen.TabIndex = 0;
-            this.pb_imagen.TabStop = false;
-            // 
-            // panel14
-            // 
-            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.panel14.Controls.Add(this.cb_sexo);
-            this.panel14.Controls.Add(this.btn_add_sexo);
-            this.panel14.Controls.Add(this.label9);
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(3, 163);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(496, 34);
-            this.panel14.TabIndex = 25;
-            // 
-            // cb_sexo
-            // 
-            this.cb_sexo.FormattingEnabled = true;
-            this.cb_sexo.Location = new System.Drawing.Point(102, 7);
-            this.cb_sexo.Name = "cb_sexo";
-            this.cb_sexo.Size = new System.Drawing.Size(307, 21);
-            this.cb_sexo.TabIndex = 5;
-            // 
-            // btn_add_sexo
-            // 
-            this.btn_add_sexo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_add_sexo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_add_sexo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_add_sexo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add_sexo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_add_sexo.Image = global::Punto_de_Venta.Properties.Resources.icons8_add_25;
-            this.btn_add_sexo.Location = new System.Drawing.Point(415, 3);
-            this.btn_add_sexo.Name = "btn_add_sexo";
-            this.btn_add_sexo.Size = new System.Drawing.Size(30, 30);
-            this.btn_add_sexo.TabIndex = 0;
-            this.btn_add_sexo.TabStop = false;
-            this.btn_add_sexo.UseVisualStyleBackColor = true;
-            this.btn_add_sexo.Click += new System.EventHandler(this.btn_add_sexo_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label9.Location = new System.Drawing.Point(9, 9);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(67, 19);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Género";
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.btn_add_img);
-            this.panel10.Controls.Add(this.label4);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(505, 123);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(496, 34);
-            this.panel10.TabIndex = 23;
-            // 
-            // btn_add_img
-            // 
-            this.btn_add_img.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_add_img.Image = global::Punto_de_Venta.Properties.Resources.icons8_image_25;
-            this.btn_add_img.Location = new System.Drawing.Point(135, 3);
-            this.btn_add_img.Name = "btn_add_img";
-            this.btn_add_img.Size = new System.Drawing.Size(35, 30);
-            this.btn_add_img.TabIndex = 10;
-            this.btn_add_img.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_add_img.UseVisualStyleBackColor = false;
-            this.btn_add_img.Click += new System.EventHandler(this.btn_add_img_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label4.Location = new System.Drawing.Point(7, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 19);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Adjuntar foto";
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.cb_tallas);
-            this.panel6.Controls.Add(this.btn_add_talla);
-            this.panel6.Controls.Add(this.label2);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 123);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(496, 34);
-            this.panel6.TabIndex = 22;
-            // 
-            // cb_tallas
-            // 
-            this.cb_tallas.FormattingEnabled = true;
-            this.cb_tallas.Location = new System.Drawing.Point(102, 7);
-            this.cb_tallas.Name = "cb_tallas";
-            this.cb_tallas.Size = new System.Drawing.Size(307, 21);
-            this.cb_tallas.TabIndex = 4;
-            // 
-            // btn_add_talla
-            // 
-            this.btn_add_talla.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_add_talla.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_add_talla.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_add_talla.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add_talla.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_add_talla.Image = global::Punto_de_Venta.Properties.Resources.icons8_add_25;
-            this.btn_add_talla.Location = new System.Drawing.Point(415, 2);
-            this.btn_add_talla.Name = "btn_add_talla";
-            this.btn_add_talla.Size = new System.Drawing.Size(30, 30);
-            this.btn_add_talla.TabIndex = 0;
-            this.btn_add_talla.TabStop = false;
-            this.btn_add_talla.UseVisualStyleBackColor = true;
-            this.btn_add_talla.Click += new System.EventHandler(this.btn_add_talla_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label2.Location = new System.Drawing.Point(9, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 19);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Talla";
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.txt_costo);
-            this.panel9.Controls.Add(this.label8);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(505, 43);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(496, 34);
-            this.panel9.TabIndex = 21;
             // 
             // txt_costo
             // 
@@ -595,119 +872,6 @@
             this.txt_costo.Size = new System.Drawing.Size(307, 25);
             this.txt_costo.TabIndex = 8;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label8.Location = new System.Drawing.Point(9, 8);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(105, 19);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Precio costo";
-            // 
-            // panel15
-            // 
-            this.panel15.Controls.Add(this.cb_categoria);
-            this.panel15.Controls.Add(this.btn_add_categoria);
-            this.panel15.Controls.Add(this.label14);
-            this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel15.Location = new System.Drawing.Point(3, 83);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(496, 34);
-            this.panel15.TabIndex = 18;
-            // 
-            // cb_categoria
-            // 
-            this.cb_categoria.FormattingEnabled = true;
-            this.cb_categoria.Location = new System.Drawing.Point(102, 9);
-            this.cb_categoria.Name = "cb_categoria";
-            this.cb_categoria.Size = new System.Drawing.Size(307, 21);
-            this.cb_categoria.TabIndex = 3;
-            // 
-            // btn_add_categoria
-            // 
-            this.btn_add_categoria.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_add_categoria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_add_categoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_add_categoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add_categoria.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_add_categoria.Image = global::Punto_de_Venta.Properties.Resources.icons8_add_25;
-            this.btn_add_categoria.Location = new System.Drawing.Point(415, 1);
-            this.btn_add_categoria.Name = "btn_add_categoria";
-            this.btn_add_categoria.Size = new System.Drawing.Size(30, 30);
-            this.btn_add_categoria.TabIndex = 0;
-            this.btn_add_categoria.TabStop = false;
-            this.btn_add_categoria.UseVisualStyleBackColor = true;
-            this.btn_add_categoria.Click += new System.EventHandler(this.btn_add_categoria_Click);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label14.Location = new System.Drawing.Point(9, 9);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(87, 19);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Categoria";
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.cb_marcas);
-            this.panel12.Controls.Add(this.btn_add_marca);
-            this.panel12.Controls.Add(this.label11);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(3, 43);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(496, 34);
-            this.panel12.TabIndex = 14;
-            // 
-            // cb_marcas
-            // 
-            this.cb_marcas.FormattingEnabled = true;
-            this.cb_marcas.Location = new System.Drawing.Point(102, 6);
-            this.cb_marcas.Name = "cb_marcas";
-            this.cb_marcas.Size = new System.Drawing.Size(307, 21);
-            this.cb_marcas.TabIndex = 2;
-            // 
-            // btn_add_marca
-            // 
-            this.btn_add_marca.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_add_marca.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_add_marca.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_add_marca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add_marca.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_add_marca.Image = global::Punto_de_Venta.Properties.Resources.icons8_add_25;
-            this.btn_add_marca.Location = new System.Drawing.Point(415, 1);
-            this.btn_add_marca.Name = "btn_add_marca";
-            this.btn_add_marca.Size = new System.Drawing.Size(30, 30);
-            this.btn_add_marca.TabIndex = 0;
-            this.btn_add_marca.TabStop = false;
-            this.btn_add_marca.UseVisualStyleBackColor = true;
-            this.btn_add_marca.Click += new System.EventHandler(this.btn_add_marca_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label11.Location = new System.Drawing.Point(9, 8);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(60, 19);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Marca";
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.txt_nombre);
-            this.panel8.Controls.Add(this.label7);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(3, 3);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(496, 34);
-            this.panel8.TabIndex = 13;
-            // 
             // txt_nombre
             // 
             this.txt_nombre.BackColor = System.Drawing.Color.Transparent;
@@ -718,27 +882,6 @@
             this.txt_nombre.Radio = 10;
             this.txt_nombre.Size = new System.Drawing.Size(307, 25);
             this.txt_nombre.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label7.Location = new System.Drawing.Point(9, 6);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 19);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Nombre";
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.txt_venta);
-            this.panel11.Controls.Add(this.label10);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(505, 83);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(496, 34);
-            this.panel11.TabIndex = 5;
             // 
             // txt_venta
             // 
@@ -751,27 +894,6 @@
             this.txt_venta.Size = new System.Drawing.Size(307, 25);
             this.txt_venta.TabIndex = 9;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label10.Location = new System.Drawing.Point(7, 9);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(107, 19);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Precio venta";
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.txt_stock);
-            this.panel7.Controls.Add(this.label6);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(505, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(496, 34);
-            this.panel7.TabIndex = 1;
-            // 
             // txt_stock
             // 
             this.txt_stock.BackColor = System.Drawing.Color.Transparent;
@@ -783,16 +905,21 @@
             this.txt_stock.Size = new System.Drawing.Size(307, 25);
             this.txt_stock.TabIndex = 7;
             // 
-            // label6
+            // txt_codigo_barras
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label6.Location = new System.Drawing.Point(9, 6);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 19);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Stock";
+            this.txt_codigo_barras.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_codigo_barras.BackColor = System.Drawing.Color.Transparent;
+            this.txt_codigo_barras.BordeColor = System.Drawing.Color.Gray;
+            this.txt_codigo_barras.Enabled = false;
+            this.txt_codigo_barras.FondoColor = System.Drawing.Color.White;
+            this.txt_codigo_barras.Location = new System.Drawing.Point(373, 35);
+            this.txt_codigo_barras.Name = "txt_codigo_barras";
+            this.txt_codigo_barras.Radio = 10;
+            this.txt_codigo_barras.Size = new System.Drawing.Size(126, 25);
+            this.txt_codigo_barras.TabIndex = 11;
+            this.txt_codigo_barras.Visible = false;
             // 
             // botonConEsquinas4
             // 
@@ -823,7 +950,6 @@
             this.Size = new System.Drawing.Size(1252, 811);
             this.Load += new System.EventHandler(this.UserControl_Productos_Load);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -831,8 +957,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).EndInit();
             this.panel13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_imagen)).EndInit();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             this.panel10.ResumeLayout(false);
@@ -851,6 +977,8 @@
             this.panel11.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_imagen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -871,9 +999,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
-        private Controles.BotonConEsquinas btn_eliminar;
-        private Controles.BotonConEsquinas btn_modificar;
-        private Controles.BotonConEsquinas btn_agregar;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel14;
@@ -914,5 +1039,14 @@
         private System.Windows.Forms.ComboBox cb_sexo;
         private System.Windows.Forms.ComboBox cb_tallas;
         private Controles.TextBoxConEsquinas txt_original_codigo_barras;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txt_buscar;
+        private System.Windows.Forms.DataGridView dgv_productos;
+        private System.Windows.Forms.Button btn_cancelar;
+        private Controles.TextBoxConEsquinas txt_codigo_barras;
+        private System.Windows.Forms.Label lbl_codigo;
+        private System.Windows.Forms.Button btn_agregar;
+        private System.Windows.Forms.Button btn_modificar;
+        private System.Windows.Forms.Button btn_eliminar;
     }
 }

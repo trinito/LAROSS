@@ -127,7 +127,7 @@ namespace Punto_de_Venta.Vistas
             var producto = (Articulos)dgv_productos.CurrentRow.DataBoundItem;
             var controller = new ProductosController();
 
-            if (controller.DeleteProducto(producto.codigo_barras))
+            if (controller.DeleteProducto(1))
             {
                 productosOriginal.Remove(producto);
                 bindingSource.DataSource = productosOriginal.ToList();

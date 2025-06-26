@@ -283,6 +283,26 @@ namespace Punto_de_Venta.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_cancel_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cancel-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_cancel_30__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cancel-30 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_clothes_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-clothes-30", resourceCulture);

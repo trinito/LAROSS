@@ -10,7 +10,7 @@ namespace Punto_de_Venta.Modelo
     {
         public int IdProducto { get; set; }
         public string CodigoBarras { get; set; }
-        public string CodigoBarrasLocal { get; set; }
+        public string CodigoBarrasOriginal { get; set; }
         public string Marca { get; set; }
         public string Color { get; set; }
         public string Talla { get; set; }

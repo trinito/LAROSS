@@ -200,13 +200,13 @@ namespace Punto_de_Venta.Controlador
             }
         }
 
-        public bool DeleteProducto(string codigo)
+        public bool DeleteProducto(int id)
         {
             try
             {
                 using (var context = new la_ross_dbEntities())
                 {
-                    var producto = context.Articulos.SingleOrDefault(p => p.codigo_barras == codigo);
+                    var producto = context.Articulos.SingleOrDefault(p => p.id_producto == id);
 
                     if (producto == null) return false;
 
@@ -234,8 +234,8 @@ namespace Punto_de_Venta.Controlador
                             select new ProductoVentaDTO
                             {
                                 IdProducto = a.id_producto,
-                                CodigoBarras = a.codigo_barras_original,
-                                CodigoBarrasLocal= a.codigo_barras,
+                                CodigoBarras = a.codigo_barras,
+                                CodigoBarrasOriginal= a.codigo_barras_original,
                                 Nombre = a.nombre,
                                 Marca = m.nombre,
                                 Color = c.nombre,
