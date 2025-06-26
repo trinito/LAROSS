@@ -1,3 +1,30 @@
+C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.csproj.AssemblyReference.cache
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Controles.LoadingControl.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Properties.Resources.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Configuracion.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Categorias.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Colores.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Marcas.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Sexos.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Tallas.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Historial.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Inventario.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Productos.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Reportes.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Ventas.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Padre.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Productos.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_VentasMes.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Admin.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Buscar.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Cobrar.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Consumo.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Corte.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.form_cuenta.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Principal.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Reportes.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.csproj.GenerateResource.cache
+C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.csproj.CoreCompileInputs.cache
 C:\LaRoss\Punto de Venta\bin\Debug\x64\libSkiaSharp.so
 C:\LaRoss\Punto de Venta\bin\Debug\arm\libSkiaSharp.so
 C:\LaRoss\Punto de Venta\bin\Debug\arm64\libSkiaSharp.so
@@ -36,33 +63,6 @@ C:\LaRoss\Punto de Venta\bin\Debug\System.Text.Encodings.Web.xml
 C:\LaRoss\Punto de Venta\bin\Debug\System.Text.Json.xml
 C:\LaRoss\Punto de Venta\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\LaRoss\Punto de Venta\bin\Debug\System.ValueTuple.xml
-C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.csproj.AssemblyReference.cache
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Controles.LoadingControl.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Properties.Resources.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Configuracion.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Categorias.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Colores.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Marcas.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Sexos.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Tallas.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Historial.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Inventario.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Productos.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Reportes.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Ventas.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Padre.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Productos.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_VentasMes.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Admin.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Buscar.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Cobrar.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Consumo.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Corte.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.form_cuenta.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Principal.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Reportes.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.csproj.GenerateResource.cache
-C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.csproj.CoreCompileInputs.cache
 C:\LaRoss\Punto de Venta\obj\Debug\Punto de.9F6E92BB.Up2Date
 C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.exe
 C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.pdb

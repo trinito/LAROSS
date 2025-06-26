@@ -104,7 +104,7 @@
             this.txt_usuario.Name = "txt_usuario";
             this.txt_usuario.Size = new System.Drawing.Size(241, 26);
             this.txt_usuario.TabIndex = 10;
-            this.txt_usuario.Text = "USUARIO";
+            this.txt_usuario.Text = "Caja";
             this.txt_usuario.Enter += new System.EventHandler(this.txt_usuario_Enter);
             this.txt_usuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_usuario_KeyPress);
             this.txt_usuario.Leave += new System.EventHandler(this.txt_usuario_Leave);
@@ -118,7 +118,7 @@
             this.txt_contrasena.Name = "txt_contrasena";
             this.txt_contrasena.Size = new System.Drawing.Size(241, 26);
             this.txt_contrasena.TabIndex = 11;
-            this.txt_contrasena.Text = "CONTRASEÑA";
+            this.txt_contrasena.Text = "1";
             this.txt_contrasena.Enter += new System.EventHandler(this.txt_contrasena_Enter);
             this.txt_contrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_contrasena_KeyPress);
             this.txt_contrasena.Leave += new System.EventHandler(this.txt_contrasena_Leave);

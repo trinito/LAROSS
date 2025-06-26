@@ -8,7 +8,9 @@ namespace Punto_de_Venta.Modelo
 {
     public class ProductoVentaDTO
     {
+        public int IdProducto { get; set; }
         public string CodigoBarras { get; set; }
+        public string CodigoBarrasLocal { get; set; }
         public string Marca { get; set; }
         public string Color { get; set; }
         public string Talla { get; set; }
@@ -19,6 +21,7 @@ namespace Punto_de_Venta.Modelo
         public int Cantidad { get; set; }
         public decimal Total => Cantidad * PrecioVenta;
         public int Stock { get; set; }
+        public decimal PrecioCosto { get; set; }
         public string Foto { get; set; }
 
     }

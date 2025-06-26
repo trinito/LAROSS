@@ -233,7 +233,9 @@ namespace Punto_de_Venta.Controlador
                             where a.estatus
                             select new ProductoVentaDTO
                             {
-                                CodigoBarras = a.codigo_barras,
+                                IdProducto = a.id_producto,
+                                CodigoBarras = a.codigo_barras_original,
+                                CodigoBarrasLocal= a.codigo_barras,
                                 Nombre = a.nombre,
                                 Marca = m.nombre,
                                 Color = c.nombre,
@@ -242,7 +244,8 @@ namespace Punto_de_Venta.Controlador
                                 Categoria = cat.nombre,
                                 PrecioVenta = a.precio_venta,
                                 Stock = a.stock,
-                                Foto = a.foto
+                                Foto = a.foto,
+                               PrecioCosto = a.precio_costo
                             };
 
                 return await Task.FromResult(query.ToList());

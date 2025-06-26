@@ -84,12 +84,12 @@ namespace Punto_de_Venta
         private async void button2_Click(object sender, EventArgs e)
         {
 
-            ImprimirCodigosDeBarras codigos = new ImprimirCodigosDeBarras();
+          //  ImprimirCodigosDeBarras codigos = new ImprimirCodigosDeBarras();
             //20 letras caben nomas
             //codigos.ImprimirCodigo("ayera Azul con cafe y anaraja", "00000003");
-            codigos.ImprimirCodigo("Playera Roja de dama", "00000003");
-            codigos.ImprimirCodigo("Playera roja", "00000003");
-            // await Iniciar();
+            //codigos.ImprimirCodigo("Playera Roja de dama", "00000003");
+            //codigos.ImprimirCodigo("Playera roja", "00000003");
+            await Iniciar();
         }
 
         private async void txt_contrasena_KeyPress(object sender, KeyPressEventArgs e)
