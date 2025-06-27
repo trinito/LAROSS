@@ -116,5 +116,77 @@ namespace Punto_de_Venta.Controlador
                 return 0;
             }
         }
+
+        public async Task<List<VentaDTO>> ObtenerVentasDelDiaAsync(DateTime fecha)
+        {
+            using (var context = new la_ross_dbEntities())
+            {
+                var query = from v in context.Venta
+                            where DbFunctions.TruncateTime(v.fecha) == DbFunctions.TruncateTime(fecha)
+                            select new VentaDTO
+                            {
+                                IdVenta = v.id_venta,
+                                Fecha = v.fecha,
+                                Hora = v.hora,
+                                CantidadProductos = v.cantidad_productos,
+                                Total = v.total,
+                                FormaPago = v.forma_pago,
+                                Usuario = v.id_usuario_editado.HasValue
+                                    ? context.Usuarios
+                                        .Where(u => u.id == v.id_usuario_editado)
+                                        .Select(u => u.nombre + " " + u.apellido)
+                                        .FirstOrDefault()
+                                    : "N/A",
+                                Estatus = v.estatus ? "ACTIVA" : "CANCELADA",
+                                Modificado = v.fecha_editado
+                            };
+
+                return await query.ToListAsync();
+            }
+        }
+
+
+        public async Task<decimal> ObtenerTotalVentasDelDiaAsync(DateTime fecha)
+        {
+            using (var context = new la_ross_dbEntities())
+            {
+                return await context.Venta
+                    .Where(v => DbFunctions.TruncateTime(v.fecha) == DbFunctions.TruncateTime(fecha) && v.estatus)
+                    .SumAsync(v => (decimal?)v.total) ?? 0m;
+            }
+        }
+
+
+        public async Task<bool> CancelarVentaAsync(int idVenta, int idUsuario)
+        {
+            using (var context = new la_ross_dbEntities())
+            {
+                var venta = await context.Venta.FindAsync(idVenta);
+                if (venta == null) return false;
+
+                venta.estatus = false;
+                venta.fecha_editado = DateTime.Now;
+                venta.id_usuario_editado = idUsuario;
+
+                // Obtener detalles de la venta
+                var detalles = await context.DetalleVenta
+                    .Where(d => d.id_venta == idVenta)
+                    .ToListAsync();
+
+                // Regresar stock a cada producto
+                foreach (var detalle in detalles)
+                {
+                    var producto = await context.Articulos.FindAsync(detalle.id_producto);
+                    if (producto != null)
+                    {
+                        producto.stock += detalle.cantidad;
+                    }
+                }
+
+                return await context.SaveChangesAsync() > 0;
+            }
+        }
+
+
     }
 }

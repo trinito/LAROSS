@@ -83,8 +83,7 @@ namespace Punto_de_Venta
 
         private async void button2_Click(object sender, EventArgs e)
         {
-
-          //  ImprimirCodigosDeBarras codigos = new ImprimirCodigosDeBarras();
+            //  ImprimirCodigosDeBarras codigos = new ImprimirCodigosDeBarras();
             //20 letras caben nomas
             //codigos.ImprimirCodigo("ayera Azul con cafe y anaraja", "00000003");
             //codigos.ImprimirCodigo("Playera Roja de dama", "00000003");
@@ -101,8 +100,10 @@ namespace Punto_de_Venta
         }
 
         private async Task Iniciar()
-
         {
+            btn_login.Enabled = false;
+            txt_usuario.Enabled = false;
+            txt_contrasena.Enabled = false;
             if (txt_usuario.Text.Contains("USUARIO") || txt_contrasena.Text.Contains("CONTRASEÑA"))
                 return;
 
@@ -160,6 +161,9 @@ namespace Punto_de_Venta
                 {
                     // Ocultar overlay
                      loadingOverlay.HideOverlay();
+                    btn_login.Enabled = true;
+                    txt_usuario.Enabled = true;
+                    txt_contrasena.Enabled = true;
                 }
             }
 

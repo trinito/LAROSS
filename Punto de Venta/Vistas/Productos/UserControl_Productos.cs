@@ -964,20 +964,13 @@ namespace Punto_de_Venta.Vistas
         }
 
 
-        public async void HandleKeyDown(KeyEventArgs e)
+        public void HandleKeyDown(KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
                 case Keys.Escape:
                     LimpiarFormulario();
                     break;
-                case Keys.Enter:
-                    if (btn_agregar.Visible)
-                        await AgregarProductoAsync();
-                    else
-                        await ModificarProductoAsync();
-                    break;
-
             }
         }
         private void panel1_Paint(object sender, PaintEventArgs e)

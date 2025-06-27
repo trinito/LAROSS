@@ -35,7 +35,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.txt_usuario = new System.Windows.Forms.TextBox();
             this.txt_contrasena = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_login = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -123,21 +123,21 @@
             this.txt_contrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_contrasena_KeyPress);
             this.txt_contrasena.Leave += new System.EventHandler(this.txt_contrasena_Leave);
             // 
-            // button2
+            // btn_login
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(365, 242);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(270, 40);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "INICIAR SESION";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btn_login.FlatAppearance.BorderSize = 0;
+            this.btn_login.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btn_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_login.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_login.ForeColor = System.Drawing.Color.White;
+            this.btn_login.Location = new System.Drawing.Point(365, 242);
+            this.btn_login.Name = "btn_login";
+            this.btn_login.Size = new System.Drawing.Size(270, 40);
+            this.btn_login.TabIndex = 13;
+            this.btn_login.Text = "INICIAR SESION";
+            this.btn_login.UseVisualStyleBackColor = false;
+            this.btn_login.Click += new System.EventHandler(this.button2_Click);
             // 
             // pictureBox4
             // 
@@ -180,7 +180,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(751, 330);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_login);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.txt_contrasena);
             this.Controls.Add(this.txt_usuario);
@@ -218,7 +218,7 @@
         private System.Windows.Forms.TextBox txt_usuario;
         private System.Windows.Forms.TextBox txt_contrasena;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_login;
     }
 }
 

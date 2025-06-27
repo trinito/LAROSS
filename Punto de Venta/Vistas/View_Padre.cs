@@ -16,6 +16,15 @@ namespace Punto_de_Venta.Vistas
     {
         List<Button> botones;
         public bool LogoutSolicitado { get; private set; } = false;
+        private UserControl userControlActual = null;
+
+        private UserControl_Ventas ventasControl = new UserControl_Ventas();
+        private UserControl_Historial historialControl = new UserControl_Historial();
+        private UserControl_Productos productosControl = new UserControl_Productos();
+        private UserControl_Inventario inventarioControl = new UserControl_Inventario();
+        private UserControl_Reportes reportesControl = new UserControl_Reportes();
+        private UserControl_Configuracion configuracionControl = new UserControl_Configuracion();
+
         public View_Padre()
         {
             InitializeComponent();
@@ -26,7 +35,7 @@ namespace Punto_de_Venta.Vistas
             lbl_nombre.Text = string.Concat(SesionUsuario.UsuarioActual.nombre, " ", SesionUsuario.UsuarioActual.apellido);
             botones = new List<Button>();
             llenadoListaBotones();
-            MostrarUserControl(new UserControl_Ventas());
+            MostrarUserControl(ventasControl);
             limpiarBotones(btn_inicio);
             this.KeyDown += View_Padre_KeyDown;
 
@@ -35,37 +44,37 @@ namespace Punto_de_Venta.Vistas
 
         private void btn_inicio_Click(object sender, EventArgs e)
         {
-            MostrarUserControl(new UserControl_Ventas());
+            MostrarUserControl(ventasControl);
             limpiarBotones(btn_inicio);
         }
 
         private void btn_ventas_Click(object sender, EventArgs e)
         {
-            MostrarUserControl(new UserControl_Historial());
+            MostrarUserControl(historialControl);
             limpiarBotones(btn_ventas);
         }
 
         private void btn_productos_Click(object sender, EventArgs e)
         {
-            MostrarUserControl(new UserControl_Productos());
+            MostrarUserControl(productosControl);
             limpiarBotones(btn_productos);
         }
 
         private void btn_inventario_Click(object sender, EventArgs e)
         {
-            MostrarUserControl(new UserControl_Inventario());
+            MostrarUserControl(inventarioControl);
             limpiarBotones(btn_inventario);
         }
 
         private void btn_reportes_Click(object sender, EventArgs e)
         {
-            MostrarUserControl(new UserControl_Reportes());
+            MostrarUserControl(reportesControl);
             limpiarBotones(btn_reportes);
         }
 
         private void btn_configuracion_Click(object sender, EventArgs e)
         {
-            MostrarUserControl(new UserControl_Configuracion());
+            MostrarUserControl(configuracionControl);
             limpiarBotones(btn_configuracion);
         }
 
@@ -90,9 +99,13 @@ namespace Punto_de_Venta.Vistas
 
         private void MostrarUserControl(UserControl uc)
         {
-            this.panel_principal.Controls.Clear();
-            uc.Dock = DockStyle.Fill;
-            this.panel_principal.Controls.Add(uc);
+            if (userControlActual != uc)
+            {
+                panel_principal.Controls.Clear();
+                uc.Dock = DockStyle.Fill;
+                panel_principal.Controls.Add(uc);
+                userControlActual = uc;  // Guarda cuál está activo
+            }
         }
 
         private void label6_Click(object sender, EventArgs e)

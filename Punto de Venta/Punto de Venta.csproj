@@ -161,6 +161,7 @@
     <Compile Include="Modelo\Venta.cs">
       <DependentUpon>ModeloDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\VentaDTO.cs" />
     <Compile Include="Modelo\ViewCorte.cs">
       <DependentUpon>ModeloDB.tt</DependentUpon>
     </Compile>
@@ -457,6 +458,7 @@
       <DependentUpon>ModeloDB.edmx</DependentUpon>
       <LastGenOutput>ModeloDB.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\icons8-cancel-order-30.png" />
     <None Include="Resources\icons8-barcode-30 %282%29.png" />
     <None Include="Resources\icons8-barcode-30 %281%29.png" />
     <None Include="Resources\icons8-barcode-30.png" />
