@@ -58,12 +58,12 @@
             this.groupBox1.Size = new System.Drawing.Size(501, 73);
             this.groupBox1.TabIndex = 46;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Desea imprimir tickets de código de barra";
+            this.groupBox1.Text = "¿Desea imprimir los tickets de código de barra a ingresar?";
             // 
             // radio_no
             // 
             this.radio_no.AutoSize = true;
-            this.radio_no.Location = new System.Drawing.Point(287, 35);
+            this.radio_no.Location = new System.Drawing.Point(404, 36);
             this.radio_no.Name = "radio_no";
             this.radio_no.Size = new System.Drawing.Size(61, 31);
             this.radio_no.TabIndex = 1;
@@ -74,7 +74,7 @@
             // 
             this.radio_si.AutoSize = true;
             this.radio_si.Checked = true;
-            this.radio_si.Location = new System.Drawing.Point(165, 35);
+            this.radio_si.Location = new System.Drawing.Point(327, 35);
             this.radio_si.Name = "radio_si";
             this.radio_si.Size = new System.Drawing.Size(50, 31);
             this.radio_si.TabIndex = 0;

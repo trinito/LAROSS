@@ -75,7 +75,9 @@ namespace Punto_de_Venta.Vistas.Inventario
                     loadingOverlay.HideOverlay();
                     result = true;
                     MessageBox.Show("Stock actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    await ImprimirCodigosDeBarras.ImprimirCodigoAsync(nombreProducto, codigoProducto, stockProducto);
+                    if (radio_si.Checked)
+                        await ImprimirCodigosDeBarras.ImprimirCodigoAsync(nombreProducto, codigoProducto, stockAgregar);
+
                     this.Close();
                 }
                 else

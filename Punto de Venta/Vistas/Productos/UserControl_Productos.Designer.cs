@@ -45,6 +45,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txt_codigo_barras = new Punto_de_Venta.Controles.TextBoxConEsquinas();
             this.lbl_codigo = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -54,6 +55,18 @@
             this.btn_agregar = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.dgv_productos = new System.Windows.Forms.DataGridView();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.txt_buscar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txt_original_codigo_barras = new Punto_de_Venta.Controles.TextBoxConEsquinas();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cb_color = new System.Windows.Forms.ComboBox();
+            this.btn_color = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
             this.pb_imagen = new System.Windows.Forms.PictureBox();
             this.panel14 = new System.Windows.Forms.Panel();
@@ -68,6 +81,7 @@
             this.btn_add_talla = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.txt_costo = new Punto_de_Venta.Controles.TextBoxConEsquinas();
             this.label8 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
             this.cb_categoria = new System.Windows.Forms.ComboBox();
@@ -78,28 +92,14 @@
             this.btn_add_marca = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.txt_nombre = new Punto_de_Venta.Controles.TextBoxConEsquinas();
             this.label7 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.txt_venta = new Punto_de_Venta.Controles.TextBoxConEsquinas();
             this.label10 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.dgv_productos = new System.Windows.Forms.DataGridView();
-            this.label12 = new System.Windows.Forms.Label();
-            this.btn_color = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cb_color = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt_buscar = new System.Windows.Forms.TextBox();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.txt_original_codigo_barras = new Punto_de_Venta.Controles.TextBoxConEsquinas();
-            this.txt_costo = new Punto_de_Venta.Controles.TextBoxConEsquinas();
-            this.txt_nombre = new Punto_de_Venta.Controles.TextBoxConEsquinas();
-            this.txt_venta = new Punto_de_Venta.Controles.TextBoxConEsquinas();
             this.txt_stock = new Punto_de_Venta.Controles.TextBoxConEsquinas();
-            this.txt_codigo_barras = new Punto_de_Venta.Controles.TextBoxConEsquinas();
+            this.label6 = new System.Windows.Forms.Label();
             this.botonConEsquinas4 = new Punto_de_Venta.Controles.BotonConEsquinas();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -107,6 +107,11 @@
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel16.SuspendLayout();
+            this.panel18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
+            this.panel19.SuspendLayout();
+            this.panel17.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_imagen)).BeginInit();
             this.panel14.SuspendLayout();
@@ -118,11 +123,6 @@
             this.panel8.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
-            this.panel17.SuspendLayout();
-            this.panel18.SuspendLayout();
-            this.panel19.SuspendLayout();
             this.SuspendLayout();
             // 
             // Cantidad
@@ -261,6 +261,22 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1004, 66);
             this.panel3.TabIndex = 24;
+            // 
+            // txt_codigo_barras
+            // 
+            this.txt_codigo_barras.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_codigo_barras.BackColor = System.Drawing.Color.Transparent;
+            this.txt_codigo_barras.BordeColor = System.Drawing.Color.Gray;
+            this.txt_codigo_barras.Enabled = false;
+            this.txt_codigo_barras.FondoColor = System.Drawing.Color.White;
+            this.txt_codigo_barras.Location = new System.Drawing.Point(373, 35);
+            this.txt_codigo_barras.Name = "txt_codigo_barras";
+            this.txt_codigo_barras.Radio = 10;
+            this.txt_codigo_barras.Size = new System.Drawing.Size(126, 25);
+            this.txt_codigo_barras.TabIndex = 11;
+            this.txt_codigo_barras.Visible = false;
             // 
             // lbl_codigo
             // 
@@ -425,6 +441,156 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1004, 625);
             this.tableLayoutPanel1.TabIndex = 26;
             // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.panel16.Controls.Add(this.panel18);
+            this.panel16.Controls.Add(this.panel17);
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel16.Location = new System.Drawing.Point(3, 203);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(496, 419);
+            this.panel16.TabIndex = 28;
+            // 
+            // panel18
+            // 
+            this.panel18.Controls.Add(this.dgv_productos);
+            this.panel18.Controls.Add(this.panel19);
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel18.Location = new System.Drawing.Point(0, 102);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(496, 317);
+            this.panel18.TabIndex = 8;
+            // 
+            // dgv_productos
+            // 
+            this.dgv_productos.AllowUserToAddRows = false;
+            this.dgv_productos.AllowUserToDeleteRows = false;
+            this.dgv_productos.AllowUserToResizeColumns = false;
+            this.dgv_productos.AllowUserToResizeRows = false;
+            this.dgv_productos.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgv_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_productos.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgv_productos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_productos.Location = new System.Drawing.Point(0, 74);
+            this.dgv_productos.MultiSelect = false;
+            this.dgv_productos.Name = "dgv_productos";
+            this.dgv_productos.ReadOnly = true;
+            this.dgv_productos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_productos.Size = new System.Drawing.Size(496, 243);
+            this.dgv_productos.TabIndex = 10;
+            this.dgv_productos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_productos_CellDoubleClick);
+            // 
+            // panel19
+            // 
+            this.panel19.Controls.Add(this.txt_buscar);
+            this.panel19.Controls.Add(this.label1);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel19.Location = new System.Drawing.Point(0, 0);
+            this.panel19.Name = "panel19";
+            this.panel19.Padding = new System.Windows.Forms.Padding(20);
+            this.panel19.Size = new System.Drawing.Size(496, 74);
+            this.panel19.TabIndex = 0;
+            // 
+            // txt_buscar
+            // 
+            this.txt_buscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_buscar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txt_buscar.Location = new System.Drawing.Point(20, 45);
+            this.txt_buscar.Name = "txt_buscar";
+            this.txt_buscar.Size = new System.Drawing.Size(456, 20);
+            this.txt_buscar.TabIndex = 9;
+            this.txt_buscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_buscar_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label1.Location = new System.Drawing.Point(20, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(180, 25);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Buscar producto";
+            // 
+            // panel17
+            // 
+            this.panel17.Controls.Add(this.label5);
+            this.panel17.Controls.Add(this.txt_original_codigo_barras);
+            this.panel17.Controls.Add(this.label12);
+            this.panel17.Controls.Add(this.cb_color);
+            this.panel17.Controls.Add(this.btn_color);
+            this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel17.Location = new System.Drawing.Point(0, 0);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(496, 102);
+            this.panel17.TabIndex = 7;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label5.Location = new System.Drawing.Point(19, 50);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(221, 19);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Código de barras de origen";
+            // 
+            // txt_original_codigo_barras
+            // 
+            this.txt_original_codigo_barras.BackColor = System.Drawing.Color.Transparent;
+            this.txt_original_codigo_barras.BordeColor = System.Drawing.Color.Gray;
+            this.txt_original_codigo_barras.FondoColor = System.Drawing.Color.White;
+            this.txt_original_codigo_barras.Location = new System.Drawing.Point(252, 50);
+            this.txt_original_codigo_barras.Name = "txt_original_codigo_barras";
+            this.txt_original_codigo_barras.Radio = 10;
+            this.txt_original_codigo_barras.Size = new System.Drawing.Size(167, 25);
+            this.txt_original_codigo_barras.TabIndex = 2;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label12.Location = new System.Drawing.Point(19, 17);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(53, 19);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Color";
+            // 
+            // cb_color
+            // 
+            this.cb_color.FormattingEnabled = true;
+            this.cb_color.Location = new System.Drawing.Point(112, 15);
+            this.cb_color.Name = "cb_color";
+            this.cb_color.Size = new System.Drawing.Size(307, 21);
+            this.cb_color.TabIndex = 6;
+            // 
+            // btn_color
+            // 
+            this.btn_color.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_color.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_color.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_color.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_color.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_color.Image = global::Punto_de_Venta.Properties.Resources.icons8_add_25;
+            this.btn_color.Location = new System.Drawing.Point(425, 11);
+            this.btn_color.Name = "btn_color";
+            this.btn_color.Size = new System.Drawing.Size(30, 30);
+            this.btn_color.TabIndex = 0;
+            this.btn_color.TabStop = false;
+            this.btn_color.UseVisualStyleBackColor = true;
+            this.btn_color.Click += new System.EventHandler(this.btn_color_Click);
+            // 
             // panel13
             // 
             this.panel13.Controls.Add(this.pb_imagen);
@@ -580,6 +746,17 @@
             this.panel9.Size = new System.Drawing.Size(496, 34);
             this.panel9.TabIndex = 21;
             // 
+            // txt_costo
+            // 
+            this.txt_costo.BackColor = System.Drawing.Color.Transparent;
+            this.txt_costo.BordeColor = System.Drawing.Color.Gray;
+            this.txt_costo.FondoColor = System.Drawing.Color.White;
+            this.txt_costo.Location = new System.Drawing.Point(135, 4);
+            this.txt_costo.Name = "txt_costo";
+            this.txt_costo.Radio = 10;
+            this.txt_costo.Size = new System.Drawing.Size(307, 25);
+            this.txt_costo.TabIndex = 8;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -693,6 +870,17 @@
             this.panel8.Size = new System.Drawing.Size(496, 34);
             this.panel8.TabIndex = 13;
             // 
+            // txt_nombre
+            // 
+            this.txt_nombre.BackColor = System.Drawing.Color.Transparent;
+            this.txt_nombre.BordeColor = System.Drawing.Color.Gray;
+            this.txt_nombre.FondoColor = System.Drawing.Color.White;
+            this.txt_nombre.Location = new System.Drawing.Point(102, 4);
+            this.txt_nombre.Name = "txt_nombre";
+            this.txt_nombre.Radio = 10;
+            this.txt_nombre.Size = new System.Drawing.Size(307, 25);
+            this.txt_nombre.TabIndex = 1;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -713,6 +901,17 @@
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(496, 34);
             this.panel11.TabIndex = 5;
+            // 
+            // txt_venta
+            // 
+            this.txt_venta.BackColor = System.Drawing.Color.Transparent;
+            this.txt_venta.BordeColor = System.Drawing.Color.Gray;
+            this.txt_venta.FondoColor = System.Drawing.Color.White;
+            this.txt_venta.Location = new System.Drawing.Point(135, 4);
+            this.txt_venta.Name = "txt_venta";
+            this.txt_venta.Radio = 10;
+            this.txt_venta.Size = new System.Drawing.Size(307, 25);
+            this.txt_venta.TabIndex = 9;
             // 
             // label10
             // 
@@ -735,200 +934,6 @@
             this.panel7.Size = new System.Drawing.Size(496, 34);
             this.panel7.TabIndex = 1;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label6.Location = new System.Drawing.Point(9, 6);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 19);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Stock";
-            // 
-            // panel16
-            // 
-            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.panel16.Controls.Add(this.panel18);
-            this.panel16.Controls.Add(this.panel17);
-            this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel16.Location = new System.Drawing.Point(3, 203);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(496, 419);
-            this.panel16.TabIndex = 28;
-            // 
-            // dgv_productos
-            // 
-            this.dgv_productos.AllowUserToAddRows = false;
-            this.dgv_productos.AllowUserToDeleteRows = false;
-            this.dgv_productos.AllowUserToResizeColumns = false;
-            this.dgv_productos.AllowUserToResizeRows = false;
-            this.dgv_productos.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgv_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_productos.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgv_productos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_productos.Location = new System.Drawing.Point(0, 74);
-            this.dgv_productos.MultiSelect = false;
-            this.dgv_productos.Name = "dgv_productos";
-            this.dgv_productos.ReadOnly = true;
-            this.dgv_productos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_productos.Size = new System.Drawing.Size(496, 243);
-            this.dgv_productos.TabIndex = 10;
-            this.dgv_productos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_productos_CellDoubleClick);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label12.Location = new System.Drawing.Point(19, 17);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 19);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Color";
-            // 
-            // btn_color
-            // 
-            this.btn_color.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_color.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_color.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_color.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_color.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_color.Image = global::Punto_de_Venta.Properties.Resources.icons8_add_25;
-            this.btn_color.Location = new System.Drawing.Point(425, 11);
-            this.btn_color.Name = "btn_color";
-            this.btn_color.Size = new System.Drawing.Size(30, 30);
-            this.btn_color.TabIndex = 0;
-            this.btn_color.TabStop = false;
-            this.btn_color.UseVisualStyleBackColor = true;
-            this.btn_color.Click += new System.EventHandler(this.btn_color_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label5.Location = new System.Drawing.Point(19, 50);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(221, 19);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Código de barras de origen";
-            // 
-            // cb_color
-            // 
-            this.cb_color.FormattingEnabled = true;
-            this.cb_color.Location = new System.Drawing.Point(112, 15);
-            this.cb_color.Name = "cb_color";
-            this.cb_color.Size = new System.Drawing.Size(307, 21);
-            this.cb_color.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label1.Location = new System.Drawing.Point(20, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(180, 25);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Buscar producto";
-            // 
-            // txt_buscar
-            // 
-            this.txt_buscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_buscar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txt_buscar.Location = new System.Drawing.Point(20, 45);
-            this.txt_buscar.Name = "txt_buscar";
-            this.txt_buscar.Size = new System.Drawing.Size(456, 20);
-            this.txt_buscar.TabIndex = 9;
-            this.txt_buscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_buscar_KeyPress);
-            // 
-            // panel17
-            // 
-            this.panel17.Controls.Add(this.label5);
-            this.panel17.Controls.Add(this.txt_original_codigo_barras);
-            this.panel17.Controls.Add(this.label12);
-            this.panel17.Controls.Add(this.cb_color);
-            this.panel17.Controls.Add(this.btn_color);
-            this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel17.Location = new System.Drawing.Point(0, 0);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(496, 102);
-            this.panel17.TabIndex = 7;
-            // 
-            // panel18
-            // 
-            this.panel18.Controls.Add(this.dgv_productos);
-            this.panel18.Controls.Add(this.panel19);
-            this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel18.Location = new System.Drawing.Point(0, 102);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(496, 317);
-            this.panel18.TabIndex = 8;
-            // 
-            // panel19
-            // 
-            this.panel19.Controls.Add(this.txt_buscar);
-            this.panel19.Controls.Add(this.label1);
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel19.Location = new System.Drawing.Point(0, 0);
-            this.panel19.Name = "panel19";
-            this.panel19.Padding = new System.Windows.Forms.Padding(20);
-            this.panel19.Size = new System.Drawing.Size(496, 74);
-            this.panel19.TabIndex = 0;
-            // 
-            // txt_original_codigo_barras
-            // 
-            this.txt_original_codigo_barras.BackColor = System.Drawing.Color.Transparent;
-            this.txt_original_codigo_barras.BordeColor = System.Drawing.Color.Gray;
-            this.txt_original_codigo_barras.FondoColor = System.Drawing.Color.White;
-            this.txt_original_codigo_barras.Location = new System.Drawing.Point(252, 50);
-            this.txt_original_codigo_barras.Name = "txt_original_codigo_barras";
-            this.txt_original_codigo_barras.Radio = 10;
-            this.txt_original_codigo_barras.Size = new System.Drawing.Size(167, 25);
-            this.txt_original_codigo_barras.TabIndex = 2;
-            // 
-            // txt_costo
-            // 
-            this.txt_costo.BackColor = System.Drawing.Color.Transparent;
-            this.txt_costo.BordeColor = System.Drawing.Color.Gray;
-            this.txt_costo.FondoColor = System.Drawing.Color.White;
-            this.txt_costo.Location = new System.Drawing.Point(135, 4);
-            this.txt_costo.Name = "txt_costo";
-            this.txt_costo.Radio = 10;
-            this.txt_costo.Size = new System.Drawing.Size(307, 25);
-            this.txt_costo.TabIndex = 8;
-            // 
-            // txt_nombre
-            // 
-            this.txt_nombre.BackColor = System.Drawing.Color.Transparent;
-            this.txt_nombre.BordeColor = System.Drawing.Color.Gray;
-            this.txt_nombre.FondoColor = System.Drawing.Color.White;
-            this.txt_nombre.Location = new System.Drawing.Point(102, 4);
-            this.txt_nombre.Name = "txt_nombre";
-            this.txt_nombre.Radio = 10;
-            this.txt_nombre.Size = new System.Drawing.Size(307, 25);
-            this.txt_nombre.TabIndex = 1;
-            // 
-            // txt_venta
-            // 
-            this.txt_venta.BackColor = System.Drawing.Color.Transparent;
-            this.txt_venta.BordeColor = System.Drawing.Color.Gray;
-            this.txt_venta.FondoColor = System.Drawing.Color.White;
-            this.txt_venta.Location = new System.Drawing.Point(135, 4);
-            this.txt_venta.Name = "txt_venta";
-            this.txt_venta.Radio = 10;
-            this.txt_venta.Size = new System.Drawing.Size(307, 25);
-            this.txt_venta.TabIndex = 9;
-            // 
             // txt_stock
             // 
             this.txt_stock.BackColor = System.Drawing.Color.Transparent;
@@ -940,21 +945,16 @@
             this.txt_stock.Size = new System.Drawing.Size(307, 25);
             this.txt_stock.TabIndex = 7;
             // 
-            // txt_codigo_barras
+            // label6
             // 
-            this.txt_codigo_barras.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_codigo_barras.BackColor = System.Drawing.Color.Transparent;
-            this.txt_codigo_barras.BordeColor = System.Drawing.Color.Gray;
-            this.txt_codigo_barras.Enabled = false;
-            this.txt_codigo_barras.FondoColor = System.Drawing.Color.White;
-            this.txt_codigo_barras.Location = new System.Drawing.Point(373, 35);
-            this.txt_codigo_barras.Name = "txt_codigo_barras";
-            this.txt_codigo_barras.Radio = 10;
-            this.txt_codigo_barras.Size = new System.Drawing.Size(126, 25);
-            this.txt_codigo_barras.TabIndex = 11;
-            this.txt_codigo_barras.Visible = false;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label6.Location = new System.Drawing.Point(9, 6);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 19);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Stock";
             // 
             // botonConEsquinas4
             // 
@@ -991,6 +991,13 @@
             this.panel1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel16.ResumeLayout(false);
+            this.panel18.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).EndInit();
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
             this.panel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb_imagen)).EndInit();
             this.panel14.ResumeLayout(false);
@@ -1011,13 +1018,6 @@
             this.panel11.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel16.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).EndInit();
-            this.panel17.ResumeLayout(false);
-            this.panel17.PerformLayout();
-            this.panel18.ResumeLayout(false);
-            this.panel19.ResumeLayout(false);
-            this.panel19.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -55,7 +55,10 @@ namespace Punto_de_Venta.Servicios
 
                 // Nombre del producto centrado arriba
                 RectangleF rectNombre = new RectangleF(000000003, 5, etiqueta.Width, 20);
-                g.DrawString(nombreProducto, fuenteNombre, Brushes.Black, rectNombre, new StringFormat { Alignment = StringAlignment.Center });
+                string nombreFormateado = nombreProducto.Length > 18
+    ? nombreProducto.Substring(0, 18).ToUpper()
+    : nombreProducto.ToUpper();
+                g.DrawString(nombreFormateado, fuenteNombre, Brushes.Black, rectNombre, new StringFormat { Alignment = StringAlignment.Center });
 
                 // Código de barras: dimensiones y margen izquierdo ajustados
                 int anchoBarcode = etiqueta.Width / 4;

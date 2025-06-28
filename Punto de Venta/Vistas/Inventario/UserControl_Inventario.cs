@@ -226,6 +226,7 @@ namespace Punto_de_Venta.Vistas
 
             using (var form = new View_Stock(productoSelect.Nombre,productoSelect.CodigoBarras, productoSelect.Stock))
             {
+                txt_codigo.Text = string.Empty;
                 form.ShowDialog();
 
                 if (form.result)
