@@ -14,14 +14,14 @@ using Punto_de_Venta.Servicios;
 
 namespace Punto_de_Venta.Vistas
 {
-    public partial class UserControl_Historial: UserControl
+    public partial class UserControl_Historial : UserControl
     {
         VentaController ventasController;
         private readonly BindingSource bindingSource;
         private List<VentaDTO> ventas;
         private VentaDTO ventaSelect;
         private LoadingControl loadingOverlay;
-      
+
 
         public UserControl_Historial()
         {
@@ -38,7 +38,7 @@ namespace Punto_de_Venta.Vistas
 
             GridViewHelper();
 
-          //  lbl_hora.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+            //  lbl_hora.Font = new Font("Segoe UI", 12, FontStyle.Bold);
         }
 
         private async void UserControl_Historial_Load(object sender, EventArgs e)
@@ -46,7 +46,7 @@ namespace Punto_de_Venta.Vistas
             await CargarVentasEnDataGridView();
         }
 
-        async Task CargarVentasEnDataGridView()
+        public async Task CargarVentasEnDataGridView()
         {
             ventas = await ventasController.ObtenerVentasDelDiaAsync(DateTime.Today);
             bindingSource.DataSource = ventas;
@@ -134,7 +134,7 @@ namespace Punto_de_Venta.Vistas
                 DefaultCellStyle = { Format = "C2" } // Formato moneda
             });
 
-       
+
 
 
 
@@ -151,7 +151,7 @@ namespace Punto_de_Venta.Vistas
             dgv_ventas.DefaultCellStyle.Font = new Font("Rockwell", 10);
             dgv_ventas.ColumnHeadersDefaultCellStyle.Font = new Font("Rockwell", 10, FontStyle.Bold);
 
- 
+
 
             if (dgv_ventas.Columns.Contains("IdVenta"))
                 dgv_ventas.Columns["IdVenta"].Frozen = true;

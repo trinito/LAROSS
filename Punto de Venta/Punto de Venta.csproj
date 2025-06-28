@@ -97,6 +97,7 @@
   <ItemGroup>
     <Compile Include="Controlador\CategoriaController.cs" />
     <Compile Include="Controlador\ColorController.cs" />
+    <Compile Include="Controlador\DashboardController.cs" />
     <Compile Include="Controlador\DetalleVentaController.cs" />
     <Compile Include="Controlador\MarcasController.cs" />
     <Compile Include="Controlador\ProductosController.cs" />
@@ -458,6 +459,14 @@
       <DependentUpon>ModeloDB.edmx</DependentUpon>
       <LastGenOutput>ModeloDB.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\icons8-bank-building-100.png" />
+    <None Include="Resources\icons8-magnetic-card-100.png" />
+    <None Include="Resources\icons8-cash-100 %281%29.png" />
+    <None Include="Resources\icons8-cash-1001.png" />
+    <None Include="Resources\icons8-cash-100.png" />
+    <None Include="Resources\icons8--96.png" />
+    <None Include="Resources\icons8---100.png" />
+    <None Include="Resources\icons8--100.png" />
     <None Include="Resources\icons8-cancel-order-30.png" />
     <None Include="Resources\icons8-barcode-30 %282%29.png" />
     <None Include="Resources\icons8-barcode-30 %281%29.png" />

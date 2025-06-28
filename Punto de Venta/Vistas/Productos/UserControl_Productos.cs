@@ -287,7 +287,7 @@ namespace Punto_de_Venta.Vistas
             //DGV
         }
 
-        private async Task CargarProductosEnDataGridView()
+        public async Task CargarProductosEnDataGridView()
         {
             dgv_productos.Enabled = false;
             try
@@ -648,6 +648,7 @@ namespace Punto_de_Venta.Vistas
                 if (idNuevo > 0 && actualizado)
                 {
                     loadingOverlay.HideOverlay();
+                    await CargarProductosEnDataGridView();
                     MessageBox.Show("Producto " + txt_nombre.Text.Trim() + " agregado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarFormulario();
                     await ImprimirCodigosDeBarras.ImprimirCodigoAsync(nuevoProducto.nombre, nuevoProducto.codigo_barras, nuevoProducto.stock);
@@ -676,7 +677,7 @@ namespace Punto_de_Venta.Vistas
         }
 
 
-        private void LimpiarFormulario()
+        public void LimpiarFormulario()
         {
             btn_agregar.Visible = true;
             btn_modificar.Visible = false;

@@ -253,6 +253,36 @@ namespace Punto_de_Venta.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8___100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8---100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8__100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8--100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8__96 {
+            get {
+                object obj = ResourceManager.GetObject("icons8--96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_add_25 {
             get {
                 object obj = ResourceManager.GetObject("icons8-add-25", resourceCulture);
@@ -276,6 +306,16 @@ namespace Punto_de_Venta.Properties {
         internal static System.Drawing.Bitmap icons8_add_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-add-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_bank_building_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-bank-building-100", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -336,6 +376,36 @@ namespace Punto_de_Venta.Properties {
         internal static System.Drawing.Bitmap icons8_cancel_order_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-cancel-order-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_cash_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cash-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_cash_100__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cash-100 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_cash_1001 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cash-1001", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -486,6 +556,16 @@ namespace Punto_de_Venta.Properties {
         internal static System.Drawing.Bitmap icons8_jumper_20 {
             get {
                 object obj = ResourceManager.GetObject("icons8-jumper-20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_magnetic_card_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-magnetic-card-100", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

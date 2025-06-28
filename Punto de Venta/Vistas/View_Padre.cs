@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Punto_de_Venta.Vistas
 {
-    public partial class View_Padre: Form
+    public partial class View_Padre : Form
     {
         List<Button> botones;
         public bool LogoutSolicitado { get; private set; } = false;
@@ -48,27 +48,32 @@ namespace Punto_de_Venta.Vistas
             limpiarBotones(btn_inicio);
         }
 
-        private void btn_ventas_Click(object sender, EventArgs e)
+        private async void btn_ventas_Click(object sender, EventArgs e)
         {
             MostrarUserControl(historialControl);
+            await historialControl.CargarVentasEnDataGridView(); // 👈 Llamada explícita
             limpiarBotones(btn_ventas);
         }
 
-        private void btn_productos_Click(object sender, EventArgs e)
+        private async void btn_productos_Click(object sender, EventArgs e)
         {
             MostrarUserControl(productosControl);
+            await productosControl.CargarProductosEnDataGridView();
+            productosControl.LimpiarFormulario();
             limpiarBotones(btn_productos);
         }
 
-        private void btn_inventario_Click(object sender, EventArgs e)
+        private async void btn_inventario_Click(object sender, EventArgs e)
         {
             MostrarUserControl(inventarioControl);
+            await inventarioControl.CargarProductosEnDataGridView();
             limpiarBotones(btn_inventario);
         }
 
-        private void btn_reportes_Click(object sender, EventArgs e)
+        private async void btn_reportes_Click(object sender, EventArgs e)
         {
             MostrarUserControl(reportesControl);
+            await reportesControl.CargarDatosDashboardAsync();
             limpiarBotones(btn_reportes);
         }
 
@@ -90,10 +95,10 @@ namespace Punto_de_Venta.Vistas
 
         private void limpiarBotones(Button boton)
         {
-            foreach(Button x in botones)
+            foreach (Button x in botones)
             {
                 x.BackColor = Color.FromArgb(21, 57, 93);
-            }    
+            }
             boton.BackColor = Color.FromArgb(24, 44, 61);
         }
 
@@ -124,7 +129,7 @@ namespace Punto_de_Venta.Vistas
             {
                 ventasControl.HandleKeyDown(e);
             }
-            else if (panel_principal.Controls.Count > 0 && panel_principal.Controls[0] is  UserControl_Productos productsControl)
+            else if (panel_principal.Controls.Count > 0 && panel_principal.Controls[0] is UserControl_Productos productsControl)
             {
                 productsControl.HandleKeyDown(e);
             }

@@ -59,7 +59,7 @@ namespace Punto_de_Venta.Vistas
 
         }
 
-        async Task CargarProductosEnDataGridView()
+        public async Task CargarProductosEnDataGridView()
         {
             productos = await productosController.ObtenerProductosParaVentaAsync();
             bindingSource.DataSource = productos;
