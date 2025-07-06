@@ -325,9 +325,12 @@ namespace Punto_de_Venta.Vistas
                 cb_marcas.Items.Clear();
 
                 cb_marcas.DataSource = listaMarcas;
+          
                 cb_marcas.DisplayMember = "nombre";
                 cb_marcas.ValueMember = "id_marca";
                 cb_marcas.SelectedIndex = -1;
+
+                cb_marcas.AutoCompleteSource = AutoCompleteSource.ListItems;
             }
             catch (Exception ex)
             {
@@ -353,6 +356,8 @@ namespace Punto_de_Venta.Vistas
                 cb_categoria.DisplayMember = "nombre";
                 cb_categoria.ValueMember = "id_categoria";
                 cb_categoria.SelectedIndex = -1;
+
+                cb_categoria.AutoCompleteSource = AutoCompleteSource.ListItems;
             }
             catch (Exception ex)
             {
@@ -378,6 +383,8 @@ namespace Punto_de_Venta.Vistas
                 cb_tallas.DisplayMember = "nombre";
                 cb_tallas.ValueMember = "id_talla";
                 cb_tallas.SelectedIndex = -1;
+
+                cb_tallas.AutoCompleteSource = AutoCompleteSource.ListItems;
             }
             catch (Exception ex)
             {
@@ -403,6 +410,8 @@ namespace Punto_de_Venta.Vistas
                 cb_sexo.DisplayMember = "nombre";
                 cb_sexo.ValueMember = "id_sexo";
                 cb_sexo.SelectedIndex = -1;
+
+                cb_sexo.AutoCompleteSource = AutoCompleteSource.ListItems;
             }
             catch (Exception ex)
             {
@@ -428,6 +437,8 @@ namespace Punto_de_Venta.Vistas
                 cb_color.DisplayMember = "nombre";
                 cb_color.ValueMember = "id_color";
                 cb_color.SelectedIndex = -1;
+
+                cb_color.AutoCompleteSource = AutoCompleteSource.ListItems;
             }
             catch (Exception ex)
             {

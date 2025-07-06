@@ -108,7 +108,7 @@ namespace Punto_de_Venta.Vistas
             try
             {
                 loadingOverlay.ShowOverlay();
-                productos = await productosController.ObtenerProductosParaVentaAsync();
+                productos = await productosController.ObtenerProductosParaVentaConStockAsync();
                 bindingSource.DataSource = productos;
 
                 AjustarColumnas();

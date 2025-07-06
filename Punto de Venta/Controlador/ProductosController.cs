@@ -235,7 +235,7 @@ namespace Punto_de_Venta.Controlador
                             {
                                 IdProducto = a.id_producto,
                                 CodigoBarras = a.codigo_barras,
-                                CodigoBarrasOriginal= a.codigo_barras_original,
+                                CodigoBarrasOriginal = a.codigo_barras_original,
                                 Nombre = a.nombre,
                                 Marca = m.nombre,
                                 Color = c.nombre,
@@ -245,10 +245,42 @@ namespace Punto_de_Venta.Controlador
                                 PrecioVenta = a.precio_venta,
                                 Stock = a.stock,
                                 Foto = a.foto,
-                               PrecioCosto = a.precio_costo
+                                PrecioCosto = a.precio_costo
                             };
 
-                return await Task.FromResult(query.ToList());
+                return await query.ToListAsync();
+            }
+        }
+
+        public async Task<List<ProductoVentaDTO>> ObtenerProductosParaVentaConStockAsync()
+        {
+            using (var context = new la_ross_dbEntities())
+            {
+                var query = from a in context.Articulos
+                            join m in context.Marcas on a.id_marca equals m.id_marca
+                            join c in context.Colores on a.id_color equals c.id_color
+                            join t in context.Tallas on a.id_talla equals t.id_talla
+                            join s in context.Sexos on a.id_sexo equals s.id_sexo
+                            join cat in context.Categorias on a.id_categoria equals cat.id_categoria
+                            where a.estatus && a.stock > 0
+                            select new ProductoVentaDTO
+                            {
+                                IdProducto = a.id_producto,
+                                CodigoBarras = a.codigo_barras,
+                                CodigoBarrasOriginal = a.codigo_barras_original,
+                                Nombre = a.nombre,
+                                Marca = m.nombre,
+                                Color = c.nombre,
+                                Talla = t.nombre,
+                                Sexo = s.nombre,
+                                Categoria = cat.nombre,
+                                PrecioVenta = a.precio_venta,
+                                Stock = a.stock,
+                                Foto = a.foto,
+                                PrecioCosto = a.precio_costo
+                            };
+
+                return await query.ToListAsync();
             }
         }
 

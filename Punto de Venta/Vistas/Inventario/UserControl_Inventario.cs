@@ -14,7 +14,7 @@ using Punto_de_Venta.Controles;
 
 namespace Punto_de_Venta.Vistas
 {
-    public partial class UserControl_Inventario: UserControl
+    public partial class UserControl_Inventario : UserControl
     {
         ProductosController productosController;
         private readonly BindingSource bindingSource;
@@ -34,9 +34,9 @@ namespace Punto_de_Venta.Vistas
             bindingSource = new BindingSource();
             productos = new List<ProductoVentaDTO>();
             productoSelect = new ProductoVentaDTO();
-           
+
             GridViewHelper();
-           
+
         }
 
         private void button_quitar_Click(object sender, EventArgs e)
@@ -50,7 +50,7 @@ namespace Punto_de_Venta.Vistas
             {
                 txt_codigo.Focus();
                 await CargarProductosEnDataGridView();
-               
+
             }
             catch (Exception ex)
             {
@@ -182,15 +182,22 @@ namespace Punto_de_Venta.Vistas
                 {
                     string filtro = txt_codigo.Text.Trim().ToUpper();
 
+
                     var filtrados = string.IsNullOrEmpty(filtro)
                         ? productos
-                        : productos.Where(p =>
-                              p.Nombre.ToUpper().Contains(filtro) ||
-                              p.CodigoBarras.ToUpper().Contains(filtro)
-                          ).ToList();
+                        : productos.Where(p => p.CodigoBarras.ToUpper() == filtro).ToList();
 
                     bindingSource.DataSource = filtrados;
-                    await Seleccionar();
+                    if (filtrados.Count > 0)
+                    {
+                        dgv_productos.CurrentCell = dgv_productos.Rows[0].Cells[0]; // Seleccionar primera fila
+                        await Seleccionar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontró ningún producto con ese código.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
                 }
                 catch (Exception ex)
                 {
@@ -224,7 +231,7 @@ namespace Punto_de_Venta.Vistas
                 return;
             }
 
-            using (var form = new View_Stock(productoSelect.Nombre,productoSelect.CodigoBarras, productoSelect.Stock))
+            using (var form = new View_Stock(productoSelect.Nombre, productoSelect.CodigoBarras, productoSelect.Stock))
             {
                 form.ShowDialog();
 
@@ -243,33 +250,98 @@ namespace Punto_de_Venta.Vistas
 
         private void btn_imprimir_Click(object sender, EventArgs e)
         {
-            if (dgv_productos.CurrentRow != null)
+            try
             {
-                var productoSelect = dgv_productos.CurrentRow.DataBoundItem as ProductoVentaDTO;
+                btn_imprimir.Enabled = false;
 
-                if (productoSelect != null)
+                if (dgv_productos.CurrentRow != null)
                 {
-                    if (productoSelect.Stock <= 0)
-                    {
-                        MessageBox.Show("El producto no tiene stock disponible para imprimir el código de barra.", "Sin stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
+                    var productoSelect = dgv_productos.CurrentRow.DataBoundItem as ProductoVentaDTO;
 
-                    using (var form = new View_Tickets(productoSelect.Nombre, productoSelect.CodigoBarras))
+                    if (productoSelect != null)
                     {
-                        form.ShowDialog();
+                        if (productoSelect.Stock <= 0)
+                        {
+                            MessageBox.Show("El producto no tiene stock disponible para imprimir el código de barra.", "Sin stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        using (var form = new View_Tickets(productoSelect.Nombre, productoSelect.CodigoBarras))
+                        {
+                            form.ShowDialog();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo obtener el producto seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo obtener el producto seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Debe seleccionar un producto para imprimir el ticket.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            else
+            finally
             {
-                MessageBox.Show("Debe seleccionar un producto para imprimir el ticket.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btn_imprimir.Enabled = true;
             }
         }
 
+        private async void txt_codigo_original_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13 && !string.IsNullOrEmpty(txt_codigo_original.Text))
+            {
+                try
+                {
+                    string filtro = txt_codigo_original.Text.Trim().ToUpper();
+
+                    var filtrados = string.IsNullOrEmpty(filtro)
+                        ? productos
+                        : productos.Where(p => p.CodigoBarrasOriginal.ToUpper() == filtro).ToList();
+
+
+                    bindingSource.DataSource = filtrados;
+
+                    if (filtrados.Count > 0)
+                    {
+                        dgv_productos.CurrentCell = dgv_productos.Rows[0].Cells[0]; // Seleccionar primera fila
+                        await Seleccionar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontró ningún producto con ese código.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "ERROR");
+                }
+                finally
+                {
+
+                }
+            }
+        }
+
+        private void txt_codigo_original_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txt_codigo_original.Text.Trim();
+
+            if (string.IsNullOrEmpty(filtro))
+            {
+                bindingSource.DataSource = productos; // Muestra todos los productos
+            }
+        }
+
+        private void txt_codigo_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txt_codigo.Text.Trim();
+
+            if (string.IsNullOrEmpty(filtro))
+            {
+                bindingSource.DataSource = productos; // Muestra todos los productos
+            }
+        }
     }
 }
