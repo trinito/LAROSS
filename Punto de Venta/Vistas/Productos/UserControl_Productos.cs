@@ -325,7 +325,7 @@ namespace Punto_de_Venta.Vistas
                 cb_marcas.Items.Clear();
 
                 cb_marcas.DataSource = listaMarcas;
-          
+
                 cb_marcas.DisplayMember = "nombre";
                 cb_marcas.ValueMember = "id_marca";
                 cb_marcas.SelectedIndex = -1;
@@ -732,39 +732,7 @@ namespace Punto_de_Venta.Vistas
 
                     if (producto != null)
                     {
-                        // Guardar el id del producto para modificar luego
-                        productoSeleccionadoId = producto.id_producto;
-
-                        // Llenar controles del formulario
-                        txt_nombre.Text = producto.nombre;
-                        txt_stock.Text = producto.stock.ToString();
-                        txt_costo.Text = producto.precio_costo.ToString("F2");
-                        txt_venta.Text = producto.precio_venta.ToString("F2");
-                        txt_original_codigo_barras.Text = producto.codigo_barras_original;
-                        txt_codigo_barras.Text = producto.codigo_barras;
-
-                        cb_marcas.SelectedValue = producto.id_marca;
-                        cb_categoria.SelectedValue = producto.id_categoria;
-                        cb_color.SelectedValue = producto.id_color;
-                        cb_tallas.SelectedValue = producto.id_talla;
-                        cb_sexo.SelectedValue = producto.id_sexo;
-
-                        if (!string.IsNullOrEmpty(producto.foto))
-                        {
-                            string ruta = Path.Combine(rutaBaseImagenes, producto.foto);
-                            if (File.Exists(ruta))
-                            {
-                                pb_imagen.Image = Image.FromFile(ruta);
-                                nombreArchivoImagenGuardada = producto.foto;
-                            }
-                        }
-
-                        btn_agregar.Visible = false;
-                        btn_modificar.Visible = true;
-                        btn_eliminar.Visible = true;
-                        btn_cancelar.Visible = true;
-                        lbl_codigo.Visible = true;
-                        txt_codigo_barras.Visible = true;
+                        LlenarCampos(producto);
                     }
                 }
             }
@@ -784,38 +752,23 @@ namespace Punto_de_Venta.Vistas
                 {
                     string codigo = txt_buscar.Text.Trim();
 
-                    foreach (DataGridViewRow fila in dgv_productos.Rows)
+                    var producto = productosController.GetProducto(codigo);
+                    if (producto != null)
                     {
-                        if (fila.Cells["CodigoBarras"].Value?.ToString() == codigo)
+                        LlenarCampos(producto);
+
+                        // Seleccionar en DGV si está visible
+                        foreach (DataGridViewRow fila in dgv_productos.Rows)
                         {
-                            // Simular doble clic: llenar los campos
-                            txt_nombre.Text = fila.Cells["Nombre"].Value?.ToString();
-                            txt_stock.Text = fila.Cells["Stock"].Value?.ToString();
-                            txt_costo.Text = fila.Cells["PrecioCosto"].Value?.ToString();
-                            txt_venta.Text = fila.Cells["PrecioVenta"].Value?.ToString();
-                            txt_original_codigo_barras.Text = fila.Cells["CodigoBarras"].Value?.ToString();
-
-                            cb_marcas.Text = fila.Cells["Marca"].Value?.ToString();
-                            cb_categoria.Text = fila.Cells["Categoria"].Value?.ToString();
-                            cb_color.Text = fila.Cells["Color"].Value?.ToString();
-                            cb_tallas.Text = fila.Cells["Talla"].Value?.ToString();
-                            cb_sexo.Text = fila.Cells["Sexo"].Value?.ToString();
-
-                            // Seleccionar el renglón visualmente
-                            fila.Selected = true;
-                            dgv_productos.CurrentCell = fila.Cells[0]; // enfoca primera celda
-
-                            // Mostrar botones de edición
-                            btn_agregar.Visible = false;
-                            btn_modificar.Visible = true;
-                            btn_eliminar.Visible = true;
-                            btn_cancelar.Visible = true;
-
-                            // Guardar el ID del producto (si lo tienes como columna oculta o en tu modelo)
-                            // productoEnEdicion = ...
-
-                            return; // producto encontrado y cargado
+                            if (fila.Cells["CodigoBarras"].Value?.ToString() == codigo)
+                            {
+                                fila.Selected = true;
+                                dgv_productos.CurrentCell = fila.Cells[0];
+                                break;
+                            }
                         }
+
+                        return;
                     }
 
                     MessageBox.Show("No se encontró ningún producto con ese código.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -828,6 +781,60 @@ namespace Punto_de_Venta.Vistas
                 }
             }
         }
+
+        private void LlenarCampos(Articulos producto)
+        {
+            if (producto == null) return;
+
+            // Guardar ID para referencia
+            productoSeleccionadoId = producto.id_producto;
+
+            // TextBoxes
+            txt_nombre.Text = producto.nombre;
+            txt_stock.Text = producto.stock.ToString();
+            txt_costo.Text = producto.precio_costo.ToString("F2");
+            txt_venta.Text = producto.precio_venta.ToString("F2");
+            txt_original_codigo_barras.Text = producto.codigo_barras_original;
+            txt_codigo_barras.Text = producto.codigo_barras;
+
+            // ComboBoxes (asegúrate de tener DataSource bien configurado)
+            cb_marcas.SelectedValue = producto.id_marca;
+            cb_categoria.SelectedValue = producto.id_categoria;
+            cb_color.SelectedValue = producto.id_color;
+            cb_tallas.SelectedValue = producto.id_talla;
+            cb_sexo.SelectedValue = producto.id_sexo;
+
+            // Imagen
+            if (!string.IsNullOrEmpty(producto.foto))
+            {
+                string ruta = Path.Combine(rutaBaseImagenes, producto.foto);
+                if (File.Exists(ruta))
+                {
+                    pb_imagen.Image = Image.FromFile(ruta);
+                    nombreArchivoImagenGuardada = producto.foto;
+                }
+                else
+                {
+                    pb_imagen.Image = null;
+                    nombreArchivoImagenGuardada = null;
+                }
+            }
+            else
+            {
+                pb_imagen.Image = null;
+                nombreArchivoImagenGuardada = null;
+            }
+
+            // Mostrar controles de edición
+            btn_agregar.Visible = false;
+            btn_modificar.Visible = true;
+            btn_eliminar.Visible = true;
+            btn_cancelar.Visible = true;
+            lbl_codigo.Visible = true;
+            txt_codigo_barras.Visible = true;
+        }
+
+
         private async Task ModificarProductoAsync()
         {
             try
