@@ -344,5 +344,10 @@ namespace Punto_de_Venta.Vistas
                 bindingSource.DataSource = productos; // Muestra todos los productos
             }
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

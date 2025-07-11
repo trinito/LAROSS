@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,6 +78,10 @@
             this.panel_header = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_fecha = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtp_time = new System.Windows.Forms.DateTimePicker();
+            this.button_imprimir = new System.Windows.Forms.Button();
             this.panel_principal.SuspendLayout();
             this.panel_ventas_mes.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -101,13 +105,14 @@
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel_header.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.SuspendLayout();
             // 
             // Cantidad
             // 
             this.Cantidad.DataPropertyName = "cantidad";
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle41;
             this.Cantidad.FillWeight = 50F;
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.Name = "Cantidad";
@@ -116,8 +121,8 @@
             // Medida
             // 
             this.Medida.DataPropertyName = "medida";
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Medida.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Medida.DefaultCellStyle = dataGridViewCellStyle42;
             this.Medida.FillWeight = 50F;
             this.Medida.HeaderText = "Medida";
             this.Medida.Name = "Medida";
@@ -126,8 +131,8 @@
             // Nombre
             // 
             this.Nombre.DataPropertyName = "nombre";
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Nombre.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle43.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nombre.DefaultCellStyle = dataGridViewCellStyle43;
             this.Nombre.FillWeight = 160F;
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
@@ -136,8 +141,8 @@
             // Código
             // 
             this.Código.DataPropertyName = "codigo";
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Código.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Código.DefaultCellStyle = dataGridViewCellStyle44;
             this.Código.FillWeight = 45F;
             this.Código.HeaderText = "Código";
             this.Código.Name = "Código";
@@ -146,10 +151,10 @@
             // Precio
             // 
             this.Precio.DataPropertyName = "precio";
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.Format = "C2";
-            dataGridViewCellStyle15.NullValue = null;
-            this.Precio.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle45.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle45.Format = "C2";
+            dataGridViewCellStyle45.NullValue = null;
+            this.Precio.DefaultCellStyle = dataGridViewCellStyle45;
             this.Precio.FillWeight = 50F;
             this.Precio.HeaderText = "Precio";
             this.Precio.Name = "Precio";
@@ -158,6 +163,7 @@
             // panel_principal
             // 
             this.panel_principal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.panel_principal.Controls.Add(this.panel13);
             this.panel_principal.Controls.Add(this.panel_ventas_mes);
             this.panel_principal.Controls.Add(this.panel_productos);
             this.panel_principal.Controls.Add(this.ventas);
@@ -202,18 +208,18 @@
             // 
             // chart_ventas_mes
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart_ventas_mes.ChartAreas.Add(chartArea3);
+            chartArea9.Name = "ChartArea1";
+            this.chart_ventas_mes.ChartAreas.Add(chartArea9);
             this.chart_ventas_mes.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend3.Name = "Legend1";
-            this.chart_ventas_mes.Legends.Add(legend3);
+            legend9.Name = "Legend1";
+            this.chart_ventas_mes.Legends.Add(legend9);
             this.chart_ventas_mes.Location = new System.Drawing.Point(0, 0);
             this.chart_ventas_mes.Name = "chart_ventas_mes";
             this.chart_ventas_mes.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart_ventas_mes.Series.Add(series3);
+            series9.ChartArea = "ChartArea1";
+            series9.Legend = "Legend1";
+            series9.Name = "Series1";
+            this.chart_ventas_mes.Series.Add(series9);
             this.chart_ventas_mes.Size = new System.Drawing.Size(633, 365);
             this.chart_ventas_mes.TabIndex = 0;
             this.chart_ventas_mes.Text = "Datos";
@@ -229,14 +235,16 @@
             // 
             // panel11
             // 
+            this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel11.BackColor = System.Drawing.Color.White;
             this.panel11.Controls.Add(this.label5);
             this.panel11.Controls.Add(this.dgv_productos);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Name = "panel11";
-            this.panel11.Padding = new System.Windows.Forms.Padding(50, 60, 50, 20);
-            this.panel11.Size = new System.Drawing.Size(308, 328);
+            this.panel11.Padding = new System.Windows.Forms.Padding(25, 60, 25, 20);
+            this.panel11.Size = new System.Drawing.Size(310, 365);
             this.panel11.TabIndex = 0;
             // 
             // label5
@@ -244,7 +252,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label5.Location = new System.Drawing.Point(3, 21);
+            this.label5.Location = new System.Drawing.Point(9, 16);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(292, 23);
             this.label5.TabIndex = 1;
@@ -259,16 +267,16 @@
             this.dgv_productos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgv_productos.BackgroundColor = System.Drawing.Color.White;
             this.dgv_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_productos.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dgv_productos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_productos.EnableHeadersVisualStyles = false;
-            this.dgv_productos.Location = new System.Drawing.Point(50, 60);
-            this.dgv_productos.Margin = new System.Windows.Forms.Padding(10);
+            this.dgv_productos.Location = new System.Drawing.Point(25, 60);
+            this.dgv_productos.Margin = new System.Windows.Forms.Padding(0);
             this.dgv_productos.Name = "dgv_productos";
             this.dgv_productos.ReadOnly = true;
             this.dgv_productos.RowHeadersVisible = false;
             this.dgv_productos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgv_productos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_productos.Size = new System.Drawing.Size(206, 248);
+            this.dgv_productos.Size = new System.Drawing.Size(260, 285);
             this.dgv_productos.TabIndex = 0;
             // 
             // ventas
@@ -523,7 +531,6 @@
             // 
             // lbl_ventas_dia
             // 
-            this.lbl_ventas_dia.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbl_ventas_dia.Font = new System.Drawing.Font("Rockwell", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ventas_dia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
             this.lbl_ventas_dia.Location = new System.Drawing.Point(0, 0);
@@ -589,6 +596,58 @@
             this.lbl_fecha.Text = "Lunes, 27 de Junio";
             this.lbl_fecha.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.White;
+            this.panel13.Controls.Add(this.button_imprimir);
+            this.panel13.Controls.Add(this.dtp_time);
+            this.panel13.Controls.Add(this.label3);
+            this.panel13.Location = new System.Drawing.Point(314, 397);
+            this.panel13.Name = "panel13";
+            this.panel13.Padding = new System.Windows.Forms.Padding(25, 60, 25, 20);
+            this.panel13.Size = new System.Drawing.Size(275, 329);
+            this.panel13.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label3.Location = new System.Drawing.Point(2, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(270, 23);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "GENERAR CORTE DE CAJA";
+            // 
+            // dtp_time
+            // 
+            this.dtp_time.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtp_time.Location = new System.Drawing.Point(42, 45);
+            this.dtp_time.Name = "dtp_time";
+            this.dtp_time.Size = new System.Drawing.Size(170, 20);
+            this.dtp_time.TabIndex = 2;
+            // 
+            // button_imprimir
+            // 
+            this.button_imprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_imprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.button_imprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_imprimir.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button_imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_imprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_imprimir.ForeColor = System.Drawing.Color.White;
+            this.button_imprimir.Location = new System.Drawing.Point(98, 88);
+            this.button_imprimir.Name = "button_imprimir";
+            this.button_imprimir.Size = new System.Drawing.Size(66, 44);
+            this.button_imprimir.TabIndex = 43;
+            this.button_imprimir.Text = "Imprimir";
+            this.button_imprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button_imprimir.UseVisualStyleBackColor = false;
+            this.button_imprimir.Click += new System.EventHandler(this.button_imprimir_Click);
+            // 
             // UserControl_Reportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -622,6 +681,8 @@
             this.panel5.ResumeLayout(false);
             this.panel_header.ResumeLayout(false);
             this.panel_header.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -669,5 +730,9 @@
         private System.Windows.Forms.DataGridView dgv_productos;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.DateTimePicker dtp_time;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button_imprimir;
     }
 }

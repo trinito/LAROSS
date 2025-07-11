@@ -28,16 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,39 +45,42 @@
             this.btn_agregar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.txt_producto = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_codigo = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.txt_codigo = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.dgv_productos = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_producto = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_codigo_original = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.dgv_productos = new System.Windows.Forms.DataGridView();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.lbl_stock = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.txt_codigo_original = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
             this.panel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).BeginInit();
             this.panel6.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // Cantidad
             // 
             this.Cantidad.DataPropertyName = "cantidad";
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle16;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle21;
             this.Cantidad.FillWeight = 50F;
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.Name = "Cantidad";
@@ -91,10 +89,8 @@
             // Medida
             // 
             this.Medida.DataPropertyName = "medida";
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Medida.DefaultCellStyle = dataGridViewCellStyle17;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Medida.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Medida.DefaultCellStyle = dataGridViewCellStyle22;
             this.Medida.FillWeight = 50F;
             this.Medida.HeaderText = "Medida";
             this.Medida.Name = "Medida";
@@ -103,10 +99,8 @@
             // Nombre
             // 
             this.Nombre.DataPropertyName = "nombre";
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Nombre.DefaultCellStyle = dataGridViewCellStyle18;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Nombre.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nombre.DefaultCellStyle = dataGridViewCellStyle23;
             this.Nombre.FillWeight = 160F;
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
@@ -115,10 +109,8 @@
             // Código
             // 
             this.Código.DataPropertyName = "codigo";
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Código.DefaultCellStyle = dataGridViewCellStyle19;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Código.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Código.DefaultCellStyle = dataGridViewCellStyle24;
             this.Código.FillWeight = 45F;
             this.Código.HeaderText = "Código";
             this.Código.Name = "Código";
@@ -127,14 +119,10 @@
             // Precio
             // 
             this.Precio.DataPropertyName = "precio";
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.Format = "C2";
-            dataGridViewCellStyle20.NullValue = null;
-            this.Precio.DefaultCellStyle = dataGridViewCellStyle20;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.Precio.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.Format = "C2";
+            dataGridViewCellStyle25.NullValue = null;
+            this.Precio.DefaultCellStyle = dataGridViewCellStyle25;
             this.Precio.FillWeight = 50F;
             this.Precio.HeaderText = "Precio";
             this.Precio.Name = "Precio";
@@ -229,26 +217,27 @@
             this.panel5.Size = new System.Drawing.Size(780, 122);
             this.panel5.TabIndex = 18;
             // 
-            // txt_producto
+            // label2
             // 
-            this.txt_producto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_producto.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_producto.Location = new System.Drawing.Point(205, 86);
-            this.txt_producto.Name = "txt_producto";
-            this.txt_producto.Size = new System.Drawing.Size(218, 30);
-            this.txt_producto.TabIndex = 22;
-            this.txt_producto.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label2.Location = new System.Drawing.Point(2, 47);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(256, 25);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Ingresa código La Ross:";
             // 
-            // label6
+            // txt_codigo
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label6.Location = new System.Drawing.Point(3, 86);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(187, 25);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "Buscar producto:";
+            this.txt_codigo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_codigo.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_codigo.Location = new System.Drawing.Point(264, 47);
+            this.txt_codigo.Name = "txt_codigo";
+            this.txt_codigo.Size = new System.Drawing.Size(158, 30);
+            this.txt_codigo.TabIndex = 1;
+            this.txt_codigo.TextChanged += new System.EventHandler(this.txt_codigo_TextChanged);
+            this.txt_codigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_codigo_KeyPress);
             // 
             // panel7
             // 
@@ -270,36 +259,93 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "Inventario";
             // 
-            // txt_codigo
+            // label6
             // 
-            this.txt_codigo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_codigo.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_codigo.Location = new System.Drawing.Point(264, 47);
-            this.txt_codigo.Name = "txt_codigo";
-            this.txt_codigo.Size = new System.Drawing.Size(158, 30);
-            this.txt_codigo.TabIndex = 1;
-            this.txt_codigo.TextChanged += new System.EventHandler(this.txt_codigo_TextChanged);
-            this.txt_codigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_codigo_KeyPress);
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label6.Location = new System.Drawing.Point(3, 86);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(187, 25);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "Buscar producto:";
             // 
-            // label2
+            // txt_producto
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label2.Location = new System.Drawing.Point(2, 47);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(256, 25);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Ingresa código La Ross:";
+            this.txt_producto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_producto.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_producto.Location = new System.Drawing.Point(205, 86);
+            this.txt_producto.Name = "txt_producto";
+            this.txt_producto.Size = new System.Drawing.Size(218, 30);
+            this.txt_producto.TabIndex = 22;
+            this.txt_producto.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label1.Location = new System.Drawing.Point(3, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(262, 25);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Ingresa código Original:";
+            // 
+            // txt_codigo_original
+            // 
+            this.txt_codigo_original.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_codigo_original.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_codigo_original.Location = new System.Drawing.Point(265, 8);
+            this.txt_codigo_original.Name = "txt_codigo_original";
+            this.txt_codigo_original.Size = new System.Drawing.Size(158, 30);
+            this.txt_codigo_original.TabIndex = 23;
+            this.txt_codigo_original.TextChanged += new System.EventHandler(this.txt_codigo_original_TextChanged);
+            this.txt_codigo_original.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_codigo_original_KeyPress);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Controls.Add(this.panel5);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(780, 681);
+            this.panel1.TabIndex = 24;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 122);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 181F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(780, 559);
+            this.tableLayoutPanel1.TabIndex = 19;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.dgv_productos);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 122);
+            this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(780, 559);
-            this.panel3.TabIndex = 19;
+            this.panel3.Size = new System.Drawing.Size(774, 372);
+            this.panel3.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.panel6);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 381);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(774, 175);
+            this.panel4.TabIndex = 1;
             // 
             // dgv_productos
             // 
@@ -316,33 +362,29 @@
             this.dgv_productos.Name = "dgv_productos";
             this.dgv_productos.ReadOnly = true;
             this.dgv_productos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_productos.Size = new System.Drawing.Size(780, 559);
-            this.dgv_productos.TabIndex = 0;
-            this.dgv_productos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_productos_CellDoubleClick);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.panel1.Controls.Add(this.panel6);
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel5);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(780, 681);
-            this.panel1.TabIndex = 24;
+            this.dgv_productos.Size = new System.Drawing.Size(774, 372);
+            this.dgv_productos.TabIndex = 23;
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(195)))), ((int)(((byte)(214)))));
-            this.panel6.Controls.Add(this.lbl_stock);
-            this.panel6.Controls.Add(this.label9);
+            this.panel6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel6.Controls.Add(this.panel9);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(0, 481);
+            this.panel6.Location = new System.Drawing.Point(0, -6);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(780, 100);
-            this.panel6.TabIndex = 21;
+            this.panel6.Size = new System.Drawing.Size(774, 181);
+            this.panel6.TabIndex = 25;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(195)))), ((int)(((byte)(214)))));
+            this.panel9.Controls.Add(this.lbl_stock);
+            this.panel9.Controls.Add(this.label9);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(774, 81);
+            this.panel9.TabIndex = 22;
             // 
             // lbl_stock
             // 
@@ -353,7 +395,6 @@
             this.lbl_stock.Name = "lbl_stock";
             this.lbl_stock.Size = new System.Drawing.Size(0, 36);
             this.lbl_stock.TabIndex = 3;
-            this.lbl_stock.Click += new System.EventHandler(this.lbl_stock_Click);
             // 
             // label9
             // 
@@ -365,38 +406,6 @@
             this.label9.Size = new System.Drawing.Size(416, 36);
             this.label9.TabIndex = 2;
             this.label9.Text = "Total de productos en stock:";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 581);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(780, 100);
-            this.panel4.TabIndex = 20;
-            // 
-            // txt_codigo_original
-            // 
-            this.txt_codigo_original.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_codigo_original.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_codigo_original.Location = new System.Drawing.Point(265, 8);
-            this.txt_codigo_original.Name = "txt_codigo_original";
-            this.txt_codigo_original.Size = new System.Drawing.Size(158, 30);
-            this.txt_codigo_original.TabIndex = 23;
-            this.txt_codigo_original.TextChanged += new System.EventHandler(this.txt_codigo_original_TextChanged);
-            this.txt_codigo_original.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_codigo_original_KeyPress);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Rockwell", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label1.Location = new System.Drawing.Point(3, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(262, 25);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Ingresa código Original:";
             // 
             // UserControl_Inventario
             // 
@@ -414,11 +423,14 @@
             this.panel5.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_productos)).EndInit();
             this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -433,23 +445,25 @@
         private System.Windows.Forms.Button btn_agregar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dgv_productos;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label lbl_stock;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button btn_imprimir;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.TextBox txt_codigo_original;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_producto;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox txt_codigo_original;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_codigo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.DataGridView dgv_productos;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label lbl_stock;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -92,5 +92,50 @@ namespace Punto_de_Venta.Controlador
                 return query.Select(x => (x.NombreProducto, x.Cantidad)).ToList();
             }
         }
+
+        // Obtiene detalle de productos vendidos en el día especificado
+        public async Task<List<(string NombreProducto, int CantidadVendida, decimal TotalProducto)>> ObtenerDetalleProductosVendidosDiaAsync(DateTime fecha)
+        {
+            using (var context = new la_ross_dbEntities())
+            {
+                var query = await (from detalle in context.DetalleVenta
+                                   join venta in context.Venta on detalle.id_venta equals venta.id_venta
+                                   join producto in context.Articulos on detalle.id_producto equals producto.id_producto
+                                   where DbFunctions.TruncateTime(venta.fecha) == fecha.Date && venta.estatus
+                                   group detalle by producto.nombre into grupo
+                                   select new
+                                   {
+                                       NombreProducto = grupo.Key,
+                                       CantidadVendida = grupo.Sum(x => x.cantidad),
+                                       TotalProducto = grupo.Sum(x => x.subtotal)   
+                                   })
+                                   .ToListAsync();
+
+                return query.Select(x => (x.NombreProducto, x.CantidadVendida, x.TotalProducto)).ToList();
+            }
+        }
+
+        // Obtiene resumen de ventas (corte de caja) para un día
+        public async Task<(int TotalVentas, decimal MontoTotal, decimal TotalEfectivo, decimal TotalTarjeta, decimal TotalTransferencia)>
+            ObtenerResumenVentasDiaAsync(DateTime fecha)
+        {
+            using (var context = new la_ross_dbEntities())
+            {
+                var query = await context.Venta
+                    .Where(v => DbFunctions.TruncateTime(v.fecha) == fecha.Date && v.estatus)
+                    .ToListAsync();
+
+                int totalVentas = query.Count;
+                decimal montoTotal = query.Sum(v => v.total);
+                decimal totalEfectivo = query.Where(v => v.forma_pago == "Efectivo").Sum(v => v.total);
+                decimal totalTarjeta = query.Where(v => v.forma_pago == "Tarjeta").Sum(v => v.total);
+                decimal totalTransferencia = query.Where(v => v.forma_pago == "Transferencia").Sum(v => v.total);
+
+                return (totalVentas, montoTotal, totalEfectivo, totalTarjeta, totalTransferencia);
+            }
+        }
+
+
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Punto_de_Venta.Controlador;
 using Punto_de_Venta.Controles;
+using Punto_de_Venta.Servicios;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -137,5 +138,56 @@ namespace Punto_de_Venta.Vistas
             chart.Legends.Add(legend);
         }
 
+        private async void button_imprimir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                button_imprimir.Enabled = false;
+                var dashboard = new DashboardController();
+                DateTime fechaSeleccionada = dtp_time.Value.Date;
+
+                var productos = await dashboard.ObtenerDetalleProductosVendidosDiaAsync(fechaSeleccionada);
+                var resumen = await dashboard.ObtenerResumenVentasDiaAsync(fechaSeleccionada);
+
+                if (productos == null || productos.Count == 0 || resumen.MontoTotal == 0)
+                {
+                    MessageBox.Show("No hay ventas registradas para la fecha seleccionada.", "Sin ventas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    button_imprimir.Enabled = true;
+                    return; // Detiene el flujo aquí
+                }
+
+                var ticket = new ImprimirTickets();
+
+                ticket.TextoCentro("VENTAS DEL DÍA");
+                ticket.TextoExtremos(DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("hh:mm tt"));
+                ticket.TextoIzquierda(" ");
+                ticket.EncabezadoCorte();
+                ticket.lineasGuio();
+
+                foreach (var item in productos)
+                {
+                    ticket.AgregaArticulo2(item.NombreProducto, item.CantidadVendida, item.TotalProducto);
+                }
+
+                ticket.lineasGuio();
+                
+                ticket.AgregarTotales("            EFECTIVO:  ", resumen.TotalEfectivo);
+                ticket.AgregarTotales("             TARJETA:  ", resumen.TotalTarjeta);
+                ticket.AgregarTotales("       TRANSFERENCIA:  ", resumen.TotalTransferencia);
+                ticket.AgregarTotales("         TOTAL VENTA: ", resumen.MontoTotal);
+
+                ticket.TextoIzquierda(" ");
+                ticket.TextoIzquierda(" ");
+                ticket.TextoIzquierda(" ");
+                ticket.CortaTicket();
+                ticket.ImprimirTicket("ZJ-58");
+
+                button_imprimir.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al imprimir el ticket: {ex.Message}", "Error");
+            }
+        }
     }
 }
