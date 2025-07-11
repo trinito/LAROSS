@@ -11,6 +11,7 @@ using Punto_de_Venta.Controlador;
 using Punto_de_Venta.Modelo;
 using Punto_de_Venta.Vistas.Inventario;
 using Punto_de_Venta.Controles;
+using System.IO;
 
 namespace Punto_de_Venta.Vistas
 {
@@ -349,5 +350,53 @@ namespace Punto_de_Venta.Vistas
         {
 
         }
+
+        private void dgv_productos_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void dgv_productos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgv_productos.SelectedRows.Count > 0)
+            {
+                // Obtiene la primera fila seleccionada
+                var fila = dgv_productos.SelectedRows[0];
+
+                // Recupera el producto
+                var producto = fila.DataBoundItem as ProductoVentaDTO;
+
+                if (producto != null && !string.IsNullOrEmpty(producto.Foto))
+                {
+                    string rutaBase = @"C:\LaRoss\imagenes_productos";
+                    string rutaCompleta = Path.Combine(rutaBase, producto.Foto);
+
+                    if (File.Exists(rutaCompleta))
+                    {
+                        try
+                        {
+                            pb_foto.Image?.Dispose();
+                            using (var fs = new FileStream(rutaCompleta, FileMode.Open, FileAccess.Read))
+                            {
+                                pb_foto.Image = Image.FromStream(fs);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"No se pudo cargar la imagen: {ex.Message}");
+                            pb_foto.Image = null;
+                        }
+                    }
+                    else
+                    {
+                        pb_foto.Image = null;
+                    }
+                }
+                else
+                {
+                    pb_foto.Image = null;
+                }
+            }
+        }
+
     }
 }

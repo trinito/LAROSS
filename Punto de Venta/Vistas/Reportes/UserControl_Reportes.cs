@@ -1,14 +1,21 @@
-﻿using Punto_de_Venta.Controlador;
+﻿using PdfSharp.Drawing;
+using PdfSharp.Pdf;
+using Punto_de_Venta.Controlador;
 using Punto_de_Venta.Controles;
+using Punto_de_Venta.Modelo;
 using Punto_de_Venta.Servicios;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using PdfSharp.Fonts;
+using PdfSharp.Pdf.IO;
 
 namespace Punto_de_Venta.Vistas
 {
@@ -19,6 +26,8 @@ namespace Punto_de_Venta.Vistas
 
         public UserControl_Reportes()
         {
+            // ⚙️ Esto activa la resolución automática de Arial en Windows
+            GlobalFontSettings.UseWindowsFontsUnderWindows = true;
             InitializeComponent();
 
             Load += UserControl_Reportes_Load;
@@ -170,7 +179,7 @@ namespace Punto_de_Venta.Vistas
                 }
 
                 ticket.lineasGuio();
-                
+
                 ticket.AgregarTotales("            EFECTIVO:  ", resumen.TotalEfectivo);
                 ticket.AgregarTotales("             TARJETA:  ", resumen.TotalTarjeta);
                 ticket.AgregarTotales("       TRANSFERENCIA:  ", resumen.TotalTransferencia);
@@ -182,6 +191,9 @@ namespace Punto_de_Venta.Vistas
                 ticket.CortaTicket();
                 ticket.ImprimirTicket("XP-58");
 
+                // Al final, después de imprimir el ticket
+                GenerarPdfCorteCaja(fechaSeleccionada, productos, resumen);
+
                 button_imprimir.Enabled = true;
             }
             catch (Exception ex)
@@ -189,5 +201,131 @@ namespace Punto_de_Venta.Vistas
                 MessageBox.Show($"Error al imprimir el ticket: {ex.Message}", "Error");
             }
         }
+
+        public void GenerarPdfCorteCaja(DateTime fechaSeleccionada, List<(string NombreProducto, int CantidadVendida, decimal TotalProducto)> productos, (int TotalVentas, decimal MontoTotal, decimal TotalEfectivo, decimal TotalTarjeta, decimal TotalTransferencia) resumen)
+        {
+            PdfDocument document = null;
+            try
+            {
+                document = new PdfDocument();
+                document.Info.Title = "Corte de Caja - " + fechaSeleccionada.ToString("dd/MM/yyyy");
+
+                PdfPage page = document.AddPage();
+                XGraphics gfx = XGraphics.FromPdfPage(page);
+
+                // Colores
+                XColor colorFondoTitulo = XColor.FromArgb(21, 57, 93);    // Azul oscuro
+                XColor colorTextoTitulo = XColors.White;
+                XColor colorLinea = XColor.FromArgb(21, 57, 93);
+                XColor colorFondoEncabezado = XColor.FromArgb(230, 230, 230); // Gris claro
+
+                // Fuentes
+                XFont fontTitulo = new XFont("Arial", 16, XFontStyleEx.Bold);
+                XFont fontSubtitulo = new XFont("Arial", 12, XFontStyleEx.Bold);
+                XFont fontNormal = new XFont("Arial", 10, XFontStyleEx.Regular);
+                XFont fontNegrita = new XFont("Arial", 10, XFontStyleEx.Bold);
+
+                double yPoint;
+                double margenIzquierdo = 40;
+
+                // Cargar y dibujar logo arriba, centrado
+                string rutaLogo = @"C:\LaRoss\larospi.png";
+                if (File.Exists(rutaLogo))
+                {
+                    XImage logo = XImage.FromFile(rutaLogo);
+                    // Ajustar tamaño proporcional, ancho máximo 120
+                    double maxAnchoLogo = 120;
+                    double anchoLogo = logo.PixelWidth;
+                    double altoLogo = logo.PixelHeight;
+                    double escala = maxAnchoLogo / anchoLogo;
+                    double altoAjustado = altoLogo * escala;
+
+                    // Posición centrada horizontal y margen superior (y=5)
+                    double xLogo = (page.Width.Point - maxAnchoLogo) / 2;
+                    double yLogo = 5;
+
+                    gfx.DrawImage(logo, xLogo, yLogo, maxAnchoLogo, altoAjustado);
+
+                    yPoint = yLogo + altoAjustado + 35; // espacio debajo del logo
+                }
+                else
+                {
+                    yPoint = 40; // Si no existe logo, usar posición anterior
+                }
+
+                // Fondo del título (40 de alto) justo debajo del logo
+                gfx.DrawRectangle(new XSolidBrush(colorFondoTitulo), 0, yPoint - 40, page.Width, 40);
+                gfx.DrawString("CORTE DE CAJA", fontTitulo, new XSolidBrush(colorTextoTitulo), new XRect(0, yPoint - 40, page.Width, 40), XStringFormats.Center);
+
+                yPoint += 50;
+
+                // Fecha debajo del título
+                gfx.DrawString("Fecha: " + fechaSeleccionada.ToString("dd/MM/yyyy"), fontSubtitulo, XBrushes.Black, new XRect(margenIzquierdo, yPoint, page.Width, 20), XStringFormats.TopLeft);
+                yPoint += 30;
+
+                // Encabezado columnas con fondo gris
+                gfx.DrawRectangle(new XSolidBrush(colorFondoEncabezado), margenIzquierdo, yPoint, page.Width - 2 * margenIzquierdo, 25);
+                gfx.DrawString("Producto", fontNegrita, XBrushes.Black, new XRect(margenIzquierdo + 5, yPoint + 5, 250, 20), XStringFormats.TopLeft);
+                gfx.DrawString("Cant.", fontNegrita, XBrushes.Black, new XRect(margenIzquierdo + 260, yPoint + 5, 50, 20), XStringFormats.TopLeft);
+                gfx.DrawString("Total", fontNegrita, XBrushes.Black, new XRect(margenIzquierdo + 320, yPoint + 5, 100, 20), XStringFormats.TopLeft);
+                yPoint += 35;
+
+                // Línea divisoria
+                gfx.DrawLine(new XPen(colorLinea, 1), margenIzquierdo, yPoint, page.Width - margenIzquierdo, yPoint);
+                yPoint += 10;
+
+                // Lista de productos
+                foreach (var prod in productos)
+                {
+                    gfx.DrawString(prod.NombreProducto, fontNormal, XBrushes.Black, new XRect(margenIzquierdo + 5, yPoint, 250, 20), XStringFormats.TopLeft);
+                    gfx.DrawString(prod.CantidadVendida.ToString(), fontNormal, XBrushes.Black, new XRect(margenIzquierdo + 260, yPoint, 50, 20), XStringFormats.TopLeft);
+                    gfx.DrawString(prod.TotalProducto.ToString("C2", CultureInfo.CurrentCulture), fontNormal, XBrushes.Black, new XRect(margenIzquierdo + 320, yPoint, 100, 20), XStringFormats.TopLeft);
+                    yPoint += 20;
+
+                    // Si se llena la página, agregar nueva
+                    if (yPoint > page.Height - 100)
+                    {
+                        page = document.AddPage();
+                        gfx = XGraphics.FromPdfPage(page);
+                        yPoint = 40;
+                    }
+                }
+
+                yPoint += 20;
+                gfx.DrawLine(new XPen(colorLinea, 1), margenIzquierdo, yPoint, page.Width - margenIzquierdo, yPoint);
+                yPoint += 20;
+
+                // Totales con un fondo gris suave
+                gfx.DrawRectangle(new XSolidBrush(XColor.FromArgb(245, 245, 245)), margenIzquierdo, yPoint, page.Width - 2 * margenIzquierdo, 110);
+
+                gfx.DrawString("EFECTIVO:", fontNegrita, XBrushes.Black, margenIzquierdo + 5, yPoint + 10);
+                gfx.DrawString(resumen.TotalEfectivo.ToString("C2", CultureInfo.CurrentCulture), fontNormal, XBrushes.Black, page.Width - margenIzquierdo - 100, yPoint + 10);
+
+                gfx.DrawString("TARJETA:", fontNegrita, XBrushes.Black, margenIzquierdo + 5, yPoint + 35);
+                gfx.DrawString(resumen.TotalTarjeta.ToString("C2", CultureInfo.CurrentCulture), fontNormal, XBrushes.Black, page.Width - margenIzquierdo - 100, yPoint + 35);
+
+                gfx.DrawString("TRANSFERENCIA:", fontNegrita, XBrushes.Black, margenIzquierdo + 5, yPoint + 60);
+                gfx.DrawString(resumen.TotalTransferencia.ToString("C2", CultureInfo.CurrentCulture), fontNormal, XBrushes.Black, page.Width - margenIzquierdo - 100, yPoint + 60);
+
+                gfx.DrawString("TOTAL VENTA:", fontNegrita, XBrushes.Black, margenIzquierdo + 5, yPoint + 90);
+                gfx.DrawString(resumen.MontoTotal.ToString("C2", CultureInfo.CurrentCulture), fontNegrita, XBrushes.Black, page.Width - margenIzquierdo - 100, yPoint + 90);
+
+                // Guardar PDF
+                string carpetaDocumentos = @"C:\LaRoss\Cortes de cajas";
+                if (!Directory.Exists(carpetaDocumentos))
+                    Directory.CreateDirectory(carpetaDocumentos);
+
+                string archivo = Path.Combine(carpetaDocumentos, $"CorteCaja_{fechaSeleccionada:dd-MM-yyyy}.pdf");
+                document.Save(archivo);
+
+                // Abrir automáticamente
+                Process.Start(new ProcessStartInfo(archivo) { UseShellExecute = true });
+            }
+            finally
+            {
+                document?.Dispose();
+            }
+        }
+
     }
 }
