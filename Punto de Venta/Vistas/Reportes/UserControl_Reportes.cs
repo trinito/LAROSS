@@ -159,7 +159,7 @@ namespace Punto_de_Venta.Vistas
                 var ticket = new ImprimirTickets();
 
                 ticket.TextoCentro("CORTE DE CAJA");
-                ticket.TextoExtremos(fechaSeleccionada.ToString("dd/MM/yyyy"), fechaSeleccionada.ToString("hh:mm tt"));
+                ticket.TextoExtremos(fechaSeleccionada.ToString("dd/MM/yyyy"), DateTime.Now.ToString("hh:mm tt"));
                 ticket.TextoIzquierda(" ");
                 ticket.EncabezadoCorte();
                 ticket.lineasGuio();
