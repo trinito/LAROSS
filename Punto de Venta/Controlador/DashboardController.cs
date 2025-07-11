@@ -127,9 +127,9 @@ namespace Punto_de_Venta.Controlador
 
                 int totalVentas = query.Count;
                 decimal montoTotal = query.Sum(v => v.total);
-                decimal totalEfectivo = query.Where(v => v.forma_pago == "Efectivo").Sum(v => v.total);
-                decimal totalTarjeta = query.Where(v => v.forma_pago == "Tarjeta").Sum(v => v.total);
-                decimal totalTransferencia = query.Where(v => v.forma_pago == "Transferencia").Sum(v => v.total);
+                decimal totalEfectivo = query.Where(v => v.forma_pago == "EFECTIVO").Sum(v => v.total);
+                decimal totalTarjeta = query.Where(v => v.forma_pago == "TARJETA").Sum(v => v.total);
+                decimal totalTransferencia = query.Where(v => v.forma_pago == "TRANSFERENCIA").Sum(v => v.total);
 
                 return (totalVentas, montoTotal, totalEfectivo, totalTarjeta, totalTransferencia);
             }
