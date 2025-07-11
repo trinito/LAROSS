@@ -1,73 +1,3 @@
-C:\LaRoss\Punto de Venta\bin\Debug\x64\libSkiaSharp.so
-C:\LaRoss\Punto de Venta\bin\Debug\arm\libSkiaSharp.so
-C:\LaRoss\Punto de Venta\bin\Debug\arm64\libSkiaSharp.so
-C:\LaRoss\Punto de Venta\bin\Debug\musl-x64\libSkiaSharp.so
-C:\LaRoss\Punto de Venta\bin\Debug\x86\libSkiaSharp.dll
-C:\LaRoss\Punto de Venta\bin\Debug\x64\libSkiaSharp.dll
-C:\LaRoss\Punto de Venta\bin\Debug\arm64\libSkiaSharp.dll
-C:\LaRoss\Punto de Venta\bin\Debug\libSkiaSharp.dylib
-C:\LaRoss\Punto de Venta\bin\Debug\Punto de Venta.exe.config
-C:\LaRoss\Punto de Venta\bin\Debug\Punto de Venta.exe
-C:\LaRoss\Punto de Venta\bin\Debug\Punto de Venta.pdb
-C:\LaRoss\Punto de Venta\bin\Debug\BarcodeStandard.dll
-C:\LaRoss\Punto de Venta\bin\Debug\EntityFramework.dll
-C:\LaRoss\Punto de Venta\bin\Debug\EntityFramework.SqlServer.dll
-C:\LaRoss\Punto de Venta\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
-C:\LaRoss\Punto de Venta\bin\Debug\SkiaSharp.dll
-C:\LaRoss\Punto de Venta\bin\Debug\System.Buffers.dll
-C:\LaRoss\Punto de Venta\bin\Debug\System.Memory.dll
-C:\LaRoss\Punto de Venta\bin\Debug\System.Numerics.Vectors.dll
-C:\LaRoss\Punto de Venta\bin\Debug\System.Resources.Extensions.dll
-C:\LaRoss\Punto de Venta\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-C:\LaRoss\Punto de Venta\bin\Debug\System.Text.Encodings.Web.dll
-C:\LaRoss\Punto de Venta\bin\Debug\System.Text.Json.dll
-C:\LaRoss\Punto de Venta\bin\Debug\System.Threading.Tasks.Extensions.dll
-C:\LaRoss\Punto de Venta\bin\Debug\System.ValueTuple.dll
-C:\LaRoss\Punto de Venta\bin\Debug\EntityFramework.xml
-C:\LaRoss\Punto de Venta\bin\Debug\EntityFramework.SqlServer.xml
-C:\LaRoss\Punto de Venta\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
-C:\LaRoss\Punto de Venta\bin\Debug\SkiaSharp.pdb
-C:\LaRoss\Punto de Venta\bin\Debug\System.Buffers.xml
-C:\LaRoss\Punto de Venta\bin\Debug\System.Memory.xml
-C:\LaRoss\Punto de Venta\bin\Debug\System.Numerics.Vectors.xml
-C:\LaRoss\Punto de Venta\bin\Debug\System.Resources.Extensions.xml
-C:\LaRoss\Punto de Venta\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\LaRoss\Punto de Venta\bin\Debug\System.Text.Encodings.Web.xml
-C:\LaRoss\Punto de Venta\bin\Debug\System.Text.Json.xml
-C:\LaRoss\Punto de Venta\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\LaRoss\Punto de Venta\bin\Debug\System.ValueTuple.xml
-C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.csproj.AssemblyReference.cache
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Controles.LoadingControl.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Properties.Resources.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Configuracion.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Inventario.View_Stock.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Inventario.View_Tickets.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Categorias.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Colores.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Marcas.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Sexos.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Tallas.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Historial.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Inventario.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Productos.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Reportes.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Ventas.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Padre.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Productos.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_VentasMes.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Admin.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Buscar.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Cobrar.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Consumo.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Corte.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.form_cuenta.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Principal.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Reportes.resources
-C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.csproj.GenerateResource.cache
-C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.csproj.CoreCompileInputs.cache
-C:\LaRoss\Punto de Venta\obj\Debug\Punto de.9F6E92BB.Up2Date
-C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.exe
-C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.pdb
 C:\LaRoss\LAROSS\Punto de Venta\bin\Debug\x64\libSkiaSharp.so
 C:\LaRoss\LAROSS\Punto de Venta\bin\Debug\arm\libSkiaSharp.so
 C:\LaRoss\LAROSS\Punto de Venta\bin\Debug\arm64\libSkiaSharp.so
@@ -138,3 +68,73 @@ C:\LaRoss\LAROSS\Punto de Venta\obj\Debug\Punto de Venta.csproj.CoreCompileInput
 C:\LaRoss\LAROSS\Punto de Venta\obj\Debug\Punto de.9F6E92BB.Up2Date
 C:\LaRoss\LAROSS\Punto de Venta\obj\Debug\Punto de Venta.exe
 C:\LaRoss\LAROSS\Punto de Venta\obj\Debug\Punto de Venta.pdb
+C:\LaRoss\Punto de Venta\bin\Debug\x64\libSkiaSharp.so
+C:\LaRoss\Punto de Venta\bin\Debug\arm\libSkiaSharp.so
+C:\LaRoss\Punto de Venta\bin\Debug\arm64\libSkiaSharp.so
+C:\LaRoss\Punto de Venta\bin\Debug\musl-x64\libSkiaSharp.so
+C:\LaRoss\Punto de Venta\bin\Debug\x86\libSkiaSharp.dll
+C:\LaRoss\Punto de Venta\bin\Debug\x64\libSkiaSharp.dll
+C:\LaRoss\Punto de Venta\bin\Debug\arm64\libSkiaSharp.dll
+C:\LaRoss\Punto de Venta\bin\Debug\libSkiaSharp.dylib
+C:\LaRoss\Punto de Venta\bin\Debug\Punto de Venta.exe.config
+C:\LaRoss\Punto de Venta\bin\Debug\Punto de Venta.exe
+C:\LaRoss\Punto de Venta\bin\Debug\Punto de Venta.pdb
+C:\LaRoss\Punto de Venta\bin\Debug\BarcodeStandard.dll
+C:\LaRoss\Punto de Venta\bin\Debug\EntityFramework.dll
+C:\LaRoss\Punto de Venta\bin\Debug\EntityFramework.SqlServer.dll
+C:\LaRoss\Punto de Venta\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\LaRoss\Punto de Venta\bin\Debug\SkiaSharp.dll
+C:\LaRoss\Punto de Venta\bin\Debug\System.Buffers.dll
+C:\LaRoss\Punto de Venta\bin\Debug\System.Memory.dll
+C:\LaRoss\Punto de Venta\bin\Debug\System.Numerics.Vectors.dll
+C:\LaRoss\Punto de Venta\bin\Debug\System.Resources.Extensions.dll
+C:\LaRoss\Punto de Venta\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\LaRoss\Punto de Venta\bin\Debug\System.Text.Encodings.Web.dll
+C:\LaRoss\Punto de Venta\bin\Debug\System.Text.Json.dll
+C:\LaRoss\Punto de Venta\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\LaRoss\Punto de Venta\bin\Debug\System.ValueTuple.dll
+C:\LaRoss\Punto de Venta\bin\Debug\EntityFramework.xml
+C:\LaRoss\Punto de Venta\bin\Debug\EntityFramework.SqlServer.xml
+C:\LaRoss\Punto de Venta\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\LaRoss\Punto de Venta\bin\Debug\SkiaSharp.pdb
+C:\LaRoss\Punto de Venta\bin\Debug\System.Buffers.xml
+C:\LaRoss\Punto de Venta\bin\Debug\System.Memory.xml
+C:\LaRoss\Punto de Venta\bin\Debug\System.Numerics.Vectors.xml
+C:\LaRoss\Punto de Venta\bin\Debug\System.Resources.Extensions.xml
+C:\LaRoss\Punto de Venta\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\LaRoss\Punto de Venta\bin\Debug\System.Text.Encodings.Web.xml
+C:\LaRoss\Punto de Venta\bin\Debug\System.Text.Json.xml
+C:\LaRoss\Punto de Venta\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\LaRoss\Punto de Venta\bin\Debug\System.ValueTuple.xml
+C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.csproj.AssemblyReference.cache
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Controles.LoadingControl.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Properties.Resources.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Configuracion.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Inventario.View_Stock.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Inventario.View_Tickets.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Categorias.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Colores.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Marcas.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Sexos.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Tallas.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Historial.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Inventario.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Productos.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Reportes.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Ventas.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Padre.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Productos.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_VentasMes.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Admin.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Buscar.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Cobrar.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Consumo.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Corte.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.form_cuenta.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Principal.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.View_Reportes.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.csproj.GenerateResource.cache
+C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.csproj.CoreCompileInputs.cache
+C:\LaRoss\Punto de Venta\obj\Debug\Punto de.9F6E92BB.Up2Date
+C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.exe
+C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.pdb

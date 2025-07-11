@@ -122,13 +122,10 @@ namespace Punto_de_Venta.Vistas.Inventario
             this.Close();
         }
 
-        private async void View_Stock_KeyDown(object sender, KeyEventArgs e)
+        private void View_Stock_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
-                case Keys.Enter:
-                    await AgregarStock();
-                    break;
                 case Keys.Escape:
                     this.Close();
                     break;
