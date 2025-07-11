@@ -34,9 +34,9 @@
             this.dgv_sexos = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_salir = new System.Windows.Forms.Button();
-            this.btn_agregar_sexo = new System.Windows.Forms.Button();
             this.btn_modificar_sexo = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
+            this.btn_agregar_sexo = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -54,9 +54,9 @@
             this.panel4.Controls.Add(this.dgv_sexos);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.btn_salir);
-            this.panel4.Controls.Add(this.btn_modificar_sexo);
             this.panel4.Controls.Add(this.btn_cancelar);
             this.panel4.Controls.Add(this.btn_agregar_sexo);
+            this.panel4.Controls.Add(this.btn_modificar_sexo);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 112);
             this.panel4.Name = "panel4";
@@ -134,21 +134,6 @@
             this.btn_salir.UseVisualStyleBackColor = false;
             this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
-            // btn_agregar_sexo
-            // 
-            this.btn_agregar_sexo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_agregar_sexo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_agregar_sexo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.btn_agregar_sexo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_agregar_sexo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_agregar_sexo.Image = global::Punto_de_Venta.Properties.Resources.icons8_add_25;
-            this.btn_agregar_sexo.Location = new System.Drawing.Point(320, 48);
-            this.btn_agregar_sexo.Name = "btn_agregar_sexo";
-            this.btn_agregar_sexo.Size = new System.Drawing.Size(30, 30);
-            this.btn_agregar_sexo.TabIndex = 45;
-            this.btn_agregar_sexo.UseVisualStyleBackColor = true;
-            this.btn_agregar_sexo.Click += new System.EventHandler(this.btn_agregar_sexo_Click);
-            // 
             // btn_modificar_sexo
             // 
             this.btn_modificar_sexo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
@@ -183,6 +168,21 @@
             this.btn_cancelar.UseVisualStyleBackColor = false;
             this.btn_cancelar.Visible = false;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
+            // 
+            // btn_agregar_sexo
+            // 
+            this.btn_agregar_sexo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_agregar_sexo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_agregar_sexo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.btn_agregar_sexo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_agregar_sexo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_agregar_sexo.Image = global::Punto_de_Venta.Properties.Resources.icons8_add_25;
+            this.btn_agregar_sexo.Location = new System.Drawing.Point(320, 48);
+            this.btn_agregar_sexo.Name = "btn_agregar_sexo";
+            this.btn_agregar_sexo.Size = new System.Drawing.Size(30, 30);
+            this.btn_agregar_sexo.TabIndex = 45;
+            this.btn_agregar_sexo.UseVisualStyleBackColor = true;
+            this.btn_agregar_sexo.Click += new System.EventHandler(this.btn_agregar_sexo_Click);
             // 
             // panel1
             // 

@@ -344,7 +344,7 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
             <PropertyRef Name="id_sexo" />
           </Key>
           <Property Name="id_sexo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombre" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="estatus" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Tallas">

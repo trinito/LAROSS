@@ -138,4 +138,3 @@ C:\LaRoss\LAROSS\Punto de Venta\obj\Debug\Punto de Venta.csproj.CoreCompileInput
 C:\LaRoss\LAROSS\Punto de Venta\obj\Debug\Punto de.9F6E92BB.Up2Date
 C:\LaRoss\LAROSS\Punto de Venta\obj\Debug\Punto de Venta.exe
 C:\LaRoss\LAROSS\Punto de Venta\obj\Debug\Punto de Venta.pdb
-C:\LaRoss\LAROSS\Punto de Venta\obj\Debug\Punto de Venta.exe.config
