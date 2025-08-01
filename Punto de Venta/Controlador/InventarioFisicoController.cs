@@ -1,7 +1,11 @@
-﻿using Punto_de_Venta.Modelo;
+﻿using PdfSharp.Drawing;
+using PdfSharp.Pdf;
+using Punto_de_Venta.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -133,10 +137,9 @@ namespace Punto_de_Venta.Controlador
                 inventario.ajustado = true;
                 inventario.fecha_fin = DateTime.Now;
 
-                inventario.observaciones = $"Resumen de Inventario Ajustado: \n" +
-                                           $"Productos con diferencia: {totalNoCuadraron}\n" +
-                                           $"Productos con stock MENOR al sistema: {totalMenos}\n" +
-                                           $"Productos con stock MAYOR al sistema: {totalMas}";
+                inventario.observaciones = $"Productos con diferencia: {totalNoCuadraron}\n" +
+                                           $"Productos con stock menor al sistema: {totalMenos}\n" +
+                                           $"Productos con stock mayor al sistema: {totalMas}";
 
                 await context.SaveChangesAsync();
                 return true;
@@ -189,5 +192,16 @@ namespace Punto_de_Venta.Controlador
                 return true;
             }
         }
+
+        public async Task<InventarioFisico> ObtenerInventarioPorId(int idInventario)
+        {
+            using (var context = new la_ross_dbEntities())
+            {
+                return await context.InventarioFisico
+                    .FirstOrDefaultAsync(i => i.id == idInventario);
+            }
+        }
+
+
     }
 }

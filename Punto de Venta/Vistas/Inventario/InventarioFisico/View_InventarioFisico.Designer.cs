@@ -110,6 +110,7 @@
             this.btn_finalizar.Text = "Finalizar inventario";
             this.btn_finalizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btn_finalizar.UseVisualStyleBackColor = false;
+            this.btn_finalizar.Click += new System.EventHandler(this.btn_finalizar_Click);
             // 
             // btn_cancelar
             // 
@@ -129,6 +130,7 @@
             this.btn_cancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btn_cancelar.UseVisualStyleBackColor = false;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // panel5
             // 
@@ -150,6 +152,7 @@
             this.txt_producto.Name = "txt_producto";
             this.txt_producto.Size = new System.Drawing.Size(905, 30);
             this.txt_producto.TabIndex = 1;
+            this.txt_producto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_producto_KeyDown);
             // 
             // label3
             // 
