@@ -413,6 +413,26 @@ namespace Punto_de_Venta.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_cash_register_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cash-register-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_cash_register_100__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cash-register-100 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_clothes_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-clothes-30", resourceCulture);
@@ -426,6 +446,16 @@ namespace Punto_de_Venta.Properties {
         internal static System.Drawing.Bitmap icons8_configuration_25 {
             get {
                 object obj = ResourceManager.GetObject("icons8-configuration-25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_correct_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-correct-30", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -663,6 +693,16 @@ namespace Punto_de_Venta.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_receive_cash_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-receive-cash-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_report_25 {
             get {
                 object obj = ResourceManager.GetObject("icons8-report-25", resourceCulture);
@@ -803,9 +843,49 @@ namespace Punto_de_Venta.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_trolley_30__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-trolley-30 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_trolley_301 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-trolley-301", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_user_25 {
             get {
                 object obj = ResourceManager.GetObject("icons8-user-25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_warehouse_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-warehouse-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_withdraw_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-withdraw-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

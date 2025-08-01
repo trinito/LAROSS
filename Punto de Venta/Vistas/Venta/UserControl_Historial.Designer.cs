@@ -56,6 +56,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.button_copia = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -253,13 +254,34 @@
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.button_copia);
             this.panel8.Controls.Add(this.btn_modificar);
             this.panel8.Controls.Add(this.btn_cancelar);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 231);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(246, 250);
+            this.panel8.Size = new System.Drawing.Size(246, 406);
             this.panel8.TabIndex = 16;
+            // 
+            // button_copia
+            // 
+            this.button_copia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.button_copia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_copia.Enabled = false;
+            this.button_copia.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button_copia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_copia.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_copia.ForeColor = System.Drawing.Color.White;
+            this.button_copia.Image = global::Punto_de_Venta.Properties.Resources.icons8_print_25__1_;
+            this.button_copia.Location = new System.Drawing.Point(44, 139);
+            this.button_copia.Name = "button_copia";
+            this.button_copia.Size = new System.Drawing.Size(168, 78);
+            this.button_copia.TabIndex = 21;
+            this.button_copia.Text = "Imprimir copia de Ticket";
+            this.button_copia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button_copia.UseVisualStyleBackColor = false;
+            this.button_copia.Visible = false;
+            this.button_copia.Click += new System.EventHandler(this.button_copia_Click);
             // 
             // btn_modificar
             // 
@@ -270,7 +292,7 @@
             this.btn_modificar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_modificar.ForeColor = System.Drawing.Color.White;
             this.btn_modificar.Image = global::Punto_de_Venta.Properties.Resources.icons8_edit_30;
-            this.btn_modificar.Location = new System.Drawing.Point(44, 147);
+            this.btn_modificar.Location = new System.Drawing.Point(44, 272);
             this.btn_modificar.Name = "btn_modificar";
             this.btn_modificar.Size = new System.Drawing.Size(168, 78);
             this.btn_modificar.TabIndex = 20;
@@ -428,5 +450,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.Label lbl_ventas;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button button_copia;
     }
 }

@@ -13,6 +13,8 @@ using Punto_de_Venta.Servicios;
 using System.Drawing.Printing;
 using System.Globalization;
 using Punto_de_Venta.Controles;
+using Punto_de_Venta.Vistas.Venta;
+using Punto_de_Venta.Vistas.Venta.Caja;
 
 namespace Punto_de_Venta.Vistas
 {
@@ -43,11 +45,27 @@ namespace Punto_de_Venta.Vistas
             loadingOverlay.BringToFront();
         }
 
-        private void UserControl_Ventas_Load(object sender, EventArgs e)
+        private async void UserControl_Ventas_Load(object sender, EventArgs e)
         {
             dgv_productos.AutoGenerateColumns = false;
             txt_producto.Focus();
             ConfigurarDgvProductos();
+            await VerificarInicioCaja();
+        }
+        
+        public async Task VerificarInicioCaja()
+        {
+            var cajaController = new CajaMovimientosController();
+            bool inicio = await cajaController.VerificarInicioCajaAsync();
+
+            if (!inicio)
+            {
+                using (var form = new View_Inicio_Caja())
+                {
+                    form.ShowDialog();
+                }
+                await VerificarInicioCaja();
+            }
         }
 
         private void ConfigurarDgvProductos()
@@ -347,6 +365,13 @@ namespace Punto_de_Venta.Vistas
 
                 if (exito)
                 {
+                    // Registrar venta en caja si es en efectivo
+                    if (forma_pago.ToUpper() == "EFECTIVO")
+                    {
+                        var cajaController = new CajaMovimientosController();
+                        await cajaController.RegistrarVentaEnCajaAsync(total, SesionUsuario.UsuarioActual.id);
+                    }
+
                     // Guardar copias para impresión o futuras referencias
                     total_copia = total;
                     pago_copia = pago;
@@ -485,6 +510,14 @@ namespace Punto_de_Venta.Vistas
                 case Keys.F5:
                     ImprimirCopia();
                     break;
+            }
+        }
+
+        private void btn_retirar_caja_Click(object sender, EventArgs e)
+        {
+            using (var form = new Form_RetiroCaja())
+            {
+                form.ShowDialog();
             }
         }
     }

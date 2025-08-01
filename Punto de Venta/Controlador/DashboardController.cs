@@ -116,26 +116,44 @@ namespace Punto_de_Venta.Controlador
         }
 
         // Obtiene resumen de ventas (corte de caja) para un día
-        public async Task<(int TotalVentas, decimal MontoTotal, decimal TotalEfectivo, decimal TotalTarjeta, decimal TotalTransferencia)>
-            ObtenerResumenVentasDiaAsync(DateTime fecha)
+        public async Task<(int TotalVentas, decimal MontoTotal, decimal TotalEfectivo, decimal TotalTarjeta, decimal TotalTransferencia, decimal FondoCajaFinal)>
+     ObtenerResumenVentasDiaAsync(DateTime fecha)
         {
             using (var context = new la_ross_dbEntities())
             {
-                var query = await context.Venta
-                    .Where(v => DbFunctions.TruncateTime(v.fecha) == fecha.Date && v.estatus)
+                var fechaDia = fecha.Date;
+
+                var ventas = await context.Venta
+                    .Where(v => DbFunctions.TruncateTime(v.fecha) == fechaDia && v.estatus)
                     .ToListAsync();
 
-                int totalVentas = query.Count;
-                decimal montoTotal = query.Sum(v => v.total);
-                decimal totalEfectivo = query.Where(v => v.forma_pago == "EFECTIVO").Sum(v => v.total);
-                decimal totalTarjeta = query.Where(v => v.forma_pago == "TARJETA").Sum(v => v.total);
-                decimal totalTransferencia = query.Where(v => v.forma_pago == "TRANSFERENCIA").Sum(v => v.total);
+                int totalVentas = ventas.Count;
+                decimal montoTotal = ventas.Sum(v => v.total);
+                decimal totalEfectivo = ventas.Where(v => v.forma_pago == "EFECTIVO").Sum(v => v.total);
+                decimal totalTarjeta = ventas.Where(v => v.forma_pago == "TARJETA").Sum(v => v.total);
+                decimal totalTransferencia = ventas.Where(v => v.forma_pago == "TRANSFERENCIA").Sum(v => v.total);
 
-                return (totalVentas, montoTotal, totalEfectivo, totalTarjeta, totalTransferencia);
+                var movimientos = await context.CajaMovimientos
+                    .Where(m => DbFunctions.TruncateTime(m.fecha) == fechaDia)
+                    .ToListAsync();
+
+                decimal fondoInicial = movimientos
+                    .Where(m => m.tipo_movimiento == "INICIAL")
+                    .Sum(m => (decimal?)m.monto) ?? 0m;
+
+                decimal totalRetiros = movimientos
+                    .Where(m => m.tipo_movimiento == "RETIRO")
+                    .Sum(m => (decimal?)m.monto) ?? 0m;
+
+                decimal cierreCaja = movimientos
+                    .Where(m => m.tipo_movimiento == "CIERRE")
+                    .Sum(m => (decimal?)m.monto) ?? 0m;
+
+                decimal fondoCajaFinal = fondoInicial + totalEfectivo - totalRetiros - cierreCaja;
+
+                return (totalVentas, montoTotal, totalEfectivo, totalTarjeta, totalTransferencia, fondoCajaFinal);
             }
         }
-
-
 
     }
 }

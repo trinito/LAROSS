@@ -200,5 +200,9 @@ namespace Punto_de_Venta.Vistas
             }
         }
 
+        private void button_copia_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

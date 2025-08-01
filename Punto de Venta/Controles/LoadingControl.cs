@@ -44,5 +44,14 @@ namespace Punto_de_Venta.Controles
         {
 
         }
+
+        public void ExpandToParent()
+        {
+            this.Dock = DockStyle.Fill;
+            this.BringToFront();
+            this.BackColor = Color.FromArgb(100, 0, 0, 0); // Semitransparente
+            this.Enabled = true; // Bloquea eventos debajo
+        }
+
     }
 }

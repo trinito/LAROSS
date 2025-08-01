@@ -146,10 +146,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controlador\CajaMovimientosController.cs" />
     <Compile Include="Controlador\CategoriaController.cs" />
     <Compile Include="Controlador\ColorController.cs" />
     <Compile Include="Controlador\DashboardController.cs" />
     <Compile Include="Controlador\DetalleVentaController.cs" />
+    <Compile Include="Controlador\InventarioFisicoController.cs" />
     <Compile Include="Controlador\MarcasController.cs" />
     <Compile Include="Controlador\ProductosController.cs" />
     <Compile Include="Controlador\SexoController.cs" />
@@ -172,6 +174,9 @@
     <Compile Include="Modelo\Articulos.cs">
       <DependentUpon>ModeloDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\CajaMovimientos.cs">
+      <DependentUpon>ModeloDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Categorias.cs">
       <DependentUpon>ModeloDB.tt</DependentUpon>
     </Compile>
@@ -179,6 +184,12 @@
       <DependentUpon>ModeloDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\DetalleVenta.cs">
+      <DependentUpon>ModeloDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\InventarioFisico.cs">
+      <DependentUpon>ModeloDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\InventarioFisicoDetalle.cs">
       <DependentUpon>ModeloDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Marcas.cs">
@@ -200,6 +211,7 @@
       <DependentUpon>ModeloDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Modelo\ProductoCaja.cs" />
+    <Compile Include="Modelo\ProductoInventarioFisicoDTO.cs" />
     <Compile Include="Modelo\ProductoVentaDTO.cs" />
     <Compile Include="Modelo\Sexos.cs">
       <DependentUpon>ModeloDB.tt</DependentUpon>
@@ -231,6 +243,12 @@
     </Compile>
     <Compile Include="Vistas\Configuracion\UserControl_Configuracion.Designer.cs">
       <DependentUpon>UserControl_Configuracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Inventario\InventarioFisico\View_InventarioFisico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Inventario\InventarioFisico\View_InventarioFisico.Designer.cs">
+      <DependentUpon>View_InventarioFisico.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Inventario\View_Stock.cs">
       <SubType>Form</SubType>
@@ -274,6 +292,12 @@
     <Compile Include="Vistas\Productos\View_Tallas.Designer.cs">
       <DependentUpon>View_Tallas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Venta\Caja\Form_RetiroCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Venta\Caja\Form_RetiroCaja.Designer.cs">
+      <DependentUpon>Form_RetiroCaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Venta\UserControl_Historial.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -303,6 +327,12 @@
     </Compile>
     <Compile Include="Vistas\Venta\UserControl_Ventas.Designer.cs">
       <DependentUpon>UserControl_Ventas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Venta\Caja\View_Inicio_Caja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Venta\Caja\View_Inicio_Caja.Designer.cs">
+      <DependentUpon>View_Inicio_Caja.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\View_Padre.cs">
       <SubType>Form</SubType>
@@ -383,6 +413,9 @@
     <EmbeddedResource Include="Vistas\Configuracion\UserControl_Configuracion.resx">
       <DependentUpon>UserControl_Configuracion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Inventario\InventarioFisico\View_InventarioFisico.resx">
+      <DependentUpon>View_InventarioFisico.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Inventario\View_Stock.resx">
       <DependentUpon>View_Stock.cs</DependentUpon>
     </EmbeddedResource>
@@ -404,6 +437,9 @@
     <EmbeddedResource Include="Vistas\Productos\View_Tallas.resx">
       <DependentUpon>View_Tallas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Venta\Caja\Form_RetiroCaja.resx">
+      <DependentUpon>Form_RetiroCaja.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Venta\UserControl_Historial.resx">
       <DependentUpon>UserControl_Historial.cs</DependentUpon>
     </EmbeddedResource>
@@ -418,6 +454,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Venta\UserControl_Ventas.resx">
       <DependentUpon>UserControl_Ventas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Venta\Caja\View_Inicio_Caja.resx">
+      <DependentUpon>View_Inicio_Caja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\View_Padre.resx">
       <DependentUpon>View_Padre.cs</DependentUpon>
@@ -510,6 +549,14 @@
       <DependentUpon>ModeloDB.edmx</DependentUpon>
       <LastGenOutput>ModeloDB.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\icons8-correct-30.png" />
+    <None Include="Resources\icons8-warehouse-30.png" />
+    <None Include="Resources\icons8-trolley-30 %281%29.png" />
+    <None Include="Resources\icons8-trolley-301.png" />
+    <None Include="Resources\icons8-cash-register-100 %281%29.png" />
+    <None Include="Resources\icons8-cash-register-100.png" />
+    <None Include="Resources\icons8-withdraw-32.png" />
+    <None Include="Resources\icons8-receive-cash-30.png" />
     <None Include="Resources\icons8-bank-building-100.png" />
     <None Include="Resources\icons8-magnetic-card-100.png" />
     <None Include="Resources\icons8-cash-100 %281%29.png" />

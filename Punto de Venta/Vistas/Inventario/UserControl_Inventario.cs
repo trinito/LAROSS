@@ -12,6 +12,7 @@ using Punto_de_Venta.Modelo;
 using Punto_de_Venta.Vistas.Inventario;
 using Punto_de_Venta.Controles;
 using System.IO;
+using Punto_de_Venta.Vistas.Inventario.InventarioFisico;
 
 namespace Punto_de_Venta.Vistas
 {
@@ -398,5 +399,10 @@ namespace Punto_de_Venta.Vistas
             }
         }
 
+        private void btn_inventario_Click(object sender, EventArgs e)
+        {
+            View_InventarioFisico inventarioFisico = new View_InventarioFisico();
+            inventarioFisico.ShowDialog(); // o ShowDialog() si quieres que sea modal
+        }
     }
 }

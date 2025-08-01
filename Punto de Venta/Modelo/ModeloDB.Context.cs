@@ -35,5 +35,8 @@ namespace Punto_de_Venta.Modelo
         public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<Venta> Venta { get; set; }
         public virtual DbSet<ViewCorte> ViewCorte { get; set; }
+        public virtual DbSet<CajaMovimientos> CajaMovimientos { get; set; }
+        public virtual DbSet<InventarioFisico> InventarioFisico { get; set; }
+        public virtual DbSet<InventarioFisicoDetalle> InventarioFisicoDetalle { get; set; }
     }
 }

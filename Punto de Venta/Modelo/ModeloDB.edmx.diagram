@@ -24,6 +24,12 @@
         <AssociationConnector Association="Punto_de_Venta.Modelo.FK_DetalleVenta_UsuarioEditado" ManuallyRouted="false" />
         <AssociationConnector Association="Punto_de_Venta.Modelo.FK_DetalleVenta_Venta" ManuallyRouted="false" />
         <AssociationConnector Association="Punto_de_Venta.Modelo.FK_Venta_UsuarioEditado" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Punto_de_Venta.Modelo.CajaMovimientos" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="Punto_de_Venta.Modelo.InventarioFisico" Width="1.5" PointX="5.25" PointY="9.125" />
+        <EntityTypeShape EntityType="Punto_de_Venta.Modelo.InventarioFisicoDetalle" Width="1.5" PointX="8.5" PointY="5.125" />
+        <AssociationConnector Association="Punto_de_Venta.Modelo.FK__Inventari__id_ar__05A3D694" />
+        <AssociationConnector Association="Punto_de_Venta.Modelo.FK__Inventari__id_in__04AFB25B" />
+        <AssociationConnector Association="Punto_de_Venta.Modelo.FK__Inventari__id_us__01D345B0" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

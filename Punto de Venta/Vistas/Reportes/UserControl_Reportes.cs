@@ -30,7 +30,6 @@ namespace Punto_de_Venta.Vistas
             GlobalFontSettings.UseWindowsFontsUnderWindows = true;
             InitializeComponent();
 
-            Load += UserControl_Reportes_Load;
             loadingOverlay = new LoadingControl();
             this.Controls.Add(loadingOverlay);
             loadingOverlay.BringToFront();
@@ -56,10 +55,10 @@ namespace Punto_de_Venta.Vistas
             lbl_fecha.Text = formato;
         }
 
-        private async void UserControl_Reportes_Load(object sender, EventArgs e)
-        {
-            await CargarDatosDashboardAsync();
-        }
+        //private async void UserControl_Reportes_Load(object sender, EventArgs e)
+        //{
+        //    await CargarDatosDashboardAsync();
+        //}
 
         public async Task CargarDatosDashboardAsync()
         {
@@ -79,6 +78,10 @@ namespace Punto_de_Venta.Vistas
                 lbl_efectivo.Text = ventasPorFormaPago.ContainsKey("EFECTIVO") ? ventasPorFormaPago["EFECTIVO"].ToString("C2") : 0m.ToString("C2");
                 lbl_tarjeta.Text = ventasPorFormaPago.ContainsKey("TARJETA") ? ventasPorFormaPago["TARJETA"].ToString("C2") : 0m.ToString("C2");
                 lbl_transferencia.Text = ventasPorFormaPago.ContainsKey("TRANSFERENCIA") ? ventasPorFormaPago["TRANSFERENCIA"].ToString("C2") : 0m.ToString("C2");
+
+                var controller = new CajaMovimientosController();
+                decimal saldo = await controller.ObtenerSaldoActualAsync();
+                lbl_caja.Text = saldo.ToString("C2");
 
                 // Ventas por día del mes
                 var ventasMes = await dashboardController.ObtenerVentasPorDiaDelMesAsync(hoy);
@@ -185,6 +188,9 @@ namespace Punto_de_Venta.Vistas
                 ticket.AgregarTotales("       TRANSFERENCIA:  ", resumen.TotalTransferencia);
                 ticket.AgregarTotales("         TOTAL VENTA: ", resumen.MontoTotal);
 
+                ticket.lineasGuio();
+                ticket.AgregarTotales("      FONDO EN CAJA: ", resumen.FondoCajaFinal);
+
                 ticket.TextoIzquierda(" ");
                 ticket.TextoIzquierda(" ");
                 ticket.TextoIzquierda(" ");
@@ -194,15 +200,18 @@ namespace Punto_de_Venta.Vistas
                 // Al final, después de imprimir el ticket
                 GenerarPdfCorteCaja(fechaSeleccionada, productos, resumen);
 
-                button_imprimir.Enabled = true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al imprimir el ticket: {ex.Message}", "Error");
             }
+            finally
+            {
+                button_imprimir.Enabled = true;
+            }
         }
 
-        public void GenerarPdfCorteCaja(DateTime fechaSeleccionada, List<(string NombreProducto, int CantidadVendida, decimal TotalProducto)> productos, (int TotalVentas, decimal MontoTotal, decimal TotalEfectivo, decimal TotalTarjeta, decimal TotalTransferencia) resumen)
+        public void GenerarPdfCorteCaja(DateTime fechaSeleccionada, List<(string NombreProducto, int CantidadVendida, decimal TotalProducto)> productos, (int TotalVentas, decimal MontoTotal, decimal TotalEfectivo, decimal TotalTarjeta, decimal TotalTransferencia, decimal FondoCajaFinal) resumen)
         {
             PdfDocument document = null;
             try
@@ -263,6 +272,10 @@ namespace Punto_de_Venta.Vistas
                 gfx.DrawString("Fecha: " + fechaSeleccionada.ToString("dd/MM/yyyy"), fontSubtitulo, XBrushes.Black, new XRect(margenIzquierdo, yPoint, page.Width, 20), XStringFormats.TopLeft);
                 yPoint += 30;
 
+                gfx.DrawString("Hora de impresión:", fontNegrita, XBrushes.Black, margenIzquierdo, yPoint);
+                gfx.DrawString(DateTime.Now.ToString("hh:mm tt"), fontNegrita, XBrushes.Black, margenIzquierdo + 100, yPoint);
+                yPoint += 30;
+
                 // Encabezado columnas con fondo gris
                 gfx.DrawRectangle(new XSolidBrush(colorFondoEncabezado), margenIzquierdo, yPoint, page.Width - 2 * margenIzquierdo, 25);
                 gfx.DrawString("Producto", fontNegrita, XBrushes.Black, new XRect(margenIzquierdo + 5, yPoint + 5, 250, 20), XStringFormats.TopLeft);
@@ -296,20 +309,24 @@ namespace Punto_de_Venta.Vistas
                 yPoint += 20;
 
                 // Totales con un fondo gris suave
-                gfx.DrawRectangle(new XSolidBrush(XColor.FromArgb(245, 245, 245)), margenIzquierdo, yPoint, page.Width - 2 * margenIzquierdo, 110);
+                gfx.DrawRectangle(new XSolidBrush(XColor.FromArgb(240, 240, 240 )), margenIzquierdo, yPoint, page.Width - 2 * margenIzquierdo, 110);
 
-                gfx.DrawString("EFECTIVO:", fontNegrita, XBrushes.Black, margenIzquierdo + 5, yPoint + 10);
-                gfx.DrawString(resumen.TotalEfectivo.ToString("C2", CultureInfo.CurrentCulture), fontNormal, XBrushes.Black, page.Width - margenIzquierdo - 100, yPoint + 10);
+                gfx.DrawString("FONDO EN CAJA:", fontNegrita, XBrushes.Black, margenIzquierdo + 5, yPoint +10 );
+                gfx.DrawString(resumen.FondoCajaFinal.ToString("C2", CultureInfo.CurrentCulture), fontNormal, XBrushes.Black, page.Width - margenIzquierdo - 100, yPoint +10 );
 
-                gfx.DrawString("TARJETA:", fontNegrita, XBrushes.Black, margenIzquierdo + 5, yPoint + 35);
-                gfx.DrawString(resumen.TotalTarjeta.ToString("C2", CultureInfo.CurrentCulture), fontNormal, XBrushes.Black, page.Width - margenIzquierdo - 100, yPoint + 35);
+                gfx.DrawString("EFECTIVO:", fontNegrita, XBrushes.Black, margenIzquierdo + 5, yPoint + 30);
+                gfx.DrawString(resumen.TotalEfectivo.ToString("C2", CultureInfo.CurrentCulture), fontNormal, XBrushes.Black, page.Width - margenIzquierdo - 100, yPoint + 30);
 
-                gfx.DrawString("TRANSFERENCIA:", fontNegrita, XBrushes.Black, margenIzquierdo + 5, yPoint + 60);
-                gfx.DrawString(resumen.TotalTransferencia.ToString("C2", CultureInfo.CurrentCulture), fontNormal, XBrushes.Black, page.Width - margenIzquierdo - 100, yPoint + 60);
+                gfx.DrawString("TARJETA:", fontNegrita, XBrushes.Black, margenIzquierdo + 5, yPoint + 50);
+                gfx.DrawString(resumen.TotalTarjeta.ToString("C2", CultureInfo.CurrentCulture), fontNormal, XBrushes.Black, page.Width - margenIzquierdo - 100, yPoint + 50);
 
-                gfx.DrawString("TOTAL VENTA:", fontNegrita, XBrushes.Black, margenIzquierdo + 5, yPoint + 90);
-                gfx.DrawString(resumen.MontoTotal.ToString("C2", CultureInfo.CurrentCulture), fontNegrita, XBrushes.Black, page.Width - margenIzquierdo - 100, yPoint + 90);
+                gfx.DrawString("TRANSFERENCIA:", fontNegrita, XBrushes.Black, margenIzquierdo + 5, yPoint + 70);
+                gfx.DrawString(resumen.TotalTransferencia.ToString("C2", CultureInfo.CurrentCulture), fontNormal, XBrushes.Black, page.Width - margenIzquierdo - 100, yPoint + 70);
 
+                gfx.DrawString("TOTAL VENTA:", fontNegrita, XBrushes.Black, margenIzquierdo + 5, yPoint + 100);
+                gfx.DrawString(resumen.MontoTotal.ToString("C2", CultureInfo.CurrentCulture), fontNegrita, XBrushes.Black, page.Width - margenIzquierdo - 100, yPoint + 100);
+
+              
                 // Guardar PDF
                 string carpetaDocumentos = @"C:\LaRoss\Cortes de cajas";
                 if (!Directory.Exists(carpetaDocumentos))
