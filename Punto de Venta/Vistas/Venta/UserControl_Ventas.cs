@@ -360,6 +360,8 @@ namespace Punto_de_Venta.Vistas
                     DateTime.Now.ToString("hh:mm tt"),
                     productos,
                     forma_pago,
+                    pago, 
+                    cambio,
                     idUsuario: SesionUsuario.UsuarioActual.id // asigna aquí el id del usuario que realiza la venta
                 );
 

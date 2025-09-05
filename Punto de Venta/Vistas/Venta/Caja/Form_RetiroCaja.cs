@@ -7,6 +7,7 @@ namespace Punto_de_Venta.Vistas.Venta.Caja
 {
     public partial class Form_RetiroCaja : Form
     {
+        decimal saldoInicial = 0;
         public Form_RetiroCaja()
         {
             InitializeComponent();
@@ -18,7 +19,9 @@ namespace Punto_de_Venta.Vistas.Venta.Caja
             {
                 var controller = new CajaMovimientosController();
                 decimal saldo = await controller.ObtenerSaldoActualAsync();
+                saldoInicial = await controller.ObtenerSaldoInicialAsync();
                 txt_saldo_actual.Text = $"{saldo:N2}";
+                txt_saldo_inicial.Text = $"{saldoInicial:N2}";
                 label5.Text = $"{SesionUsuario.UsuarioActual.nombre} {SesionUsuario.UsuarioActual.apellido}";
                 cb_descripcion.SelectedIndex = -1;
 
@@ -47,13 +50,6 @@ namespace Punto_de_Venta.Vistas.Venta.Caja
                     return;
                 }
 
-                // Validar monto contra saldo
-                if (monto > saldoActual)
-                {
-                    MessageBox.Show("El monto a retirar no puede ser mayor al saldo actual.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
                 // Validar descripción
                 string descripcion = cb_descripcion.SelectedItem?.ToString();
                 if (string.IsNullOrWhiteSpace(descripcion))
@@ -61,6 +57,32 @@ namespace Punto_de_Venta.Vistas.Venta.Caja
                     MessageBox.Show("Por favor selecciona un motivo para el retiro.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+
+                // Validar monto contra saldo
+                if (monto > saldoActual)
+                {
+                    MessageBox.Show(
+                       $"El monto ingresado ({monto:C2}) excede el saldo disponible ({saldoActual:C2}).",
+                       "Advertencia",
+                       MessageBoxButtons.OK,
+                       MessageBoxIcon.Warning
+                    ); 
+                    return;
+                }
+
+                // Validar monto contra saldo inical
+                if (saldoActual - monto < saldoInicial)
+                {
+                    MessageBox.Show(
+                       $"No se puede realizar el retiro. El saldo restante ({saldoActual - monto:C2}) sería menor al saldo inicial permitido ({saldoInicial:C2}).",
+                       "Advertencia",
+                       MessageBoxButtons.OK,
+                       MessageBoxIcon.Warning
+                   );
+                    return;
+                }
+
+              
 
                 // Confirmar con usuario
                 DialogResult confirm = MessageBox.Show(

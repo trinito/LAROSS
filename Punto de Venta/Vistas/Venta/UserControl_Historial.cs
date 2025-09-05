@@ -89,13 +89,7 @@ namespace Punto_de_Venta.Vistas
                 Width = 90
             });
 
-            dgv_ventas.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "FormaPago",
-                DataPropertyName = "FormaPago",
-                HeaderText = "Forma de pago",
-                Width = 140
-            });
+          
 
             dgv_ventas.Columns.Add(new DataGridViewTextBoxColumn
             {
@@ -114,17 +108,14 @@ namespace Punto_de_Venta.Vistas
                 Width = 180,
                 DefaultCellStyle = { Format = "MM/dd/yyyy hh:mm tt" }  // Ej: 06/27/2025 02:35 PM
             });
-
             dgv_ventas.Columns.Add(new DataGridViewTextBoxColumn
             {
-                Name = "CantidadProductos",
-                DataPropertyName = "CantidadProductos",
-                HeaderText = "Cantidad",
-                Width = 80
+                Name = "FormaPago",
+                DataPropertyName = "FormaPago",
+                HeaderText = "Forma de pago",
+                Width = 140
             });
-
-            dgv_ventas.Columns["CantidadProductos"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
+     
             dgv_ventas.Columns.Add(new DataGridViewTextBoxColumn
             {
                 Name = "Total",
@@ -134,8 +125,33 @@ namespace Punto_de_Venta.Vistas
                 DefaultCellStyle = { Format = "C2" } // Formato moneda
             });
 
+            dgv_ventas.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Pago",
+                DataPropertyName = "Pago",
+                HeaderText = "Pagó",
+                Width = 100,
+                DefaultCellStyle = { Format = "C2" } // Formato moneda
+            });
+
+            dgv_ventas.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Cambio",
+                DataPropertyName = "Cambio",
+                HeaderText = "Cambio",
+                Width = 100,
+                DefaultCellStyle = { Format = "C2" } // Formato moneda
+            });
 
 
+            dgv_ventas.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "CantidadProductos",
+                DataPropertyName = "CantidadProductos",
+                HeaderText = "Productos",
+                Width = 80
+            });
+            dgv_ventas.Columns["CantidadProductos"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
 
             dgv_ventas.Columns.Add(new DataGridViewTextBoxColumn
@@ -186,6 +202,13 @@ namespace Punto_de_Venta.Vistas
                     if (resultado)
                     {
                         MessageBox.Show("Venta cancelada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        if (venta.FormaPago =="EFECTIVO")
+                        {
+                            var cajaController = new CajaMovimientosController();
+                            await cajaController.RegistrarRetiroAsync(venta.Total, "CANCELACION DE VENTA", SesionUsuario.UsuarioActual.id);
+                        }
+
                         await CargarVentasEnDataGridView(); // recarga el grid con datos actualizados
                     }
                     else
@@ -204,5 +227,6 @@ namespace Punto_de_Venta.Vistas
         {
 
         }
+
     }
 }

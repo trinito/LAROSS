@@ -9,7 +9,7 @@ namespace Punto_de_Venta.Controlador
 {
     public class VentaService
     {
-        public async Task<bool> RealizarVentaAsync(DateTime fecha, string hora, List<ProductoVentaDTO> productos, string formaPago, int idUsuario = 0)
+        public async Task<bool> RealizarVentaAsync(DateTime fecha, string hora, List<ProductoVentaDTO> productos, string formaPago, decimal pagoVenta, decimal cambioVenta, int idUsuario = 0)
         {
             using (var context = new la_ross_dbEntities())
             {
@@ -27,7 +27,9 @@ namespace Punto_de_Venta.Controlador
                             estatus = true,
                             forma_pago = formaPago,
                             id_usuario_editado = idUsuario,
-                            fecha_editado = DateTime.Now
+                            fecha_editado = DateTime.Now,
+                            pago = pagoVenta,
+                            cambio = cambioVenta
                         };
                         context.Venta.Add(venta);
                         await context.SaveChangesAsync();

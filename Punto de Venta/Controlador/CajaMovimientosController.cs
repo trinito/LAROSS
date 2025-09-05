@@ -112,5 +112,25 @@ namespace Punto_de_Venta.Controlador
 
         }
 
+        public async Task<decimal> ObtenerSaldoInicialAsync()
+        {
+            using (var context = new la_ross_dbEntities())
+            {
+                DateTime hoy = DateTime.Today;
+
+                var movimientos = await context.CajaMovimientos
+      .Where(m => DbFunctions.TruncateTime(m.fecha) == hoy)
+      .ToListAsync();
+
+                decimal saldoInicial = movimientos
+                    .Where(m => m.tipo_movimiento == "INICIAL")
+                    .Sum(m => (decimal?)m.monto) ?? 0m;
+
+
+                return saldoInicial;
+            }
+
+        }
+
     }
 }

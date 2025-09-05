@@ -23,5 +23,7 @@ namespace Punto_de_Venta.Modelo
         public string forma_pago { get; set; }
         public Nullable<System.DateTime> fecha_editado { get; set; }
         public Nullable<int> id_usuario_editado { get; set; }
+        public Nullable<decimal> pago { get; set; }
+        public Nullable<decimal> cambio { get; set; }
     }
 }

@@ -41,6 +41,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cb_descripcion = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_saldo_inicial = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -67,9 +69,9 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(423, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(156, 25);
+            this.label2.Size = new System.Drawing.Size(152, 25);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Agregar stock";
+            this.label2.Text = "Retiro de caja";
             // 
             // pictureBox1
             // 
@@ -104,7 +106,7 @@
             // 
             this.txt_monto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_monto.Font = new System.Drawing.Font("Rockwell", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_monto.Location = new System.Drawing.Point(251, 250);
+            this.txt_monto.Location = new System.Drawing.Point(251, 292);
             this.txt_monto.MaxLength = 8;
             this.txt_monto.Name = "txt_monto";
             this.txt_monto.Size = new System.Drawing.Size(121, 39);
@@ -116,7 +118,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Rockwell", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(58)))), ((int)(((byte)(92)))));
-            this.label4.Location = new System.Drawing.Point(23, 306);
+            this.label4.Location = new System.Drawing.Point(23, 348);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 33);
             this.label4.TabIndex = 61;
@@ -127,7 +129,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Rockwell", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(58)))), ((int)(((byte)(92)))));
-            this.label3.Location = new System.Drawing.Point(23, 252);
+            this.label3.Location = new System.Drawing.Point(23, 294);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(227, 33);
             this.label3.TabIndex = 60;
@@ -138,7 +140,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Rockwell", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(58)))), ((int)(((byte)(92)))));
-            this.label10.Location = new System.Drawing.Point(23, 190);
+            this.label10.Location = new System.Drawing.Point(23, 237);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(222, 33);
             this.label10.TabIndex = 59;
@@ -166,7 +168,7 @@
             this.txt_saldo_actual.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_saldo_actual.Enabled = false;
             this.txt_saldo_actual.Font = new System.Drawing.Font("Rockwell", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_saldo_actual.Location = new System.Drawing.Point(251, 188);
+            this.txt_saldo_actual.Location = new System.Drawing.Point(251, 235);
             this.txt_saldo_actual.MaxLength = 5;
             this.txt_saldo_actual.Name = "txt_saldo_actual";
             this.txt_saldo_actual.ReadOnly = true;
@@ -204,16 +206,42 @@
             "GUARDAR DINERO",
             "RETIRO PERSONAL",
             "CIERRE DE CAJA"});
-            this.cb_descripcion.Location = new System.Drawing.Point(147, 313);
+            this.cb_descripcion.Location = new System.Drawing.Point(147, 355);
             this.cb_descripcion.Name = "cb_descripcion";
             this.cb_descripcion.Size = new System.Drawing.Size(380, 24);
             this.cb_descripcion.TabIndex = 66;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Rockwell", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(58)))), ((int)(((byte)(92)))));
+            this.label6.Location = new System.Drawing.Point(23, 187);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(214, 33);
+            this.label6.TabIndex = 68;
+            this.label6.Text = "Saldo inicial: $";
+            // 
+            // txt_saldo_inicial
+            // 
+            this.txt_saldo_inicial.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_saldo_inicial.Enabled = false;
+            this.txt_saldo_inicial.Font = new System.Drawing.Font("Rockwell", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_saldo_inicial.Location = new System.Drawing.Point(251, 185);
+            this.txt_saldo_inicial.MaxLength = 5;
+            this.txt_saldo_inicial.Name = "txt_saldo_inicial";
+            this.txt_saldo_inicial.ReadOnly = true;
+            this.txt_saldo_inicial.Size = new System.Drawing.Size(121, 39);
+            this.txt_saldo_inicial.TabIndex = 67;
+            this.txt_saldo_inicial.TabStop = false;
             // 
             // Form_RetiroCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 489);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txt_saldo_inicial);
             this.Controls.Add(this.cb_descripcion);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
@@ -250,5 +278,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cb_descripcion;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txt_saldo_inicial;
     }
 }

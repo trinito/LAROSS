@@ -13,6 +13,8 @@ namespace Punto_de_Venta.Modelo
         public string Hora { get; set; }
         public int CantidadProductos { get; set; }
         public decimal Total { get; set; }
+        public decimal? Pago { get; set; }
+        public decimal? Cambio { get; set; }
         public string FormaPago { get; set; }
         public string Usuario { get; set; } // Opcional, depende de tu relación con tabla Usuarios
         public string Estatus { get; set; } // Texto: "ACTIVA" o "CANCELADA"

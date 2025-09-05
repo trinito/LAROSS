@@ -130,6 +130,8 @@ namespace Punto_de_Venta.Controlador
                                 Hora = v.hora,
                                 CantidadProductos = v.cantidad_productos,
                                 Total = v.total,
+                                Pago = v.pago,
+                                Cambio = v.cambio,
                                 FormaPago = v.forma_pago,
                                 Usuario = v.id_usuario_editado.HasValue
                                     ? context.Usuarios

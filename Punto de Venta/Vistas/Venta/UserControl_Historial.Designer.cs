@@ -57,7 +57,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.button_copia = new System.Windows.Forms.Button();
-            this.btn_modificar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -255,7 +254,6 @@
             // panel8
             // 
             this.panel8.Controls.Add(this.button_copia);
-            this.panel8.Controls.Add(this.btn_modificar);
             this.panel8.Controls.Add(this.btn_cancelar);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 231);
@@ -282,24 +280,6 @@
             this.button_copia.UseVisualStyleBackColor = false;
             this.button_copia.Visible = false;
             this.button_copia.Click += new System.EventHandler(this.button_copia_Click);
-            // 
-            // btn_modificar
-            // 
-            this.btn_modificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btn_modificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_modificar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btn_modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_modificar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_modificar.ForeColor = System.Drawing.Color.White;
-            this.btn_modificar.Image = global::Punto_de_Venta.Properties.Resources.icons8_edit_30;
-            this.btn_modificar.Location = new System.Drawing.Point(44, 272);
-            this.btn_modificar.Name = "btn_modificar";
-            this.btn_modificar.Size = new System.Drawing.Size(168, 78);
-            this.btn_modificar.TabIndex = 20;
-            this.btn_modificar.Text = "Modificar venta";
-            this.btn_modificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_modificar.UseVisualStyleBackColor = false;
-            this.btn_modificar.Visible = false;
             // 
             // btn_cancelar
             // 
@@ -437,7 +417,6 @@
         private System.Windows.Forms.DataGridView dgv_ventas;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btn_modificar;
         private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel2;
