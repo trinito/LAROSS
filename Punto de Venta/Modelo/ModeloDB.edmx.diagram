@@ -12,9 +12,9 @@
         <EntityTypeShape EntityType="Punto_de_Venta.Modelo.Marcas" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Punto_de_Venta.Modelo.Sexos" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Punto_de_Venta.Modelo.Tallas" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Punto_de_Venta.Modelo.Usuarios" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Punto_de_Venta.Modelo.Usuarios" Width="1.5" PointX="3.125" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Punto_de_Venta.Modelo.Venta" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Punto_de_Venta.Modelo.ViewCorte" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Punto_de_Venta.Modelo.ViewCorte" Width="1.5" PointX="9.125" PointY="9.875" IsExpanded="true" />
         <AssociationConnector Association="Punto_de_Venta.Modelo.FK_Articulos_Categorias" ManuallyRouted="false" />
         <AssociationConnector Association="Punto_de_Venta.Modelo.FK_Articulos_Colores" ManuallyRouted="false" />
         <AssociationConnector Association="Punto_de_Venta.Modelo.FK_Articulos_Marcas" ManuallyRouted="false" />
@@ -25,7 +25,7 @@
         <AssociationConnector Association="Punto_de_Venta.Modelo.FK_DetalleVenta_Venta" ManuallyRouted="false" />
         <AssociationConnector Association="Punto_de_Venta.Modelo.FK_Venta_UsuarioEditado" ManuallyRouted="false" />
         <EntityTypeShape EntityType="Punto_de_Venta.Modelo.CajaMovimientos" Width="1.5" PointX="7.375" PointY="0.75" />
-        <EntityTypeShape EntityType="Punto_de_Venta.Modelo.InventarioFisico" Width="1.5" PointX="5.25" PointY="9.125" />
+        <EntityTypeShape EntityType="Punto_de_Venta.Modelo.InventarioFisico" Width="1.5" PointX="6" PointY="5.125" />
         <EntityTypeShape EntityType="Punto_de_Venta.Modelo.InventarioFisicoDetalle" Width="1.5" PointX="8.5" PointY="5.125" />
         <AssociationConnector Association="Punto_de_Venta.Modelo.FK__Inventari__id_ar__05A3D694" />
         <AssociationConnector Association="Punto_de_Venta.Modelo.FK__Inventari__id_in__04AFB25B" />

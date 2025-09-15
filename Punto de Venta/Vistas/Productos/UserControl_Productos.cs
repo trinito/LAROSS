@@ -51,7 +51,6 @@ namespace Punto_de_Venta.Vistas
         {
             InitializeComponent();
 
-
             loadingOverlay = new LoadingControl();
             this.Controls.Add(loadingOverlay);
             loadingOverlay.BringToFront();
@@ -70,7 +69,6 @@ namespace Punto_de_Venta.Vistas
 
             GridViewHelper();
 
-
             animTimer = new Timer();
             animTimer.Interval = 30;
             animTimer.Tick += AnimacionClic;
@@ -81,14 +79,12 @@ namespace Punto_de_Venta.Vistas
             ConfigurarBoton(btn_add_sexo, Resources.icons8_add_25, Resources.icons8_add_25_2);
             ConfigurarBoton(btn_color, Resources.icons8_add_25, Resources.icons8_add_25_2);
             txt_nombre.Focus();
-
-
         }
 
         private void GridViewHelper()
         {
             dgv_productos.AutoGenerateColumns = false;
-            dgv_productos.DataSource = bindingSource;
+            dgv_productos.VirtualMode = true;
 
             // Crear y agregar columnas manualmente
             dgv_productos.Columns.Clear();
@@ -278,30 +274,80 @@ namespace Punto_de_Venta.Vistas
 
         private async void UserControl_Productos_Load(object sender, EventArgs e)
         {
-            await CargarMarcasEnComboBoxAsync();
-            await CargarCategoriasEnComboBoxAsync();
-            await CargarTallasEnComboBoxAsync();
-            await CargarSexosEnComboBoxAsync();
-            await CargarColoresEnComboBoxAsync();
-            await CargarProductosEnDataGridView();
-            //DGV
+            loadingOverlay.ShowOverlay();
+            loadingOverlay.Refresh(); // Fuerza que se dibuje inmediatamente
+            Application.DoEvents();   // Procesa eventos pendientes de la UI
+
+            try
+            {
+                // Lanzar las tareas para obtener datos en paralelo
+                var tareaMarcas = marcasController.ObtenerTodasLasMarcasAsync();
+                var tareaCategorias = categoriasController.ObtenerTodasLasCategoriasAsync();
+                var tareaTallas = tallasController.ObtenerTodasLasTallasAsync();
+                var tareaSexos = sexoController.ObtenerTodosLosSexosAsync();
+                var tareaColores = colorController.ObtenerTodosLosColoresAsync();
+
+                // Esperar todas las tareas al mismo tiempo
+                await Task.WhenAll(tareaMarcas, tareaCategorias, tareaTallas, tareaSexos, tareaColores);
+
+                // Asignar resultados al UI en secuencia
+                cb_marcas.DataSource = tareaMarcas.Result;
+                cb_marcas.DisplayMember = "nombre";
+                cb_marcas.ValueMember = "id_marca";
+                cb_marcas.SelectedIndex = -1;
+                cb_marcas.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+                cb_categoria.DataSource = tareaCategorias.Result;
+                cb_categoria.DisplayMember = "nombre";
+                cb_categoria.ValueMember = "id_categoria";
+                cb_categoria.SelectedIndex = -1;
+                cb_categoria.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+                cb_tallas.DataSource = tareaTallas.Result;
+                cb_tallas.DisplayMember = "nombre";
+                cb_tallas.ValueMember = "id_talla";
+                cb_tallas.SelectedIndex = -1;
+                cb_tallas.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+                cb_sexo.DataSource = tareaSexos.Result;
+                cb_sexo.DisplayMember = "nombre";
+                cb_sexo.ValueMember = "id_sexo";
+                cb_sexo.SelectedIndex = -1;
+                cb_sexo.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+                cb_color.DataSource = tareaColores.Result;
+                cb_color.DisplayMember = "nombre";
+                cb_color.ValueMember = "id_color";
+                cb_color.SelectedIndex = -1;
+                cb_color.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+                // Finalmente, cargar productos en el DataGridView (VirtualMode recomendado)
+                await CargarProductosEnDataGridView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                loadingOverlay.HideOverlay();
+            }
         }
+
 
         public async Task CargarProductosEnDataGridView()
         {
             dgv_productos.Enabled = false;
             try
             {
-                loadingOverlay.ShowOverlay();
                 productos = await productosController.ObtenerProductosParaVentaAsync();
-                bindingSource.DataSource = productos;
 
                 if (productos.Count == 0)
                 {
                     loadingOverlay.HideOverlay();
                     MessageBox.Show("No se encontraron productos.");
                 }
-
+                dgv_productos.RowCount = productos.Count; // VirtualMode usa esto
             }
             catch (Exception ex)
             {
@@ -310,7 +356,6 @@ namespace Punto_de_Venta.Vistas
             finally
             {
                 dgv_productos.Enabled = true;
-                loadingOverlay.HideOverlay();
             }
         }
 
@@ -318,14 +363,8 @@ namespace Punto_de_Venta.Vistas
         {
             try
             {
-                loadingOverlay.ShowOverlay();
-
                 var listaMarcas = await marcasController.ObtenerTodasLasMarcasAsync();
-                cb_marcas.DataSource = null;
-                cb_marcas.Items.Clear();
-
                 cb_marcas.DataSource = listaMarcas;
-
                 cb_marcas.DisplayMember = "nombre";
                 cb_marcas.ValueMember = "id_marca";
                 cb_marcas.SelectedIndex = -1;
@@ -336,22 +375,13 @@ namespace Punto_de_Venta.Vistas
             {
                 MessageBox.Show("Error al cargar marcas: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
-                loadingOverlay.HideOverlay();
-            }
         }
 
         private async Task CargarCategoriasEnComboBoxAsync()
         {
             try
             {
-                loadingOverlay.ShowOverlay();
-
                 var listaCategorias = await categoriasController.ObtenerTodasLasCategoriasAsync();
-                cb_categoria.DataSource = null;
-                cb_categoria.Items.Clear();
-
                 cb_categoria.DataSource = listaCategorias;
                 cb_categoria.DisplayMember = "nombre";
                 cb_categoria.ValueMember = "id_categoria";
@@ -363,22 +393,13 @@ namespace Punto_de_Venta.Vistas
             {
                 MessageBox.Show("Error al cargar categorías: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
-                loadingOverlay.HideOverlay();
-            }
         }
 
         private async Task CargarTallasEnComboBoxAsync()
         {
             try
             {
-                loadingOverlay.ShowOverlay();
-
                 var listaTallas = await tallasController.ObtenerTodasLasTallasAsync();
-                cb_tallas.DataSource = null;
-                cb_tallas.Items.Clear();
-
                 cb_tallas.DataSource = listaTallas;
                 cb_tallas.DisplayMember = "nombre";
                 cb_tallas.ValueMember = "id_talla";
@@ -390,22 +411,13 @@ namespace Punto_de_Venta.Vistas
             {
                 MessageBox.Show("Error al cargar tallas: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
-                loadingOverlay.HideOverlay();
-            }
         }
 
         private async Task CargarSexosEnComboBoxAsync()
         {
             try
             {
-                loadingOverlay.ShowOverlay();
-
                 var listaSexos = await sexoController.ObtenerTodosLosSexosAsync();
-                cb_sexo.DataSource = null;
-                cb_sexo.Items.Clear();
-
                 cb_sexo.DataSource = listaSexos;
                 cb_sexo.DisplayMember = "nombre";
                 cb_sexo.ValueMember = "id_sexo";
@@ -417,22 +429,13 @@ namespace Punto_de_Venta.Vistas
             {
                 MessageBox.Show("Error al cargar sexos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
-                loadingOverlay.HideOverlay();
-            }
         }
 
         private async Task CargarColoresEnComboBoxAsync()
         {
             try
             {
-                loadingOverlay.ShowOverlay();
-
                 var listaColores = await colorController.ObtenerTodosLosColoresAsync();
-                cb_color.DataSource = null;
-                cb_color.Items.Clear();
-
                 cb_color.DataSource = listaColores;
                 cb_color.DisplayMember = "nombre";
                 cb_color.ValueMember = "id_color";
@@ -443,10 +446,6 @@ namespace Punto_de_Venta.Vistas
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar colores: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                loadingOverlay.HideOverlay();
             }
         }
 
@@ -659,7 +658,36 @@ namespace Punto_de_Venta.Vistas
                 if (idNuevo > 0 && actualizado)
                 {
                     loadingOverlay.HideOverlay();
-                    await CargarProductosEnDataGridView();
+
+                    // Crear DTO para VirtualMode
+                    var nuevoDTO = new ProductoVentaDTO
+                    {
+                        IdProducto = nuevoProducto.id_producto,
+                        CodigoBarras = nuevoProducto.codigo_barras,
+                        Nombre = nuevoProducto.nombre,
+                        Marca = cb_marcas.Text,
+                        Categoria = cb_categoria.Text,
+                        Talla = cb_tallas.Text,
+                        Sexo = cb_sexo.Text,
+                        Color = cb_color.Text,
+                        Stock = nuevoProducto.stock,
+                        PrecioCosto = nuevoProducto.precio_costo,
+                        PrecioVenta = nuevoProducto.precio_venta
+                    };
+
+                    // Agregar a la lista
+                    productos.Add(nuevoDTO);
+
+                    // Actualizar DataGridView en VirtualMode
+                    dgv_productos.RowCount = productos.Count; // incrementa el RowCount
+                    dgv_productos.InvalidateRow(productos.Count - 1); // refresca la fila nueva
+
+                    int nuevaFilaIndex = productos.Count - 1;
+                    // Selecciona la fila
+                    dgv_productos.ClearSelection();
+                    dgv_productos.CurrentCell = dgv_productos[0, nuevaFilaIndex]; // primera columna de la nueva fila
+                    dgv_productos.FirstDisplayedScrollingRowIndex = nuevaFilaIndex; // scrollea hasta la fila
+
                     MessageBox.Show("Producto " + txt_nombre.Text.Trim() + " agregado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarFormulario();
                     await ImprimirCodigosDeBarras.ImprimirCodigoAsync(nuevoProducto.nombre, nuevoProducto.codigo_barras, nuevoProducto.stock);
@@ -924,11 +952,34 @@ namespace Punto_de_Venta.Vistas
 
                 if (resultado)
                 {
+                    int index = productos.FindIndex(p => p.IdProducto == productoActualizar.id_producto);
+
+
+                    if (index >= 0)
+                    {
+                        productos[index] = new ProductoVentaDTO
+                        {
+                            IdProducto = productoActualizar.id_producto,
+                            CodigoBarras = productoActualizar.codigo_barras,
+                            Nombre = productoActualizar.nombre,
+                            Marca = cb_marcas.Text,
+                            Categoria = cb_categoria.Text,
+                            Talla = cb_tallas.Text,
+                            Sexo = cb_sexo.Text,
+                            Color = cb_color.Text,
+                            Stock = productoActualizar.stock,
+                            PrecioCosto = productoActualizar.precio_costo,
+                            PrecioVenta = productoActualizar.precio_venta
+                        };
+
+                        dgv_productos.InvalidateRow(index); // refresca solo la fila modificada
+                    }
+
                     loadingOverlay.HideOverlay();
                     MessageBox.Show("Producto modificado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarFormulario();
                     // Recargar el grid o lista de productos si tienes esa función
-                    await CargarProductosEnDataGridView();
+                    //await CargarProductosEnDataGridView();
                 }
                 else
                 {
@@ -963,10 +1014,18 @@ namespace Punto_de_Venta.Vistas
                 bool eliminado = productosController.DeleteProducto(productoSeleccionadoId);
                 if (eliminado)
                 {
+                    int index = productos.FindIndex(p => p.IdProducto == productoSeleccionadoId);
+                    if (index >= 0)
+                    {
+                        productos.RemoveAt(index);
+                        dgv_productos.RowCount = productos.Count; // Actualiza la cantidad de filas
+                        dgv_productos.InvalidateRow(index);       // Refresca la fila eliminada
+                    }
+
                     loadingOverlay.HideOverlay();
                     MessageBox.Show("Producto eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    await CargarProductosEnDataGridView(); // Recargar productos después de eliminar
+                    //await CargarProductosEnDataGridView(); // Recargar productos después de eliminar
                     LimpiarFormulario(); // Limpiar campos y restablecer controles
                 }
                 else
@@ -995,6 +1054,28 @@ namespace Punto_de_Venta.Vistas
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void dgv_productos_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
+        {
+            if (productos == null || e.RowIndex >= productos.Count)
+                return;
+
+            var producto = productos[e.RowIndex];
+
+            switch (dgv_productos.Columns[e.ColumnIndex].Name)
+            {
+                case "CodigoBarras": e.Value = producto.CodigoBarras; break;
+                case "Nombre": e.Value = producto.Nombre; break;
+                case "Marca": e.Value = producto.Marca; break;
+                case "Color": e.Value = producto.Color; break;
+                case "Talla": e.Value = producto.Talla; break;
+                case "Sexo": e.Value = producto.Sexo; break;
+                case "Categoria": e.Value = producto.Categoria; break;
+                case "PrecioVenta": e.Value = producto.PrecioVenta; break;
+                case "Stock": e.Value = producto.Stock; break;
+                case "PrecioCosto": e.Value = producto.PrecioCosto; break;
+            }
         }
     }
 }

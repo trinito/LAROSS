@@ -20,6 +20,7 @@ namespace Punto_de_Venta.Vistas.Inventario
         private int stockProducto;
         private string nombreProducto;
         public bool result = false;
+        public int StockActualizado = 0;
         private LoadingControl loadingOverlay;
 
         ProductosController productosController;
@@ -66,7 +67,7 @@ namespace Punto_de_Venta.Vistas.Inventario
 
                 loadingOverlay.ShowOverlay();
 
-                int nuevoStock = stockActual + stockAgregar;
+                StockActualizado = stockActual + stockAgregar;
 
                 bool actualizado = await productosController.AgregarStockAsync(codigo, stockAgregar);
 

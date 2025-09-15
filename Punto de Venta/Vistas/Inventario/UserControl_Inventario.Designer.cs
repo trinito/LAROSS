@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,8 +40,13 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_inventario = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.btn_agregar = new System.Windows.Forms.Button();
+            this.btn_imprimir = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.pb_foto = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txt_codigo_original = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -60,14 +65,11 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.lbl_stock = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.btn_inventario = new System.Windows.Forms.Button();
-            this.btn_agregar = new System.Windows.Forms.Button();
-            this.btn_imprimir = new System.Windows.Forms.Button();
-            this.pb_foto = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_foto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -77,15 +79,13 @@
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_foto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Cantidad
             // 
             this.Cantidad.DataPropertyName = "cantidad";
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle1;
             this.Cantidad.FillWeight = 50F;
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.Name = "Cantidad";
@@ -94,8 +94,8 @@
             // Medida
             // 
             this.Medida.DataPropertyName = "medida";
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Medida.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Medida.DefaultCellStyle = dataGridViewCellStyle2;
             this.Medida.FillWeight = 50F;
             this.Medida.HeaderText = "Medida";
             this.Medida.Name = "Medida";
@@ -104,8 +104,8 @@
             // Nombre
             // 
             this.Nombre.DataPropertyName = "nombre";
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Nombre.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nombre.DefaultCellStyle = dataGridViewCellStyle3;
             this.Nombre.FillWeight = 160F;
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
@@ -114,8 +114,8 @@
             // Código
             // 
             this.Código.DataPropertyName = "codigo";
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Código.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Código.DefaultCellStyle = dataGridViewCellStyle4;
             this.Código.FillWeight = 45F;
             this.Código.HeaderText = "Código";
             this.Código.Name = "Código";
@@ -124,10 +124,10 @@
             // Precio
             // 
             this.Precio.DataPropertyName = "precio";
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.Format = "C2";
-            dataGridViewCellStyle20.NullValue = null;
-            this.Precio.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.Precio.DefaultCellStyle = dataGridViewCellStyle5;
             this.Precio.FillWeight = 50F;
             this.Precio.HeaderText = "Precio";
             this.Precio.Name = "Precio";
@@ -148,6 +148,25 @@
             this.panel2.Size = new System.Drawing.Size(248, 875);
             this.panel2.TabIndex = 23;
             // 
+            // btn_inventario
+            // 
+            this.btn_inventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btn_inventario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_inventario.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_inventario.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btn_inventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_inventario.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_inventario.ForeColor = System.Drawing.Color.White;
+            this.btn_inventario.Image = global::Punto_de_Venta.Properties.Resources.icons8_warehouse_30;
+            this.btn_inventario.Location = new System.Drawing.Point(0, 775);
+            this.btn_inventario.Name = "btn_inventario";
+            this.btn_inventario.Size = new System.Drawing.Size(246, 78);
+            this.btn_inventario.TabIndex = 21;
+            this.btn_inventario.Text = "Nuevo Inventario Físico";
+            this.btn_inventario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_inventario.UseVisualStyleBackColor = false;
+            this.btn_inventario.Click += new System.EventHandler(this.btn_inventario_Click);
+            // 
             // panel10
             // 
             this.panel10.Controls.Add(this.btn_agregar);
@@ -158,6 +177,44 @@
             this.panel10.Size = new System.Drawing.Size(246, 237);
             this.panel10.TabIndex = 17;
             // 
+            // btn_agregar
+            // 
+            this.btn_agregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btn_agregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_agregar.FlatAppearance.BorderSize = 0;
+            this.btn_agregar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btn_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_agregar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_agregar.ForeColor = System.Drawing.Color.White;
+            this.btn_agregar.Image = global::Punto_de_Venta.Properties.Resources.icons8_add_30;
+            this.btn_agregar.Location = new System.Drawing.Point(67, 27);
+            this.btn_agregar.Name = "btn_agregar";
+            this.btn_agregar.Size = new System.Drawing.Size(124, 61);
+            this.btn_agregar.TabIndex = 13;
+            this.btn_agregar.Text = "Agregar stock";
+            this.btn_agregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_agregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_agregar.UseVisualStyleBackColor = false;
+            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
+            // 
+            // btn_imprimir
+            // 
+            this.btn_imprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btn_imprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_imprimir.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btn_imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_imprimir.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_imprimir.ForeColor = System.Drawing.Color.White;
+            this.btn_imprimir.Image = global::Punto_de_Venta.Properties.Resources.icons8_barcode_30__2_;
+            this.btn_imprimir.Location = new System.Drawing.Point(44, 113);
+            this.btn_imprimir.Name = "btn_imprimir";
+            this.btn_imprimir.Size = new System.Drawing.Size(168, 78);
+            this.btn_imprimir.TabIndex = 20;
+            this.btn_imprimir.Text = "Imprimir código de barras";
+            this.btn_imprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_imprimir.UseVisualStyleBackColor = false;
+            this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
+            // 
             // panel8
             // 
             this.panel8.Controls.Add(this.pb_foto);
@@ -166,6 +223,28 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(246, 250);
             this.panel8.TabIndex = 16;
+            // 
+            // pb_foto
+            // 
+            this.pb_foto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_foto.Location = new System.Drawing.Point(0, 0);
+            this.pb_foto.Name = "pb_foto";
+            this.pb_foto.Size = new System.Drawing.Size(246, 250);
+            this.pb_foto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_foto.TabIndex = 0;
+            this.pb_foto.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = global::Punto_de_Venta.Properties.Resources._281850184_119981597370118_8427633085628640968_n1;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(246, 231);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // panel5
             // 
@@ -323,6 +402,7 @@
             this.dgv_productos.Size = new System.Drawing.Size(801, 566);
             this.dgv_productos.TabIndex = 23;
             this.dgv_productos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_productos_CellDoubleClick_1);
+            this.dgv_productos.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.dgv_productos_CellValueNeeded);
             this.dgv_productos.SelectionChanged += new System.EventHandler(this.dgv_productos_SelectionChanged);
             // 
             // panel4
@@ -376,85 +456,6 @@
             this.label9.TabIndex = 2;
             this.label9.Text = "Total de productos en stock:";
             // 
-            // btn_inventario
-            // 
-            this.btn_inventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btn_inventario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_inventario.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btn_inventario.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btn_inventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_inventario.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_inventario.ForeColor = System.Drawing.Color.White;
-            this.btn_inventario.Image = global::Punto_de_Venta.Properties.Resources.icons8_warehouse_30;
-            this.btn_inventario.Location = new System.Drawing.Point(0, 775);
-            this.btn_inventario.Name = "btn_inventario";
-            this.btn_inventario.Size = new System.Drawing.Size(246, 78);
-            this.btn_inventario.TabIndex = 21;
-            this.btn_inventario.Text = "Nuevo Inventario Físico";
-            this.btn_inventario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_inventario.UseVisualStyleBackColor = false;
-            this.btn_inventario.Click += new System.EventHandler(this.btn_inventario_Click);
-            // 
-            // btn_agregar
-            // 
-            this.btn_agregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btn_agregar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_agregar.FlatAppearance.BorderSize = 0;
-            this.btn_agregar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btn_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_agregar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregar.ForeColor = System.Drawing.Color.White;
-            this.btn_agregar.Image = global::Punto_de_Venta.Properties.Resources.icons8_add_30;
-            this.btn_agregar.Location = new System.Drawing.Point(67, 27);
-            this.btn_agregar.Name = "btn_agregar";
-            this.btn_agregar.Size = new System.Drawing.Size(124, 61);
-            this.btn_agregar.TabIndex = 13;
-            this.btn_agregar.Text = "Agregar stock";
-            this.btn_agregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_agregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_agregar.UseVisualStyleBackColor = false;
-            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
-            // 
-            // btn_imprimir
-            // 
-            this.btn_imprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btn_imprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_imprimir.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btn_imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_imprimir.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_imprimir.ForeColor = System.Drawing.Color.White;
-            this.btn_imprimir.Image = global::Punto_de_Venta.Properties.Resources.icons8_barcode_30__2_;
-            this.btn_imprimir.Location = new System.Drawing.Point(44, 113);
-            this.btn_imprimir.Name = "btn_imprimir";
-            this.btn_imprimir.Size = new System.Drawing.Size(168, 78);
-            this.btn_imprimir.TabIndex = 20;
-            this.btn_imprimir.Text = "Imprimir código de barras";
-            this.btn_imprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_imprimir.UseVisualStyleBackColor = false;
-            this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
-            // 
-            // pb_foto
-            // 
-            this.pb_foto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_foto.Location = new System.Drawing.Point(0, 0);
-            this.pb_foto.Name = "pb_foto";
-            this.pb_foto.Size = new System.Drawing.Size(246, 250);
-            this.pb_foto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_foto.TabIndex = 0;
-            this.pb_foto.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::Punto_de_Venta.Properties.Resources._281850184_119981597370118_8427633085628640968_n1;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(246, 231);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            // 
             // UserControl_Inventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -467,6 +468,8 @@
             this.panel2.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_foto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -479,8 +482,6 @@
             this.panel6.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_foto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -39,7 +39,7 @@ namespace Punto_de_Venta.Vistas.Inventario.InventarioFisico
             try
             {
                 panel_main.Enabled = false;
-                //await RevertirAjusteInventario(25);
+                //await RevertirAjusteInventario(2);
                await InicializarInventarioFisicoAsync();
             }
             finally
@@ -65,6 +65,24 @@ namespace Punto_de_Venta.Vistas.Inventario.InventarioFisico
                 }
                 else
                 {
+
+                    MessageBox.Show(
+    "Atención: Al iniciar un nuevo inventario físico, todas las demás funciones del sistema quedarán temporalmente inhabilitadas hasta que finalice el inventario. Asegúrese de completar este proceso antes de continuar con otras operaciones.",
+    "Advertencia",
+    MessageBoxButtons.OK,
+    MessageBoxIcon.Warning
+);
+
+                    DialogResult crearInventario = MessageBox.Show(
+                    "¿Deseas crear un nuevo inventario físico?\n\nNota: Hasta que finalices este inventario, otras funciones del sistema quedarán inhabilitadas.",
+                    "Nuevo Inventario",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                    if (crearInventario == DialogResult.No)
+                        return;
+
                     // No mostrar overlay antes del diálogo para evitar bloquear UI
                     DialogResult result = MessageBox.Show(
                         "¿Deseas incluir productos con stock 0 en el inventario físico?",
@@ -243,8 +261,16 @@ namespace Punto_de_Venta.Vistas.Inventario.InventarioFisico
         private async Task ProcesarCodigoEscaneadoAsync(string codigo)
         {
             loadingOverlay.ShowOverlay();
+            bool disminuirStock = false;
             var listaProductos = bindingSource.DataSource as List<ProductoInventarioFisicoDTO>;
             if (listaProductos == null) return;
+
+
+            if (codigo.StartsWith("-"))
+            {
+                disminuirStock = true;
+                codigo = codigo.TrimStart('-');
+            }
 
             var producto = listaProductos.FirstOrDefault(p => p.CodigoBarras == codigo);
 
@@ -254,7 +280,12 @@ namespace Punto_de_Venta.Vistas.Inventario.InventarioFisico
                 return;
             }
 
-            int nuevaCantidad = producto.CantidadContada + 1;
+            int nuevaCantidad = 0;
+
+            if (disminuirStock)
+                nuevaCantidad = producto.CantidadContada - 1;
+            else
+                nuevaCantidad = producto.CantidadContada + 1;
 
             bool exito = await inventarioFisicoController.RegistrarConteo(producto.IdDetalle, nuevaCantidad);
 
