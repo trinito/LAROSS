@@ -124,6 +124,7 @@
             this.dgv_productos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_productos.Size = new System.Drawing.Size(922, 330);
             this.dgv_productos.TabIndex = 3;
+            this.dgv_productos.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.dgv_productos_CellValueNeeded);
             this.dgv_productos.SelectionChanged += new System.EventHandler(this.dgv_productos_SelectionChanged);
             // 
             // panel2

@@ -4,6 +4,7 @@ using Punto_de_Venta.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -31,8 +32,7 @@ namespace Punto_de_Venta.Vistas
             bindingSource = new BindingSource();
 
             dgv_productos.AutoGenerateColumns = false;
-            dgv_productos.DataSource = bindingSource;
-
+            dgv_productos.VirtualMode = true;
             // Crear y agregar columnas manualmente
             dgv_productos.Columns.Clear();
 
@@ -109,7 +109,7 @@ namespace Punto_de_Venta.Vistas
             {
                 loadingOverlay.ShowOverlay();
                 productos = await productosController.ObtenerProductosParaVentaConStockAsync();
-                bindingSource.DataSource = productos;
+                dgv_productos.RowCount = productos.Count; // VirtualMode usa esto
 
                 AjustarColumnas();
 
@@ -161,7 +161,11 @@ namespace Punto_de_Venta.Vistas
         private void Seleccionar()
         {
             if (dgv_productos.CurrentRow != null)
-                productoSelect = (ProductoVentaDTO)dgv_productos.CurrentRow.DataBoundItem;
+            {
+                int index = dgv_productos.CurrentCell.RowIndex;
+                productoSelect = productos[index];
+            }
+
 
             Close();
         }
@@ -202,11 +206,38 @@ namespace Punto_de_Venta.Vistas
 
         private void dgv_productos_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgv_productos.CurrentRow != null)
+            if (dgv_productos.CurrentCell != null)
             {
-                // tu lógica aquí: por ejemplo
-                var seleccionado = (ProductoVentaDTO)dgv_productos.CurrentRow.DataBoundItem;
-                pb_foto.ImageLocation = rutaBaseImagenes+seleccionado.Foto;
+                int index = dgv_productos.CurrentCell.RowIndex;
+                if (productos != null && index >= 0 && index < productos.Count)
+                {
+                    var seleccionado = productos[index];
+                    pb_foto.ImageLocation = Path.Combine(rutaBaseImagenes, seleccionado.Foto);
+                }
+            }
+
+        }
+
+        private void dgv_productos_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
+        {
+            if (productos == null || e.RowIndex >= productos.Count)
+                return;
+
+            var producto = productos[e.RowIndex];
+
+            var column = dgv_productos.Columns[e.ColumnIndex];
+
+            switch (column.DataPropertyName)
+            {
+                case "CodigoBarras": e.Value = producto.CodigoBarras; break;
+                case "Nombre": e.Value = producto.Nombre; break;
+                case "Marca": e.Value = producto.Marca; break;
+                case "Color": e.Value = producto.Color; break;
+                case "Talla": e.Value = producto.Talla; break;
+                case "Sexo": e.Value = producto.Sexo; break;
+                case "Categoria": e.Value = producto.Categoria; break;
+                case "PrecioVenta": e.Value = producto.PrecioVenta; break;
+                case "Stock": e.Value = producto.Stock; break;
             }
         }
     }
