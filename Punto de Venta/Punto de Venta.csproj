@@ -149,6 +149,7 @@
     <Compile Include="Controlador\CajaMovimientosController.cs" />
     <Compile Include="Controlador\CategoriaController.cs" />
     <Compile Include="Controlador\ColorController.cs" />
+    <Compile Include="Controlador\ConfiguracionController.cs" />
     <Compile Include="Controlador\DashboardController.cs" />
     <Compile Include="Controlador\DetalleVentaController.cs" />
     <Compile Include="Controlador\InventarioFisicoController.cs" />
@@ -219,6 +220,7 @@
     <Compile Include="Modelo\Tallas.cs">
       <DependentUpon>ModeloDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\UsuarioDTO.cs" />
     <Compile Include="Modelo\Usuarios.cs">
       <DependentUpon>ModeloDB.tt</DependentUpon>
     </Compile>
@@ -549,6 +551,7 @@
       <DependentUpon>ModeloDB.edmx</DependentUpon>
       <LastGenOutput>ModeloDB.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\laross_ia.jpg" />
     <None Include="Resources\icons8-correct-30.png" />
     <None Include="Resources\icons8-warehouse-30.png" />
     <None Include="Resources\icons8-trolley-30 %281%29.png" />

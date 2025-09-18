@@ -903,6 +903,16 @@ namespace Punto_de_Venta.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap laross_ia {
+            get {
+                object obj = ResourceManager.GetObject("laross_ia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap laross_pi {
             get {
                 object obj = ResourceManager.GetObject("laross-pi", resourceCulture);

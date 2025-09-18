@@ -35,6 +35,8 @@ namespace Punto_de_Venta.Vistas
             lbl_nombre.Text = string.Concat(SesionUsuario.UsuarioActual.nombre, " ", SesionUsuario.UsuarioActual.apellido);
             botones = new List<Button>();
             llenadoListaBotones();
+
+            AplicarPermisosUsuario();  // 👈 Aquí aplicamos permisos
             MostrarUserControl(ventasControl);
             limpiarBotones(btn_inicio);
             this.KeyDown += View_Padre_KeyDown;
@@ -134,5 +136,36 @@ namespace Punto_de_Venta.Vistas
                 productsControl.HandleKeyDown(e);
             }
         }
+
+        private void AplicarPermisosUsuario()
+        {
+            List<string> permisosUsuario;
+
+            if (SesionUsuario.UsuarioActual.tipo == "ADMIN")
+            {
+                permisosUsuario = new List<string> { "Ventas", "Historial", "Inventario", "Productos", "Dashboard", "Configuración" };
+            }
+            else
+            {
+              permisosUsuario = SesionUsuario.UsuarioActual.permisos?
+             .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+             .Select(p => p.Trim())
+             .ToList() ?? new List<string>();
+            }
+
+
+            // Asignar visibilidad o enabled según permisos
+            btn_inicio.Visible = permisosUsuario.Contains("Ventas");
+            btn_ventas.Visible = permisosUsuario.Contains("Historial");
+            btn_inventario.Visible = permisosUsuario.Contains("Inventario");
+            btn_productos.Visible = permisosUsuario.Contains("Productos"); // o "Reportes" si lo defines así
+            btn_reportes.Visible = permisosUsuario.Contains("Dashboard"); // si tienes ese permiso definido
+            btn_configuracion.Visible = permisosUsuario.Contains("Configuración");
+            if (!btn_inicio.Visible)
+            {
+                ventasControl.Enabled = false;
+            }
+        }
+
     }
 }

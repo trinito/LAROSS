@@ -39,14 +39,6 @@
             this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btn_inventario = new System.Windows.Forms.Button();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.btn_agregar = new System.Windows.Forms.Button();
-            this.btn_imprimir = new System.Windows.Forms.Button();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.pb_foto = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txt_codigo_original = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -65,11 +57,14 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.lbl_stock = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.panel2.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_foto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.pb_foto = new System.Windows.Forms.PictureBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.btn_imprimir = new System.Windows.Forms.Button();
+            this.btn_agregar = new System.Windows.Forms.Button();
+            this.btn_inventario = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -79,6 +74,11 @@
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_foto)).BeginInit();
+            this.panel10.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // Cantidad
@@ -132,119 +132,6 @@
             this.Precio.HeaderText = "Precio";
             this.Precio.Name = "Precio";
             this.Precio.ReadOnly = true;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.btn_inventario);
-            this.panel2.Controls.Add(this.panel10);
-            this.panel2.Controls.Add(this.panel8);
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(807, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
-            this.panel2.Size = new System.Drawing.Size(248, 875);
-            this.panel2.TabIndex = 23;
-            // 
-            // btn_inventario
-            // 
-            this.btn_inventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btn_inventario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_inventario.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btn_inventario.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btn_inventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_inventario.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_inventario.ForeColor = System.Drawing.Color.White;
-            this.btn_inventario.Image = global::Punto_de_Venta.Properties.Resources.icons8_warehouse_30;
-            this.btn_inventario.Location = new System.Drawing.Point(0, 775);
-            this.btn_inventario.Name = "btn_inventario";
-            this.btn_inventario.Size = new System.Drawing.Size(246, 78);
-            this.btn_inventario.TabIndex = 21;
-            this.btn_inventario.Text = "Nuevo Inventario Físico";
-            this.btn_inventario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_inventario.UseVisualStyleBackColor = false;
-            this.btn_inventario.Click += new System.EventHandler(this.btn_inventario_Click);
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.btn_agregar);
-            this.panel10.Controls.Add(this.btn_imprimir);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel10.Location = new System.Drawing.Point(0, 481);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(246, 237);
-            this.panel10.TabIndex = 17;
-            // 
-            // btn_agregar
-            // 
-            this.btn_agregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btn_agregar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_agregar.FlatAppearance.BorderSize = 0;
-            this.btn_agregar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btn_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_agregar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregar.ForeColor = System.Drawing.Color.White;
-            this.btn_agregar.Image = global::Punto_de_Venta.Properties.Resources.icons8_add_30;
-            this.btn_agregar.Location = new System.Drawing.Point(67, 27);
-            this.btn_agregar.Name = "btn_agregar";
-            this.btn_agregar.Size = new System.Drawing.Size(124, 61);
-            this.btn_agregar.TabIndex = 13;
-            this.btn_agregar.Text = "Agregar stock";
-            this.btn_agregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_agregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_agregar.UseVisualStyleBackColor = false;
-            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
-            // 
-            // btn_imprimir
-            // 
-            this.btn_imprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btn_imprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_imprimir.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btn_imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_imprimir.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_imprimir.ForeColor = System.Drawing.Color.White;
-            this.btn_imprimir.Image = global::Punto_de_Venta.Properties.Resources.icons8_barcode_30__2_;
-            this.btn_imprimir.Location = new System.Drawing.Point(44, 113);
-            this.btn_imprimir.Name = "btn_imprimir";
-            this.btn_imprimir.Size = new System.Drawing.Size(168, 78);
-            this.btn_imprimir.TabIndex = 20;
-            this.btn_imprimir.Text = "Imprimir código de barras";
-            this.btn_imprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_imprimir.UseVisualStyleBackColor = false;
-            this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.pb_foto);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 231);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(246, 250);
-            this.panel8.TabIndex = 16;
-            // 
-            // pb_foto
-            // 
-            this.pb_foto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_foto.Location = new System.Drawing.Point(0, 0);
-            this.pb_foto.Name = "pb_foto";
-            this.pb_foto.Size = new System.Drawing.Size(246, 250);
-            this.pb_foto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_foto.TabIndex = 0;
-            this.pb_foto.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::Punto_de_Venta.Properties.Resources._281850184_119981597370118_8427633085628640968_n1;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(246, 231);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
             // 
             // panel5
             // 
@@ -456,6 +343,119 @@
             this.label9.TabIndex = 2;
             this.label9.Text = "Total de productos en stock:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = global::Punto_de_Venta.Properties.Resources._281850184_119981597370118_8427633085628640968_n1;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(246, 231);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.pb_foto);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(0, 231);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(246, 250);
+            this.panel8.TabIndex = 16;
+            // 
+            // pb_foto
+            // 
+            this.pb_foto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_foto.Location = new System.Drawing.Point(0, 0);
+            this.pb_foto.Name = "pb_foto";
+            this.pb_foto.Size = new System.Drawing.Size(246, 250);
+            this.pb_foto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_foto.TabIndex = 0;
+            this.pb_foto.TabStop = false;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.btn_agregar);
+            this.panel10.Controls.Add(this.btn_imprimir);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(0, 481);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(246, 237);
+            this.panel10.TabIndex = 17;
+            // 
+            // btn_imprimir
+            // 
+            this.btn_imprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btn_imprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_imprimir.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btn_imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_imprimir.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_imprimir.ForeColor = System.Drawing.Color.White;
+            this.btn_imprimir.Image = global::Punto_de_Venta.Properties.Resources.icons8_barcode_30__2_;
+            this.btn_imprimir.Location = new System.Drawing.Point(44, 113);
+            this.btn_imprimir.Name = "btn_imprimir";
+            this.btn_imprimir.Size = new System.Drawing.Size(168, 78);
+            this.btn_imprimir.TabIndex = 20;
+            this.btn_imprimir.Text = "Imprimir código de barras";
+            this.btn_imprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_imprimir.UseVisualStyleBackColor = false;
+            this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
+            // 
+            // btn_agregar
+            // 
+            this.btn_agregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btn_agregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_agregar.FlatAppearance.BorderSize = 0;
+            this.btn_agregar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btn_agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_agregar.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_agregar.ForeColor = System.Drawing.Color.White;
+            this.btn_agregar.Image = global::Punto_de_Venta.Properties.Resources.icons8_add_30;
+            this.btn_agregar.Location = new System.Drawing.Point(67, 27);
+            this.btn_agregar.Name = "btn_agregar";
+            this.btn_agregar.Size = new System.Drawing.Size(124, 61);
+            this.btn_agregar.TabIndex = 13;
+            this.btn_agregar.Text = "Agregar stock";
+            this.btn_agregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_agregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_agregar.UseVisualStyleBackColor = false;
+            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
+            // 
+            // btn_inventario
+            // 
+            this.btn_inventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btn_inventario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_inventario.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_inventario.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btn_inventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_inventario.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_inventario.ForeColor = System.Drawing.Color.White;
+            this.btn_inventario.Image = global::Punto_de_Venta.Properties.Resources.icons8_warehouse_30;
+            this.btn_inventario.Location = new System.Drawing.Point(0, 775);
+            this.btn_inventario.Name = "btn_inventario";
+            this.btn_inventario.Size = new System.Drawing.Size(246, 78);
+            this.btn_inventario.TabIndex = 21;
+            this.btn_inventario.Text = "Nuevo Inventario Físico";
+            this.btn_inventario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_inventario.UseVisualStyleBackColor = false;
+            this.btn_inventario.Click += new System.EventHandler(this.btn_inventario_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btn_inventario);
+            this.panel2.Controls.Add(this.panel10);
+            this.panel2.Controls.Add(this.panel8);
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(807, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.panel2.Size = new System.Drawing.Size(248, 875);
+            this.panel2.TabIndex = 23;
+            // 
             // UserControl_Inventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -465,11 +465,6 @@
             this.Name = "UserControl_Inventario";
             this.Size = new System.Drawing.Size(1055, 875);
             this.Load += new System.EventHandler(this.UserControl_Inventario_Load);
-            this.panel2.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_foto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -482,6 +477,11 @@
             this.panel6.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_foto)).EndInit();
+            this.panel10.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -493,11 +493,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Código;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.Button btn_agregar;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button btn_imprimir;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox txt_codigo_original;
         private System.Windows.Forms.Label label1;
@@ -516,8 +511,13 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label lbl_stock;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.PictureBox pb_foto;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Button btn_agregar;
+        private System.Windows.Forms.Button btn_imprimir;
         private System.Windows.Forms.Button btn_inventario;
+        private System.Windows.Forms.Panel panel2;
     }
 }

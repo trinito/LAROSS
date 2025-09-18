@@ -131,10 +131,7 @@ namespace Punto_de_Venta
                         this.Hide();
                         Form form;
 
-                        if (SesionUsuario.UsuarioActual.tipo == "ADMIN")
-                            form = new View_Admin();
-                        else
-                            form = new View_Padre();
+                        form = new View_Padre();
 
                         form.ShowDialog();
                         this.txt_usuario.Text = string.Empty;

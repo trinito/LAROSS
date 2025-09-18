@@ -201,7 +201,6 @@
             // 
             this.btn_configuracion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(57)))), ((int)(((byte)(93)))));
             this.btn_configuracion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_configuracion.Enabled = false;
             this.btn_configuracion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(57)))), ((int)(((byte)(93)))));
             this.btn_configuracion.FlatAppearance.BorderSize = 0;
             this.btn_configuracion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(44)))), ((int)(((byte)(61)))));
@@ -257,6 +256,7 @@
             this.btn_reportes.Text = "          Dashboard";
             this.btn_reportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_reportes.UseVisualStyleBackColor = false;
+            this.btn_reportes.Visible = false;
             this.btn_reportes.Click += new System.EventHandler(this.btn_reportes_Click);
             // 
             // panel13
@@ -287,6 +287,7 @@
             this.btn_productos.Text = "          Productos";
             this.btn_productos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_productos.UseVisualStyleBackColor = false;
+            this.btn_productos.Visible = false;
             this.btn_productos.Click += new System.EventHandler(this.btn_productos_Click);
             // 
             // panel12
@@ -317,6 +318,7 @@
             this.btn_inventario.Text = "          Inventario";
             this.btn_inventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_inventario.UseVisualStyleBackColor = false;
+            this.btn_inventario.Visible = false;
             this.btn_inventario.Click += new System.EventHandler(this.btn_inventario_Click);
             // 
             // panel11
@@ -347,6 +349,7 @@
             this.btn_ventas.Text = "          Historial";
             this.btn_ventas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_ventas.UseVisualStyleBackColor = false;
+            this.btn_ventas.Visible = false;
             this.btn_ventas.Click += new System.EventHandler(this.btn_ventas_Click);
             // 
             // panel10
@@ -377,6 +380,7 @@
             this.btn_inicio.Text = "          Ventas";
             this.btn_inicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_inicio.UseVisualStyleBackColor = false;
+            this.btn_inicio.Visible = false;
             this.btn_inicio.Click += new System.EventHandler(this.btn_inicio_Click);
             // 
             // panel21
