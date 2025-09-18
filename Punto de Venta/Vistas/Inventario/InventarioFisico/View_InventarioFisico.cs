@@ -66,15 +66,8 @@ namespace Punto_de_Venta.Vistas.Inventario.InventarioFisico
                 else
                 {
 
-                    MessageBox.Show(
-    "Atención: Al iniciar un nuevo inventario físico, todas las demás funciones del sistema quedarán temporalmente inhabilitadas hasta que finalice el inventario. Asegúrese de completar este proceso antes de continuar con otras operaciones.",
-    "Advertencia",
-    MessageBoxButtons.OK,
-    MessageBoxIcon.Warning
-);
-
                     DialogResult crearInventario = MessageBox.Show(
-                    "¿Deseas crear un nuevo inventario físico?\n\nNota: Hasta que finalices este inventario, otras funciones del sistema quedarán inhabilitadas.",
+                    "¿Deseas crear un nuevo inventario físico?.",
                     "Nuevo Inventario",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Warning
