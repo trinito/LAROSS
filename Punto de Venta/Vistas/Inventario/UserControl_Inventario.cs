@@ -65,7 +65,7 @@ namespace Punto_de_Venta.Vistas
         {
             loadingOverlay.ShowOverlay();
             productos = await productosController.ObtenerProductosParaVentaAsync();
-            dgv_productos.RowCount = productos.Count; // VirtualMode usa esto
+            bindingSource.DataSource = productos;
             int totalStock = await productosController.ObtenerTotalStockAsync();
             lbl_stock.Text = totalStock.ToString();
             loadingOverlay.HideOverlay();
@@ -74,7 +74,7 @@ namespace Punto_de_Venta.Vistas
         private void GridViewHelper()
         {
             dgv_productos.AutoGenerateColumns = false;
-            dgv_productos.VirtualMode = true;
+            dgv_productos.DataSource = bindingSource;
 
             // Crear y agregar columnas manualmente
             dgv_productos.Columns.Clear();
@@ -227,16 +227,14 @@ namespace Punto_de_Venta.Vistas
                 return;
             }
 
-            int index = dgv_productos.CurrentRow.Index;
+            productoSelect = dgv_productos.CurrentRow.DataBoundItem as ProductoVentaDTO;
 
 
-            if (index < 0 || index >= productos.Count)
+            if (productoSelect == null)
             {
                 MessageBox.Show("No se pudo obtener el producto seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            productoSelect = productos[index];
 
 
             using (var form = new View_Stock(productoSelect.Nombre, productoSelect.CodigoBarras, productoSelect.Stock))
@@ -246,8 +244,8 @@ namespace Punto_de_Venta.Vistas
 
                 if (form.result)
                 {
-                    productoSelect.Stock = form.StockActualizado; // asumimos que View_Stock devuelve el stock actualizado
-                    dgv_productos.InvalidateRow(index); // refresca solo esta fila
+                    //productoSelect.Stock = form.StockActualizado; // asumimos que View_Stock devuelve el stock actualizado
+                    await CargarProductosEnDataGridView();
                 }
             }
         }
@@ -410,42 +408,6 @@ namespace Punto_de_Venta.Vistas
         {
             View_InventarioFisico inventarioFisico = new View_InventarioFisico();
             inventarioFisico.ShowDialog(); // o ShowDialog() si quieres que sea modal
-        }
-
-        private void dgv_productos_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
-        {
-            if (productos == null || e.RowIndex >= productos.Count)
-                return;
-
-            var producto = productos[e.RowIndex];
-
-            switch (dgv_productos.Columns[e.ColumnIndex].Name)
-            {
-                case "CodigoBarras":
-                    e.Value = producto.CodigoBarras;
-                    break;
-                case "Nombre":
-                    e.Value = producto.Nombre;
-                    break;
-                case "Marca":
-                    e.Value = producto.Marca;
-                    break;
-                case "Color":
-                    e.Value = producto.Color;
-                    break;
-                case "Talla":
-                    e.Value = producto.Talla;
-                    break;
-                case "Sexo":
-                    e.Value = producto.Sexo;
-                    break;
-                case "Categoria":
-                    e.Value = producto.Categoria;
-                    break;
-                case "Stock":
-                    e.Value = producto.Stock;
-                    break;
-            }
         }
     }
 }

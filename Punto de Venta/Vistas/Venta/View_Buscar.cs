@@ -32,7 +32,7 @@ namespace Punto_de_Venta.Vistas
             bindingSource = new BindingSource();
 
             dgv_productos.AutoGenerateColumns = false;
-            dgv_productos.VirtualMode = true;
+            dgv_productos.DataSource = bindingSource;
             // Crear y agregar columnas manualmente
             dgv_productos.Columns.Clear();
 
@@ -109,7 +109,7 @@ namespace Punto_de_Venta.Vistas
             {
                 loadingOverlay.ShowOverlay();
                 productos = await productosController.ObtenerProductosParaVentaConStockAsync();
-                dgv_productos.RowCount = productos.Count; // VirtualMode usa esto
+                bindingSource.DataSource = productos;
 
                 AjustarColumnas();
 
@@ -118,7 +118,7 @@ namespace Punto_de_Venta.Vistas
                     loadingOverlay.HideOverlay();
                     MessageBox.Show("No se encontraron productos.");
                 }
-                   
+
             }
             catch (Exception ex)
             {
@@ -161,10 +161,7 @@ namespace Punto_de_Venta.Vistas
         private void Seleccionar()
         {
             if (dgv_productos.CurrentRow != null)
-            {
-                int index = dgv_productos.CurrentCell.RowIndex;
-                productoSelect = productos[index];
-            }
+                productoSelect = (ProductoVentaDTO)dgv_productos.CurrentRow.DataBoundItem;
 
 
             Close();
@@ -206,14 +203,10 @@ namespace Punto_de_Venta.Vistas
 
         private void dgv_productos_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgv_productos.CurrentCell != null)
+            if (dgv_productos.CurrentRow != null)
             {
-                int index = dgv_productos.CurrentCell.RowIndex;
-                if (productos != null && index >= 0 && index < productos.Count)
-                {
-                    var seleccionado = productos[index];
-                    pb_foto.ImageLocation = Path.Combine(rutaBaseImagenes, seleccionado.Foto);
-                }
+                var seleccionado = (ProductoVentaDTO)dgv_productos.CurrentRow.DataBoundItem;
+                pb_foto.ImageLocation = rutaBaseImagenes + seleccionado.Foto;
             }
 
         }

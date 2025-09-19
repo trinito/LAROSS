@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,8 +61,8 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.pb_foto = new System.Windows.Forms.PictureBox();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.btn_imprimir = new System.Windows.Forms.Button();
             this.btn_agregar = new System.Windows.Forms.Button();
+            this.btn_imprimir = new System.Windows.Forms.Button();
             this.btn_inventario = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5.SuspendLayout();
@@ -84,8 +84,8 @@
             // Cantidad
             // 
             this.Cantidad.DataPropertyName = "cantidad";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle11;
             this.Cantidad.FillWeight = 50F;
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.Name = "Cantidad";
@@ -94,8 +94,8 @@
             // Medida
             // 
             this.Medida.DataPropertyName = "medida";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Medida.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Medida.DefaultCellStyle = dataGridViewCellStyle12;
             this.Medida.FillWeight = 50F;
             this.Medida.HeaderText = "Medida";
             this.Medida.Name = "Medida";
@@ -104,8 +104,8 @@
             // Nombre
             // 
             this.Nombre.DataPropertyName = "nombre";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Nombre.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nombre.DefaultCellStyle = dataGridViewCellStyle13;
             this.Nombre.FillWeight = 160F;
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
@@ -114,8 +114,8 @@
             // Código
             // 
             this.Código.DataPropertyName = "codigo";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Código.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Código.DefaultCellStyle = dataGridViewCellStyle14;
             this.Código.FillWeight = 45F;
             this.Código.HeaderText = "Código";
             this.Código.Name = "Código";
@@ -124,10 +124,10 @@
             // Precio
             // 
             this.Precio.DataPropertyName = "precio";
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.Precio.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.Format = "C2";
+            dataGridViewCellStyle15.NullValue = null;
+            this.Precio.DefaultCellStyle = dataGridViewCellStyle15;
             this.Precio.FillWeight = 50F;
             this.Precio.HeaderText = "Precio";
             this.Precio.Name = "Precio";
@@ -289,7 +289,6 @@
             this.dgv_productos.Size = new System.Drawing.Size(801, 566);
             this.dgv_productos.TabIndex = 23;
             this.dgv_productos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_productos_CellDoubleClick_1);
-            this.dgv_productos.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.dgv_productos_CellValueNeeded);
             this.dgv_productos.SelectionChanged += new System.EventHandler(this.dgv_productos_SelectionChanged);
             // 
             // panel4
@@ -384,24 +383,6 @@
             this.panel10.Size = new System.Drawing.Size(246, 237);
             this.panel10.TabIndex = 17;
             // 
-            // btn_imprimir
-            // 
-            this.btn_imprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
-            this.btn_imprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_imprimir.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btn_imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_imprimir.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_imprimir.ForeColor = System.Drawing.Color.White;
-            this.btn_imprimir.Image = global::Punto_de_Venta.Properties.Resources.icons8_barcode_30__2_;
-            this.btn_imprimir.Location = new System.Drawing.Point(44, 113);
-            this.btn_imprimir.Name = "btn_imprimir";
-            this.btn_imprimir.Size = new System.Drawing.Size(168, 78);
-            this.btn_imprimir.TabIndex = 20;
-            this.btn_imprimir.Text = "Imprimir código de barras";
-            this.btn_imprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_imprimir.UseVisualStyleBackColor = false;
-            this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
-            // 
             // btn_agregar
             // 
             this.btn_agregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
@@ -422,6 +403,24 @@
             this.btn_agregar.UseVisualStyleBackColor = false;
             this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
             // 
+            // btn_imprimir
+            // 
+            this.btn_imprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
+            this.btn_imprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_imprimir.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btn_imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_imprimir.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_imprimir.ForeColor = System.Drawing.Color.White;
+            this.btn_imprimir.Image = global::Punto_de_Venta.Properties.Resources.icons8_barcode_30__2_;
+            this.btn_imprimir.Location = new System.Drawing.Point(44, 113);
+            this.btn_imprimir.Name = "btn_imprimir";
+            this.btn_imprimir.Size = new System.Drawing.Size(168, 78);
+            this.btn_imprimir.TabIndex = 20;
+            this.btn_imprimir.Text = "Imprimir código de barras";
+            this.btn_imprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_imprimir.UseVisualStyleBackColor = false;
+            this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
+            // 
             // btn_inventario
             // 
             this.btn_inventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(59)))), ((int)(((byte)(97)))));
@@ -439,6 +438,7 @@
             this.btn_inventario.Text = "Nuevo Inventario Físico";
             this.btn_inventario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btn_inventario.UseVisualStyleBackColor = false;
+            this.btn_inventario.Visible = false;
             this.btn_inventario.Click += new System.EventHandler(this.btn_inventario_Click);
             // 
             // panel2
