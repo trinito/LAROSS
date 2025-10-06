@@ -12,7 +12,9 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -33,7 +35,7 @@ namespace Punto_de_Venta
 
         private void txt_usuario_Enter(object sender, EventArgs e)
         {
-            if(txt_usuario.Text =="USUARIO")
+            if (txt_usuario.Text == "USUARIO")
             {
                 txt_usuario.Text = "";
                 txt_usuario.ForeColor = Color.Black;
@@ -42,7 +44,7 @@ namespace Punto_de_Venta
 
         private void txt_usuario_Leave(object sender, EventArgs e)
         {
-            if(txt_usuario.Text=="")
+            if (txt_usuario.Text == "")
             {
                 txt_usuario.Text = "USUARIO";
                 txt_usuario.ForeColor = Color.DimGray;
@@ -51,22 +53,22 @@ namespace Punto_de_Venta
 
         private void txt_contrasena_Enter(object sender, EventArgs e)
         {
-            if(txt_contrasena.Text== "CONTRASEÑA")
+            if (txt_contrasena.Text == "CONTRASEÑA")
             {
                 txt_contrasena.Text = "";
                 txt_contrasena.ForeColor = Color.Black;
                 txt_contrasena.UseSystemPasswordChar = true;
             }
 
-         }
+        }
 
         private void txt_contrasena_Leave(object sender, EventArgs e)
         {
-            if(txt_contrasena.Text=="")
+            if (txt_contrasena.Text == "")
             {
                 txt_contrasena.Text = "CONTRASEÑA";
                 txt_contrasena.ForeColor = Color.DimGray;
-               txt_contrasena.UseSystemPasswordChar = false;
+                txt_contrasena.UseSystemPasswordChar = false;
             }
         }
 
@@ -116,18 +118,18 @@ namespace Punto_de_Venta
                 try
                 {
                     loadingOverlay.ShowOverlay();
-                   Usuarios user = new Usuarios() { contra = txt_contrasena.Text, nombre = txt_usuario.Text };
+                    Usuarios user = new Usuarios() { contra = txt_contrasena.Text, nombre = txt_usuario.Text };
 
-                UsuarioController usuarioController = new UsuarioController();
+                    UsuarioController usuarioController = new UsuarioController();
                     SesionUsuario.UsuarioActual = await usuarioController.LoginAsync(user);
 
-                if (SesionUsuario.UsuarioActual == null)
-                {
+                    if (SesionUsuario.UsuarioActual == null)
+                    {
                         loadingOverlay.HideOverlay();
                         MessageBox.Show("USUARIO INCORRECTO", "MENSAJE", MessageBoxButtons.OK);
-                }
-                else
-                {
+                    }
+                    else
+                    {
                         this.Hide();
                         Form form;
 
@@ -157,7 +159,7 @@ namespace Punto_de_Venta
                 finally
                 {
                     // Ocultar overlay
-                     loadingOverlay.HideOverlay();
+                    loadingOverlay.HideOverlay();
                     btn_login.Enabled = true;
                     txt_usuario.Enabled = true;
                     txt_contrasena.Enabled = true;
@@ -174,9 +176,58 @@ namespace Punto_de_Venta
             }
         }
 
-        private void form_cuenta_Load(object sender, EventArgs e)
+        private async void form_cuenta_Load(object sender, EventArgs e)
         {
+            await ValidacionLimite();
         }
 
+        private async Task ValidacionLimite()
+        {
+            try
+            {
+
+                // Crear la fecha límite: sábado 11 de octubre de 2025 a las 11:59 a.m.
+                DateTime fechaLimite = new DateTime(2025, 10, 11, 11, 59, 0);
+
+                DateTime? remotaUtc = await RemoteTimeProvider.GetNetworkUtcTimeAsync();
+
+                if (remotaUtc.HasValue)
+                {
+                    // Mazatlán es UTC-7 fijo
+                    DateTime fechaActual = remotaUtc.Value.AddHours(-14);
+
+                    if (fechaActual > fechaLimite)
+                    {
+                        MessageBox.Show(
+                       "La aplicación ha excedido la fecha límite de uso.\nPor favor comuníquese con el administrador del sistema.",
+                       "Acceso denegado",
+                       MessageBoxButtons.OK,
+                       MessageBoxIcon.Warning
+                         );
+                        Application.Exit();
+                    }
+                }
+                else
+                {
+                    // Obtener la fecha/hora actual en Mazatlán
+                    DateTime fechaActual = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.UtcNow, "Pacific Standard Time");
+                    if (fechaActual > fechaLimite)
+                    {
+                        MessageBox.Show(
+                       "La aplicación ha excedido la fecha límite de uso.\nPor favor comuníquese con el administrador del sistema.",
+                       "Acceso denegado",
+                       MessageBoxButtons.OK,
+                       MessageBoxIcon.Warning
+                         );
+                        Application.Exit();
+                    }
+                }
+
+            }
+            catch
+            {
+                Application.Exit();
+            }
+        }
     }
 }

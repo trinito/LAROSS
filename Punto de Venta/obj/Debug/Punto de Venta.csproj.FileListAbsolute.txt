@@ -161,6 +161,7 @@ C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Marcas.r
 C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Sexos.resources
 C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Productos.View_Tallas.resources
 C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Venta.Caja.Form_RetiroCaja.resources
+C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Venta.Caja.View_DepositoCaja.resources
 C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Historial.resources
 C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Inventario.resources
 C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.UserControl_Productos.resources
@@ -183,4 +184,3 @@ C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.csproj.CoreCompileInputs.cache
 C:\LaRoss\Punto de Venta\obj\Debug\Punto de.9F6E92BB.Up2Date
 C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.exe
 C:\LaRoss\Punto de Venta\obj\Debug\Punto de Venta.pdb
-C:\LaRoss\Punto de Venta\obj\Debug\Punto_de_Venta.Vistas.Venta.Caja.View_DepositoCaja.resources
