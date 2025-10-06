@@ -95,19 +95,6 @@ namespace Punto_de_Venta.Vistas.Venta.Caja
                     return;
                 }
 
-                // Validar monto contra saldo inical
-                if (saldoActual - monto < saldoInicial)
-                {
-                    MessageBox.Show(
-                       $"No se puede realizar el retiro. El saldo restante ({saldoActual - monto:C2}) sería menor al saldo inicial permitido ({saldoInicial:C2}).",
-                       "Advertencia",
-                       MessageBoxButtons.OK,
-                       MessageBoxIcon.Warning
-                   );
-                    return;
-                }
-
-              
 
                 // Confirmar con usuario
                 DialogResult confirm = MessageBox.Show(
