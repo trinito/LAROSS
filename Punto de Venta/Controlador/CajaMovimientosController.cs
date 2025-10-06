@@ -24,7 +24,7 @@ namespace Punto_de_Venta.Controlador
         /// <summary>
         /// Registra el monto inicial de la caja.
         /// </summary>
-        public async Task<bool> RegistrarMovimientoInicialAsync(decimal monto, int idUsuario)
+        public async Task<bool> RegistrarMovimientoInicialAsync(decimal monto, int idUsuario, bool esAutomatico = false)
         {
             using (var context = new la_ross_dbEntities())
             {
@@ -32,7 +32,7 @@ namespace Punto_de_Venta.Controlador
                 {
                     tipo_movimiento = "INICIAL",
                     monto = monto,
-                    descripcion = "APERTURA DE CAJA",
+                    descripcion = esAutomatico ? "SALDO AUTOMÁTICO DE AYER" : "APERTURA DE CAJA",
                     id_usuario = idUsuario,
                     fecha = DateTime.Now
                 };
@@ -41,6 +41,7 @@ namespace Punto_de_Venta.Controlador
                 return await context.SaveChangesAsync() > 0;
             }
         }
+
 
         /// <summary>
         /// Registra una venta en caja (solo para efectivo).
@@ -100,11 +101,15 @@ namespace Punto_de_Venta.Controlador
       .ToListAsync();
 
                 decimal ingresos = movimientos
-                    .Where(m => m.tipo_movimiento == "INICIAL" || m.tipo_movimiento == "VENTA")
+                    .Where(m => m.tipo_movimiento == "INICIAL"
+                             || m.tipo_movimiento == "VENTA"
+                             || m.tipo_movimiento == "INGRESO") // 👈 agregar ingreso manual
                     .Sum(m => (decimal?)m.monto) ?? 0m;
 
+
                 decimal retiros = movimientos
-                    .Where(m => m.tipo_movimiento == "RETIRO" || m.tipo_movimiento == "CIERRE")
+                    .Where(m => m.tipo_movimiento == "RETIRO"
+                             || m.tipo_movimiento == "CIERRE")
                     .Sum(m => (decimal?)m.monto) ?? 0m;
 
                 return ingresos - retiros;
@@ -130,6 +135,60 @@ namespace Punto_de_Venta.Controlador
                 return saldoInicial;
             }
 
+        }
+
+
+        /// <summary>
+        /// Registra un ingreso manual de efectivo a la caja.
+        /// </summary>
+        public async Task<bool> RegistrarIngresoAsync(decimal monto, string descripcion, int idUsuario)
+        {
+            if (monto <= 0)
+                throw new ArgumentException("El monto debe ser mayor a 0.", nameof(monto));
+
+            if (string.IsNullOrWhiteSpace(descripcion))
+                throw new ArgumentException("Debe ingresar una descripción válida.", nameof(descripcion));
+
+            using (var context = new la_ross_dbEntities())
+            {
+                var movimiento = new CajaMovimientos
+                {
+                    tipo_movimiento = "INGRESO",
+                    monto = monto,
+                    descripcion = descripcion,
+                    id_usuario = idUsuario,
+                    fecha = DateTime.Now
+                };
+
+                context.CajaMovimientos.Add(movimiento);
+                return await context.SaveChangesAsync() > 0;
+            }
+        }
+
+        /// <summary>
+        /// Obtiene el saldo final de un día específico.
+        /// </summary>
+        public async Task<decimal> ObtenerSaldoPorDiaAsync(DateTime fecha)
+        {
+            using (var context = new la_ross_dbEntities())
+            {
+                var movimientos = await context.CajaMovimientos
+                    .Where(m => DbFunctions.TruncateTime(m.fecha) == fecha.Date)
+                    .ToListAsync();
+
+                decimal ingresos = movimientos
+                    .Where(m => m.tipo_movimiento == "INICIAL"
+                             || m.tipo_movimiento == "VENTA"
+                             || m.tipo_movimiento == "INGRESO")
+                    .Sum(m => (decimal?)m.monto) ?? 0m;
+
+                decimal retiros = movimientos
+                    .Where(m => m.tipo_movimiento == "RETIRO"
+                             || m.tipo_movimiento == "CIERRE")
+                    .Sum(m => (decimal?)m.monto) ?? 0m;
+
+                return ingresos - retiros;
+            }
         }
 
     }

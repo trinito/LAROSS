@@ -1,6 +1,7 @@
 ﻿using Punto_de_Venta.Controlador;
 using Punto_de_Venta.Servicios;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Punto_de_Venta.Vistas.Venta.Caja
@@ -15,20 +16,44 @@ namespace Punto_de_Venta.Vistas.Venta.Caja
 
         private async void Form_RetiroCaja_Load(object sender, EventArgs e)
         {
+            await CargarSaldoInicialAsync();
+        }
+
+        private async Task CargarSaldoInicialAsync()
+        {
             try
             {
                 var controller = new CajaMovimientosController();
-                decimal saldo = await controller.ObtenerSaldoActualAsync();
-                saldoInicial = await controller.ObtenerSaldoInicialAsync();
-                txt_saldo_actual.Text = $"{saldo:N2}";
+                // Obtener saldos
+                decimal saldoInicial = await controller.ObtenerSaldoInicialAsync();
+
+                // Actualizar campos
+                await CargarSaldoActualAsync();
                 txt_saldo_inicial.Text = $"{saldoInicial:N2}";
                 label5.Text = $"{SesionUsuario.UsuarioActual.nombre} {SesionUsuario.UsuarioActual.apellido}";
                 cb_descripcion.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al obtener el saldo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async Task CargarSaldoActualAsync()
+        {
+            try
+            {
+                var controller = new CajaMovimientosController();
+                // Obtener saldos
+                decimal saldoActual = await controller.ObtenerSaldoActualAsync();
+
+                // Actualizar campos
+                txt_saldo_actual.Text = $"{saldoActual:N2}";
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al obtener el saldo actual: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al obtener el saldo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -141,6 +166,15 @@ namespace Punto_de_Venta.Vistas.Venta.Caja
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            using (var form = new View_DepositoCaja())
+            {
+                form.ShowDialog();
+            }
+            await CargarSaldoActualAsync();
         }
     }
 }

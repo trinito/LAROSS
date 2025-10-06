@@ -43,6 +43,7 @@
             this.cb_descripcion = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txt_saldo_inicial = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -203,9 +204,11 @@
             this.cb_descripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_descripcion.FormattingEnabled = true;
             this.cb_descripcion.Items.AddRange(new object[] {
-            "GUARDAR DINERO",
-            "RETIRO PERSONAL",
-            "CIERRE DE CAJA"});
+            "1. CIERRE DE CAJA",
+            "2. GUARDAR DINERO",
+            "3. PAGO SERVICIOS(AGUA, LUZ, RENTA,ETC.)",
+            "4. RETIRO PERSONAL",
+            "5. SUMINISTROS"});
             this.cb_descripcion.Location = new System.Drawing.Point(147, 355);
             this.cb_descripcion.Name = "cb_descripcion";
             this.cb_descripcion.Size = new System.Drawing.Size(380, 24);
@@ -235,11 +238,28 @@
             this.txt_saldo_inicial.TabIndex = 67;
             this.txt_saldo_inicial.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(189)))), ((int)(((byte)(129)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold);
+            this.button1.Location = new System.Drawing.Point(454, 413);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(126, 53);
+            this.button1.TabIndex = 69;
+            this.button1.Text = "Agregar efectivo a caja";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form_RetiroCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 489);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txt_saldo_inicial);
             this.Controls.Add(this.cb_descripcion);
@@ -280,5 +300,6 @@
         private System.Windows.Forms.ComboBox cb_descripcion;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txt_saldo_inicial;
+        private System.Windows.Forms.Button button1;
     }
 }

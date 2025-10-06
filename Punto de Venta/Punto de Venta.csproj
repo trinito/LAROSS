@@ -300,6 +300,12 @@
     <Compile Include="Vistas\Venta\Caja\Form_RetiroCaja.Designer.cs">
       <DependentUpon>Form_RetiroCaja.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Venta\Caja\View_DepositoCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Venta\Caja\View_DepositoCaja.Designer.cs">
+      <DependentUpon>View_DepositoCaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Venta\UserControl_Historial.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -441,6 +447,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Venta\Caja\Form_RetiroCaja.resx">
       <DependentUpon>Form_RetiroCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Venta\Caja\View_DepositoCaja.resx">
+      <DependentUpon>View_DepositoCaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Venta\UserControl_Historial.resx">
       <DependentUpon>UserControl_Historial.cs</DependentUpon>

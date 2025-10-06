@@ -52,7 +52,7 @@ namespace Punto_de_Venta.Vistas
             ConfigurarDgvProductos();
             await VerificarInicioCaja();
         }
-        
+
         public async Task VerificarInicioCaja()
         {
             var cajaController = new CajaMovimientosController();
@@ -60,13 +60,38 @@ namespace Punto_de_Venta.Vistas
 
             if (!inicio)
             {
-                using (var form = new View_Inicio_Caja())
+                // Obtener saldo de ayer
+                DateTime ayer = DateTime.Today.AddDays(-1);
+                decimal saldoAyer = await cajaController.ObtenerSaldoPorDiaAsync(ayer);
+
+                if (saldoAyer > 0)
                 {
-                    form.ShowDialog();
+                    MessageBox.Show(
+                         $"💰 Saldo en caja: {saldoAyer:C} 💰\n\n" +
+                         $"Este saldo ha sido registrado automáticamente.",
+                         "Caja - Información",
+                         MessageBoxButtons.OK,
+                         MessageBoxIcon.Information
+                     );
+
+                    // Registrar automáticamente como saldo inicial de hoy
+                    int idUsuario = SesionUsuario.UsuarioActual.id; // o el usuario del sistema
+                    await cajaController.RegistrarMovimientoInicialAsync(saldoAyer, idUsuario, true);
                 }
-                await VerificarInicioCaja();
+                else
+                {
+                    // Pedir al usuario monto inicial manualmente
+                    using (var form = new View_Inicio_Caja())
+                    {
+                        form.ShowDialog();
+                    }
+
+                    // Validar otra vez
+                    await VerificarInicioCaja();
+                }
             }
         }
+
 
         private void ConfigurarDgvProductos()
         {
