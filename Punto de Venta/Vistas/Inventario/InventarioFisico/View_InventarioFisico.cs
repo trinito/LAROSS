@@ -74,7 +74,11 @@ namespace Punto_de_Venta.Vistas.Inventario.InventarioFisico
                 );
 
                     if (crearInventario == DialogResult.No)
+                    {
+                        this.Close(); // cierra el formulario correctamente
                         return;
+                    }
+                        
 
                     // No mostrar overlay antes del diálogo para evitar bloquear UI
                     DialogResult result = MessageBox.Show(

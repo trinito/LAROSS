@@ -13,6 +13,8 @@ using Punto_de_Venta.Vistas.Inventario;
 using Punto_de_Venta.Controles;
 using System.IO;
 using Punto_de_Venta.Vistas.Inventario.InventarioFisico;
+using Punto_de_Venta.Servicios;
+using Punto_de_Venta.Vistas.Venta.Caja;
 
 namespace Punto_de_Venta.Vistas
 {
@@ -52,6 +54,7 @@ namespace Punto_de_Venta.Vistas
             {
                 txt_codigo.Focus();
                 await CargarProductosEnDataGridView();
+                btn_inventario.Visible = SesionUsuario.UsuarioActual.tipo == "ADMIN";
 
             }
             catch (Exception ex)
@@ -406,8 +409,10 @@ namespace Punto_de_Venta.Vistas
 
         private void btn_inventario_Click(object sender, EventArgs e)
         {
-            View_InventarioFisico inventarioFisico = new View_InventarioFisico();
-            inventarioFisico.ShowDialog(); // o ShowDialog() si quieres que sea modal
+            using (var form = new View_InventarioFisico())
+            {
+                form.ShowDialog();
+            }
         }
     }
 }
