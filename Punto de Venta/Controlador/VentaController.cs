@@ -117,6 +117,29 @@ namespace Punto_de_Venta.Controlador
             }
         }
 
+        public async Task<int> TicketAsync(int idVenta)
+        {
+            try
+            {
+                using (var context = new la_ross_dbEntities())
+                {
+                    var venta = await context.Venta
+                        .Where(v => v.id_venta == idVenta)
+                        .FirstOrDefaultAsync();
+
+                    if (venta != null)
+                        return venta.id_venta; // Devuelve el ticket
+                    else
+                        return 0; // No existe
+                }
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+
         public async Task<List<VentaDTO>> ObtenerVentasDelDiaAsync(DateTime fecha)
         {
             using (var context = new la_ross_dbEntities())
@@ -190,5 +213,22 @@ namespace Punto_de_Venta.Controlador
         }
 
 
+        public async Task<List<ProductoTicketDTO>> ObtenerProductosParaTicketAsync(int idVenta)
+        {
+            using (var context = new la_ross_dbEntities())
+            {
+                var productos = await (from dv in context.DetalleVenta
+                                       join a in context.Articulos on dv.id_producto equals a.id_producto
+                                       where dv.id_venta == idVenta
+                                       select new ProductoTicketDTO
+                                       {
+                                           Nombre = a.nombre,
+                                           Cantidad = dv.cantidad,
+                                           PrecioVenta = dv.precio_unitario
+                                       }).ToListAsync();
+
+                return productos;
+            }
+        }
     }
 }

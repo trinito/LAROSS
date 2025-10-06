@@ -89,7 +89,7 @@ namespace Punto_de_Venta.Vistas
                 Width = 90
             });
 
-          
+
 
             dgv_ventas.Columns.Add(new DataGridViewTextBoxColumn
             {
@@ -115,7 +115,7 @@ namespace Punto_de_Venta.Vistas
                 HeaderText = "Forma de pago",
                 Width = 140
             });
-     
+
             dgv_ventas.Columns.Add(new DataGridViewTextBoxColumn
             {
                 Name = "Total",
@@ -203,7 +203,7 @@ namespace Punto_de_Venta.Vistas
                     {
                         MessageBox.Show("Venta cancelada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        if (venta.FormaPago =="EFECTIVO")
+                        if (venta.FormaPago == "EFECTIVO")
                         {
                             var cajaController = new CajaMovimientosController();
                             await cajaController.RegistrarRetiroAsync(venta.Total, "CANCELACION DE VENTA", SesionUsuario.UsuarioActual.id);
@@ -223,9 +223,78 @@ namespace Punto_de_Venta.Vistas
             }
         }
 
-        private void button_copia_Click(object sender, EventArgs e)
+        private async void button_copia_Click(object sender, EventArgs e)
         {
+            if (dgv_ventas.CurrentRow == null) return;
 
+            var venta = (VentaDTO)dgv_ventas.CurrentRow.DataBoundItem;
+
+            if (venta.Estatus == "CANCELADA")
+            {
+                MessageBox.Show("Esta venta ya está cancelada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            try
+            {
+                var productosTicket = await ventasController.ObtenerProductosParaTicketAsync(venta.IdVenta);
+
+                await ImprimirTicket(
+                    total: venta.Total,
+                    pago: venta.Pago ?? 0,
+                    cambio: venta.Cambio ?? 0,
+                    forma_pago: venta.FormaPago,
+                    productos: productosTicket
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al imprimir la copia del ticket: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private async Task ImprimirTicket(decimal total, decimal pago, decimal cambio, string forma_pago, List<ProductoTicketDTO> productos)
+        {
+            try
+            {
+                ImprimirTickets ticket = new ImprimirTickets();
+                ticket.TextoCentro("LA ROSS");
+                ticket.TextoCentro("BLVD. RIO FUERTE 728 COL. SCALLY");
+                ticket.TextoCentro("LOS MOCHIS, SINALOA");
+                ticket.TextoIzquierda(" ");
+
+                // Número de ticket
+                VentaController controller = new VentaController();
+                int numTicket = await controller.NumTicketAsync();
+                if (numTicket > 0)
+                    ticket.TextoIzquierda("No. TICKET " + numTicket);
+
+                ticket.TextoExtremos(DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("hh:mm tt"));
+                ticket.TextoIzquierda(" ");
+                ticket.EncabezadoVenta();
+                ticket.lineasGuio();
+
+                foreach (var producto in productos)
+                {
+                    ticket.AgregaArticulo(producto.Nombre, producto.Cantidad, producto.PrecioVenta);
+                }
+
+                ticket.lineasGuio();
+                ticket.TextoDerecha(forma_pago);
+                ticket.AgregarTotales("               TOTAL:  ", total);
+                ticket.AgregarTotales("            SU PAGO :  ", pago);
+                ticket.AgregarTotales("              CAMBIO: ", cambio);
+                ticket.TextoIzquierda(" ");
+                ticket.TextoCentro("NO SE ACEPTAN CAMBIOS NI DEVOLUCIONES");
+                ticket.TextoCentro("SU RECIBO GRACIAS HASTA PRONTO");
+                ticket.CortaTicket();
+                ticket.ImprimirTicket("XP-58");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al imprimir el ticket: {ex.Message}");
+            }
         }
 
     }
