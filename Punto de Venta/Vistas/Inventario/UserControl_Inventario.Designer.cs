@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +65,11 @@
             this.btn_imprimir = new System.Windows.Forms.Button();
             this.btn_inventario = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cb_marcas = new System.Windows.Forms.ComboBox();
+            this.cb_tallas = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -84,8 +89,8 @@
             // Cantidad
             // 
             this.Cantidad.DataPropertyName = "cantidad";
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cantidad.DefaultCellStyle = dataGridViewCellStyle36;
             this.Cantidad.FillWeight = 50F;
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.Name = "Cantidad";
@@ -94,8 +99,8 @@
             // Medida
             // 
             this.Medida.DataPropertyName = "medida";
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Medida.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Medida.DefaultCellStyle = dataGridViewCellStyle37;
             this.Medida.FillWeight = 50F;
             this.Medida.HeaderText = "Medida";
             this.Medida.Name = "Medida";
@@ -104,8 +109,8 @@
             // Nombre
             // 
             this.Nombre.DataPropertyName = "nombre";
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Nombre.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nombre.DefaultCellStyle = dataGridViewCellStyle38;
             this.Nombre.FillWeight = 160F;
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
@@ -114,8 +119,8 @@
             // Código
             // 
             this.Código.DataPropertyName = "codigo";
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Código.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Código.DefaultCellStyle = dataGridViewCellStyle39;
             this.Código.FillWeight = 45F;
             this.Código.HeaderText = "Código";
             this.Código.Name = "Código";
@@ -124,10 +129,10 @@
             // Precio
             // 
             this.Precio.DataPropertyName = "precio";
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.Format = "C2";
-            dataGridViewCellStyle15.NullValue = null;
-            this.Precio.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle40.Format = "C2";
+            dataGridViewCellStyle40.NullValue = null;
+            this.Precio.DefaultCellStyle = dataGridViewCellStyle40;
             this.Precio.FillWeight = 50F;
             this.Precio.HeaderText = "Precio";
             this.Precio.Name = "Precio";
@@ -137,6 +142,11 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(239)))), ((int)(((byte)(245)))));
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.button1);
+            this.panel5.Controls.Add(this.cb_tallas);
+            this.panel5.Controls.Add(this.cb_marcas);
+            this.panel5.Controls.Add(this.label5);
+            this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.txt_codigo_original);
             this.panel5.Controls.Add(this.label1);
             this.panel5.Controls.Add(this.txt_producto);
@@ -147,7 +157,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(807, 122);
+            this.panel5.Size = new System.Drawing.Size(1079, 122);
             this.panel5.TabIndex = 18;
             // 
             // txt_codigo_original
@@ -197,9 +207,9 @@
             // 
             this.panel7.Controls.Add(this.label3);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel7.Location = new System.Drawing.Point(484, 0);
+            this.panel7.Location = new System.Drawing.Point(901, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(321, 120);
+            this.panel7.Size = new System.Drawing.Size(176, 120);
             this.panel7.TabIndex = 20;
             // 
             // label3
@@ -207,7 +217,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
-            this.label3.Location = new System.Drawing.Point(181, 3);
+            this.label3.Location = new System.Drawing.Point(36, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(135, 29);
             this.label3.TabIndex = 14;
@@ -243,7 +253,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(807, 875);
+            this.panel1.Size = new System.Drawing.Size(1079, 685);
             this.panel1.TabIndex = 24;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -259,7 +269,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 181F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(807, 753);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1079, 563);
             this.tableLayoutPanel1.TabIndex = 19;
             // 
             // panel3
@@ -268,7 +278,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(801, 566);
+            this.panel3.Size = new System.Drawing.Size(1073, 376);
             this.panel3.TabIndex = 0;
             // 
             // dgv_productos
@@ -286,7 +296,7 @@
             this.dgv_productos.Name = "dgv_productos";
             this.dgv_productos.ReadOnly = true;
             this.dgv_productos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_productos.Size = new System.Drawing.Size(801, 566);
+            this.dgv_productos.Size = new System.Drawing.Size(1073, 376);
             this.dgv_productos.TabIndex = 23;
             this.dgv_productos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_productos_CellDoubleClick_1);
             this.dgv_productos.SelectionChanged += new System.EventHandler(this.dgv_productos_SelectionChanged);
@@ -295,9 +305,9 @@
             // 
             this.panel4.Controls.Add(this.panel6);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 575);
+            this.panel4.Location = new System.Drawing.Point(3, 385);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(801, 175);
+            this.panel4.Size = new System.Drawing.Size(1073, 175);
             this.panel4.TabIndex = 1;
             // 
             // panel6
@@ -307,7 +317,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel6.Location = new System.Drawing.Point(0, -6);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(801, 181);
+            this.panel6.Size = new System.Drawing.Size(1073, 181);
             this.panel6.TabIndex = 25;
             // 
             // panel9
@@ -318,7 +328,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(801, 81);
+            this.panel9.Size = new System.Drawing.Size(1073, 81);
             this.panel9.TabIndex = 22;
             // 
             // lbl_stock
@@ -431,7 +441,7 @@
             this.btn_inventario.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_inventario.ForeColor = System.Drawing.Color.White;
             this.btn_inventario.Image = global::Punto_de_Venta.Properties.Resources.icons8_warehouse_30;
-            this.btn_inventario.Location = new System.Drawing.Point(0, 775);
+            this.btn_inventario.Location = new System.Drawing.Point(0, 585);
             this.btn_inventario.Name = "btn_inventario";
             this.btn_inventario.Size = new System.Drawing.Size(246, 78);
             this.btn_inventario.TabIndex = 21;
@@ -450,11 +460,63 @@
             this.panel2.Controls.Add(this.panel8);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(807, 0);
+            this.panel2.Location = new System.Drawing.Point(1079, 0);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
-            this.panel2.Size = new System.Drawing.Size(248, 875);
+            this.panel2.Size = new System.Drawing.Size(248, 685);
             this.panel2.TabIndex = 23;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label4.Location = new System.Drawing.Point(443, 58);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 19);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Marca:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(46)))), ((int)(((byte)(87)))));
+            this.label5.Location = new System.Drawing.Point(443, 92);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 19);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Talla:";
+            // 
+            // cb_marcas
+            // 
+            this.cb_marcas.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cb_marcas.FormattingEnabled = true;
+            this.cb_marcas.Location = new System.Drawing.Point(515, 59);
+            this.cb_marcas.Name = "cb_marcas";
+            this.cb_marcas.Size = new System.Drawing.Size(139, 21);
+            this.cb_marcas.TabIndex = 27;
+            this.cb_marcas.SelectedIndexChanged += new System.EventHandler(this.cb_marcas_SelectedIndexChanged);
+            // 
+            // cb_tallas
+            // 
+            this.cb_tallas.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cb_tallas.FormattingEnabled = true;
+            this.cb_tallas.Location = new System.Drawing.Point(515, 91);
+            this.cb_tallas.Name = "cb_tallas";
+            this.cb_tallas.Size = new System.Drawing.Size(139, 21);
+            this.cb_tallas.TabIndex = 28;
+            this.cb_tallas.SelectedIndexChanged += new System.EventHandler(this.cb_tallas_SelectedIndexChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(675, 90);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 29;
+            this.button1.Text = "Limpiar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // UserControl_Inventario
             // 
@@ -463,7 +525,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "UserControl_Inventario";
-            this.Size = new System.Drawing.Size(1055, 875);
+            this.Size = new System.Drawing.Size(1327, 685);
             this.Load += new System.EventHandler(this.UserControl_Inventario_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -519,5 +581,10 @@
         private System.Windows.Forms.Button btn_imprimir;
         private System.Windows.Forms.Button btn_inventario;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cb_marcas;
+        private System.Windows.Forms.ComboBox cb_tallas;
+        private System.Windows.Forms.Button button1;
     }
 }

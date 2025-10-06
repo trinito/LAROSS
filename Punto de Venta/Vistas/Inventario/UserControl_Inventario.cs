@@ -25,6 +25,8 @@ namespace Punto_de_Venta.Vistas
         private List<ProductoVentaDTO> productos;
         private ProductoVentaDTO productoSelect;
         private LoadingControl loadingOverlay;
+        private MarcasController marcasController;
+        private TallasController tallasController;
 
         public UserControl_Inventario()
         {
@@ -38,6 +40,8 @@ namespace Punto_de_Venta.Vistas
             bindingSource = new BindingSource();
             productos = new List<ProductoVentaDTO>();
             productoSelect = new ProductoVentaDTO();
+            marcasController = new MarcasController();
+            tallasController = new TallasController();
 
             GridViewHelper();
 
@@ -55,7 +59,8 @@ namespace Punto_de_Venta.Vistas
                 txt_codigo.Focus();
                 await CargarProductosEnDataGridView();
                 btn_inventario.Visible = SesionUsuario.UsuarioActual.tipo == "ADMIN";
-
+                await CargarMarcasEnComboBoxAsync();
+                await CargarTallasEnComboBoxAsync();
             }
             catch (Exception ex)
             {
@@ -169,16 +174,8 @@ namespace Punto_de_Venta.Vistas
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            string filtro = txt_producto.Text.Trim().ToUpper();
+            AplicarFiltro();
 
-            var filtrados = string.IsNullOrEmpty(filtro)
-                ? productos
-                : productos.Where(p =>
-                      p.Nombre.ToUpper().Contains(filtro) ||
-                      p.CodigoBarras.ToUpper().Contains(filtro)
-                  ).ToList();
-
-            bindingSource.DataSource = filtrados;
         }
 
         private async void txt_codigo_KeyPress(object sender, KeyPressEventArgs e)
@@ -413,6 +410,83 @@ namespace Punto_de_Venta.Vistas
             {
                 form.ShowDialog();
             }
+        }
+
+        private async Task CargarMarcasEnComboBoxAsync()
+        {
+            try
+            {
+                var listaMarcas = await marcasController.ObtenerTodasLasMarcasAsync();
+                cb_marcas.DataSource = listaMarcas;
+                cb_marcas.DisplayMember = "nombre";
+                cb_marcas.ValueMember = "id_marca";
+                cb_marcas.SelectedIndex = -1;
+
+                cb_marcas.AutoCompleteSource = AutoCompleteSource.ListItems;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar marcas: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async Task CargarTallasEnComboBoxAsync()
+        {
+            try
+            {
+                var listaTallas = await tallasController.ObtenerTodasLasTallasAsync();
+                cb_tallas.DataSource = listaTallas;
+                cb_tallas.DisplayMember = "nombre";
+                cb_tallas.ValueMember = "id_talla";
+                cb_tallas.SelectedIndex = -1;
+
+                cb_tallas.AutoCompleteSource = AutoCompleteSource.ListItems;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar tallas: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cb_tallas.SelectedIndex = -1;
+            cb_marcas.SelectedIndex = -1;
+            AplicarFiltro();
+        }
+
+
+        private void AplicarFiltro()
+        {
+            string filtroTexto = txt_producto.Text.Trim().ToUpper();
+
+            string marcaSeleccionada = cb_marcas.SelectedIndex >= 0 ? cb_marcas.Text.ToUpper() : null;
+            string tallaSeleccionada = cb_tallas.SelectedIndex >= 0 ? cb_tallas.Text.ToUpper() : null;
+
+            var filtrados = productos.Where(p =>
+                // Filtro de texto
+                (string.IsNullOrEmpty(filtroTexto) ||
+                    (p.Nombre?.ToUpper().Contains(filtroTexto) ?? false) ||
+                    (p.CodigoBarras?.ToUpper().Contains(filtroTexto) ?? false))
+                &&
+                // Filtro de marca solo si hay selección
+                (marcaSeleccionada == null || (p.Marca?.ToUpper() == marcaSeleccionada))
+                &&
+                // Filtro de talla solo si hay selección
+                (tallaSeleccionada == null || (p.Talla?.ToUpper() == tallaSeleccionada))
+            ).ToList();
+
+            bindingSource.DataSource = filtrados;
+        }
+
+        private void cb_marcas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AplicarFiltro();
+        }
+
+        private void cb_tallas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AplicarFiltro();
         }
     }
 }
