@@ -94,7 +94,7 @@ namespace Punto_de_Venta.Controlador
         }
 
         // Obtiene detalle de productos vendidos en el día especificado
-        public async Task<List<(string NombreProducto, int CantidadVendida, decimal TotalProducto)>> ObtenerDetalleProductosVendidosDiaAsync(DateTime fecha)
+        public async Task<List<(string CodigoProducto, string NombreProducto, int CantidadVendida, decimal TotalProducto)>> ObtenerDetalleProductosVendidosDiaAsync(DateTime fecha)
         {
             using (var context = new la_ross_dbEntities())
             {
@@ -102,16 +102,17 @@ namespace Punto_de_Venta.Controlador
                                    join venta in context.Venta on detalle.id_venta equals venta.id_venta
                                    join producto in context.Articulos on detalle.id_producto equals producto.id_producto
                                    where DbFunctions.TruncateTime(venta.fecha) == fecha.Date && venta.estatus
-                                   group detalle by producto.nombre into grupo
+                                   group detalle by new { producto.codigo_barras, producto.nombre } into grupo
                                    select new
                                    {
-                                       NombreProducto = grupo.Key,
+                                       CodigoProducto = grupo.Key.codigo_barras,
+                                       NombreProducto = grupo.Key.nombre,
                                        CantidadVendida = grupo.Sum(x => x.cantidad),
-                                       TotalProducto = grupo.Sum(x => x.subtotal)   
+                                       TotalProducto = grupo.Sum(x => x.subtotal)
                                    })
                                    .ToListAsync();
 
-                return query.Select(x => (x.NombreProducto, x.CantidadVendida, x.TotalProducto)).ToList();
+                return query.Select(x => (x.CodigoProducto, x.NombreProducto, x.CantidadVendida, x.TotalProducto)).ToList();
             }
         }
 

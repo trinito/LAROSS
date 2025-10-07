@@ -16,6 +16,8 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using PdfSharp.Fonts;
 using PdfSharp.Pdf.IO;
+using System.Net;
+using System.Net.Mail;
 
 namespace Punto_de_Venta.Vistas
 {
@@ -154,6 +156,22 @@ namespace Punto_de_Venta.Vistas
         {
             try
             {
+                // Mostrar mensaje de confirmación
+                var result = MessageBox.Show(
+                    "¿Desea generar el corte de caja?",
+                    "Confirmar",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                // Si el usuario dice "No", salir del método
+                if (result == DialogResult.No)
+                    return;
+
+
+
+                loadingOverlay.ShowOverlay();
+
                 button_imprimir.Enabled = false;
                 var dashboard = new DashboardController();
                 DateTime fechaSeleccionada = dtp_time.Value.Date;
@@ -208,10 +226,11 @@ namespace Punto_de_Venta.Vistas
             finally
             {
                 button_imprimir.Enabled = true;
+                loadingOverlay.HideOverlay();
             }
         }
 
-        public void GenerarPdfCorteCaja(DateTime fechaSeleccionada, List<(string NombreProducto, int CantidadVendida, decimal TotalProducto)> productos, (int TotalVentas, decimal MontoTotal, decimal TotalEfectivo, decimal TotalTarjeta, decimal TotalTransferencia, decimal FondoCajaFinal) resumen)
+        public void GenerarPdfCorteCaja(DateTime fechaSeleccionada, List<(string CodigoProducto, string NombreProducto, int CantidadVendida, decimal TotalProducto)> productos, (int TotalVentas, decimal MontoTotal, decimal TotalEfectivo, decimal TotalTarjeta, decimal TotalTransferencia, decimal FondoCajaFinal) resumen)
         {
             PdfDocument document = null;
             try
@@ -266,7 +285,10 @@ namespace Punto_de_Venta.Vistas
                 gfx.DrawRectangle(new XSolidBrush(colorFondoTitulo), 0, yPoint - 40, page.Width, 40);
                 gfx.DrawString("CORTE DE CAJA", fontTitulo, new XSolidBrush(colorTextoTitulo), new XRect(0, yPoint - 40, page.Width, 40), XStringFormats.Center);
 
-                yPoint += 50;
+                yPoint += 15;
+
+                gfx.DrawString("LA ROSS, BLVD. RIO FUERTE 728 COL. SCALLY, LOS MOCHIS, SINALOA", fontSubtitulo, XBrushes.Black, new XRect(margenIzquierdo, yPoint, page.Width, 20), XStringFormats.TopLeft);
+                yPoint += 30;
 
                 // Fecha debajo del título
                 gfx.DrawString("Fecha: " + fechaSeleccionada.ToString("dd/MM/yyyy"), fontSubtitulo, XBrushes.Black, new XRect(margenIzquierdo, yPoint, page.Width, 20), XStringFormats.TopLeft);
@@ -277,11 +299,25 @@ namespace Punto_de_Venta.Vistas
                 yPoint += 30;
 
                 // Encabezado columnas con fondo gris
-                gfx.DrawRectangle(new XSolidBrush(colorFondoEncabezado), margenIzquierdo, yPoint, page.Width - 2 * margenIzquierdo, 25);
-                gfx.DrawString("Producto", fontNegrita, XBrushes.Black, new XRect(margenIzquierdo + 5, yPoint + 5, 250, 20), XStringFormats.TopLeft);
-                gfx.DrawString("Cant.", fontNegrita, XBrushes.Black, new XRect(margenIzquierdo + 260, yPoint + 5, 50, 20), XStringFormats.TopLeft);
-                gfx.DrawString("Total", fontNegrita, XBrushes.Black, new XRect(margenIzquierdo + 320, yPoint + 5, 100, 20), XStringFormats.TopLeft);
+                // Dibujar fondo del encabezado
+                gfx.DrawRectangle(
+                    new XSolidBrush(colorFondoEncabezado),
+                    margenIzquierdo,
+                    yPoint,
+                    page.Width - 2 * margenIzquierdo,
+                    25
+                );
+
+                // Dibujar títulos de columnas con mayor separación
+                gfx.DrawString("Código", fontNegrita, XBrushes.Black, new XRect(margenIzquierdo + 5, yPoint + 5, 60, 20), XStringFormats.TopLeft);
+                gfx.DrawString("Producto", fontNegrita, XBrushes.Black, new XRect(margenIzquierdo + 120, yPoint + 5, 190, 20), XStringFormats.TopLeft);
+                gfx.DrawString("Cant.", fontNegrita, XBrushes.Black, new XRect(margenIzquierdo + 315, yPoint + 5, 50, 20), XStringFormats.TopLeft);
+                gfx.DrawString("Total", fontNegrita, XBrushes.Black, new XRect(margenIzquierdo + 370, yPoint + 5, 100, 20), XStringFormats.TopLeft);
+
+                // Avanzar posición vertical para filas
                 yPoint += 35;
+
+
 
                 // Línea divisoria
                 gfx.DrawLine(new XPen(colorLinea, 1), margenIzquierdo, yPoint, page.Width - margenIzquierdo, yPoint);
@@ -290,9 +326,11 @@ namespace Punto_de_Venta.Vistas
                 // Lista de productos
                 foreach (var prod in productos)
                 {
-                    gfx.DrawString(prod.NombreProducto, fontNormal, XBrushes.Black, new XRect(margenIzquierdo + 5, yPoint, 250, 20), XStringFormats.TopLeft);
-                    gfx.DrawString(prod.CantidadVendida.ToString(), fontNormal, XBrushes.Black, new XRect(margenIzquierdo + 260, yPoint, 50, 20), XStringFormats.TopLeft);
-                    gfx.DrawString(prod.TotalProducto.ToString("C2", CultureInfo.CurrentCulture), fontNormal, XBrushes.Black, new XRect(margenIzquierdo + 320, yPoint, 100, 20), XStringFormats.TopLeft);
+                    // Dibujar los datos de cada producto en la fila
+                    gfx.DrawString(prod.CodigoProducto.ToString(), fontNormal, XBrushes.Black, new XRect(margenIzquierdo + 5, yPoint, 60, 20), XStringFormats.TopLeft);
+                    gfx.DrawString(prod.NombreProducto, fontNormal, XBrushes.Black, new XRect(margenIzquierdo + 120, yPoint, 190, 20), XStringFormats.TopLeft);
+                    gfx.DrawString(prod.CantidadVendida.ToString(), fontNormal, XBrushes.Black, new XRect(margenIzquierdo + 315, yPoint, 50, 20), XStringFormats.TopLeft);
+                    gfx.DrawString(prod.TotalProducto.ToString("C2", CultureInfo.CurrentCulture), fontNormal, XBrushes.Black, new XRect(margenIzquierdo + 370, yPoint, 100, 20), XStringFormats.TopLeft);
                     yPoint += 20;
 
                     // Si se llena la página, agregar nueva
@@ -309,10 +347,10 @@ namespace Punto_de_Venta.Vistas
                 yPoint += 20;
 
                 // Totales con un fondo gris suave
-                gfx.DrawRectangle(new XSolidBrush(XColor.FromArgb(240, 240, 240 )), margenIzquierdo, yPoint, page.Width - 2 * margenIzquierdo, 110);
+                gfx.DrawRectangle(new XSolidBrush(XColor.FromArgb(240, 240, 240)), margenIzquierdo, yPoint, page.Width - 2 * margenIzquierdo, 110);
 
-                gfx.DrawString("FONDO EN CAJA:", fontNegrita, XBrushes.Black, margenIzquierdo + 5, yPoint +10 );
-                gfx.DrawString(resumen.FondoCajaFinal.ToString("C2", CultureInfo.CurrentCulture), fontNormal, XBrushes.Black, page.Width - margenIzquierdo - 100, yPoint +10 );
+                gfx.DrawString("FONDO EN CAJA:", fontNegrita, XBrushes.Black, margenIzquierdo + 5, yPoint + 10);
+                gfx.DrawString(resumen.FondoCajaFinal.ToString("C2", CultureInfo.CurrentCulture), fontNormal, XBrushes.Black, page.Width - margenIzquierdo - 100, yPoint + 10);
 
                 gfx.DrawString("EFECTIVO:", fontNegrita, XBrushes.Black, margenIzquierdo + 5, yPoint + 30);
                 gfx.DrawString(resumen.TotalEfectivo.ToString("C2", CultureInfo.CurrentCulture), fontNormal, XBrushes.Black, page.Width - margenIzquierdo - 100, yPoint + 30);
@@ -326,14 +364,18 @@ namespace Punto_de_Venta.Vistas
                 gfx.DrawString("TOTAL VENTA:", fontNegrita, XBrushes.Black, margenIzquierdo + 5, yPoint + 100);
                 gfx.DrawString(resumen.MontoTotal.ToString("C2", CultureInfo.CurrentCulture), fontNegrita, XBrushes.Black, page.Width - margenIzquierdo - 100, yPoint + 100);
 
-              
+
                 // Guardar PDF
                 string carpetaDocumentos = @"C:\LaRoss\Cortes de cajas";
                 if (!Directory.Exists(carpetaDocumentos))
                     Directory.CreateDirectory(carpetaDocumentos);
 
+
+
                 string archivo = Path.Combine(carpetaDocumentos, $"CorteCaja_{fechaSeleccionada:dd-MM-yyyy}.pdf");
                 document.Save(archivo);
+
+                EnviarCortePorCorreo(archivo);
 
                 // Abrir automáticamente
                 Process.Start(new ProcessStartInfo(archivo) { UseShellExecute = true });
@@ -343,6 +385,52 @@ namespace Punto_de_Venta.Vistas
                 document?.Dispose();
             }
         }
+
+
+        public void EnviarCortePorCorreo(string archivoPdf)
+        {
+            try
+            {
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress("laross.sistemas@gmail.com", "Sistema LaRoss");
+                mail.To.Add("ana.galvan16@gmail.com");
+                mail.To.Add("oscar_Castro11@outlook.com");
+                mail.Subject = "[Sucursal Río Fuerte] Corte de Caja - " + DateTime.Now.ToString("dd/MM/yyyy");
+
+                // Cuerpo en HTML
+                mail.Body = $@"
+<html>
+<body>
+<p>Estimado(a),</p>
+<p>Adjunto encontrará el <strong>corte de caja</strong> correspondiente al día <strong>{DateTime.Now:dd/MM/yyyy}</strong>.</p>
+<p>Por favor, revise el archivo y guárdelo para sus registros.</p>
+<p>Cualquier duda o aclaración, no dude en contactarnos.</p>
+<p>Saludos cordiales,<br/>
+<strong>Sistema LaRoss</strong></p>
+</body>
+</html>";
+                mail.IsBodyHtml = true;
+
+                // Adjuntar PDF
+                mail.Attachments.Add(new Attachment(archivoPdf));
+
+                // Configuración SMTP para Gmail
+                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                {
+                    smtp.Credentials = new NetworkCredential("laross.sistemas@gmail.com", "jorl xztw qchc oxov");
+                    smtp.EnableSsl = true;
+                    smtp.Send(mail);
+                }
+
+                MessageBox.Show("Correo enviado correctamente.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al enviar correo: " + ex.Message);
+            }
+        }
+
+
 
     }
 }
