@@ -51,7 +51,7 @@ namespace Punto_de_Venta.Vistas
             ventas = await ventasController.ObtenerVentasDelDiaAsync(DateTime.Today);
             bindingSource.DataSource = ventas;
             decimal totalVentas = await ventasController.ObtenerTotalVentasDelDiaAsync(DateTime.Today);
-            lbl_ventas.Text = totalVentas.ToString("C2"); // Formato moneda con 2 decimales
+            lbl_venta.Text = totalVentas.ToString("C2"); // Formato moneda con 2 decimales
         }
 
 
@@ -69,7 +69,7 @@ namespace Punto_de_Venta.Vistas
                 Name = "IdVenta",
                 DataPropertyName = "IdVenta",
                 HeaderText = "ID",
-                Width = 40
+                Width = 60
             });
 
             dgv_ventas.Columns.Add(new DataGridViewTextBoxColumn
@@ -130,7 +130,7 @@ namespace Punto_de_Venta.Vistas
                 Name = "Pago",
                 DataPropertyName = "Pago",
                 HeaderText = "Pagó",
-                Width = 100,
+                Width = 80,
                 DefaultCellStyle = { Format = "C2" } // Formato moneda
             });
 
@@ -139,7 +139,7 @@ namespace Punto_de_Venta.Vistas
                 Name = "Cambio",
                 DataPropertyName = "Cambio",
                 HeaderText = "Cambio",
-                Width = 100,
+                Width = 80,
                 DefaultCellStyle = { Format = "C2" } // Formato moneda
             });
 

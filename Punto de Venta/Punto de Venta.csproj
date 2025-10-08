@@ -153,6 +153,7 @@
     <Compile Include="Controlador\DashboardController.cs" />
     <Compile Include="Controlador\DetalleVentaController.cs" />
     <Compile Include="Controlador\InventarioFisicoController.cs" />
+    <Compile Include="Controlador\InventarioMovimientosController.cs" />
     <Compile Include="Controlador\MarcasController.cs" />
     <Compile Include="Controlador\ProductosController.cs" />
     <Compile Include="Controlador\SexoController.cs" />
@@ -191,6 +192,9 @@
       <DependentUpon>ModeloDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\InventarioFisicoDetalle.cs">
+      <DependentUpon>ModeloDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\InventarioMovimientos.cs">
       <DependentUpon>ModeloDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Marcas.cs">
@@ -253,6 +257,12 @@
     </Compile>
     <Compile Include="Vistas\Inventario\InventarioFisico\View_InventarioFisico.Designer.cs">
       <DependentUpon>View_InventarioFisico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Inventario\View_MovimientosInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Inventario\View_MovimientosInventario.Designer.cs">
+      <DependentUpon>View_MovimientosInventario.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Inventario\View_Stock.cs">
       <SubType>Form</SubType>
@@ -425,6 +435,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Inventario\InventarioFisico\View_InventarioFisico.resx">
       <DependentUpon>View_InventarioFisico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Inventario\View_MovimientosInventario.resx">
+      <DependentUpon>View_MovimientosInventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Inventario\View_Stock.resx">
       <DependentUpon>View_Stock.cs</DependentUpon>

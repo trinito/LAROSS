@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -60,7 +61,15 @@ namespace Punto_de_Venta.Controlador
 
                             // 3. Actualizar stock
                             articulo.stock -= p.Cantidad;
+
+                            // Marca temporal para que el trigger lo ignore
+                            context.Database.ExecuteSqlCommand(
+                                "SET CONTEXT_INFO @origenVenta",
+                                new SqlParameter("@origenVenta", System.Text.Encoding.UTF8.GetBytes("venta"))
+                            );
+
                             context.Entry(articulo).State = EntityState.Modified;
+
                         }
 
                         await context.SaveChangesAsync();

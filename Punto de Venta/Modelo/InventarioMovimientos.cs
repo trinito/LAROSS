@@ -12,22 +12,19 @@ namespace Punto_de_Venta.Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class Articulos
+    public partial class InventarioMovimientos
     {
-        public int id_producto { get; set; }
+        public int id_movimiento { get; set; }
         public string codigo_barras { get; set; }
-        public string nombre { get; set; }
-        public int id_marca { get; set; }
-        public int id_color { get; set; }
-        public int id_talla { get; set; }
-        public int id_sexo { get; set; }
-        public string foto { get; set; }
-        public decimal precio_venta { get; set; }
-        public decimal precio_costo { get; set; }
-        public int stock { get; set; }
-        public bool estatus { get; set; }
-        public Nullable<int> id_categoria { get; set; }
         public string codigo_barras_original { get; set; }
-        public Nullable<int> id_usuario { get; set; }
+        public string nombre_producto { get; set; }
+        public int cantidad { get; set; }
+        public string motivo { get; set; }
+        public int id_usuario { get; set; }
+        public System.DateTime fecha { get; set; }
+        public int stock_antes { get; set; }
+        public int stock_despues { get; set; }
+    
+        public virtual Usuarios Usuarios { get; set; }
     }
 }

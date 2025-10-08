@@ -38,5 +38,6 @@ namespace Punto_de_Venta.Modelo
         public virtual DbSet<CajaMovimientos> CajaMovimientos { get; set; }
         public virtual DbSet<InventarioFisico> InventarioFisico { get; set; }
         public virtual DbSet<InventarioFisicoDetalle> InventarioFisicoDetalle { get; set; }
+        public virtual DbSet<InventarioMovimientos> InventarioMovimientos { get; set; }
     }
 }

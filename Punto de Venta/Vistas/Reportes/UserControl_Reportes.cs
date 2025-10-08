@@ -36,19 +36,13 @@ namespace Punto_de_Venta.Vistas
             this.Controls.Add(loadingOverlay);
             loadingOverlay.BringToFront();
 
-            dgv_productos.BackgroundColor = Color.White;
-            dgv_productos.EnableHeadersVisualStyles = false;
-            dgv_productos.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(21, 57, 93);
-            dgv_productos.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgv_productos.ColumnHeadersDefaultCellStyle.Font = new Font("Rockwell", 12, FontStyle.Bold);
-            dgv_productos.DefaultCellStyle.Font = new Font("Rockwell", 10, FontStyle.Regular);
-            dgv_productos.DefaultCellStyle.SelectionBackColor = Color.FromArgb(4, 46, 87);
-            dgv_productos.DefaultCellStyle.SelectionForeColor = Color.White;
-            dgv_productos.ReadOnly = true;
-            dgv_productos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_productos.MultiSelect = false;
-            dgv_productos.TabStop = false;
-            dgv_productos.SelectionChanged += (s, e) => dgv_productos.ClearSelection();
+            // Si agregas otro en el futuro
+            ConfigurarDataGridView(dgv_productos_dia);
+
+            // Aplicar configuración al primer DataGridView
+            ConfigurarDataGridView(dgv_productos);
+
+       
 
             DateTime fecha = DateTime.Today; // O cualquier fecha específica
             string formato = fecha.ToString("dddd, dd 'de' MMMM 'del' yyyy", new CultureInfo("es-MX"));
@@ -56,6 +50,28 @@ namespace Punto_de_Venta.Vistas
 
             lbl_fecha.Text = formato;
         }
+
+        private void ConfigurarDataGridView(DataGridView dgv)
+        {
+            dgv.BackgroundColor = Color.White;
+            dgv.EnableHeadersVisualStyles = false;
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(21, 57, 93);
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Rockwell", 12, FontStyle.Bold);
+            dgv.DefaultCellStyle.Font = new Font("Rockwell", 10, FontStyle.Regular);
+            dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(4, 46, 87);
+            dgv.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgv.ReadOnly = true;
+            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv.MultiSelect = false;
+            dgv.TabStop = false;
+
+            // Evitar que quede seleccionada alguna fila al inicio
+            dgv.SelectionChanged += (s, e) => dgv.ClearSelection();
+        }
+
+
+
 
         //private async void UserControl_Reportes_Load(object sender, EventArgs e)
         //{
@@ -89,26 +105,49 @@ namespace Punto_de_Venta.Vistas
                 var ventasMes = await dashboardController.ObtenerVentasPorDiaDelMesAsync(hoy);
                 ConfigurarChartVentas(chart_ventas_mes, ventasMes);
 
-                // Productos más vendidos del mes (top 5)
-                var productosMasVendidos = await dashboardController.ObtenerProductosMasVendidosDelMesAsync(hoy, 10);
-                dgv_productos.DataSource = productosMasVendidos.Select(p => new
-                {
-                    Producto = p.NombreProducto,
-                    Cantidad = p.CantidadVendida
-                }).ToList();
+                var productosMasVendidosMes = await dashboardController.ObtenerProductosMasVendidosDelMesAsync(hoy, 15);
+                LlenarGridConProductos(dgv_productos, productosMasVendidosMes);
 
-                if (dgv_productos.Columns.Count == 2)
-                {
-                    dgv_productos.Columns[0].HeaderText = "Producto";
-                    dgv_productos.Columns[1].HeaderText = "Cantidad";
-                    dgv_productos.AutoResizeColumns();
-                }
+                var productosMasVendidosDia = await dashboardController.ObtenerProductosMasVendidosDelDiaAsync(hoy, 15);
+                LlenarGridConProductos(dgv_productos_dia, productosMasVendidosDia);
+
             }
             finally
             {
                 loadingOverlay.HideOverlay();
             }
         }
+
+        private void LlenarGridConProductos(DataGridView dgv, List<(string Codigo, string NombreProducto, int CantidadVendida)> productos)
+        {
+            dgv.DataSource = productos.Select(p => new
+            {
+                Codigo = p.Codigo,
+                Producto = p.NombreProducto,
+                Cantidad = p.CantidadVendida
+            }).ToList();
+
+            if (dgv.Columns.Count == 3)
+            {
+                dgv.Columns[0].HeaderText = "Código";
+                dgv.Columns[1].HeaderText = "Producto";
+                dgv.Columns[2].HeaderText = "Cant.";
+
+                // Desactivar auto-ajuste
+                foreach (DataGridViewColumn col in dgv.Columns)
+                    col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                // Asignar anchos fijos a cada columna
+                dgv.Columns[0].Width = 85; // Código
+                dgv.Columns[1].Width = 200; // Producto
+                dgv.Columns[2].Width = 60;  // Cantidad
+                dgv.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+
+
+            }
+        }
+
 
 
         private void ConfigurarChartVentas(Chart chart, List<(DateTime Fecha, decimal Total)> ventasMes)
@@ -429,8 +468,5 @@ namespace Punto_de_Venta.Vistas
                 MessageBox.Show("Error al enviar correo: " + ex.Message);
             }
         }
-
-
-
     }
 }

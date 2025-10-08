@@ -1,4 +1,5 @@
 ﻿using Punto_de_Venta.Modelo;
+using Punto_de_Venta.Servicios;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -130,6 +131,7 @@ namespace Punto_de_Venta.Controlador
                     existente.id_sexo = producto.id_sexo;
                     existente.foto = producto.foto;
                     existente.estatus = producto.estatus;
+                    existente.id_usuario = producto.id_usuario;
 
                     context.Entry(existente).State = System.Data.Entity.EntityState.Modified;
 
@@ -152,6 +154,7 @@ namespace Punto_de_Venta.Controlador
                     bool existe = await context.Articulos.AnyAsync(p =>
                         p.estatus &&
                         p.codigo_barras_original == producto.codigo_barras_original);
+
 
                     if (existe)
                         throw new InvalidOperationException("Ya existe un producto con el mismo código de barras.");
@@ -211,6 +214,7 @@ namespace Punto_de_Venta.Controlador
                     if (producto == null) return false;
 
                     producto.estatus = false;
+                    producto.id_usuario = SesionUsuario.UsuarioActual.id;
                     context.Entry(producto).State = System.Data.Entity.EntityState.Modified;
                     return context.SaveChanges() > 0;
                 }
@@ -352,6 +356,7 @@ namespace Punto_de_Venta.Controlador
                         return false;
 
                     producto.stock += cantidad;
+                    producto.id_usuario = SesionUsuario.UsuarioActual.id;
 
                     context.Entry(producto).State = EntityState.Modified;
                     return await context.SaveChangesAsync() > 0;

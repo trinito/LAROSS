@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Punto_de_Venta.Controlador
 {
@@ -33,20 +34,58 @@ namespace Punto_de_Venta.Controlador
         {
             using (var context = new la_ross_dbEntities())
             {
-                // Validar que no exista el mismo username
-                bool existe = await context.Usuarios.AnyAsync(u => u.username == usuario);
-                if (existe)
-                    throw new Exception("El nombre de usuario ya existe.");
+                // Buscar usuario existente
+                var existente = await context.Usuarios
+                    .SingleOrDefaultAsync(u => u.username == usuario);
 
+                if (existente != null)
+                {
+                    if (existente.estatus)
+                    {
+                        // Usuario activo, mostrar mensaje y salir
+                        MessageBox.Show("El nombre de usuario ya existe y está activo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    else
+                    {
+                        // Usuario existe pero inactivo → preguntar si desea reactivar
+                        var result = MessageBox.Show(
+                            "El usuario existe pero está desactivado. ¿Desea reactivarlo?",
+                            "Reactivar usuario",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question
+                        );
+
+                        if (result == DialogResult.Yes)
+                        {
+                            // Reactivar usuario
+                            existente.estatus = true;
+                            existente.nombre = nombre;       // Opcional: actualizar datos
+                            existente.apellido = apellido;   // Opcional: actualizar datos
+                            existente.contra = contraseña;   // Opcional: actualizar datos
+                            existente.permisos = permisos;   // Opcional: actualizar datos
+
+                            await context.SaveChangesAsync();
+                            return true;
+                        }
+                        else
+                        {
+                            // No reactivar
+                            return false;
+                        }
+                    }
+                }
+
+                // Usuario no existe → crear nuevo
                 var nuevoUsuario = new Usuarios
                 {
                     nombre = nombre,
                     apellido = apellido,
                     username = usuario,
-                    contra = contraseña, // 👈 si quieres, aquí deberías encriptar
-                    tipo = "CAJA",       // o el rol por defecto
+                    contra = contraseña, // aquí podrías encriptar
+                    tipo = "CAJA",
                     permisos = permisos,
-                    estatus = true       // activo por defecto
+                    estatus = true
                 };
 
                 context.Usuarios.Add(nuevoUsuario);
@@ -54,6 +93,7 @@ namespace Punto_de_Venta.Controlador
                 return true;
             }
         }
+
 
         public async Task<Usuarios> ObtenerUsuarioPorIdAsync(int id)
         {

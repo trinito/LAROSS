@@ -68,7 +68,7 @@ namespace Punto_de_Venta.Controlador
         }
 
         // Obtiene los productos más vendidos del mes con su cantidad vendida, limitado a topN
-        public async Task<List<(string NombreProducto, int CantidadVendida)>> ObtenerProductosMasVendidosDelMesAsync(DateTime fecha, int topN = 5)
+        public async Task<List<(string Codigo, string NombreProducto, int CantidadVendida)>> ObtenerProductosMasVendidosDelMesAsync(DateTime fecha, int topN = 5)
         {
             using (var context = new la_ross_dbEntities())
             {
@@ -79,19 +79,48 @@ namespace Punto_de_Venta.Controlador
                                    join venta in context.Venta on detalle.id_venta equals venta.id_venta
                                    join producto in context.Articulos on detalle.id_producto equals producto.id_producto
                                    where venta.fecha >= primerDia && venta.fecha <= ultimoDia && venta.estatus
-                                   group detalle by producto.nombre into grupo
+                                   group detalle by new { producto.codigo_barras, producto.nombre } into grupo
                                    select new
                                    {
-                                       NombreProducto = grupo.Key,
+                                       Codigo = grupo.Key.codigo_barras,
+                                       NombreProducto = grupo.Key.nombre,
                                        Cantidad = grupo.Sum(x => x.cantidad)
                                    })
-                                   .OrderByDescending(x => x.Cantidad)
-                                   .Take(topN)
-                                   .ToListAsync();
+                                  .OrderByDescending(x => x.Cantidad)
+                                  .Take(topN)
+                                  .ToListAsync();
 
-                return query.Select(x => (x.NombreProducto, x.Cantidad)).ToList();
+                return query.Select(x => (x.Codigo, x.NombreProducto, x.Cantidad)).ToList();
             }
         }
+
+        public async Task<List<(string Codigo, string NombreProducto, int CantidadVendida)>> ObtenerProductosMasVendidosDelDiaAsync(DateTime fecha, int topN = 5)
+{
+    using (var context = new la_ross_dbEntities())
+    {
+        var inicioDia = fecha.Date;
+        var finDia = inicioDia.AddDays(1).AddTicks(-1);
+
+        var query = await (from detalle in context.DetalleVenta
+                           join venta in context.Venta on detalle.id_venta equals venta.id_venta
+                           join producto in context.Articulos on detalle.id_producto equals producto.id_producto
+                           where venta.fecha >= inicioDia && venta.fecha <= finDia && venta.estatus
+                           group detalle by new { producto.codigo_barras, producto.nombre } into grupo
+                           select new
+                           {
+                               Codigo = grupo.Key.codigo_barras,
+                               NombreProducto = grupo.Key.nombre,
+                               Cantidad = grupo.Sum(x => x.cantidad)
+                           })
+                          .OrderByDescending(x => x.Cantidad)
+                          .Take(topN)
+                          .ToListAsync();
+
+        return query.Select(x => (x.Codigo, x.NombreProducto, x.Cantidad)).ToList();
+    }
+}
+
+
 
         // Obtiene detalle de productos vendidos en el día especificado
         public async Task<List<(string CodigoProducto, string NombreProducto, int CantidadVendida, decimal TotalProducto)>> ObtenerDetalleProductosVendidosDiaAsync(DateTime fecha)

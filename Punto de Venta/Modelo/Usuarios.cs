@@ -14,6 +14,12 @@ namespace Punto_de_Venta.Modelo
     
     public partial class Usuarios
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Usuarios()
+        {
+            this.InventarioMovimientos = new HashSet<InventarioMovimientos>();
+        }
+    
         public int id { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
@@ -22,5 +28,8 @@ namespace Punto_de_Venta.Modelo
         public string tipo { get; set; }
         public string permisos { get; set; }
         public bool estatus { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<InventarioMovimientos> InventarioMovimientos { get; set; }
     }
 }

@@ -23,6 +23,7 @@
           <Property Name="stock" Type="int" Nullable="false" />
           <Property Name="estatus" Type="bit" Nullable="false" />
           <Property Name="id_categoria" Type="int" />
+          <Property Name="id_usuario" Type="int" />
         </EntityType>
         <EntityType Name="CajaMovimientos">
           <Key>
@@ -86,6 +87,21 @@
           <Property Name="stock_sistema" Type="int" Nullable="false" />
           <Property Name="cantidad_contada" Type="int" Nullable="false" />
           <Property Name="diferencia" Type="int" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="InventarioMovimientos">
+          <Key>
+            <PropertyRef Name="id_movimiento" />
+          </Key>
+          <Property Name="id_movimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_barras" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="codigo_barras_original" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nombre_producto" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="motivo" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="id_usuario" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="stock_antes" Type="int" Nullable="false" />
+          <Property Name="stock_despues" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Marcas">
           <Key>
@@ -152,42 +168,6 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           <Property Name="Total" Type="money" />
           <Property Name="fecha" Type="date" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Inventari__id_ar__74AE54BC">
-          <End Role="Articulos" Type="Self.Articulos" Multiplicity="1" />
-          <End Role="InventarioFisicoDetalle" Type="Self.InventarioFisicoDetalle" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Articulos">
-              <PropertyRef Name="id_producto" />
-            </Principal>
-            <Dependent Role="InventarioFisicoDetalle">
-              <PropertyRef Name="id_articulo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Inventari__id_in__75A278F5">
-          <End Role="InventarioFisico" Type="Self.InventarioFisico" Multiplicity="1" />
-          <End Role="InventarioFisicoDetalle" Type="Self.InventarioFisicoDetalle" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="InventarioFisico">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="InventarioFisicoDetalle">
-              <PropertyRef Name="id_inventario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Inventari__id_us__71D1E811">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
-          <End Role="InventarioFisico" Type="Self.InventarioFisico" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Usuarios">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="InventarioFisico">
-              <PropertyRef Name="id_usuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Articulos_Categorias">
           <End Role="Categorias" Type="Self.Categorias" Multiplicity="0..1" />
           <End Role="Articulos" Type="Self.Articulos" Multiplicity="*" />
@@ -284,6 +264,54 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_InventarioFisico_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="InventarioFisico" Type="Self.InventarioFisico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="InventarioFisico">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InventarioFisicoDetalle_Articulos">
+          <End Role="Articulos" Type="Self.Articulos" Multiplicity="1" />
+          <End Role="InventarioFisicoDetalle" Type="Self.InventarioFisicoDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Articulos">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="InventarioFisicoDetalle">
+              <PropertyRef Name="id_articulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InventarioFisicoDetalle_Inventario">
+          <End Role="InventarioFisico" Type="Self.InventarioFisico" Multiplicity="1" />
+          <End Role="InventarioFisicoDetalle" Type="Self.InventarioFisicoDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InventarioFisico">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="InventarioFisicoDetalle">
+              <PropertyRef Name="id_inventario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InventarioMovimientos_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="InventarioMovimientos" Type="Self.InventarioMovimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="InventarioMovimientos">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Venta_UsuarioEditado">
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
           <End Role="Venta" Type="Self.Venta" Multiplicity="*" />
@@ -304,6 +332,7 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           <EntitySet Name="DetalleVenta" EntityType="Self.DetalleVenta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InventarioFisico" EntityType="Self.InventarioFisico" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InventarioFisicoDetalle" EntityType="Self.InventarioFisicoDetalle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InventarioMovimientos" EntityType="Self.InventarioMovimientos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Marcas" EntityType="Self.Marcas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sexos" EntityType="Self.Sexos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tallas" EntityType="Self.Tallas" Schema="dbo" store:Type="Tables" />
@@ -317,18 +346,6 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
     [ViewCorte].[fecha] AS [fecha]
     FROM [dbo].[ViewCorte] AS [ViewCorte]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__Inventari__id_ar__74AE54BC" Association="Self.FK__Inventari__id_ar__74AE54BC">
-            <End Role="Articulos" EntitySet="Articulos" />
-            <End Role="InventarioFisicoDetalle" EntitySet="InventarioFisicoDetalle" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Inventari__id_in__75A278F5" Association="Self.FK__Inventari__id_in__75A278F5">
-            <End Role="InventarioFisico" EntitySet="InventarioFisico" />
-            <End Role="InventarioFisicoDetalle" EntitySet="InventarioFisicoDetalle" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Inventari__id_us__71D1E811" Association="Self.FK__Inventari__id_us__71D1E811">
-            <End Role="Usuarios" EntitySet="Usuarios" />
-            <End Role="InventarioFisico" EntitySet="InventarioFisico" />
-          </AssociationSet>
           <AssociationSet Name="FK_Articulos_Categorias" Association="Self.FK_Articulos_Categorias">
             <End Role="Categorias" EntitySet="Categorias" />
             <End Role="Articulos" EntitySet="Articulos" />
@@ -361,6 +378,22 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
             <End Role="Venta" EntitySet="Venta" />
             <End Role="DetalleVenta" EntitySet="DetalleVenta" />
           </AssociationSet>
+          <AssociationSet Name="FK_InventarioFisico_Usuarios" Association="Self.FK_InventarioFisico_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="InventarioFisico" EntitySet="InventarioFisico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InventarioFisicoDetalle_Articulos" Association="Self.FK_InventarioFisicoDetalle_Articulos">
+            <End Role="Articulos" EntitySet="Articulos" />
+            <End Role="InventarioFisicoDetalle" EntitySet="InventarioFisicoDetalle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InventarioFisicoDetalle_Inventario" Association="Self.FK_InventarioFisicoDetalle_Inventario">
+            <End Role="InventarioFisico" EntitySet="InventarioFisico" />
+            <End Role="InventarioFisicoDetalle" EntitySet="InventarioFisicoDetalle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InventarioMovimientos_Usuarios" Association="Self.FK_InventarioMovimientos_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="InventarioMovimientos" EntitySet="InventarioMovimientos" />
+          </AssociationSet>
           <AssociationSet Name="FK_Venta_UsuarioEditado" Association="Self.FK_Venta_UsuarioEditado">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="Venta" EntitySet="Venta" />
@@ -388,6 +421,7 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           <Property Name="estatus" Type="Boolean" Nullable="false" />
           <Property Name="id_categoria" Type="Int32" />
           <Property Name="codigo_barras_original" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_usuario" Type="Int32" />
         </EntityType>
         <EntityType Name="Categorias">
           <Key>
@@ -454,6 +488,7 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="permisos" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="estatus" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="InventarioMovimientos" Relationship="Punto_de_Venta.Modelo.FK_InventarioMovimientos_Usuarios" FromRole="Usuarios" ToRole="InventarioMovimientos" />
         </EntityType>
         <EntityType Name="Venta">
           <Key>
@@ -651,6 +686,11 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="InventarioFisico" EntitySet="InventarioFisico" />
           </AssociationSet>
+          <EntitySet Name="InventarioMovimientos" EntityType="Punto_de_Venta.Modelo.InventarioMovimientos" />
+          <AssociationSet Name="FK_InventarioMovimientos_Usuarios" Association="Punto_de_Venta.Modelo.FK_InventarioMovimientos_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="InventarioMovimientos" EntitySet="InventarioMovimientos" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="CajaMovimientos">
           <Key>
@@ -722,6 +762,34 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="InventarioMovimientos">
+          <Key>
+            <PropertyRef Name="id_movimiento" />
+          </Key>
+          <Property Name="id_movimiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_barras" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="codigo_barras_original" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_producto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cantidad" Type="Int32" Nullable="false" />
+          <Property Name="motivo" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="stock_antes" Type="Int32" Nullable="false" />
+          <Property Name="stock_despues" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Usuarios" Relationship="Punto_de_Venta.Modelo.FK_InventarioMovimientos_Usuarios" FromRole="InventarioMovimientos" ToRole="Usuarios" />
+        </EntityType>
+        <Association Name="FK_InventarioMovimientos_Usuarios">
+          <End Type="Punto_de_Venta.Modelo.Usuarios" Role="Usuarios" Multiplicity="1" />
+          <End Type="Punto_de_Venta.Modelo.InventarioMovimientos" Role="InventarioMovimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="InventarioMovimientos">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -731,6 +799,7 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
           <EntitySetMapping Name="Articulos">
             <EntityTypeMapping TypeName="Punto_de_Venta.Modelo.Articulos">
               <MappingFragment StoreEntitySet="Articulos">
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
                 <ScalarProperty Name="codigo_barras_original" ColumnName="codigo_barras_original" />
                 <ScalarProperty Name="id_producto" ColumnName="id_producto" />
                 <ScalarProperty Name="codigo_barras" ColumnName="codigo_barras" />
@@ -882,6 +951,22 @@ advertencia 6002: La tabla o vista 'la_ross_db.dbo.ViewCorte' no tiene definida 
                 <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
                 <ScalarProperty Name="id_inventario" ColumnName="id_inventario" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InventarioMovimientos">
+            <EntityTypeMapping TypeName="Punto_de_Venta.Modelo.InventarioMovimientos">
+              <MappingFragment StoreEntitySet="InventarioMovimientos">
+                <ScalarProperty Name="stock_despues" ColumnName="stock_despues" />
+                <ScalarProperty Name="stock_antes" ColumnName="stock_antes" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="motivo" ColumnName="motivo" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="nombre_producto" ColumnName="nombre_producto" />
+                <ScalarProperty Name="codigo_barras_original" ColumnName="codigo_barras_original" />
+                <ScalarProperty Name="codigo_barras" ColumnName="codigo_barras" />
+                <ScalarProperty Name="id_movimiento" ColumnName="id_movimiento" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -47,11 +47,6 @@ namespace Punto_de_Venta.Vistas
 
         }
 
-        private void button_quitar_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private async void UserControl_Inventario_Load(object sender, EventArgs e)
         {
             try
@@ -487,6 +482,14 @@ namespace Punto_de_Venta.Vistas
         private void cb_tallas_SelectedIndexChanged(object sender, EventArgs e)
         {
             AplicarFiltro();
+        }
+
+        private void btn_movimientos_Click(object sender, EventArgs e)
+        {
+            using (var form = new View_MovimientosInventario())
+            {
+                form.ShowDialog();
+            }
         }
     }
 }

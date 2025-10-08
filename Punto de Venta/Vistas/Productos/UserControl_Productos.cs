@@ -601,7 +601,8 @@ namespace Punto_de_Venta.Vistas
                     precio_costo = precioCosto,
                     precio_venta = precioVenta,
                     estatus = true,
-                    foto = nombreArchivoImagenGuardada
+                    foto = nombreArchivoImagenGuardada,
+                    id_usuario = SesionUsuario.UsuarioActual.id
                 };
 
                 int idNuevo = await productosController.InsertProductoAsync(nuevoProducto);
@@ -884,7 +885,8 @@ namespace Punto_de_Venta.Vistas
                     precio_costo = precioCosto,
                     precio_venta = precioVenta,
                     estatus = true,
-                    foto = nombreArchivoImagenGuardada
+                    foto = nombreArchivoImagenGuardada,
+                    id_usuario = SesionUsuario.UsuarioActual.id
                 };
 
                 bool resultado = await productosController.UpdateProductoAsync(productoActualizar);

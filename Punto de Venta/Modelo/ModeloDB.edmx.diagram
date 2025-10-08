@@ -30,6 +30,8 @@
         <AssociationConnector Association="Punto_de_Venta.Modelo.FK__Inventari__id_ar__05A3D694" />
         <AssociationConnector Association="Punto_de_Venta.Modelo.FK__Inventari__id_in__04AFB25B" />
         <AssociationConnector Association="Punto_de_Venta.Modelo.FK__Inventari__id_us__01D345B0" />
+        <EntityTypeShape EntityType="Punto_de_Venta.Modelo.InventarioMovimientos" Width="1.5" PointX="5.375" PointY="9" />
+        <AssociationConnector Association="Punto_de_Venta.Modelo.FK_InventarioMovimientos_Usuarios" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

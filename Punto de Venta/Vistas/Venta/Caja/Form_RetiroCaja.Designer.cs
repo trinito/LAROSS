@@ -206,9 +206,11 @@
             this.cb_descripcion.Items.AddRange(new object[] {
             "1. CIERRE DE CAJA",
             "2. GUARDAR DINERO",
-            "3. PAGO SERVICIOS(AGUA, LUZ, RENTA,ETC.)",
-            "4. RETIRO PERSONAL",
-            "5. SUMINISTROS"});
+            "3. PAGO SERVICIOS AGUA",
+            "4. PAGO SERVICIOS LUZ",
+            "5. PAGO SERVICIOS RENTA",
+            "6. RETIRO PERSONAL",
+            "7. SUMINISTROS"});
             this.cb_descripcion.Location = new System.Drawing.Point(147, 355);
             this.cb_descripcion.Name = "cb_descripcion";
             this.cb_descripcion.Size = new System.Drawing.Size(380, 24);

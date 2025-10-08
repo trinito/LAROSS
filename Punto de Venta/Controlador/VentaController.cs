@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Punto_de_Venta.Controlador
@@ -186,31 +188,55 @@ namespace Punto_de_Venta.Controlador
         {
             using (var context = new la_ross_dbEntities())
             {
-                var venta = await context.Venta.FindAsync(idVenta);
-                if (venta == null) return false;
-
-                venta.estatus = false;
-                venta.fecha_editado = DateTime.Now;
-                venta.id_usuario_editado = idUsuario;
-
-                // Obtener detalles de la venta
-                var detalles = await context.DetalleVenta
-                    .Where(d => d.id_venta == idVenta)
-                    .ToListAsync();
-
-                // Regresar stock a cada producto
-                foreach (var detalle in detalles)
+                using (var transaction = context.Database.BeginTransaction())
                 {
-                    var producto = await context.Articulos.FindAsync(detalle.id_producto);
-                    if (producto != null)
+                    try
                     {
-                        producto.stock += detalle.cantidad;
+                        // 1. Obtener la venta
+                        var venta = await context.Venta.FindAsync(idVenta);
+                        if (venta == null) return false;
+
+                        venta.estatus = false;
+                        venta.fecha_editado = DateTime.Now;
+                        venta.id_usuario_editado = idUsuario;
+
+                        await context.SaveChangesAsync(); // Guardar cambio en la venta
+
+                        // 2. Obtener detalles de la venta
+                        var detalles = await context.DetalleVenta
+                            .Where(d => d.id_venta == idVenta)
+                            .ToListAsync();
+
+                        // 3. Regresar stock a cada producto usando ExecuteSqlCommand con CONTEXT_INFO
+                        foreach (var detalle in detalles)
+                        {
+                            var stockUpdateSql = @"
+                        SET CONTEXT_INFO @p;
+                        UPDATE Articulos
+                        SET stock = stock + @cantidad
+                        WHERE id_producto = @id_producto;
+                    ";
+
+                            context.Database.ExecuteSqlCommand(
+                                stockUpdateSql,
+                                new SqlParameter("@p", Encoding.UTF8.GetBytes("cancelacion")),
+                                new SqlParameter("@cantidad", detalle.cantidad),
+                                new SqlParameter("@id_producto", detalle.id_producto)
+                            );
+                        }
+
+                        transaction.Commit();
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        throw new Exception("Error al cancelar la venta: " + ex.Message, ex);
                     }
                 }
-
-                return await context.SaveChangesAsync() > 0;
             }
         }
+
 
 
         public async Task<List<ProductoTicketDTO>> ObtenerProductosParaTicketAsync(int idVenta)
