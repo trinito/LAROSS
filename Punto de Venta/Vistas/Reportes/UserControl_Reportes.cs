@@ -195,6 +195,22 @@ namespace Punto_de_Venta.Vistas
         {
             try
             {
+                // Supongamos que tienes un DateTime con la fecha seleccionada
+                DateTime fechaSeleccionada = dtp_time.Value.Date; // ejemplo si viene de un DateTimePicker
+                DateTime hoy = DateTime.Today;
+
+                // Validar si la fecha seleccionada es mayor al día de hoy
+                if (fechaSeleccionada > hoy)
+                {
+                    MessageBox.Show(
+                        "La fecha seleccionada no puede ser mayor al día de hoy.",
+                        "Validación",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                    return; // salir antes de llamar servicios
+                }
+
                 // Mostrar mensaje de confirmación
                 var result = MessageBox.Show(
                     "¿Desea generar el corte de caja?",
@@ -213,7 +229,6 @@ namespace Punto_de_Venta.Vistas
 
                 button_imprimir.Enabled = false;
                 var dashboard = new DashboardController();
-                DateTime fechaSeleccionada = dtp_time.Value.Date;
 
                 var productos = await dashboard.ObtenerDetalleProductosVendidosDiaAsync(fechaSeleccionada);
                 var resumen = await dashboard.ObtenerResumenVentasDiaAsync(fechaSeleccionada);
@@ -414,7 +429,7 @@ namespace Punto_de_Venta.Vistas
                 string archivo = Path.Combine(carpetaDocumentos, $"CorteCaja_{fechaSeleccionada:dd-MM-yyyy}.pdf");
                 document.Save(archivo);
 
-                EnviarCortePorCorreo(archivo);
+                EnviarCortePorCorreo(archivo, fechaSeleccionada.ToString("dd/MM/yyyy"));
 
                 // Abrir automáticamente
                 Process.Start(new ProcessStartInfo(archivo) { UseShellExecute = true });
@@ -426,7 +441,7 @@ namespace Punto_de_Venta.Vistas
         }
 
 
-        public void EnviarCortePorCorreo(string archivoPdf)
+        public void EnviarCortePorCorreo(string archivoPdf, string fecha)
         {
             try
             {
@@ -434,14 +449,15 @@ namespace Punto_de_Venta.Vistas
                 mail.From = new MailAddress("laross.sistemas@gmail.com", "Sistema LaRoss");
                 mail.To.Add("ana.galvan16@gmail.com");
                 mail.To.Add("oscar_Castro11@outlook.com");
-                mail.Subject = "[Sucursal Río Fuerte] Corte de Caja - " + DateTime.Now.ToString("dd/MM/yyyy");
+
+                mail.Subject = "[Sucursal Río Fuerte] Corte de Caja - " + fecha;
 
                 // Cuerpo en HTML
                 mail.Body = $@"
 <html>
 <body>
 <p>Estimado(a),</p>
-<p>Adjunto encontrará el <strong>corte de caja</strong> correspondiente al día <strong>{DateTime.Now:dd/MM/yyyy}</strong>.</p>
+<p>Adjunto encontrará el <strong>corte de caja</strong> correspondiente al día <strong>{fecha}</strong>.</p>
 <p>Por favor, revise el archivo y guárdelo para sus registros.</p>
 <p>Cualquier duda o aclaración, no dude en contactarnos.</p>
 <p>Saludos cordiales,<br/>
